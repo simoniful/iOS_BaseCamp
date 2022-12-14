@@ -21,6 +21,7 @@
 		F490348C2949BA5B00CDE442 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = F490348B2949BA5B00CDE442 /* RxDataSources */; };
 		F490348F2949BA9700CDE442 /* NMapsMap in Frameworks */ = {isa = PBXBuildFile; productRef = F490348E2949BA9700CDE442 /* NMapsMap */; };
 		F49034922949BB5500CDE442 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = F49034912949BB5500CDE442 /* RxGesture */; };
+		F4903495294A172D00CDE442 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4903494294A172D00CDE442 /* HomeHeaderView.swift */; };
 		F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EA429497831000C02E0 /* AppDelegate.swift */; };
 		F4D10EA729497831000C02E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EA629497831000C02E0 /* SceneDelegate.swift */; };
 		F4D10EAE29497833000C02E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4D10EAD29497833000C02E0 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F4903494294A172D00CDE442 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		F4D10EA129497831000C02E0 /* Basecamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Basecamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D10EA429497831000C02E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4D10EA629497831000C02E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 		F4D10EEE294989D4000C02E0 /* Subs */ = {
 			isa = PBXGroup;
 			children = (
+				F4903494294A172D00CDE442 /* HomeHeaderView.swift */,
 			);
 			path = Subs;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				F4D10F0129499386000C02E0 /* ViewModel.swift in Sources */,
 				F4D10EED29498963000C02E0 /* HomeCoordinator.swift in Sources */,
 				F4D10EE82949871D000C02E0 /* CoordinatorStyleCase.swift in Sources */,
+				F4903495294A172D00CDE442 /* HomeHeaderView.swift in Sources */,
 				F4D10EA729497831000C02E0 /* SceneDelegate.swift in Sources */,
 				F4D10F092949A3CA000C02E0 /* HomeUseCase.swift in Sources */,
 				F4D10EFA294992A8000C02E0 /* HomeViewController.swift in Sources */,

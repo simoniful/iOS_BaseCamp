@@ -18,21 +18,17 @@ final class HomeCoordinator: Coordinator {
 
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
-        navigationController.setNavigationBarHidden(true, animated: false)
+//        navigationController.setNavigationBarHidden(true, animated: false)
     }
 
     func start() {
-//        let vc = HomeViewController(
-//            viewModel: HomeViewModel(
-//                coordinator: self,
-//                homeUseCase: HomeUseCase(
-//                    userRepository: UserRepository(),
-//                    fireBaseRepository: FirebaseRepository(),
-//                    sesacRepository: SesacRepository()
-//                )
-//            )
-//        )
-//        navigationController.pushViewController(vc, animated: true)
+        let vc = HomeViewController(
+            viewModel: HomeViewModel(
+                coordinator: self,
+                homeUseCase: HomeUseCase()
+            )
+        )
+        navigationController.pushViewController(vc, animated: true)
     }
 
     func changeTabToMyPageViewController(message: String) {
