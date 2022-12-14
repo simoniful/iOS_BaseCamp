@@ -46,6 +46,17 @@ enum TabBarPageCase: String, CaseIterable {
   }
   
   func tabIconName() -> String {
-    return self.rawValue
+    switch self {
+    case .home:
+      return "house"
+    case .search:
+      return "magnifyingglass"
+    case .list:
+      return "list.bullet"
+    case .map:
+      return "map"
+    case .mypage:
+      return "person.circle.fill"
+    }
   }
 }

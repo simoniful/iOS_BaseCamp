@@ -139,6 +139,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F4903493294A157E00CDE442 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F4D10EFB2949931D000C02E0 /* HomeView.swift */,
+				F4D10EEE294989D4000C02E0 /* Subs */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F4D10E9829497831000C02E0 = {
 			isa = PBXGroup;
 			children = (
@@ -277,7 +286,7 @@
 		F4D10EE52949854B000C02E0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F4D10EEE294989D4000C02E0 /* Views */,
+				F4903493294A157E00CDE442 /* Views */,
 				F4D10EF029498B39000C02E0 /* ViewModels */,
 				F4D10EEF29498B2F000C02E0 /* Controllers */,
 				F4D10EEB2949894B000C02E0 /* Coordinator */,
@@ -301,12 +310,11 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		F4D10EEE294989D4000C02E0 /* Views */ = {
+		F4D10EEE294989D4000C02E0 /* Subs */ = {
 			isa = PBXGroup;
 			children = (
-				F4D10EFB2949931D000C02E0 /* HomeView.swift */,
 			);
-			path = Views;
+			path = Subs;
 			sourceTree = "<group>";
 		};
 		F4D10EEF29498B2F000C02E0 /* Controllers */ = {

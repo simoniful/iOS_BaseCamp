@@ -48,7 +48,7 @@ final class TabBarCoordinator: Coordinator {
     self.tabBarController.view.backgroundColor = .systemBackground
     self.tabBarController.tabBar.backgroundColor = .systemBackground
     self.tabBarController.tabBar.tintColor = .orange
-    self.tabBarController.tabBar.unselectedItemTintColor = .systemGray3
+    self.tabBarController.tabBar.unselectedItemTintColor = .systemGray
     self.changeAnimation()
     self.navigationController.pushViewController(tabBarController, animated: true)
   }
@@ -56,8 +56,8 @@ final class TabBarCoordinator: Coordinator {
   private func configureTabBarItem(of page: TabBarPageCase) -> UITabBarItem {
     return UITabBarItem(
       title: page.pageTitle,
-      image: UIImage(named: page.tabIconName()),
-      selectedImage: UIImage(systemName: page.tabIconName() + ".fill")
+      image: UIImage(systemName: page.tabIconName()),
+      tag: page.pageOrderNumber
     )
   }
   
