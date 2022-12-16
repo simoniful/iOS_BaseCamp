@@ -5,11 +5,10 @@
 //  Created by Sang hun Lee on 2022/12/14.
 //
 
-import Foundation
 import UIKit
+import SnapKit
 
 final class HomeViewController: UIViewController {
-  
   private let homeView = HomeView()
   private let viewModel: HomeViewModel
   
@@ -31,6 +30,10 @@ final class HomeViewController: UIViewController {
     super.viewDidLoad()
     setupNavigationBar()
   }
+  
+  func bind(_ viewModel: HomeViewModel) {
+    homeView.collection.bind(<#T##viewModel: HomeCollectionViewModel##HomeCollectionViewModel#>)
+  }
 }
 
 private extension HomeViewController {
@@ -46,15 +49,14 @@ private extension HomeViewController {
   
   func setupLogo() {
     let logoImage = UIImage.init(named: "logo")
-      let logoImageView = UIImageView.init(image: logoImage)
-      logoImageView.frame = CGRect(x: 0.0, y: 0.0,  width: 44, height: 44.0)
-      logoImageView.contentMode = .scaleAspectFit
-      let imageItem = UIBarButtonItem.init(customView: logoImageView)
-      let widthConstraint = logoImageView.widthAnchor.constraint(equalToConstant: 44)
-      let heightConstraint = logoImageView.heightAnchor.constraint(equalToConstant: 44)
-       heightConstraint.isActive = true
-       widthConstraint.isActive = true
-       navigationItem.leftBarButtonItem = imageItem
+    let logoImageView = UIImageView.init(image: logoImage)
+    logoImageView.frame = CGRect(x: 0.0, y: 0.0,  width: 44, height: 44.0)
+    logoImageView.contentMode = .scaleAspectFit
+    let imageItem = UIBarButtonItem.init(customView: logoImageView)
+    logoImageView.snp.makeConstraints {
+      $0.width.height.equalTo(44)
+    }
+    navigationItem.leftBarButtonItem = imageItem
   }
 }
 

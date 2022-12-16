@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 final class HomeView: UIView {
   lazy var rightBarSearchButton: UIBarButtonItem = {
@@ -29,6 +30,8 @@ final class HomeView: UIView {
       return barButton
   }()
   
+  lazy var collection = HomeCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+  
   override init(frame: CGRect) {
       super.init(frame: frame)
       setupView()
@@ -41,11 +44,13 @@ final class HomeView: UIView {
 }
 
 extension HomeView: ViewRepresentable {
-    func setupView() {
-
+  func setupView() {
+    addSubview(collection)
+  }
+  
+  func setupConstraints() {
+    collection.snp.makeConstraints {
+      $0.edges.equalTo(safeAreaLayoutGuide)
     }
-    
-    func setupConstraints() {
-
-    }
+  }
 }

@@ -12,6 +12,8 @@ final class HomeViewModel: ViewModel {
   private weak var coordinator: HomeCoordinator?
   private let homeUseCase: HomeUseCase
   
+  let homeCollectionViewModel = HomeCollectionViewModel()
+  
   init(coordinator: HomeCoordinator?, homeUseCase: HomeUseCase) {
       self.coordinator = coordinator
       self.homeUseCase = homeUseCase
@@ -31,3 +33,4 @@ final class HomeViewModel: ViewModel {
     return Output()
   }
 }
+
