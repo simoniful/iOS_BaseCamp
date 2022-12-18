@@ -5,11 +5,13 @@
 //  Created by Sang hun Lee on 2022/12/14.
 //
 
-import Foundation
+import UIKit
 import RxSwift
 
 final class HomeViewModel: ViewModel {
   private weak var coordinator: HomeCoordinator?
+  
+  // MainModel의 역할을 useCase로 분리
   private let homeUseCase: HomeUseCase
   
   let homeCollectionViewModel = HomeCollectionViewModel()
@@ -31,6 +33,45 @@ final class HomeViewModel: ViewModel {
   
   func transform(input: Input) -> Output {
     return Output()
+  }
+  
+  func createLayout() -> UICollectionViewCompositionalLayout {
+    return UICollectionViewCompositionalLayout{ (sectionNumber, env) -> NSCollectionLayoutSection? in
+      switch sectionNumber {
+      case 0:
+        return self.headerSection()
+      case 1:
+        return self.regionSection()
+      default:
+        return self.InfoSection()
+      }
+    }
+  }
+}
+
+private extension HomeViewModel {
+  func headerSection() -> NSCollectionLayoutSection {
+      let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+      item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+      let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1.2)), subitem: item, count: 1)
+      let section = NSCollectionLayoutSection(group: group)
+      return section
+  }
+  
+  private func regionSection() -> NSCollectionLayoutSection {
+      let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+      item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+      let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1.2)), subitem: item, count: 1)
+      let section = NSCollectionLayoutSection(group: group)
+      return section
+  }
+  
+  private func PlaceInfoSection() -> NSCollectionLayoutSection {
+      let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+      item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+      let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1.2)), subitem: item, count: 1)
+      let section = NSCollectionLayoutSection(group: group)
+      return section
   }
 }
 

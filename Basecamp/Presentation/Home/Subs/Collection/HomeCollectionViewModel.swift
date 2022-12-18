@@ -7,8 +7,17 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 class HomeCollectionViewModel: ViewModel {
+  
+  let resultCellData = PublishSubject<[HomeSectionModel]>()
+  let cellData: Driver<[HomeSectionModel]>
+  
+  init() {
+    self.cellData = resultCellData
+      .asDriver(onErrorJustReturn: [])
+  }
   
   struct Input {
 

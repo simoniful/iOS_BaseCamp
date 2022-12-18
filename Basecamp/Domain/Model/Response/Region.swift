@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Region: String {
+enum Region: String, CaseIterable {
   case 서울특별시
   case 경기도
   case 인천광역시

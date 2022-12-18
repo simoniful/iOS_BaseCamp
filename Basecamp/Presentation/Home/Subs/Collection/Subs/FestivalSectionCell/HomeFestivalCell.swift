@@ -1,15 +1,16 @@
 //
-//  HomeInfoCell.swift
+//  HomeFestivalCell.swift
 //  Basecamp
 //
-//  Created by Sang hun Lee on 2022/12/16.
+//  Created by Sang hun Lee on 2022/12/18.
 //
 
 import UIKit
 
-class HomeInfoCell: UICollectionViewCell {
-  static let identifier = "HomeInfoCell"
+class HomeFestivalCell: UICollectionViewCell {
+  static let identifier = "HomeFestivalCell"
   
+  // Image, name, date
   override init(frame: CGRect) {
     super.init(frame: frame)
     setConstraint()
@@ -20,7 +21,7 @@ class HomeInfoCell: UICollectionViewCell {
   }
   
   private func setConstraint() {
-//    contentView.addSubview(regionLabel)
+    
   }
 
 }

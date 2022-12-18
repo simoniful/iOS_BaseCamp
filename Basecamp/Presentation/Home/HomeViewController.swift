@@ -29,10 +29,12 @@ final class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupNavigationBar()
+    bind(viewModel)
+    // collectionView Layout 매니저 구성 레이아웃 생성
   }
   
   func bind(_ viewModel: HomeViewModel) {
-    homeView.collection.bind(<#T##viewModel: HomeCollectionViewModel##HomeCollectionViewModel#>)
+    homeView.collection.bind(viewModel.homeCollectionViewModel)
   }
 }
 

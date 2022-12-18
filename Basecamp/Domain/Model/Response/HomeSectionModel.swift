@@ -23,7 +23,7 @@ struct HomeHeaderItem: HomeItem {
 }
 
 struct HomeRegionItem: HomeItem {
-  var title: String
+  var region: Region
 }
 
 extension HomeSectionModel: SectionModelType {

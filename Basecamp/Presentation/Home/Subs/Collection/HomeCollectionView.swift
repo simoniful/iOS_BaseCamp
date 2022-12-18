@@ -15,7 +15,7 @@ class HomeCollectionView: UICollectionView {
   
   override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
     super.init(frame: frame, collectionViewLayout: layout)
-    attribute()
+    register()
   }
   
   required init?(coder: NSCoder) {
@@ -35,7 +35,7 @@ private extension HomeCollectionView {
   func register() {
     self.register(HomeHeaderCell.self, forCellWithReuseIdentifier: HomeHeaderCell.identifier)
     self.register(HomeRegionCell.self, forCellWithReuseIdentifier: HomeRegionCell.identifier)
-    self.register(HomeInfoCell.self, forCellWithReuseIdentifier: HomeInfoCell.identifier)
+    self.register(HomePlaceInfoCell.self, forCellWithReuseIdentifier: HomePlaceInfoCell.identifier)
     self.register(HomeSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeSectionHeader.identifier)
   }
 }

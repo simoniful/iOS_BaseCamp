@@ -32,8 +32,9 @@
 		F49034AC294C421300CDE442 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034AB294C421300CDE442 /* Region.swift */; };
 		F49034AE294C42B200CDE442 /* PlaceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034AD294C42B200CDE442 /* PlaceInfo.swift */; };
 		F49034B0294C475A00CDE442 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034AF294C475A00CDE442 /* Festival.swift */; };
-		F49034B5294C5C6600CDE442 /* HomeInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034B4294C5C6600CDE442 /* HomeInfoCell.swift */; };
+		F49034B5294C5C6600CDE442 /* HomePlaceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034B4294C5C6600CDE442 /* HomePlaceInfoCell.swift */; };
 		F49034B8294C5E7600CDE442 /* HomeSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034B7294C5E7500CDE442 /* HomeSectionHeader.swift */; };
+		F49034BB294F5C3C00CDE442 /* HomeFestivalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034BA294F5C3C00CDE442 /* HomeFestivalCell.swift */; };
 		F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EA429497831000C02E0 /* AppDelegate.swift */; };
 		F4D10EA729497831000C02E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EA629497831000C02E0 /* SceneDelegate.swift */; };
 		F4D10EAE29497833000C02E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4D10EAD29497833000C02E0 /* Assets.xcassets */; };
@@ -91,8 +92,9 @@
 		F49034AB294C421300CDE442 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		F49034AD294C42B200CDE442 /* PlaceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfo.swift; sourceTree = "<group>"; };
 		F49034AF294C475A00CDE442 /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
-		F49034B4294C5C6600CDE442 /* HomeInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfoCell.swift; sourceTree = "<group>"; };
+		F49034B4294C5C6600CDE442 /* HomePlaceInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePlaceInfoCell.swift; sourceTree = "<group>"; };
 		F49034B7294C5E7500CDE442 /* HomeSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionHeader.swift; sourceTree = "<group>"; };
+		F49034BA294F5C3C00CDE442 /* HomeFestivalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFestivalCell.swift; sourceTree = "<group>"; };
 		F4D10EA129497831000C02E0 /* Basecamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Basecamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D10EA429497831000C02E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4D10EA629497831000C02E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,7 +191,8 @@
 			children = (
 				F49034A0294AB3BD00CDE442 /* HeaderSectionCell */,
 				F49034A1294AB3E300CDE442 /* RegionSectionCell */,
-				F49034B1294C4C0600CDE442 /* InfoSectionCell */,
+				F49034B1294C4C0600CDE442 /* PlaceInfoSectionCell */,
+				F49034B9294F5C1600CDE442 /* FestivalSectionCell */,
 				F49034B6294C5E1F00CDE442 /* SectionHeader */,
 			);
 			path = Subs;
@@ -212,13 +215,6 @@
 			path = RegionSectionCell;
 			sourceTree = "<group>";
 		};
-		F49034A3294AB5A100CDE442 /* CustomView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomView;
-			sourceTree = "<group>";
-		};
 		F49034A6294AC88800CDE442 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,12 +224,12 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
-		F49034B1294C4C0600CDE442 /* InfoSectionCell */ = {
+		F49034B1294C4C0600CDE442 /* PlaceInfoSectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				F49034B4294C5C6600CDE442 /* HomeInfoCell.swift */,
+				F49034B4294C5C6600CDE442 /* HomePlaceInfoCell.swift */,
 			);
-			path = InfoSectionCell;
+			path = PlaceInfoSectionCell;
 			sourceTree = "<group>";
 		};
 		F49034B6294C5E1F00CDE442 /* SectionHeader */ = {
@@ -242,6 +238,14 @@
 				F49034B7294C5E7500CDE442 /* HomeSectionHeader.swift */,
 			);
 			path = SectionHeader;
+			sourceTree = "<group>";
+		};
+		F49034B9294F5C1600CDE442 /* FestivalSectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				F49034BA294F5C3C00CDE442 /* HomeFestivalCell.swift */,
+			);
+			path = FestivalSectionCell;
 			sourceTree = "<group>";
 		};
 		F4D10E9829497831000C02E0 = {
@@ -342,7 +346,6 @@
 				F4D10F0229499413000C02E0 /* View */,
 				F4D10EFF29499358000C02E0 /* ViewModel */,
 				F4D10ED729497CC5000C02E0 /* Coodinator */,
-				F49034A3294AB5A100CDE442 /* CustomView */,
 				F4D10F4A2949AD89000C02E0 /* Extension */,
 			);
 			path = Common;
@@ -387,8 +390,6 @@
 				F4D10EF9294992A8000C02E0 /* HomeViewController.swift */,
 				F4D10EFD2949932B000C02E0 /* HomeViewModel.swift */,
 				F4903493294A157E00CDE442 /* Subs */,
-				F4D10EF029498B39000C02E0 /* ViewModels */,
-				F4D10EEF29498B2F000C02E0 /* Controllers */,
 				F4D10EEB2949894B000C02E0 /* Coordinator */,
 			);
 			path = Home;
@@ -415,20 +416,6 @@
 			children = (
 			);
 			path = Subs;
-			sourceTree = "<group>";
-		};
-		F4D10EEF29498B2F000C02E0 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		F4D10EF029498B39000C02E0 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		F4D10EF129498F3E000C02E0 /* Domain */ = {
@@ -728,7 +715,7 @@
 			files = (
 				F4D10ED629497C6E000C02E0 /* AppCoordinator.swift in Sources */,
 				F4D10EE4294982B5000C02E0 /* TabBarPageCase.swift in Sources */,
-				F49034B5294C5C6600CDE442 /* HomeInfoCell.swift in Sources */,
+				F49034B5294C5C6600CDE442 /* HomePlaceInfoCell.swift in Sources */,
 				F4D10EFC2949931D000C02E0 /* HomeView.swift in Sources */,
 				F4D10F4E2949ADF2000C02E0 /* AppFont.swift in Sources */,
 				F490349B294AB33F00CDE442 /* HomeHeaderCellViewModel.swift in Sources */,
@@ -739,6 +726,7 @@
 				F4D10EF529498F71000C02E0 /* Coordinate.swift in Sources */,
 				F4D10ED929497EAA000C02E0 /* Coordinator.swift in Sources */,
 				F4D10F4C2949ADBE000C02E0 /* UIFont.swift in Sources */,
+				F49034BB294F5C3C00CDE442 /* HomeFestivalCell.swift in Sources */,
 				F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */,
 				F49034A8294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift in Sources */,
 				F4D10F0429499427000C02E0 /* ViewRepresentable.swift in Sources */,
