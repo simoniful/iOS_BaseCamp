@@ -30,11 +30,20 @@
 		F49034A8294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */; };
 		F49034AA294C366600CDE442 /* HomeSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034A9294C366600CDE442 /* HomeSectionModel.swift */; };
 		F49034AC294C421300CDE442 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034AB294C421300CDE442 /* Region.swift */; };
-		F49034AE294C42B200CDE442 /* PlaceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034AD294C42B200CDE442 /* PlaceInfo.swift */; };
+		F49034AE294C42B200CDE442 /* Campsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034AD294C42B200CDE442 /* Campsite.swift */; };
 		F49034B0294C475A00CDE442 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034AF294C475A00CDE442 /* Festival.swift */; };
-		F49034B5294C5C6600CDE442 /* HomePlaceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034B4294C5C6600CDE442 /* HomePlaceInfoCell.swift */; };
+		F49034B5294C5C6600CDE442 /* HomeCampsiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034B4294C5C6600CDE442 /* HomeCampsiteCell.swift */; };
 		F49034B8294C5E7600CDE442 /* HomeSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034B7294C5E7500CDE442 /* HomeSectionHeader.swift */; };
 		F49034BB294F5C3C00CDE442 /* HomeFestivalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034BA294F5C3C00CDE442 /* HomeFestivalCell.swift */; };
+		F49034BD2950000500CDE442 /* RealmRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034BC2950000500CDE442 /* RealmRepositoryInterface.swift */; };
+		F49034BF2950007300CDE442 /* CampsiteRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034BE2950007300CDE442 /* CampsiteRepositoryInterface.swift */; };
+		F49034C12950025200CDE442 /* TouristInfoRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034C02950025200CDE442 /* TouristInfoRepositoryInterface.swift */; };
+		F49034C3295004E100CDE442 /* TouristInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034C2295004E100CDE442 /* TouristInfo.swift */; };
+		F49034C9295030DC00CDE442 /* CampsiteAPIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034C8295030DC00CDE442 /* CampsiteAPIConstant.swift */; };
+		F49034CB295030F700CDE442 /* CampsiteAPIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034CA295030F700CDE442 /* CampsiteAPIEnvironment.swift */; };
+		F49034CE2950480200CDE442 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034CD2950480200CDE442 /* APIKey.swift */; };
+		F49034D02950486900CDE442 /* CampsiteTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034CF2950486900CDE442 /* CampsiteTarget.swift */; };
+		F49034D229504DD400CDE442 /* CampsiteTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034D129504DD400CDE442 /* CampsiteTargetStub.swift */; };
 		F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EA429497831000C02E0 /* AppDelegate.swift */; };
 		F4D10EA729497831000C02E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EA629497831000C02E0 /* SceneDelegate.swift */; };
 		F4D10EAE29497833000C02E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4D10EAD29497833000C02E0 /* Assets.xcassets */; };
@@ -90,11 +99,20 @@
 		F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLeftAlignFlowLayout.swift; sourceTree = "<group>"; };
 		F49034A9294C366600CDE442 /* HomeSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionModel.swift; sourceTree = "<group>"; };
 		F49034AB294C421300CDE442 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
-		F49034AD294C42B200CDE442 /* PlaceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfo.swift; sourceTree = "<group>"; };
+		F49034AD294C42B200CDE442 /* Campsite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campsite.swift; sourceTree = "<group>"; };
 		F49034AF294C475A00CDE442 /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
-		F49034B4294C5C6600CDE442 /* HomePlaceInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePlaceInfoCell.swift; sourceTree = "<group>"; };
+		F49034B4294C5C6600CDE442 /* HomeCampsiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCampsiteCell.swift; sourceTree = "<group>"; };
 		F49034B7294C5E7500CDE442 /* HomeSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionHeader.swift; sourceTree = "<group>"; };
 		F49034BA294F5C3C00CDE442 /* HomeFestivalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFestivalCell.swift; sourceTree = "<group>"; };
+		F49034BC2950000500CDE442 /* RealmRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepositoryInterface.swift; sourceTree = "<group>"; };
+		F49034BE2950007300CDE442 /* CampsiteRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteRepositoryInterface.swift; sourceTree = "<group>"; };
+		F49034C02950025200CDE442 /* TouristInfoRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoRepositoryInterface.swift; sourceTree = "<group>"; };
+		F49034C2295004E100CDE442 /* TouristInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfo.swift; sourceTree = "<group>"; };
+		F49034C8295030DC00CDE442 /* CampsiteAPIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteAPIConstant.swift; sourceTree = "<group>"; };
+		F49034CA295030F700CDE442 /* CampsiteAPIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteAPIEnvironment.swift; sourceTree = "<group>"; };
+		F49034CD2950480200CDE442 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		F49034CF2950486900CDE442 /* CampsiteTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteTarget.swift; sourceTree = "<group>"; };
+		F49034D129504DD400CDE442 /* CampsiteTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteTargetStub.swift; sourceTree = "<group>"; };
 		F4D10EA129497831000C02E0 /* Basecamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Basecamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D10EA429497831000C02E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4D10EA629497831000C02E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,7 +209,7 @@
 			children = (
 				F49034A0294AB3BD00CDE442 /* HeaderSectionCell */,
 				F49034A1294AB3E300CDE442 /* RegionSectionCell */,
-				F49034B1294C4C0600CDE442 /* PlaceInfoSectionCell */,
+				F49034B1294C4C0600CDE442 /* CampsiteSectionCell */,
 				F49034B9294F5C1600CDE442 /* FestivalSectionCell */,
 				F49034B6294C5E1F00CDE442 /* SectionHeader */,
 			);
@@ -224,12 +242,12 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
-		F49034B1294C4C0600CDE442 /* PlaceInfoSectionCell */ = {
+		F49034B1294C4C0600CDE442 /* CampsiteSectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				F49034B4294C5C6600CDE442 /* HomePlaceInfoCell.swift */,
+				F49034B4294C5C6600CDE442 /* HomeCampsiteCell.swift */,
 			);
-			path = PlaceInfoSectionCell;
+			path = CampsiteSectionCell;
 			sourceTree = "<group>";
 		};
 		F49034B6294C5E1F00CDE442 /* SectionHeader */ = {
@@ -246,6 +264,50 @@
 				F49034BA294F5C3C00CDE442 /* HomeFestivalCell.swift */,
 			);
 			path = FestivalSectionCell;
+			sourceTree = "<group>";
+		};
+		F49034C42950308D00CDE442 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				F49034C5295030A600CDE442 /* Network */,
+				F49034C6295030AE00CDE442 /* DataBase */,
+				F49034C7295030B800CDE442 /* Mocks */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		F49034C5295030A600CDE442 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F49034CD2950480200CDE442 /* APIKey.swift */,
+				F49034CC2950470800CDE442 /* Campsite */,
+				F49034C8295030DC00CDE442 /* CampsiteAPIConstant.swift */,
+				F49034CA295030F700CDE442 /* CampsiteAPIEnvironment.swift */,
+				F49034CF2950486900CDE442 /* CampsiteTarget.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F49034C6295030AE00CDE442 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		F49034C7295030B800CDE442 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				F49034D129504DD400CDE442 /* CampsiteTargetStub.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		F49034CC2950470800CDE442 /* Campsite */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Campsite;
 			sourceTree = "<group>";
 		};
 		F4D10E9829497831000C02E0 = {
@@ -277,6 +339,7 @@
 				F4D10EF129498F3E000C02E0 /* Domain */,
 				F4D10F0A2949A438000C02E0 /* Data */,
 				F4D10EE12949828B000C02E0 /* Utils */,
+				F49034C42950308D00CDE442 /* Infrastructure */,
 				F4D10F07294995F5000C02E0 /* Resources */,
 				F4D10EB229497833000C02E0 /* Info.plist */,
 			);
@@ -441,9 +504,10 @@
 			isa = PBXGroup;
 			children = (
 				F49034A9294C366600CDE442 /* HomeSectionModel.swift */,
-				F49034AD294C42B200CDE442 /* PlaceInfo.swift */,
-				F49034AF294C475A00CDE442 /* Festival.swift */,
 				F49034AB294C421300CDE442 /* Region.swift */,
+				F49034AD294C42B200CDE442 /* Campsite.swift */,
+				F49034C2295004E100CDE442 /* TouristInfo.swift */,
+				F49034AF294C475A00CDE442 /* Festival.swift */,
 				F4D10EF429498F71000C02E0 /* Coordinate.swift */,
 			);
 			path = Response;
@@ -460,6 +524,9 @@
 		F4D10EF729498FFD000C02E0 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				F49034BC2950000500CDE442 /* RealmRepositoryInterface.swift */,
+				F49034BE2950007300CDE442 /* CampsiteRepositoryInterface.swift */,
+				F49034C02950025200CDE442 /* TouristInfoRepositoryInterface.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -715,8 +782,9 @@
 			files = (
 				F4D10ED629497C6E000C02E0 /* AppCoordinator.swift in Sources */,
 				F4D10EE4294982B5000C02E0 /* TabBarPageCase.swift in Sources */,
-				F49034B5294C5C6600CDE442 /* HomePlaceInfoCell.swift in Sources */,
+				F49034B5294C5C6600CDE442 /* HomeCampsiteCell.swift in Sources */,
 				F4D10EFC2949931D000C02E0 /* HomeView.swift in Sources */,
+				F49034D229504DD400CDE442 /* CampsiteTargetStub.swift in Sources */,
 				F4D10F4E2949ADF2000C02E0 /* AppFont.swift in Sources */,
 				F490349B294AB33F00CDE442 /* HomeHeaderCellViewModel.swift in Sources */,
 				F49034A5294AC72700CDE442 /* RegionLabel.swift in Sources */,
@@ -724,15 +792,21 @@
 				F4D10EE029498251000C02E0 /* TabBarCoordinator.swift in Sources */,
 				F4D10F272949A700000C02E0 /* AppAppearance.swift in Sources */,
 				F4D10EF529498F71000C02E0 /* Coordinate.swift in Sources */,
+				F49034CB295030F700CDE442 /* CampsiteAPIEnvironment.swift in Sources */,
+				F49034C3295004E100CDE442 /* TouristInfo.swift in Sources */,
 				F4D10ED929497EAA000C02E0 /* Coordinator.swift in Sources */,
 				F4D10F4C2949ADBE000C02E0 /* UIFont.swift in Sources */,
 				F49034BB294F5C3C00CDE442 /* HomeFestivalCell.swift in Sources */,
+				F49034C12950025200CDE442 /* TouristInfoRepositoryInterface.swift in Sources */,
 				F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */,
 				F49034A8294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift in Sources */,
 				F4D10F0429499427000C02E0 /* ViewRepresentable.swift in Sources */,
 				F49034AC294C421300CDE442 /* Region.swift in Sources */,
 				F4D10EFE2949932B000C02E0 /* HomeViewModel.swift in Sources */,
+				F49034BF2950007300CDE442 /* CampsiteRepositoryInterface.swift in Sources */,
+				F49034BD2950000500CDE442 /* RealmRepositoryInterface.swift in Sources */,
 				F4D10F0129499386000C02E0 /* ViewModel.swift in Sources */,
+				F49034C9295030DC00CDE442 /* CampsiteAPIConstant.swift in Sources */,
 				F4903499294AB2CA00CDE442 /* HomeRegionCell.swift in Sources */,
 				F4D10EED29498963000C02E0 /* HomeCoordinator.swift in Sources */,
 				F490349F294AB38400CDE442 /* HomeCollectionViewModel.swift in Sources */,
@@ -741,11 +815,13 @@
 				F49034B0294C475A00CDE442 /* Festival.swift in Sources */,
 				F49034B8294C5E7600CDE442 /* HomeSectionHeader.swift in Sources */,
 				F4903495294A172D00CDE442 /* HomeHeaderCell.swift in Sources */,
+				F49034CE2950480200CDE442 /* APIKey.swift in Sources */,
 				F4D10EA729497831000C02E0 /* SceneDelegate.swift in Sources */,
 				F4D10F092949A3CA000C02E0 /* HomeUseCase.swift in Sources */,
 				F490349D294AB36A00CDE442 /* HomeCollectionView.swift in Sources */,
 				F4D10EFA294992A8000C02E0 /* HomeViewController.swift in Sources */,
-				F49034AE294C42B200CDE442 /* PlaceInfo.swift in Sources */,
+				F49034D02950486900CDE442 /* CampsiteTarget.swift in Sources */,
+				F49034AE294C42B200CDE442 /* Campsite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

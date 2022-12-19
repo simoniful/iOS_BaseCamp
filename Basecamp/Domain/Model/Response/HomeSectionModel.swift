@@ -11,7 +11,7 @@ import RxDataSources
 enum HomeSectionModel {
   case HeaderSection(items: [HomeHeaderItem])
   case RegionSection(items: [HomeRegionItem])
-  case placeSection(header: String, items:[PlaceInfo])
+  case placeSection(header: String, items:[Campsite])
   case eventSection(items: [Festival])
 }
 

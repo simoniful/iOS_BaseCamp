@@ -7,8 +7,8 @@
 
 import UIKit
 
-class HomePlaceInfoCell: UICollectionViewCell {
-  static let identifier = "HomePlaceInfoCell"
+class HomeCampsiteCell: UICollectionViewCell {
+  static let identifier = "HomeCampsiteCell"
   
   // Image, name, location
   override init(frame: CGRect) {

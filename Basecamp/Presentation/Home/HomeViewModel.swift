@@ -42,8 +42,10 @@ final class HomeViewModel: ViewModel {
         return self.headerSection()
       case 1:
         return self.regionSection()
+      case 3:
+        return self.festivalSection()
       default:
-        return self.InfoSection()
+        return self.campsiteSection()
       }
     }
   }
@@ -66,7 +68,15 @@ private extension HomeViewModel {
       return section
   }
   
-  private func PlaceInfoSection() -> NSCollectionLayoutSection {
+  private func campsiteSection() -> NSCollectionLayoutSection {
+      let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+      item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+      let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1.2)), subitem: item, count: 1)
+      let section = NSCollectionLayoutSection(group: group)
+      return section
+  }
+  
+  private func festivalSection() -> NSCollectionLayoutSection {
       let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
       item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1.2)), subitem: item, count: 1)
