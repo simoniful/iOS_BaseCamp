@@ -36,6 +36,7 @@ private extension HomeCollectionView {
     self.register(HomeHeaderCell.self, forCellWithReuseIdentifier: HomeHeaderCell.identifier)
     self.register(HomeRegionCell.self, forCellWithReuseIdentifier: HomeRegionCell.identifier)
     self.register(HomeCampsiteCell.self, forCellWithReuseIdentifier: HomeCampsiteCell.identifier)
+    self.register(HomeFestivalCell.self, forCellWithReuseIdentifier: HomeFestivalCell.identifier)
     self.register(HomeSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeSectionHeader.identifier)
   }
 }
