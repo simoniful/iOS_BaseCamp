@@ -86,6 +86,11 @@
 		F4E3E58329515FDA009AFCFC /* WeatherTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58229515FDA009AFCFC /* WeatherTargetStub.swift */; };
 		F4E3E585295161F9009AFCFC /* NaverBlogTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E584295161F9009AFCFC /* NaverBlogTargetStub.swift */; };
 		F4E3E58729516347009AFCFC /* YoutubeTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58629516347009AFCFC /* YoutubeTargetStub.swift */; };
+		F4E3E5892951657A009AFCFC /* CampsiteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5882951657A009AFCFC /* CampsiteRepository.swift */; };
+		F4E3E58D295181D1009AFCFC /* CampsiteQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58C295181D1009AFCFC /* CampsiteQuery.swift */; };
+		F4E3E58F295181EF009AFCFC /* TouristQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58E295181EF009AFCFC /* TouristQuery.swift */; };
+		F4E3E59129518A0C009AFCFC /* CampsiteRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E59029518A0C009AFCFC /* CampsiteRequestDTO.swift */; };
+		F4E3E593295210BD009AFCFC /* CampsiteResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E592295210BD009AFCFC /* CampsiteResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +181,11 @@
 		F4E3E58229515FDA009AFCFC /* WeatherTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTargetStub.swift; sourceTree = "<group>"; };
 		F4E3E584295161F9009AFCFC /* NaverBlogTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogTargetStub.swift; sourceTree = "<group>"; };
 		F4E3E58629516347009AFCFC /* YoutubeTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTargetStub.swift; sourceTree = "<group>"; };
+		F4E3E5882951657A009AFCFC /* CampsiteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteRepository.swift; sourceTree = "<group>"; };
+		F4E3E58C295181D1009AFCFC /* CampsiteQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteQuery.swift; sourceTree = "<group>"; };
+		F4E3E58E295181EF009AFCFC /* TouristQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristQuery.swift; sourceTree = "<group>"; };
+		F4E3E59029518A0C009AFCFC /* CampsiteRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteRequestDTO.swift; sourceTree = "<group>"; };
+		F4E3E592295210BD009AFCFC /* CampsiteResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -614,6 +624,8 @@
 		F4D10EF829499016000C02E0 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				F4E3E58C295181D1009AFCFC /* CampsiteQuery.swift */,
+				F4E3E58E295181EF009AFCFC /* TouristQuery.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -664,8 +676,8 @@
 		F4D10F0A2949A438000C02E0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				F4D10F0C2949A457000C02E0 /* Repository */,
 				F4D10F0B2949A44D000C02E0 /* DataMapping */,
+				F4D10F0C2949A457000C02E0 /* Repository */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -673,6 +685,8 @@
 		F4D10F0B2949A44D000C02E0 /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
+				F4E3E58A29518174009AFCFC /* RequestDTO */,
+				F4E3E58B2951818A009AFCFC /* ResponseDTO */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
@@ -680,6 +694,7 @@
 		F4D10F0C2949A457000C02E0 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				F4E3E5882951657A009AFCFC /* CampsiteRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -699,6 +714,22 @@
 				F4D10F4B2949ADBE000C02E0 /* UIFont.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		F4E3E58A29518174009AFCFC /* RequestDTO */ = {
+			isa = PBXGroup;
+			children = (
+				F4E3E59029518A0C009AFCFC /* CampsiteRequestDTO.swift */,
+			);
+			path = RequestDTO;
+			sourceTree = "<group>";
+		};
+		F4E3E58B2951818A009AFCFC /* ResponseDTO */ = {
+			isa = PBXGroup;
+			children = (
+				F4E3E592295210BD009AFCFC /* CampsiteResponseDTO.swift */,
+			);
+			path = ResponseDTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -885,8 +916,10 @@
 				F4D10F4C2949ADBE000C02E0 /* UIFont.swift in Sources */,
 				F49034BB294F5C3C00CDE442 /* HomeFestivalCell.swift in Sources */,
 				F49034C12950025200CDE442 /* TouristInfoRepositoryInterface.swift in Sources */,
+				F4E3E58D295181D1009AFCFC /* CampsiteQuery.swift in Sources */,
 				F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */,
 				F49034A8294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift in Sources */,
+				F4E3E58F295181EF009AFCFC /* TouristQuery.swift in Sources */,
 				F4D10F0429499427000C02E0 /* ViewRepresentable.swift in Sources */,
 				F49034AC294C421300CDE442 /* Region.swift in Sources */,
 				F49034EC29515B7200CDE442 /* YoutubeAPIEnvironment.swift in Sources */,
@@ -910,12 +943,15 @@
 				F49034E629515B3500CDE442 /* YoutubeAPIConstant.swift in Sources */,
 				F49034CE2950480200CDE442 /* APIKey.swift in Sources */,
 				F49034DD2950954900CDE442 /* TouristTargetStub.swift in Sources */,
+				F4E3E5892951657A009AFCFC /* CampsiteRepository.swift in Sources */,
 				F4D10EA729497831000C02E0 /* SceneDelegate.swift in Sources */,
 				F4D10F092949A3CA000C02E0 /* HomeUseCase.swift in Sources */,
 				F490349D294AB36A00CDE442 /* HomeCollectionView.swift in Sources */,
 				F4E3E585295161F9009AFCFC /* NaverBlogTargetStub.swift in Sources */,
 				F4E3E58729516347009AFCFC /* YoutubeTargetStub.swift in Sources */,
+				F4E3E593295210BD009AFCFC /* CampsiteResponseDTO.swift in Sources */,
 				F4D10EFA294992A8000C02E0 /* HomeViewController.swift in Sources */,
+				F4E3E59129518A0C009AFCFC /* CampsiteRequestDTO.swift in Sources */,
 				F49034D02950486900CDE442 /* CampsiteTarget.swift in Sources */,
 				F49034AE294C42B200CDE442 /* Campsite.swift in Sources */,
 			);

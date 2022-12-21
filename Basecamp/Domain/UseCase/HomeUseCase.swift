@@ -34,7 +34,7 @@ final class HomeUseCase {
   
   // MARK: - 고캠핑 레포 연결
   func requestCampsiteList() {
-    
+    campsiteRepository.requestCampsite(campsiteQueryType: <#T##CampsiteQueryType#>)
   }
   
   // MARK: - 관광정보 레포 연결
