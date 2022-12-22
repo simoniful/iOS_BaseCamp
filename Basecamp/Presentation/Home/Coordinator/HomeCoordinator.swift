@@ -25,7 +25,11 @@ final class HomeCoordinator: Coordinator {
         let vc = HomeViewController(
             viewModel: HomeViewModel(
                 coordinator: self,
-                homeUseCase: HomeUseCase()
+                homeUseCase: HomeUseCase(
+                  realmRepository: <#RealmRepositoryInterface#>,
+                  campsiteRepository: CampsiteRepository(),
+                  touristInfoRepository: <#TouristInfoRepositoryInterface#>
+                )
             )
         )
         navigationController.pushViewController(vc, animated: true)

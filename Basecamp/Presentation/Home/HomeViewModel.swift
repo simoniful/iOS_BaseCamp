@@ -22,7 +22,8 @@ final class HomeViewModel: ViewModel {
   }
   
   struct Input {
-
+    // viewDidLoad - Campsite, Festival 
+    // viewWillAppear - Realm
   }
   
   struct Output {

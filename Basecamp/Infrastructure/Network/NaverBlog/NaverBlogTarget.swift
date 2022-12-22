@@ -8,9 +8,9 @@
 import Foundation
 import Moya
 
-let naverBlogTargetProvider = MoyaProvider<NaverBlogTarget>(
-  plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]
-)
+//let naverBlogTargetProvider = MoyaProvider<NaverBlogTarget>(
+//  plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]
+//)
 
 enum NaverBlogTarget {
   case getNaverBlog(parameters: DictionaryType)

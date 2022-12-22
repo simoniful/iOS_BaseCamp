@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TouristAPIEnvironment: String {
+enum TouristInfoAPIEnvironment: String {
   case qa = "qa"
   case staging = "staging"
   case production = "http://apis.data.go.kr/B551011/KorService"

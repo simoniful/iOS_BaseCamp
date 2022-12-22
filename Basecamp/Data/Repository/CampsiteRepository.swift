@@ -10,6 +10,7 @@ import Moya
 import RxMoya
 import RxSwift
 
+// 외부 에러 코드 / 내부 에러 코드 분리
 enum CampsiteServiceError: Int, Error {
   case applicationError = 1
   case httpError = 4
@@ -50,12 +51,6 @@ extension CampsiteServiceError {
 }
 
 final class CampsiteRepository: CampsiteRepositoryInterface {
-  let provider: MoyaProvider<MultiTarget>
-  
-  init() { provider = MoyaProvider<MultiTarget>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))])}
-}
-
-extension CampsiteRepository {
   func requestCampsite(campsiteQueryType: CampsiteQueryType) -> Single<Result<[Campsite], CampsiteServiceError>> {
     let requestDTO = CampsiteRequestDTO(campsiteQueryType: campsiteQueryType)
     return provider.rx.request(
@@ -64,6 +59,21 @@ extension CampsiteRepository {
     .filterSuccessfulStatusCodes()
     .flatMap { response -> Single<Result<[Campsite], CampsiteServiceError>> in
       let responseDTO = try response.map(CampsiteResponseDTO.self)
+      return Single.just(Result.success(responseDTO.toDomain()))
+    }
+    .catch { error in
+      return Single.just(Result.failure(.applicationError))
+    }
+  }
+  
+  func requestCampsiteImageList(campsiteQueryType: CampsiteQueryType) -> Single<Result<[String], CampsiteServiceError>> {
+    let requestDTO = CampsiteRequestDTO(campsiteQueryType: campsiteQueryType)
+    return provider.rx.request(
+      MultiTarget(CampsiteTarget.getCampsite(parameters: requestDTO.toDictionary))
+    )
+    .filterSuccessfulStatusCodes()
+    .flatMap { response -> Single<Result<[String], CampsiteServiceError>> in
+      let responseDTO = try response.map(CampsiteImageListResponseDTO.self)
       return Single.just(Result.success(responseDTO.toDomain()))
     }
     .catch { error in

@@ -10,9 +10,10 @@ import Moya
 
 typealias DictionaryType = [String: Any]
 
-let campsiteTargetProvider = MoyaProvider<CampsiteTarget>(
-  plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]
-)
+// 각 타겟에서 별도로 구성하지 않고
+//let campsiteTargetProvider = MoyaProvider<CampsiteTarget>(
+//  plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]
+//)
 
 private func JSONResponseDataFormatter(_ data: Data) -> String {
     do {

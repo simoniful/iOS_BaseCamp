@@ -12,7 +12,7 @@ struct CampsiteRequestDTO: Codable {
     return makeDictionary()
   }
   
-  let numberOfRows: Int
+  let numOfRows: Int
   let pageNo: Int
   let moblieOS: String
   let mobileApp: String
@@ -28,14 +28,14 @@ struct CampsiteRequestDTO: Codable {
   
   init(campsiteQueryType: CampsiteQueryType) {
     switch campsiteQueryType {
-    case .basic(numberOfRows: let numberOfRows, pageNo: let pageNo):
-      self.numberOfRows = numberOfRows
+    case .basic(numOfRows: let numOfRows, pageNo: let pageNo):
+      self.numOfRows = numOfRows
       self.pageNo = pageNo
       self.moblieOS = campsiteQueryType.query.mobileOS
       self.mobileApp = campsiteQueryType.query.moblieApp
       self.serviceKey = campsiteQueryType.query.serviceKey
-    case .location(numberOfRows: let numberOfRows, pageNo: let pageNo, coordinate: let coordinate, radius: let radius):
-      self.numberOfRows = numberOfRows
+    case .location(numOfRows: let numOfRows, pageNo: let pageNo, coordinate: let coordinate, radius: let radius):
+      self.numOfRows = numOfRows
       self.pageNo = pageNo
       self.moblieOS = campsiteQueryType.query.mobileOS
       self.mobileApp = campsiteQueryType.query.moblieApp
@@ -43,15 +43,15 @@ struct CampsiteRequestDTO: Codable {
       self.mapX = coordinate.longitude
       self.mapY = coordinate.latitude
       self.radius = radius
-    case .keyword(numberOfRows: let numberOfRows, pageNo: let pageNo, keyword: let keyword):
-      self.numberOfRows = numberOfRows
+    case .keyword(numOfRows: let numOfRows, pageNo: let pageNo, keyword: let keyword):
+      self.numOfRows = numOfRows
       self.pageNo = pageNo
       self.moblieOS = campsiteQueryType.query.mobileOS
       self.mobileApp = campsiteQueryType.query.moblieApp
       self.serviceKey = campsiteQueryType.query.serviceKey
       self.keyword = keyword
-    case .imageList(numberOfRows: let numberOfRows, pageNo: let pageNo, conteneId: let conteneId):
-      self.numberOfRows = numberOfRows
+    case .imageList(numOfRows: let numOfRows, pageNo: let pageNo, conteneId: let conteneId):
+      self.numOfRows = numOfRows
       self.pageNo = pageNo
       self.moblieOS = campsiteQueryType.query.mobileOS
       self.mobileApp = campsiteQueryType.query.moblieApp
@@ -64,11 +64,12 @@ struct CampsiteRequestDTO: Codable {
 private extension CampsiteRequestDTO {
   func makeDictionary() -> [String: Any] {
     var dict: [String: Any] = [
-      "numberOfRows": numberOfRows,
+      "numOfRows": numOfRows,
       "pageNo": pageNo,
       "mobileOS": moblieOS,
       "mobileApp": mobileApp,
       "serviceKey": serviceKey,
+      "_type": "json"
     ]
     
     if let mapX = self.mapX,

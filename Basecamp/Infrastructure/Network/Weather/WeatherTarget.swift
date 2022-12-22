@@ -8,9 +8,9 @@
 import Foundation
 import Moya
 
-let weatherTargetProvider = MoyaProvider<WeatherTarget>(
-  plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]
-)
+//let weatherTargetProvider = MoyaProvider<WeatherTarget>(
+//  plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]
+//)
 
 enum WeatherTarget {
   case getWeather(parameters: DictionaryType)

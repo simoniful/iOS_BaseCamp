@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+// like Model
 final class HomeUseCase {
   private let realmRepository: RealmRepositoryInterface
   private let campsiteRepository: CampsiteRepositoryInterface
@@ -27,14 +28,46 @@ final class HomeUseCase {
     self.touristInfoRepository = touristInfoRepository
   }
   
+  func getCampsiteValue(_ result: Result<[Campsite], CampsiteServiceError>) -> [Campsite]? {
+    guard case .success(let value) = result else {
+      return nil
+    }
+    return value
+  }
+  
+  func setCampsiteError(_ result: Result<[Campsite], CampsiteServiceError>) -> String? {
+    guard case .failure(let error) = result else {
+      return nil
+    }
+    return error.localizedDescription
+  }
+  
+  
+  
   // MARK: - 램 데이터베이스 레포 연결
   func requestRealmData() {
+    
     
   }
   
   // MARK: - 고캠핑 레포 연결
-  func requestCampsiteList() {
-    campsiteRepository.requestCampsite(campsiteQueryType: <#T##CampsiteQueryType#>)
+  // 파라미터 구성 및 viewModel 연결
+  func requestCampsiteList(numOfRows: Int, pageNo: Int) -> Single<Result<[Campsite], CampsiteServiceError>> {
+    campsiteRepository.requestCampsite(
+      campsiteQueryType: .basic(numOfRows: numOfRows, pageNo: pageNo)
+    )
+  }
+  
+  func requestCampsiteList(numOfRows: Int, pageNo: Int, keyword: String) -> Single<Result<[Campsite], CampsiteServiceError>> {
+    campsiteRepository.requestCampsite(
+      campsiteQueryType: .keyword(numOfRows: numOfRows, pageNo: pageNo, keyword: keyword)
+    )
+  }
+  
+  func requestCampsiteList(numOfRows: Int, pageNo: Int, coordinate: Coordinate, radius: Int) -> Single<Result<[Campsite], CampsiteServiceError>> {
+    campsiteRepository.requestCampsite(
+      campsiteQueryType: .location(numOfRows: numOfRows, pageNo: pageNo, coordinate: coordinate, radius: radius)
+    )
   }
   
   // MARK: - 관광정보 레포 연결

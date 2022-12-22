@@ -9,28 +9,28 @@ import Foundation
 
 // MARK: - CampsiteResponseDTO
 struct CampsiteResponseDTO: Codable {
-    let response: Response
+  let response: CampsiteResponseDTOResponse
 }
 
 // MARK: - Response
-struct Response: Codable {
-    let header: Header
-    let body: Body
+struct CampsiteResponseDTOResponse: Codable {
+  let header: Header
+  let body: CampsiteResponseDTOBody
 }
 
 // MARK: - Body
-struct Body: Codable {
-    let items: Items
-    let numOfRows, pageNo, totalCount: Int
+struct CampsiteResponseDTOBody: Codable {
+  let items: CampsiteResponseDTOItems
+  let numOfRows, pageNo, totalCount: Int
 }
 
 // MARK: - Items
-struct Items: Codable {
-    let item: [Item]
+struct CampsiteResponseDTOItems: Codable {
+  let item: [CampsiteResponseDTOItem]
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct CampsiteResponseDTOItem: Codable {
   let contentID, facltNm, lineIntro, intro: String?
   let allar, insrncAt, trsagntNo, bizrno: String?
   let facltDivNm, mangeDivNm, mgcDiv, manageSttus: String?
@@ -167,7 +167,7 @@ extension CampsiteResponseDTO {
   }
 }
 
-extension Item {
+extension CampsiteResponseDTOItem {
   func toDomain() -> Campsite {
     return .init(
       contentID: contentID,
