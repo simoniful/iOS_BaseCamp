@@ -18,6 +18,7 @@ enum HomeSectionModel {
 protocol HomeItem {}
 
 struct HomeHeaderItem: HomeItem {
+  var id: UUID
   var completedPlaceCount: Int
   var likedPlaceCount: Int
 }

@@ -9,10 +9,11 @@ import Foundation
 import RealmSwift
 
 protocol RealmRepositoryInterface: AnyObject {
-
-    func loadCampsite(matchedID: String) -> [Campsite]
-
-    func createCampsite(campsite: Campsite, matchedID: String)
-
-    func saveCampsiteList(campsites: [Campsite], matchedID: String)
+  func loadCampsite(matchedID: String) -> [Campsite]
+  func saveCampsite(campsite: Campsite, matchedID: String)
+  func unsaveCampsite(matchedID: String)
+  
+  func loadReview(matchedID: String) -> [Review]
+  func saveReview(review: Review, matchedID: String)
+  func deleteReview(matchedID: String)
 }

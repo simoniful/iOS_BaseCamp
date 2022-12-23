@@ -7,29 +7,50 @@
 
 import Foundation
 
-// 필요한 프로퍼티 기반으로 정리
 struct Campsite: HomeItem, Codable {
-  let contentID, facltNm, lineIntro, intro: String?
-  let allar, insrncAt, trsagntNo, bizrno: String?
-  let facltDivNm, mangeDivNm, mgcDiv, manageSttus: String?
-  let hvofBgnde, hvofEnddle, featureNm, induty: String?
-  let lctCl, doNm, sigunguNm, zipcode: String?
-  let addr1, addr2, mapX, mapY: String?
-  let direction, tel: String?
-  let homepage, resveURL: String?
-  let resveCl, manageNmpr, gnrlSiteCo, autoSiteCo: String?
-  let glampSiteCo, caravSiteCo, indvdlCaravSiteCo, sitedStnc: String?
-  let siteMg1Width, siteMg2Width, siteMg3Width, siteMg1Vrticl: String?
-  let siteMg2Vrticl, siteMg3Vrticl, siteMg1Co, siteMg2Co: String?
-  let siteMg3Co, siteBottomCl1, siteBottomCl2, siteBottomCl3: String?
-  let siteBottomCl4, siteBottomCl5: String?
-  let tooltip, glampInnerFclty, caravInnerFclty, prmisnDe: String?
-  let operPDCl, operDeCl, trlerAcmpnyAt, caravAcmpnyAt: String?
-  let toiletCo, swrmCo, wtrplCo, brazierCl: String?
-  let sbrsCl, sbrsEtc, posblFcltyCl, posblFcltyEtc: String?
-  let clturEventAt, clturEvent, exprnProgrmAt, exprnProgrm: String?
-  let extshrCo, frprvtWrppCo, frprvtSandCo, fireSensorCo: String?
-  let themaEnvrnCl, eqpmnLendCl, animalCmgCl, tourEraCl: String?
+  let _id: String
+  let contentID: String?
+  let facltNm: String?
+  let lineIntro: String?
+  let intro: String?
+  let manageSttus: String?
+  let facltDivNm: String?
+  let induty: String?
+  let lctCl: String?
+  let doNm: String?
+  let sigunguNm: String?
+  let addr1: String?
+  let mapX: String?
+  let mapY: String?
+  let direction: String?
+  let tel: String?
+  let homepage: String?
+  let resveCl: String?
+  let gnrlSiteCo: String?
+  let autoSiteCo: String?
+  let glampSiteCo: String?
+  let caravSiteCo: String?
+  let indvdlCaravSiteCo: String?
+  let tooltip: String?
+  let glampInnerFclty: String?
+  let caravInnerFclty: String?
+  let operPDCl: String?
+  let operDeCl: String?
+  let brazierCl: String?
+  let sbrsCl: String?
+  let sbrsEtc: String?
+  let clturEventAt: String?
+  let clturEvent: String?
+  let exprnProgrmAt: String?
+  let exprnProgrm: String?
+  let extshrCo: String?
+  let frprvtWrppCo: String?
+  let frprvtSandCo: String?
+  let fireSensorCo: String?
+  let themaEnvrnCl: String?
+  let eqpmnLendCl: String?
+  let animalCmgCl: String?
   let firstImageURL: String?
-  let createdtime, modifiedtime: String?
+  let modifiedtime: String?
+  var isLiked: Bool
 }

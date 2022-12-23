@@ -35,6 +35,7 @@ final class HomeViewController: UIViewController {
   
   func bind(_ viewModel: HomeViewModel) {
     homeView.collection.bind(viewModel.homeCollectionViewModel)
+    // DataSource 연결 로직
   }
 }
 

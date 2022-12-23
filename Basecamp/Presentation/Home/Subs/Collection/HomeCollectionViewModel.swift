@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class HomeCollectionViewModel: ViewModel {
   
@@ -20,7 +21,7 @@ class HomeCollectionViewModel: ViewModel {
   }
   
   struct Input {
-
+    
   }
   
   struct Output {
@@ -31,5 +32,36 @@ class HomeCollectionViewModel: ViewModel {
   
   func transform(input: Input) -> Output {
     return Output()
+  }
+  
+  func dataSource() -> RxCollectionViewSectionedReloadDataSource<HomeSectionModel> {
+    let dataSource = RxCollectionViewSectionedReloadDataSource<HomeSectionModel>(
+      configureCell: { dataSource, collectionView, indexPath, item in
+        switch dataSource[indexPath.section] {
+        case .HeaderSection(items: let items):
+          <#code#>
+        case .RegionSection(items: let items):
+          <#code#>
+        case .campsiteSection(header: let header, items: let items):
+          <#code#>
+        case .festivalSection(items: let items):
+          <#code#>
+        }
+      },
+      configureSupplementaryView: { dataSource, collectionView, kind, indexPath in
+        switch dataSource[indexPath.section] {
+        case .HeaderSection(items: let items):
+          <#code#>
+        case .RegionSection(items: let items):
+          <#code#>
+        case .campsiteSection(header: let header, items: let items):
+          <#code#>
+        case .festivalSection(items: let items):
+          <#code#>
+        }
+      }
+    )
+    
+    return dataSource
   }
 }

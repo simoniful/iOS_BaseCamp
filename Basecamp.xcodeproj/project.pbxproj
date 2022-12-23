@@ -23,7 +23,6 @@
 		F49034922949BB5500CDE442 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = F49034912949BB5500CDE442 /* RxGesture */; };
 		F4903495294A172D00CDE442 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4903494294A172D00CDE442 /* HomeHeaderCell.swift */; };
 		F4903499294AB2CA00CDE442 /* HomeRegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4903498294AB2CA00CDE442 /* HomeRegionCell.swift */; };
-		F490349B294AB33F00CDE442 /* HomeHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490349A294AB33F00CDE442 /* HomeHeaderCellViewModel.swift */; };
 		F490349D294AB36A00CDE442 /* HomeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490349C294AB36A00CDE442 /* HomeCollectionView.swift */; };
 		F490349F294AB38400CDE442 /* HomeCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490349E294AB38400CDE442 /* HomeCollectionViewModel.swift */; };
 		F49034A5294AC72700CDE442 /* RegionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034A4294AC72700CDE442 /* RegionLabel.swift */; };
@@ -92,8 +91,16 @@
 		F4E3E59129518A0C009AFCFC /* CampsiteRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E59029518A0C009AFCFC /* CampsiteRequestDTO.swift */; };
 		F4E3E593295210BD009AFCFC /* CampsiteResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E592295210BD009AFCFC /* CampsiteResponseDTO.swift */; };
 		F4E3E5952954007F009AFCFC /* CampsiteImageListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5942954007F009AFCFC /* CampsiteImageListResponseDTO.swift */; };
-		F4E3E59829540D74009AFCFC /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E59729540D74009AFCFC /* constant.swift */; };
+		F4E3E59829540D74009AFCFC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E59729540D74009AFCFC /* Constant.swift */; };
 		F4E3E59A295410F4009AFCFC /* MoyaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E599295410F4009AFCFC /* MoyaProvider.swift */; };
+		F4E3E59C2954466C009AFCFC /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E59B2954466C009AFCFC /* RealmStorage.swift */; };
+		F4E3E59E29544796009AFCFC /* CampsiteRealmDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E59D29544796009AFCFC /* CampsiteRealmDTO.swift */; };
+		F4E3E5A129544823009AFCFC /* ReviewRealmDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5A029544823009AFCFC /* ReviewRealmDTO.swift */; };
+		F4E3E5A4295460A5009AFCFC /* EnumKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4E3E5A3295460A5009AFCFC /* EnumKit */; };
+		F4E3E5A7295460D6009AFCFC /* RxEnumKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4E3E5A6295460D6009AFCFC /* RxEnumKit */; };
+		F4E3E5A92954C392009AFCFC /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5A82954C392009AFCFC /* UIViewController+Rx.swift */; };
+		F4E3E5AC29555961009AFCFC /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5AB29555961009AFCFC /* RealmRepository.swift */; };
+		F4E3E5AE29557132009AFCFC /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5AD29557132009AFCFC /* Review.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +123,6 @@
 /* Begin PBXFileReference section */
 		F4903494294A172D00CDE442 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		F4903498294AB2CA00CDE442 /* HomeRegionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRegionCell.swift; sourceTree = "<group>"; };
-		F490349A294AB33F00CDE442 /* HomeHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCellViewModel.swift; sourceTree = "<group>"; };
 		F490349C294AB36A00CDE442 /* HomeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionView.swift; sourceTree = "<group>"; };
 		F490349E294AB38400CDE442 /* HomeCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewModel.swift; sourceTree = "<group>"; };
 		F49034A4294AC72700CDE442 /* RegionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionLabel.swift; sourceTree = "<group>"; };
@@ -190,8 +196,14 @@
 		F4E3E59029518A0C009AFCFC /* CampsiteRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteRequestDTO.swift; sourceTree = "<group>"; };
 		F4E3E592295210BD009AFCFC /* CampsiteResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteResponseDTO.swift; sourceTree = "<group>"; };
 		F4E3E5942954007F009AFCFC /* CampsiteImageListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteImageListResponseDTO.swift; sourceTree = "<group>"; };
-		F4E3E59729540D74009AFCFC /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
+		F4E3E59729540D74009AFCFC /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		F4E3E599295410F4009AFCFC /* MoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaProvider.swift; sourceTree = "<group>"; };
+		F4E3E59B2954466C009AFCFC /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
+		F4E3E59D29544796009AFCFC /* CampsiteRealmDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteRealmDTO.swift; sourceTree = "<group>"; };
+		F4E3E5A029544823009AFCFC /* ReviewRealmDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRealmDTO.swift; sourceTree = "<group>"; };
+		F4E3E5A82954C392009AFCFC /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
+		F4E3E5AB29555961009AFCFC /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
+		F4E3E5AD29557132009AFCFC /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4E3E5A7295460D6009AFCFC /* RxEnumKit in Frameworks */,
 				F49034712949B71C00CDE442 /* RxRelay in Frameworks */,
 				F490346F2949B71C00CDE442 /* RxCocoa in Frameworks */,
 				F490348A2949BA5B00CDE442 /* Differentiator in Frameworks */,
@@ -208,6 +221,7 @@
 				F49034922949BB5500CDE442 /* RxGesture in Frameworks */,
 				F49034822949B9B300CDE442 /* RxKeyboard in Frameworks */,
 				F49034852949BA3300CDE442 /* Realm in Frameworks */,
+				F4E3E5A4295460A5009AFCFC /* EnumKit in Frameworks */,
 				F49034612949B63600CDE442 /* Toast in Frameworks */,
 				F490348C2949BA5B00CDE442 /* RxDataSources in Frameworks */,
 				F49034872949BA3300CDE442 /* RealmSwift in Frameworks */,
@@ -267,7 +281,6 @@
 			isa = PBXGroup;
 			children = (
 				F4903494294A172D00CDE442 /* HomeHeaderCell.swift */,
-				F490349A294AB33F00CDE442 /* HomeHeaderCellViewModel.swift */,
 			);
 			path = HeaderSectionCell;
 			sourceTree = "<group>";
@@ -340,6 +353,7 @@
 		F49034C6295030AE00CDE442 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				F4E3E59B2954466C009AFCFC /* RealmStorage.swift */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -597,6 +611,7 @@
 				F49034AB294C421300CDE442 /* Region.swift */,
 				F49034AD294C42B200CDE442 /* Campsite.swift */,
 				F49034C2295004E100CDE442 /* TouristInfo.swift */,
+				F4E3E5AD29557132009AFCFC /* Review.swift */,
 				F49034AF294C475A00CDE442 /* Festival.swift */,
 				F4D10EF429498F71000C02E0 /* Coordinate.swift */,
 			);
@@ -685,6 +700,7 @@
 		F4D10F0B2949A44D000C02E0 /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
+				F4E3E59F295447AD009AFCFC /* RealmDTO */,
 				F4E3E58A29518174009AFCFC /* RequestDTO */,
 				F4E3E58B2951818A009AFCFC /* ResponseDTO */,
 			);
@@ -695,6 +711,7 @@
 			isa = PBXGroup;
 			children = (
 				F4E3E5882951657A009AFCFC /* CampsiteRepository.swift */,
+				F4E3E5AB29555961009AFCFC /* RealmRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -712,6 +729,7 @@
 			isa = PBXGroup;
 			children = (
 				F4D10F4B2949ADBE000C02E0 /* UIFont.swift */,
+				F4E3E5AA2954C3C5009AFCFC /* Rx */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -736,9 +754,26 @@
 		F4E3E59629540D43009AFCFC /* Constant */ = {
 			isa = PBXGroup;
 			children = (
-				F4E3E59729540D74009AFCFC /* constant.swift */,
+				F4E3E59729540D74009AFCFC /* Constant.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		F4E3E59F295447AD009AFCFC /* RealmDTO */ = {
+			isa = PBXGroup;
+			children = (
+				F4E3E59D29544796009AFCFC /* CampsiteRealmDTO.swift */,
+				F4E3E5A029544823009AFCFC /* ReviewRealmDTO.swift */,
+			);
+			path = RealmDTO;
+			sourceTree = "<group>";
+		};
+		F4E3E5AA2954C3C5009AFCFC /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				F4E3E5A82954C392009AFCFC /* UIViewController+Rx.swift */,
+			);
+			path = Rx;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -772,6 +807,8 @@
 				F490348B2949BA5B00CDE442 /* RxDataSources */,
 				F490348E2949BA9700CDE442 /* NMapsMap */,
 				F49034912949BB5500CDE442 /* RxGesture */,
+				F4E3E5A3295460A5009AFCFC /* EnumKit */,
+				F4E3E5A6295460D6009AFCFC /* RxEnumKit */,
 			);
 			productName = Basecamp;
 			productReference = F4D10EA129497831000C02E0 /* Basecamp.app */;
@@ -855,6 +892,8 @@
 				F49034882949BA5B00CDE442 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				F490348D2949BA9700CDE442 /* XCRemoteSwiftPackageReference "NMapsMap-SPM" */,
 				F49034902949BB5500CDE442 /* XCRemoteSwiftPackageReference "RxGesture" */,
+				F4E3E5A2295460A5009AFCFC /* XCRemoteSwiftPackageReference "EnumKit" */,
+				F4E3E5A5295460D6009AFCFC /* XCRemoteSwiftPackageReference "RxEnumKit" */,
 			);
 			productRefGroup = F4D10EA229497831000C02E0 /* Products */;
 			projectDirPath = "";
@@ -907,28 +946,32 @@
 				F4D10EFC2949931D000C02E0 /* HomeView.swift in Sources */,
 				F49034D229504DD400CDE442 /* CampsiteTargetStub.swift in Sources */,
 				F4D10F4E2949ADF2000C02E0 /* AppFont.swift in Sources */,
+				F4E3E5A129544823009AFCFC /* ReviewRealmDTO.swift in Sources */,
 				F4E3E58329515FDA009AFCFC /* WeatherTargetStub.swift in Sources */,
 				F4E3E5952954007F009AFCFC /* CampsiteImageListResponseDTO.swift in Sources */,
-				F490349B294AB33F00CDE442 /* HomeHeaderCellViewModel.swift in Sources */,
 				F49034EA29515B5E00CDE442 /* NaverBlogAPIEnvironment.swift in Sources */,
 				F49034A5294AC72700CDE442 /* RegionLabel.swift in Sources */,
 				F49034E229515B0C00CDE442 /* WeatherAPIConstant.swift in Sources */,
 				F4D10EEA29498738000C02E0 /* CoordinatorDelegate.swift in Sources */,
 				F4D10EE029498251000C02E0 /* TabBarCoordinator.swift in Sources */,
+				F4E3E59E29544796009AFCFC /* CampsiteRealmDTO.swift in Sources */,
 				F49034DB295088CB00CDE442 /* TouristInfoTarget.swift in Sources */,
 				F4D10F272949A700000C02E0 /* AppAppearance.swift in Sources */,
 				F49034EE29515B8300CDE442 /* WeatherTarget.swift in Sources */,
 				F4D10EF529498F71000C02E0 /* Coordinate.swift in Sources */,
 				F49034CB295030F700CDE442 /* CampsiteAPIEnvironment.swift in Sources */,
 				F49034C3295004E100CDE442 /* TouristInfo.swift in Sources */,
+				F4E3E5AE29557132009AFCFC /* Review.swift in Sources */,
 				F49034F029515B9200CDE442 /* NaverBlogTarget.swift in Sources */,
 				F4D10ED929497EAA000C02E0 /* Coordinator.swift in Sources */,
 				F4D10F4C2949ADBE000C02E0 /* UIFont.swift in Sources */,
+				F4E3E5AC29555961009AFCFC /* RealmRepository.swift in Sources */,
 				F49034BB294F5C3C00CDE442 /* HomeFestivalCell.swift in Sources */,
 				F49034C12950025200CDE442 /* TouristInfoRepositoryInterface.swift in Sources */,
 				F4E3E58D295181D1009AFCFC /* CampsiteQuery.swift in Sources */,
 				F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */,
 				F49034A8294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift in Sources */,
+				F4E3E59C2954466C009AFCFC /* RealmStorage.swift in Sources */,
 				F4E3E58F295181EF009AFCFC /* TouristQuery.swift in Sources */,
 				F4D10F0429499427000C02E0 /* ViewRepresentable.swift in Sources */,
 				F49034AC294C421300CDE442 /* Region.swift in Sources */,
@@ -950,6 +993,7 @@
 				F49034B8294C5E7600CDE442 /* HomeSectionHeader.swift in Sources */,
 				F49034D9295075F800CDE442 /* TouristInfoAPIEnvironment.swift in Sources */,
 				F4903495294A172D00CDE442 /* HomeHeaderCell.swift in Sources */,
+				F4E3E5A92954C392009AFCFC /* UIViewController+Rx.swift in Sources */,
 				F49034E629515B3500CDE442 /* YoutubeAPIConstant.swift in Sources */,
 				F49034CE2950480200CDE442 /* APIKey.swift in Sources */,
 				F49034DD2950954900CDE442 /* TouristTargetStub.swift in Sources */,
@@ -963,7 +1007,7 @@
 				F4E3E593295210BD009AFCFC /* CampsiteResponseDTO.swift in Sources */,
 				F4D10EFA294992A8000C02E0 /* HomeViewController.swift in Sources */,
 				F4E3E59129518A0C009AFCFC /* CampsiteRequestDTO.swift in Sources */,
-				F4E3E59829540D74009AFCFC /* constant.swift in Sources */,
+				F4E3E59829540D74009AFCFC /* Constant.swift in Sources */,
 				F49034D02950486900CDE442 /* CampsiteTarget.swift in Sources */,
 				F49034AE294C42B200CDE442 /* Campsite.swift in Sources */,
 			);
@@ -1387,6 +1431,22 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		F4E3E5A2295460A5009AFCFC /* XCRemoteSwiftPackageReference "EnumKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gringoireDM/EnumKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		F4E3E5A5295460D6009AFCFC /* XCRemoteSwiftPackageReference "RxEnumKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gringoireDM/RxEnumKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1459,6 +1519,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F49034902949BB5500CDE442 /* XCRemoteSwiftPackageReference "RxGesture" */;
 			productName = RxGesture;
+		};
+		F4E3E5A3295460A5009AFCFC /* EnumKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4E3E5A2295460A5009AFCFC /* XCRemoteSwiftPackageReference "EnumKit" */;
+			productName = EnumKit;
+		};
+		F4E3E5A6295460D6009AFCFC /* RxEnumKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4E3E5A5295460D6009AFCFC /* XCRemoteSwiftPackageReference "RxEnumKit" */;
+			productName = RxEnumKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

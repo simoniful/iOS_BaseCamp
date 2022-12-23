@@ -35,14 +35,26 @@ final class HomeUseCase {
     return value
   }
   
-  func setCampsiteError(_ result: Result<[Campsite], CampsiteServiceError>) -> String? {
+  func getCampsiteError(_ result: Result<[Campsite], CampsiteServiceError>) -> String? {
     guard case .failure(let error) = result else {
       return nil
     }
     return error.localizedDescription
   }
   
+  // Realm, Campsite, Tourist 데이터가 모두 완료된 후
+  func getHomeSectionModel(
+//    _ realmData: ,
+//    _ regionData: ,
+    _ firstCampsiteList: [Campsite],
+    _ secondCampsiteList: [Campsite]
+//    _ touristList: [TourlistInfo]
   
+  ) -> [HomeSectionModel] {
+    
+    
+    return []
+  }
   
   // MARK: - 램 데이터베이스 레포 연결
   func requestRealmData() {

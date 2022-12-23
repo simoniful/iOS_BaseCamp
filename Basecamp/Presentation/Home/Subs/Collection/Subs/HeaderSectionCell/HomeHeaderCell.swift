@@ -7,9 +7,15 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
+import RxGesture
+import EnumKit
+import RxEnumKit
 
 final class HomeHeaderCell: UICollectionViewCell {
   static let identifier = "HomeHeaderCell"
+  private var disposeBag = DisposeBag()
   
   private lazy var myCompView: UIView = {
     let view = UIView()
@@ -131,4 +137,31 @@ extension HomeHeaderCell: ViewRepresentable {
   func setupData(completedCount: Int, likedCount: Int) {
     self.myCompContentLabel.text = "현재까지 \(completedCount)곳을 방문하고, \(likedCount)곳을 후보지로 찜하셨어요!"
   }
+  
+  // 셀에서 데이터 반환하도록 함수 작성
+  func viewModel(item: HomeHeaderItem) -> Observable<HeaderCellAction> {
+    return Observable.merge(
+      myCompView.rx.tapGesture()
+        .when(.recognized)
+        .map({ _ in
+          HeaderCellAction.myMenu(item)
+        }),
+      mapCompView.rx.tapGesture()
+        .when(.recognized)
+        .map({ _ in
+          HeaderCellAction.map(item)
+        }),
+      searchCompView.rx.tapGesture()
+        .when(.recognized)
+        .map({ _ in
+          HeaderCellAction.search(item)
+        })
+    )
+  }
+}
+
+enum HeaderCellAction: CaseAccessible {
+  case myMenu(HomeHeaderItem)
+  case map(HomeHeaderItem)
+  case search(HomeHeaderItem)
 }
