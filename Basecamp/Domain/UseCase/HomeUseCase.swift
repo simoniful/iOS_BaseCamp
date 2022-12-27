@@ -27,7 +27,7 @@ final class HomeUseCase {
     self.campsiteRepository = campsiteRepository
     self.touristInfoRepository = touristInfoRepository
   }
-  
+
   func getCampsiteValue(_ result: Result<[Campsite], CampsiteServiceError>) -> [Campsite]? {
     guard case .success(let value) = result else {
       return nil
@@ -44,22 +44,41 @@ final class HomeUseCase {
   
   // Realm, Campsite, Tourist 데이터가 모두 완료된 후
   func getHomeSectionModel(
-//    _ realmData: ,
-//    _ regionData: ,
+    _ realmData: [HomeHeaderItem],
+    _ regionData: [HomeRegionItem],
     _ firstCampsiteList: [Campsite],
-    _ secondCampsiteList: [Campsite]
-//    _ touristList: [TourlistInfo]
+    _ secondCampsiteList: [Campsite],
+    _ touristList: [TourlistInfo]
   
   ) -> [HomeSectionModel] {
-    
-    
-    return []
+    var data: [HomeSectionModel] = []
+    data.append(.headerSection(items: realmData))
+    data.append(.regionSection(items: regionData))
+    data.append(.campsiteSection(header: "반려동물", items: firstCampsiteList))
+    data.append(.campsiteSection(header: "아이들", items: secondCampsiteList))
+    data.append(.festivalSection(items: <#T##[Festival]#>))
+    return data
   }
   
   // MARK: - 램 데이터베이스 레포 연결
-  func requestRealmData() {
+  func requestRealmData() -> [HomeHeaderItem] {
+    let likedCampsiteCount = realmRepository.loadCampsite().count
+    let completedCampsiteCount = realmRepository.loadReview().count
     
-    
+    return [
+      HomeHeaderItem(
+        completedCampsiteCount: completedCampsiteCount,
+        likedCampsiteCount: likedCampsiteCount
+      )
+    ]
+  }
+  
+  // MARK: - 지역 정보 매핑
+  func requestResgionData() -> [HomeRegionItem] {
+    let regionList = Region.allCases.map {
+      HomeRegionItem(region: $0)
+    }
+    return regionList
   }
   
   // MARK: - 고캠핑 레포 연결

@@ -36,22 +36,8 @@ final class HomeViewModel: ViewModel {
   var disposeBag = DisposeBag()
   
   func transform(input: Input) -> Output {
-//    let firstThemeCampsiteResult = input.viewDidLoad
-//      .flatMapLatest { _ in
-//        self.homeUseCase.requestCampsiteList(numOfRows: 20, pageNo: 1, keyword: "아이들")
-//      }
-//      .share()
-//
-//    let firstThemeCampsiteValue = firstThemeCampsiteResult
-//      .compactMap { data -> [Campsite]? in
-//        self.homeUseCase.getCampsiteValue(data)
-//      }
-//
-//    let firstThemeError = firstThemeCampsiteResult
-//      .compactMap { data -> String? in
-//        self.homeUseCase.getCampsiteError(data)
-//      }
     
+
     let campsiteResult = input.viewDidLoad
       .flatMapLatest { _ in
         self.homeUseCase.requestCampsiteList(numOfRows: 20, pageNo: 1, keyword: "반려동물")

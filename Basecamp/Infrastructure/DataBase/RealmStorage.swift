@@ -17,19 +17,37 @@ final class RealmStorage {
     return realm.objects(CampsiteRealmDTO.self).filter("isLiked == true")
   }
   
-  func create(campsite: CampsiteRealmDTO) {
+  func createCampsite(campsite: CampsiteRealmDTO) {
     try! realm.write {
       realm.add(campsite)
     }
   }
   
-  func delete(campsite: CampsiteRealmDTO) {
+  func deleteCampsite(campsite: CampsiteRealmDTO) {
     try! realm.write {
       realm.delete(campsite)
     }
   }
   
+  func readReviews() -> Results<ReviewDTO> {
+    return realm.objects(ReviewDTO.self)
+  }
   
+  func createReview(review: ReviewDTO) {
+    try! realm.write {
+      realm.add(review)
+    }
+  }
+  
+  func updateReview(review: ReviewDTO) {
+    // 읽고 다시 write
+  }
+  
+  func deleteReview(review: ReviewDTO) {
+    try! realm.write {
+      realm.delete(review)
+    }
+  }
 }
 
 extension Results {

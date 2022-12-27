@@ -9,8 +9,8 @@ import Foundation
 import RxDataSources
 
 enum HomeSectionModel {
-  case HeaderSection(items: [HomeHeaderItem])
-  case RegionSection(items: [HomeRegionItem])
+  case headerSection(items: [HomeHeaderItem])
+  case regionSection(items: [HomeRegionItem])
   case campsiteSection(header: String, items:[Campsite])
   case festivalSection(items: [Festival])
 }
@@ -18,9 +18,8 @@ enum HomeSectionModel {
 protocol HomeItem {}
 
 struct HomeHeaderItem: HomeItem {
-  var id: UUID
-  var completedPlaceCount: Int
-  var likedPlaceCount: Int
+  var completedCampsiteCount: Int
+  var likedCampsiteCount: Int
 }
 
 struct HomeRegionItem: HomeItem {
@@ -45,9 +44,9 @@ extension HomeSectionModel: SectionModelType {
 
   var items: [Item] {
     switch self {
-    case .HeaderSection(items: let items):
+    case .headerSection(items: let items):
       return items
-    case .RegionSection(items: let items):
+    case .regionSection(items: let items):
       return items
     case .campsiteSection(_, items: let items):
       return items

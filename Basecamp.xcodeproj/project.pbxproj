@@ -87,7 +87,7 @@
 		F4E3E58729516347009AFCFC /* YoutubeTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58629516347009AFCFC /* YoutubeTargetStub.swift */; };
 		F4E3E5892951657A009AFCFC /* CampsiteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5882951657A009AFCFC /* CampsiteRepository.swift */; };
 		F4E3E58D295181D1009AFCFC /* CampsiteQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58C295181D1009AFCFC /* CampsiteQuery.swift */; };
-		F4E3E58F295181EF009AFCFC /* TouristQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58E295181EF009AFCFC /* TouristQuery.swift */; };
+		F4E3E58F295181EF009AFCFC /* TouristInfoQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58E295181EF009AFCFC /* TouristInfoQuery.swift */; };
 		F4E3E59129518A0C009AFCFC /* CampsiteRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E59029518A0C009AFCFC /* CampsiteRequestDTO.swift */; };
 		F4E3E593295210BD009AFCFC /* CampsiteResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E592295210BD009AFCFC /* CampsiteResponseDTO.swift */; };
 		F4E3E5952954007F009AFCFC /* CampsiteImageListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5942954007F009AFCFC /* CampsiteImageListResponseDTO.swift */; };
@@ -101,6 +101,7 @@
 		F4E3E5A92954C392009AFCFC /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5A82954C392009AFCFC /* UIViewController+Rx.swift */; };
 		F4E3E5AC29555961009AFCFC /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5AB29555961009AFCFC /* RealmRepository.swift */; };
 		F4E3E5AE29557132009AFCFC /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5AD29557132009AFCFC /* Review.swift */; };
+		F4E3E5B0295AC26C009AFCFC /* TouristInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5AF295AC26B009AFCFC /* TouristInfoRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,7 +193,7 @@
 		F4E3E58629516347009AFCFC /* YoutubeTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTargetStub.swift; sourceTree = "<group>"; };
 		F4E3E5882951657A009AFCFC /* CampsiteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteRepository.swift; sourceTree = "<group>"; };
 		F4E3E58C295181D1009AFCFC /* CampsiteQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteQuery.swift; sourceTree = "<group>"; };
-		F4E3E58E295181EF009AFCFC /* TouristQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristQuery.swift; sourceTree = "<group>"; };
+		F4E3E58E295181EF009AFCFC /* TouristInfoQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoQuery.swift; sourceTree = "<group>"; };
 		F4E3E59029518A0C009AFCFC /* CampsiteRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteRequestDTO.swift; sourceTree = "<group>"; };
 		F4E3E592295210BD009AFCFC /* CampsiteResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteResponseDTO.swift; sourceTree = "<group>"; };
 		F4E3E5942954007F009AFCFC /* CampsiteImageListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteImageListResponseDTO.swift; sourceTree = "<group>"; };
@@ -204,6 +205,7 @@
 		F4E3E5A82954C392009AFCFC /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		F4E3E5AB29555961009AFCFC /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		F4E3E5AD29557132009AFCFC /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		F4E3E5AF295AC26B009AFCFC /* TouristInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -598,6 +600,7 @@
 		F4D10EF229498F50000C02E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F4E3E5B1295AC30D009AFCFC /* DataSource */,
 				F4D10EF829499016000C02E0 /* Request */,
 				F4D10EF329498F5C000C02E0 /* Response */,
 			);
@@ -607,7 +610,6 @@
 		F4D10EF329498F5C000C02E0 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				F49034A9294C366600CDE442 /* HomeSectionModel.swift */,
 				F49034AB294C421300CDE442 /* Region.swift */,
 				F49034AD294C42B200CDE442 /* Campsite.swift */,
 				F49034C2295004E100CDE442 /* TouristInfo.swift */,
@@ -640,7 +642,7 @@
 			isa = PBXGroup;
 			children = (
 				F4E3E58C295181D1009AFCFC /* CampsiteQuery.swift */,
-				F4E3E58E295181EF009AFCFC /* TouristQuery.swift */,
+				F4E3E58E295181EF009AFCFC /* TouristInfoQuery.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -710,8 +712,9 @@
 		F4D10F0C2949A457000C02E0 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				F4E3E5882951657A009AFCFC /* CampsiteRepository.swift */,
 				F4E3E5AB29555961009AFCFC /* RealmRepository.swift */,
+				F4E3E5882951657A009AFCFC /* CampsiteRepository.swift */,
+				F4E3E5AF295AC26B009AFCFC /* TouristInfoRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -774,6 +777,14 @@
 				F4E3E5A82954C392009AFCFC /* UIViewController+Rx.swift */,
 			);
 			path = Rx;
+			sourceTree = "<group>";
+		};
+		F4E3E5B1295AC30D009AFCFC /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				F49034A9294C366600CDE442 /* HomeSectionModel.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -951,6 +962,7 @@
 				F4E3E5952954007F009AFCFC /* CampsiteImageListResponseDTO.swift in Sources */,
 				F49034EA29515B5E00CDE442 /* NaverBlogAPIEnvironment.swift in Sources */,
 				F49034A5294AC72700CDE442 /* RegionLabel.swift in Sources */,
+				F4E3E5B0295AC26C009AFCFC /* TouristInfoRepository.swift in Sources */,
 				F49034E229515B0C00CDE442 /* WeatherAPIConstant.swift in Sources */,
 				F4D10EEA29498738000C02E0 /* CoordinatorDelegate.swift in Sources */,
 				F4D10EE029498251000C02E0 /* TabBarCoordinator.swift in Sources */,
@@ -972,7 +984,7 @@
 				F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */,
 				F49034A8294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift in Sources */,
 				F4E3E59C2954466C009AFCFC /* RealmStorage.swift in Sources */,
-				F4E3E58F295181EF009AFCFC /* TouristQuery.swift in Sources */,
+				F4E3E58F295181EF009AFCFC /* TouristInfoQuery.swift in Sources */,
 				F4D10F0429499427000C02E0 /* ViewRepresentable.swift in Sources */,
 				F49034AC294C421300CDE442 /* Region.swift in Sources */,
 				F49034EC29515B7200CDE442 /* YoutubeAPIEnvironment.swift in Sources */,

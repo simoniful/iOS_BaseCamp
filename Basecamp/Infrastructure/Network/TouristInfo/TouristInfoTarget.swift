@@ -12,7 +12,6 @@ let touristInfoTargetProvider = MoyaProvider<TouristInfoTarget>(
   plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]
 )
 
-// parameter로 바로 넘어오도록 구성
 enum TouristInfoTarget {
   case getServiceCateogryCode(parameters: DictionaryType)
   case getTouristInfoListByRegion(parameters: DictionaryType)

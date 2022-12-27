@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol TouristInfoRepositoryInterface: AnyObject {
-  func requestTouristInfo() async -> Result<Campsite, Error>
+  func requestTouristInfo(touristInfoQueryType: TouristInfoQueryType) -> Single<Result<TourlistInfo, Error>>
 }

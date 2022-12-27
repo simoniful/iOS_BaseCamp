@@ -6,9 +6,9 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct Campsite: HomeItem, Codable {
-  let _id: String
   let contentID: String?
   let facltNm: String?
   let lineIntro: String?

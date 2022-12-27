@@ -8,10 +8,6 @@
 import Foundation
 import Moya
 
-let youtubeTargetProvider = MoyaProvider<YoutubeTarget>(
-  plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]
-)
-
 enum YoutubeTarget {
   case getYoutube(parameters: DictionaryType)
 }

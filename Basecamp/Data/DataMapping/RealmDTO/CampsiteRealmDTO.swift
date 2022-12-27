@@ -10,8 +10,7 @@ import RealmSwift
 
 
 class CampsiteRealmDTO: Object {
-  @Persisted(primaryKey: true) var _id: String
-  @Persisted var contentID: String?
+  @Persisted(primaryKey: true) var contentID: String?
   @Persisted var facltNm: String?
   @Persisted var lineIntro: String?
   @Persisted var intro: String?
@@ -58,7 +57,6 @@ class CampsiteRealmDTO: Object {
   
   convenience init(campsite: Campsite) {
     self.init()
-    self._id = campsite._id
     self.contentID = campsite.contentID
     self.facltNm = campsite.facltNm
     self.lineIntro = campsite.lineIntro
@@ -109,7 +107,6 @@ class CampsiteRealmDTO: Object {
 extension CampsiteRealmDTO {
   func toDomain() -> Campsite {
     return .init(
-      _id: _id,
       contentID: contentID,
       facltNm: facltNm,
       lineIntro: lineIntro,

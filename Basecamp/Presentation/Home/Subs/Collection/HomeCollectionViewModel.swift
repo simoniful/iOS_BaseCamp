@@ -38,9 +38,9 @@ class HomeCollectionViewModel: ViewModel {
     let dataSource = RxCollectionViewSectionedReloadDataSource<HomeSectionModel>(
       configureCell: { dataSource, collectionView, indexPath, item in
         switch dataSource[indexPath.section] {
-        case .HeaderSection(items: let items):
+        case .headerSection(items: let items):
           <#code#>
-        case .RegionSection(items: let items):
+        case .regionSection(items: let items):
           <#code#>
         case .campsiteSection(header: let header, items: let items):
           <#code#>
@@ -50,9 +50,9 @@ class HomeCollectionViewModel: ViewModel {
       },
       configureSupplementaryView: { dataSource, collectionView, kind, indexPath in
         switch dataSource[indexPath.section] {
-        case .HeaderSection(items: let items):
+        case .headerSection(items: let items):
           <#code#>
-        case .RegionSection(items: let items):
+        case .regionSection(items: let items):
           <#code#>
         case .campsiteSection(header: let header, items: let items):
           <#code#>
@@ -61,7 +61,6 @@ class HomeCollectionViewModel: ViewModel {
         }
       }
     )
-    
     return dataSource
   }
 }

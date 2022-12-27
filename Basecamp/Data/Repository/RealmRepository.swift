@@ -24,7 +24,7 @@ final class RealmRepository: RealmRepositoryInterface {
   
   func saveCampsite(campsite: Campsite) {
     let campsiteDTO = CampsiteRealmDTO(campsite: campsite)
-    storage.create(campsite: campsiteDTO)
+    storage.createCampsite(campsite: campsiteDTO)
   }
   
   func unsaveCampsite() {
