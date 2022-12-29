@@ -8,10 +8,6 @@
 import Foundation
 import Moya
 
-let touristInfoTargetProvider = MoyaProvider<TouristInfoTarget>(
-  plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))]
-)
-
 enum TouristInfoTarget {
   case getServiceCateogryCode(parameters: DictionaryType)
   case getTouristInfoListByRegion(parameters: DictionaryType)

@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol CampsiteRepositoryInterface: AnyObject {
-  func requestCampsite(campsiteQueryType: CampsiteQueryType) -> Single<Result<[Campsite], CampsiteServiceError>>
+  func requestCampsiteList(campsiteQueryType: CampsiteQueryType) -> Single<Result<[Campsite], CampsiteServiceError>>
   
   func requestCampsiteImageList(campsiteQueryType: CampsiteQueryType) -> Single<Result<[String], CampsiteServiceError>>
 }

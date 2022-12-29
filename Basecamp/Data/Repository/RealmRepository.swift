@@ -27,7 +27,7 @@ final class RealmRepository: RealmRepositoryInterface {
     storage.createCampsite(campsite: campsiteDTO)
   }
   
-  func unsaveCampsite() {
+  func unsaveCampsite(campsite: Campsite) {
     <#code#>
   }
   
@@ -43,7 +43,7 @@ final class RealmRepository: RealmRepositoryInterface {
     <#code#>
   }
   
-  func deleteReview() {
+  func deleteReview(review: Review) {
     <#code#>
   }
 }

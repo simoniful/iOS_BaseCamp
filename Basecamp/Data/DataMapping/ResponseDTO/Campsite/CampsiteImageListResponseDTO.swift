@@ -9,28 +9,28 @@ import Foundation
 
 // MARK: - CampsiteImageListResponseDTO
 struct CampsiteImageListResponseDTO: Codable {
-  let response: CampsiteImageListResponseDTOResponse
+  let response: CampsiteImageListResponseDTO_Response
 }
 
 // MARK: - Response
-struct CampsiteImageListResponseDTOResponse: Codable {
+struct CampsiteImageListResponseDTO_Response: Codable {
   let header: Header
-  let body: CampsiteImageListResponseDTOBody
+  let body: CampsiteImageListResponseDTO_Body
 }
 
 // MARK: - Body
-struct CampsiteImageListResponseDTOBody: Codable {
-  let items: CampsiteImageListResponseDTOItems
+struct CampsiteImageListResponseDTO_Body: Codable {
+  let items: CampsiteImageListResponseDTO_Items
   let numOfRows, pageNo, totalCount: Int
 }
 
 // MARK: - Items
-struct CampsiteImageListResponseDTOItems: Codable {
-  let item: [CampsiteImageListResponseDTOItem]
+struct CampsiteImageListResponseDTO_Items: Codable {
+  let item: [CampsiteImageListResponseDTO_Item]
 }
 
 // MARK: - Item
-struct CampsiteImageListResponseDTOItem: Codable {
+struct CampsiteImageListResponseDTO_Item: Codable {
   let contentID, serialnum: String?
   let imageURL: String?
   let createdtime, modifiedtime: String?
@@ -60,7 +60,7 @@ extension CampsiteImageListResponseDTO {
   }
 }
 
-extension CampsiteImageListResponseDTOItem {
+extension CampsiteImageListResponseDTO_Item {
   func toDomain() -> String {
     guard let imageURL = imageURL else { return "" }
     return imageURL

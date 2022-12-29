@@ -26,7 +26,7 @@ final class HomeCoordinator: Coordinator {
             viewModel: HomeViewModel(
                 coordinator: self,
                 homeUseCase: HomeUseCase(
-                  realmRepository: <#RealmRepositoryInterface#>,
+                  realmRepository: RealmRepository(),
                   campsiteRepository: CampsiteRepository(),
                   touristInfoRepository: <#TouristInfoRepositoryInterface#>
                 )

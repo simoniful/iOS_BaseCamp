@@ -11,10 +11,10 @@ import RealmSwift
 protocol RealmRepositoryInterface: AnyObject {
   func loadCampsite() -> [Campsite]
   func saveCampsite(campsite: Campsite)
-  func unsaveCampsite()
+  func unsaveCampsite(campsite: Campsite)
   
   func loadReview() -> [Review]
   func saveReview(review: Review)
   func updateReveiw(review: Review)
-  func deleteReview()
+  func deleteReview(review: Review)
 }

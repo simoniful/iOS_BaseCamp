@@ -51,10 +51,21 @@ extension CampsiteServiceError {
 }
 
 final class CampsiteRepository: CampsiteRepositoryInterface {
-  func requestCampsite(campsiteQueryType: CampsiteQueryType) -> Single<Result<[Campsite], CampsiteServiceError>> {
+  func requestCampsiteList(campsiteQueryType: CampsiteQueryType) -> Single<Result<[Campsite], CampsiteServiceError>> {
     let requestDTO = CampsiteRequestDTO(campsiteQueryType: campsiteQueryType)
+    
+    var target: MultiTarget
+    switch campsiteQueryType {
+    case .location:
+      target = MultiTarget(CampsiteTarget.getCampsiteByLocation(parameters: requestDTO.toDictionary))
+    case .keyword:
+      target = MultiTarget(CampsiteTarget.getCampsiteByKeyword(parameters: requestDTO.toDictionary))
+    default:
+      target = MultiTarget(CampsiteTarget.getCampsite(parameters: requestDTO.toDictionary))
+    }
+    
     return provider.rx.request(
-      MultiTarget(CampsiteTarget.getCampsite(parameters: requestDTO.toDictionary))
+      MultiTarget(target)
     )
     .filterSuccessfulStatusCodes()
     .flatMap { response -> Single<Result<[Campsite], CampsiteServiceError>> in
@@ -69,7 +80,7 @@ final class CampsiteRepository: CampsiteRepositoryInterface {
   func requestCampsiteImageList(campsiteQueryType: CampsiteQueryType) -> Single<Result<[String], CampsiteServiceError>> {
     let requestDTO = CampsiteRequestDTO(campsiteQueryType: campsiteQueryType)
     return provider.rx.request(
-      MultiTarget(CampsiteTarget.getCampsite(parameters: requestDTO.toDictionary))
+      MultiTarget(CampsiteTarget.getCampsiteImageList(parameters: requestDTO.toDictionary))
     )
     .filterSuccessfulStatusCodes()
     .flatMap { response -> Single<Result<[String], CampsiteServiceError>> in

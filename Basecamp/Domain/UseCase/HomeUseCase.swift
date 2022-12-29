@@ -48,7 +48,7 @@ final class HomeUseCase {
     _ regionData: [HomeRegionItem],
     _ firstCampsiteList: [Campsite],
     _ secondCampsiteList: [Campsite],
-    _ touristList: [TourlistInfo]
+    _ touristList: [TouristInfo]
   
   ) -> [HomeSectionModel] {
     var data: [HomeSectionModel] = []
