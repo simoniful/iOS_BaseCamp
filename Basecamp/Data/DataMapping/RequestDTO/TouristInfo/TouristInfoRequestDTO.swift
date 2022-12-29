@@ -12,7 +12,6 @@ enum TouristInfoContentType: Int, CaseIterable {
   case cultureFacilities = 14
   case festival = 15
   case leisure = 28
-  case stay = 32
   case shoppingSpot = 38
   case restaurant = 39
   
@@ -26,8 +25,6 @@ enum TouristInfoContentType: Int, CaseIterable {
       return "축제/행사"
     case .leisure:
       return "레저"
-    case .stay:
-      return "숙소"
     case .shoppingSpot:
       return "쇼핑"
     case .restaurant:
@@ -105,17 +102,8 @@ struct TouristInfoRequestDTO: Codable {
       self.sigunguCode = sigunguCode
       self.eventStartDate = eventStartDate
       self.eventEndDate = eventEndDate
-    case .stay(let numOfRows, let pageNo, let areaCode, let sigunguCode):
-      self.numOfRows = numOfRows
-      self.pageNo = pageNo
-      self.moblieOS = touristInfoQueryType.query.mobileOS
-      self.mobileApp = touristInfoQueryType.query.moblieApp
-      self.serviceKey = touristInfoQueryType.query.serviceKey
-      self.areaCode = areaCode
-      self.sigunguCode = sigunguCode
     case .commonInfo(let contentId, let contentTypeId),
-         .introInfo(let contentId, let contentTypeId),
-         .detailInfo(let contentId, let contentTypeId):
+         .introInfo(let contentId, let contentTypeId):
       self.moblieOS = touristInfoQueryType.query.mobileOS
       self.mobileApp = touristInfoQueryType.query.moblieApp
       self.serviceKey = touristInfoQueryType.query.serviceKey
@@ -198,16 +186,6 @@ private extension TouristInfoRequestDTO {
       dict["sigunguCode"] = sigunguCode
       dict["eventStartDate"] = eventStartDate
       dict["eventEndDate"] = eventEndDate
-    }
-    
-    if let numOfRows = self.numOfRows,
-       let pageNo = self.pageNo,
-       let areaCode = self.areaCode,
-       let sigunguCode = self.sigunguCode {
-      dict["numOfRows"] = numOfRows
-      dict["pageNo"] = pageNo
-      dict["areaCode"] = areaCode
-      dict["sigunguCode"] = sigunguCode
     }
     
     if let contentId = self.contentId,

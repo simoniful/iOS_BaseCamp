@@ -105,11 +105,9 @@
 		F4E3E5B3295D303E009AFCFC /* TouristInfoRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5B2295D303E009AFCFC /* TouristInfoRequestDTO.swift */; };
 		F4E3E5B5295D3053009AFCFC /* TouristInfoResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5B4295D3053009AFCFC /* TouristInfoResponseDTO.swift */; };
 		F4E3E5BB295D779B009AFCFC /* TouristInfoCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5BA295D779A009AFCFC /* TouristInfoCommon.swift */; };
-		F4E3E5BD295D77A9009AFCFC /* TouristInfoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5BC295D77A9009AFCFC /* TouristInfoDetail.swift */; };
 		F4E3E5BF295D77B1009AFCFC /* TouristInfoIntroSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5BE295D77B1009AFCFC /* TouristInfoIntroSpot.swift */; };
 		F4E3E5C1295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5C0295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift */; };
 		F4E3E5C3295D7BE7009AFCFC /* TouristInfoIntroResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5C2295D7BE7009AFCFC /* TouristInfoIntroResponseDTO.swift */; };
-		F4E3E5C5295D7BF2009AFCFC /* TouristInfoDetailResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5C4295D7BF2009AFCFC /* TouristInfoDetailResponseDTO.swift */; };
 		F4E3E5C9295D8342009AFCFC /* TouristInfoImageListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5C8295D8342009AFCFC /* TouristInfoImageListResponseDTO.swift */; };
 		F4E3E5CB295D8358009AFCFC /* TouristInfoRegionCodeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5CA295D8358009AFCFC /* TouristInfoRegionCodeResponseDTO.swift */; };
 		F4E3E5CF295DA92E009AFCFC /* TouristInfoIntroCulture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5CE295DA92E009AFCFC /* TouristInfoIntroCulture.swift */; };
@@ -223,11 +221,9 @@
 		F4E3E5B2295D303E009AFCFC /* TouristInfoRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoRequestDTO.swift; sourceTree = "<group>"; };
 		F4E3E5B4295D3053009AFCFC /* TouristInfoResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoResponseDTO.swift; sourceTree = "<group>"; };
 		F4E3E5BA295D779A009AFCFC /* TouristInfoCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoCommon.swift; sourceTree = "<group>"; };
-		F4E3E5BC295D77A9009AFCFC /* TouristInfoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoDetail.swift; sourceTree = "<group>"; };
 		F4E3E5BE295D77B1009AFCFC /* TouristInfoIntroSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroSpot.swift; sourceTree = "<group>"; };
 		F4E3E5C0295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoCommonResponseDTO.swift; sourceTree = "<group>"; };
 		F4E3E5C2295D7BE7009AFCFC /* TouristInfoIntroResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroResponseDTO.swift; sourceTree = "<group>"; };
-		F4E3E5C4295D7BF2009AFCFC /* TouristInfoDetailResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoDetailResponseDTO.swift; sourceTree = "<group>"; };
 		F4E3E5C8295D8342009AFCFC /* TouristInfoImageListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoImageListResponseDTO.swift; sourceTree = "<group>"; };
 		F4E3E5CA295D8358009AFCFC /* TouristInfoRegionCodeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoRegionCodeResponseDTO.swift; sourceTree = "<group>"; };
 		F4E3E5CE295DA92E009AFCFC /* TouristInfoIntroCulture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroCulture.swift; sourceTree = "<group>"; };
@@ -862,7 +858,6 @@
 				F4E3E5B4295D3053009AFCFC /* TouristInfoResponseDTO.swift */,
 				F4E3E5C0295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift */,
 				F4E3E5C2295D7BE7009AFCFC /* TouristInfoIntroResponseDTO.swift */,
-				F4E3E5C4295D7BF2009AFCFC /* TouristInfoDetailResponseDTO.swift */,
 				F4E3E5C8295D8342009AFCFC /* TouristInfoImageListResponseDTO.swift */,
 				F4E3E5CA295D8358009AFCFC /* TouristInfoRegionCodeResponseDTO.swift */,
 			);
@@ -875,7 +870,6 @@
 				F49034C2295004E100CDE442 /* TouristInfo.swift */,
 				F4E3E5BA295D779A009AFCFC /* TouristInfoCommon.swift */,
 				F4E3E5D2295DB1B6009AFCFC /* TouristInfoIntro */,
-				F4E3E5BC295D77A9009AFCFC /* TouristInfoDetail.swift */,
 			);
 			path = TouristInfo;
 			sourceTree = "<group>";
@@ -1082,7 +1076,6 @@
 				F49034A5294AC72700CDE442 /* RegionLabel.swift in Sources */,
 				F4E3E5B0295AC26C009AFCFC /* TouristInfoRepository.swift in Sources */,
 				F49034E229515B0C00CDE442 /* WeatherAPIConstant.swift in Sources */,
-				F4E3E5BD295D77A9009AFCFC /* TouristInfoDetail.swift in Sources */,
 				F4D10EEA29498738000C02E0 /* CoordinatorDelegate.swift in Sources */,
 				F4D10EE029498251000C02E0 /* TabBarCoordinator.swift in Sources */,
 				F4E3E59E29544796009AFCFC /* CampsiteRealmDTO.swift in Sources */,
@@ -1146,7 +1139,6 @@
 				F4D10EFA294992A8000C02E0 /* HomeViewController.swift in Sources */,
 				F4E3E59129518A0C009AFCFC /* CampsiteRequestDTO.swift in Sources */,
 				F4E3E5D4295DB4EC009AFCFC /* TouristInfoIntroRestaurant.swift in Sources */,
-				F4E3E5C5295D7BF2009AFCFC /* TouristInfoDetailResponseDTO.swift in Sources */,
 				F4E3E59829540D74009AFCFC /* Constant.swift in Sources */,
 				F49034D02950486900CDE442 /* CampsiteTarget.swift in Sources */,
 				F49034AE294C42B200CDE442 /* Campsite.swift in Sources */,

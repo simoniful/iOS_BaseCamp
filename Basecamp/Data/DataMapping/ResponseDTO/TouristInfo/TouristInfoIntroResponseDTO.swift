@@ -25,10 +25,17 @@ struct TouristInfoIntroResponseDTO_Items<T: Codable & TouristInfoIntroResponseDT
   let item: [T]
 }
 
+extension TouristInfoIntroResponseDTO {
+  func toDomain() -> [TouristInfoIntro] {
+    return response.body.items.item.map {
+      $0.toDomain()
+    }
+  }
+}
+
 protocol TouristInfoIntroResponseDTO_Item: Codable {
   var contentId: String? { get }
   var contentTypeId: String? { get }
-  
   func toDomain() -> TouristInfoIntro
 }
 
@@ -116,17 +123,45 @@ struct TouristInfoIntroResponseDTO_LeisureItem: Codable, TouristInfoIntroRespons
   }
 }
 
-struct TouristInfoIntroResponseDTO_RestaurantItem: Codable, TouristInfoIntroResponseDTO_Item {
+struct TouristInfoIntroResponseDTO_ShoppingItem: Codable, TouristInfoIntroResponseDTO_Item {
   let contentId, contentTypeId: String?
+  let saleitem, saleitemcost: String?
+  let fairday, opendateshopping, shopguide, culturecenter: String?
+  let restroom, infocentershopping, scaleshopping, restdateshopping: String?
+  let parkingshopping, chkpetshopping, chkcreditcardshopping: String?
+  let opentime: String?
   
   enum CodingKeys: String, CodingKey {
     case contentId = "contentid"
     case contentTypeId = "contenttypeid"
+    case saleitem, saleitemcost, fairday, opendateshopping, shopguide, culturecenter, restroom, infocentershopping, scaleshopping, restdateshopping, parkingshopping, chkpetshopping, chkcreditcardshopping, opentime
   }
   
   func toDomain() -> TouristInfoIntro {
+    return TouristInfoIntroShopping(contentId: contentId, contentTypeId: contentTypeId, saleitem: saleitem, saleitemcost: saleitemcost, fairday: fairday, opendateshopping: opendateshopping, shopguide: shopguide, culturecenter: culturecenter, restroom: restroom, infocentershopping: infocentershopping, scaleshopping: scaleshopping, restdateshopping: restdateshopping, parkingshopping: parkingshopping, chkbabycarriageshopping: chkcreditcardshopping, chkpetshopping: chkpetshopping, chkcreditcardshopping: chkcreditcardshopping, opentime: opentime)
   }
 }
+
+struct TouristInfoIntroResponseDTO_RestaurantItem: Codable, TouristInfoIntroResponseDTO_Item {
+  let contentId, contentTypeId: String?
+  let seat, kidsfacility: String?
+  let firstmenu, treatmenu, smoking, packing: String?
+  let infocenterfood, scalefood, parkingfood, opendatefood: String?
+  let opentimefood, restdatefood, discountinfofood, chkcreditcardfood: String?
+  let reservationfood, lcnsno: String?
+  
+  enum CodingKeys: String, CodingKey {
+    case contentId = "contentid"
+    case contentTypeId = "contenttypeid"
+    case seat, kidsfacility, firstmenu, treatmenu, smoking, packing, infocenterfood, scalefood, parkingfood, opendatefood, opentimefood, restdatefood, discountinfofood, chkcreditcardfood, reservationfood, lcnsno
+  }
+  
+  func toDomain() -> TouristInfoIntro {
+    return TouristInfoIntroRestaurant(contentId: contentId, contentTypeId: contentTypeId, seat: seat, kidsfacility: kidsfacility, firstmenu: firstmenu, treatmenu: treatmenu, smoking: smoking, packing: packing, infocenterfood: infocenterfood, scalefood: scalefood, parkingfood: parkingfood, opendatefood: opendatefood, opentimefood: opentimefood, restdatefood: restdatefood, discountinfofood: discountinfofood, chkcreditcardfood: chkcreditcardfood, reservationfood: reservationfood, lcnsno: lcnsno)
+  }
+}
+
+
 
 
 

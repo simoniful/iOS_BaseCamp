@@ -12,10 +12,8 @@ enum TouristInfoQueryType {
   case location(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, coordinate: Coordinate, radius: Int)
   case keyword(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, areaCode: Int, sigunguCode: Int, keyword: String)
   case festival(numOfRows: Int, pageNo: Int, areaCode: Int, sigunguCode: Int, eventStartDate: String, eventEndDate: String)
-  case stay(numOfRows: Int, pageNo: Int, areaCode: Int, sigunguCode: Int)
   case commonInfo(contentId: Int, contentTypeId: TouristInfoContentType)
   case introInfo(contentId: Int, contentTypeId: TouristInfoContentType)
-  case detailInfo(contentId: Int, contentTypeId: TouristInfoContentType)
   case imageList(contentId: Int)
   case regionCode(numOfRows: Int, pageNo: Int, areaCode: Int)
   
@@ -68,16 +66,6 @@ enum TouristInfoQueryType {
         eventStartDate: eventStartDate,
         eventEndDate: eventEndDate
       )
-    case .stay(let numOfRows, let pageNo, let areaCode, let sigunguCode):
-      return TouristInfoStayQuery(
-        numOfRows: numOfRows,
-        pageNo: pageNo,
-        mobileOS: "IOS",
-        moblieApp: "Basecamp",
-        serviceKey: APIKey.touristInfo.rawValue,
-        areaCode: areaCode,
-        sigunguCode: sigunguCode
-      )
     case .commonInfo(let contentId, let contentTypeId):
       return TouristInfoCommonQuery(
         mobileOS: "IOS",
@@ -88,14 +76,6 @@ enum TouristInfoQueryType {
       )
     case .introInfo(let contentId, let contentTypeId):
       return TouristInfoIntroQuery(
-        mobileOS: "IOS",
-        moblieApp: "Basecamp",
-        serviceKey: APIKey.touristInfo.rawValue,
-        contentId: contentId,
-        contentTypeId: contentTypeId
-      )
-    case .detailInfo(let contentId, let contentTypeId):
-      return TouristInfoDetailQuery(
         mobileOS: "IOS",
         moblieApp: "Basecamp",
         serviceKey: APIKey.touristInfo.rawValue,
@@ -175,25 +155,7 @@ struct TouristInfoFestivalQuery: TouristInfoQuery {
   var eventEndDate: String
 }
 
-struct TouristInfoStayQuery: TouristInfoQuery {
-  var numOfRows: Int
-  var pageNo: Int
-  let mobileOS: String
-  let moblieApp: String
-  let serviceKey: String
-  var areaCode: Int
-  var sigunguCode: Int
-}
-
 struct TouristInfoCommonQuery: TouristInfoQuery {
-  let mobileOS: String
-  let moblieApp: String
-  let serviceKey: String
-  var contentId: Int
-  var contentTypeId: TouristInfoContentType
-}
-
-struct TouristInfoDetailQuery: TouristInfoQuery {
   let mobileOS: String
   let moblieApp: String
   let serviceKey: String
