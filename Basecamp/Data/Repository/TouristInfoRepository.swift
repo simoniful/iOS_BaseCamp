@@ -75,8 +75,8 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
     let requestDTO = TouristInfoRequestDTO(touristInfoQueryType: touristInfoQueryType)
     var target: MultiTarget
     switch touristInfoQueryType {
-    case .region:
-      target = MultiTarget(TouristInfoTarget.getTouristInfoListByRegion(parameters: requestDTO.toDictionary))
+    case .area:
+      target = MultiTarget(TouristInfoTarget.getTouristInfoListByArea(parameters: requestDTO.toDictionary))
     case .location:
       target = MultiTarget(TouristInfoTarget.getTouristInfoListByLocation(parameters: requestDTO.toDictionary))
     case .keyword:
@@ -153,7 +153,7 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
     <#code#>
   }
   
-  func requestTouristInfoRegionCode(campsiteQueryType: CampsiteQueryType) -> Single<Result<[Sigungu], TouristInfoServiceError>> {
+  func requestTouristInfoAreaCode(campsiteQueryType: CampsiteQueryType) -> Single<Result<[Sigungu], TouristInfoServiceError>> {
     
   }
 }

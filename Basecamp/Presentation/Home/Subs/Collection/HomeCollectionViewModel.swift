@@ -40,7 +40,7 @@ class HomeCollectionViewModel: ViewModel {
         switch dataSource[indexPath.section] {
         case .headerSection(items: let items):
           <#code#>
-        case .regionSection(items: let items):
+        case .areaSection(items: let items):
           <#code#>
         case .campsiteSection(header: let header, items: let items):
           <#code#>
@@ -52,7 +52,7 @@ class HomeCollectionViewModel: ViewModel {
         switch dataSource[indexPath.section] {
         case .headerSection(items: let items):
           <#code#>
-        case .regionSection(items: let items):
+        case .areaSection(items: let items):
           <#code#>
         case .campsiteSection(header: let header, items: let items):
           <#code#>

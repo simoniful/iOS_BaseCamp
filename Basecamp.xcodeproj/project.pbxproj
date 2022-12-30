@@ -22,13 +22,13 @@
 		F490348F2949BA9700CDE442 /* NMapsMap in Frameworks */ = {isa = PBXBuildFile; productRef = F490348E2949BA9700CDE442 /* NMapsMap */; };
 		F49034922949BB5500CDE442 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = F49034912949BB5500CDE442 /* RxGesture */; };
 		F4903495294A172D00CDE442 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4903494294A172D00CDE442 /* HomeHeaderCell.swift */; };
-		F4903499294AB2CA00CDE442 /* HomeRegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4903498294AB2CA00CDE442 /* HomeRegionCell.swift */; };
+		F4903499294AB2CA00CDE442 /* HomeAreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4903498294AB2CA00CDE442 /* HomeAreaCell.swift */; };
 		F490349D294AB36A00CDE442 /* HomeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490349C294AB36A00CDE442 /* HomeCollectionView.swift */; };
 		F490349F294AB38400CDE442 /* HomeCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490349E294AB38400CDE442 /* HomeCollectionViewModel.swift */; };
-		F49034A5294AC72700CDE442 /* RegionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034A4294AC72700CDE442 /* RegionLabel.swift */; };
+		F49034A5294AC72700CDE442 /* AreaLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034A4294AC72700CDE442 /* AreaLabel.swift */; };
 		F49034A8294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */; };
 		F49034AA294C366600CDE442 /* HomeSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034A9294C366600CDE442 /* HomeSectionModel.swift */; };
-		F49034AC294C421300CDE442 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034AB294C421300CDE442 /* Region.swift */; };
+		F49034AC294C421300CDE442 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034AB294C421300CDE442 /* Area.swift */; };
 		F49034AE294C42B200CDE442 /* Campsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034AD294C42B200CDE442 /* Campsite.swift */; };
 		F49034B0294C475A00CDE442 /* TouristInfoIntroFestival.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034AF294C475A00CDE442 /* TouristInfoIntroFestival.swift */; };
 		F49034B5294C5C6600CDE442 /* HomeCampsiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034B4294C5C6600CDE442 /* HomeCampsiteCell.swift */; };
@@ -109,11 +109,25 @@
 		F4E3E5C1295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5C0295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift */; };
 		F4E3E5C3295D7BE7009AFCFC /* TouristInfoIntroResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5C2295D7BE7009AFCFC /* TouristInfoIntroResponseDTO.swift */; };
 		F4E3E5C9295D8342009AFCFC /* TouristInfoImageListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5C8295D8342009AFCFC /* TouristInfoImageListResponseDTO.swift */; };
-		F4E3E5CB295D8358009AFCFC /* TouristInfoRegionCodeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5CA295D8358009AFCFC /* TouristInfoRegionCodeResponseDTO.swift */; };
+		F4E3E5CB295D8358009AFCFC /* TouristInfoAreaCodeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5CA295D8358009AFCFC /* TouristInfoAreaCodeResponseDTO.swift */; };
 		F4E3E5CF295DA92E009AFCFC /* TouristInfoIntroCulture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5CE295DA92E009AFCFC /* TouristInfoIntroCulture.swift */; };
 		F4E3E5D1295DB1A9009AFCFC /* TouristInfoIntroLeisure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5D0295DB1A9009AFCFC /* TouristInfoIntroLeisure.swift */; };
 		F4E3E5D4295DB4EC009AFCFC /* TouristInfoIntroRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5D3295DB4EC009AFCFC /* TouristInfoIntroRestaurant.swift */; };
 		F4E3E5D6295DB4F7009AFCFC /* TouristInfoIntroShopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5D5295DB4F7009AFCFC /* TouristInfoIntroShopping.swift */; };
+		F4E3E5D8295DD48C009AFCFC /* TouristInfoContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5D7295DD48C009AFCFC /* TouristInfoContentType.swift */; };
+		F4E3E5DA295E81A5009AFCFC /* CampsiteBasicRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5D9295E81A5009AFCFC /* CampsiteBasicRequestDTO.swift */; };
+		F4E3E5DC295E8422009AFCFC /* CampsiteLocationRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5DB295E8422009AFCFC /* CampsiteLocationRequestDTO.swift */; };
+		F4E3E5DE295E85DA009AFCFC /* CampsiteKeywordRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5DD295E85DA009AFCFC /* CampsiteKeywordRequestDTO.swift */; };
+		F4E3E5E0295E8687009AFCFC /* CampsiteImageRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5DF295E8687009AFCFC /* CampsiteImageRequestDTO.swift */; };
+		F4E3E5E2295E8A24009AFCFC /* TouristInfoAreaRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5E1295E8A24009AFCFC /* TouristInfoAreaRequestDTO.swift */; };
+		F4E3E5E4295E9431009AFCFC /* TouristInfoLocationRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5E3295E9431009AFCFC /* TouristInfoLocationRequestDTO.swift */; };
+		F4E3E5E6295E946F009AFCFC /* TouristInfoKeywordRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5E5295E946F009AFCFC /* TouristInfoKeywordRequestDTO.swift */; };
+		F4E3E5E8295E948C009AFCFC /* TouristInfoFestivalRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5E7295E948C009AFCFC /* TouristInfoFestivalRequestDTO.swift */; };
+		F4E3E5EA295E9507009AFCFC /* TouristInfoCommonRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5E9295E9507009AFCFC /* TouristInfoCommonRequestDTO.swift */; };
+		F4E3E5EC295E9511009AFCFC /* TouristInfoIntroRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5EB295E9511009AFCFC /* TouristInfoIntroRequestDTO.swift */; };
+		F4E3E5EE295E9574009AFCFC /* TouristInfoImageRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5ED295E9574009AFCFC /* TouristInfoImageRequestDTO.swift */; };
+		F4E3E5F0295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5EF295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift */; };
+		F4E3E5F2295EA028009AFCFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5F1295EA028009AFCFC /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,13 +149,13 @@
 
 /* Begin PBXFileReference section */
 		F4903494294A172D00CDE442 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
-		F4903498294AB2CA00CDE442 /* HomeRegionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRegionCell.swift; sourceTree = "<group>"; };
+		F4903498294AB2CA00CDE442 /* HomeAreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAreaCell.swift; sourceTree = "<group>"; };
 		F490349C294AB36A00CDE442 /* HomeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionView.swift; sourceTree = "<group>"; };
 		F490349E294AB38400CDE442 /* HomeCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewModel.swift; sourceTree = "<group>"; };
-		F49034A4294AC72700CDE442 /* RegionLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionLabel.swift; sourceTree = "<group>"; };
+		F49034A4294AC72700CDE442 /* AreaLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaLabel.swift; sourceTree = "<group>"; };
 		F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLeftAlignFlowLayout.swift; sourceTree = "<group>"; };
 		F49034A9294C366600CDE442 /* HomeSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionModel.swift; sourceTree = "<group>"; };
-		F49034AB294C421300CDE442 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		F49034AB294C421300CDE442 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		F49034AD294C42B200CDE442 /* Campsite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campsite.swift; sourceTree = "<group>"; };
 		F49034AF294C475A00CDE442 /* TouristInfoIntroFestival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroFestival.swift; sourceTree = "<group>"; };
 		F49034B4294C5C6600CDE442 /* HomeCampsiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCampsiteCell.swift; sourceTree = "<group>"; };
@@ -225,11 +239,25 @@
 		F4E3E5C0295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoCommonResponseDTO.swift; sourceTree = "<group>"; };
 		F4E3E5C2295D7BE7009AFCFC /* TouristInfoIntroResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroResponseDTO.swift; sourceTree = "<group>"; };
 		F4E3E5C8295D8342009AFCFC /* TouristInfoImageListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoImageListResponseDTO.swift; sourceTree = "<group>"; };
-		F4E3E5CA295D8358009AFCFC /* TouristInfoRegionCodeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoRegionCodeResponseDTO.swift; sourceTree = "<group>"; };
+		F4E3E5CA295D8358009AFCFC /* TouristInfoAreaCodeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoAreaCodeResponseDTO.swift; sourceTree = "<group>"; };
 		F4E3E5CE295DA92E009AFCFC /* TouristInfoIntroCulture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroCulture.swift; sourceTree = "<group>"; };
 		F4E3E5D0295DB1A9009AFCFC /* TouristInfoIntroLeisure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroLeisure.swift; sourceTree = "<group>"; };
 		F4E3E5D3295DB4EC009AFCFC /* TouristInfoIntroRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroRestaurant.swift; sourceTree = "<group>"; };
 		F4E3E5D5295DB4F7009AFCFC /* TouristInfoIntroShopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroShopping.swift; sourceTree = "<group>"; };
+		F4E3E5D7295DD48C009AFCFC /* TouristInfoContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoContentType.swift; sourceTree = "<group>"; };
+		F4E3E5D9295E81A5009AFCFC /* CampsiteBasicRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteBasicRequestDTO.swift; sourceTree = "<group>"; };
+		F4E3E5DB295E8422009AFCFC /* CampsiteLocationRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteLocationRequestDTO.swift; sourceTree = "<group>"; };
+		F4E3E5DD295E85DA009AFCFC /* CampsiteKeywordRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteKeywordRequestDTO.swift; sourceTree = "<group>"; };
+		F4E3E5DF295E8687009AFCFC /* CampsiteImageRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampsiteImageRequestDTO.swift; sourceTree = "<group>"; };
+		F4E3E5E1295E8A24009AFCFC /* TouristInfoAreaRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoAreaRequestDTO.swift; sourceTree = "<group>"; };
+		F4E3E5E3295E9431009AFCFC /* TouristInfoLocationRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoLocationRequestDTO.swift; sourceTree = "<group>"; };
+		F4E3E5E5295E946F009AFCFC /* TouristInfoKeywordRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoKeywordRequestDTO.swift; sourceTree = "<group>"; };
+		F4E3E5E7295E948C009AFCFC /* TouristInfoFestivalRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoFestivalRequestDTO.swift; sourceTree = "<group>"; };
+		F4E3E5E9295E9507009AFCFC /* TouristInfoCommonRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoCommonRequestDTO.swift; sourceTree = "<group>"; };
+		F4E3E5EB295E9511009AFCFC /* TouristInfoIntroRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroRequestDTO.swift; sourceTree = "<group>"; };
+		F4E3E5ED295E9574009AFCFC /* TouristInfoImageRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoImageRequestDTO.swift; sourceTree = "<group>"; };
+		F4E3E5EF295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoAreaCodeRequestDTO.swift; sourceTree = "<group>"; };
+		F4E3E5F1295EA028009AFCFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,7 +342,7 @@
 		F49034A1294AB3E300CDE442 /* RegionSectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				F4903498294AB2CA00CDE442 /* HomeRegionCell.swift */,
+				F4903498294AB2CA00CDE442 /* HomeAreaCell.swift */,
 			);
 			path = RegionSectionCell;
 			sourceTree = "<group>";
@@ -322,7 +350,7 @@
 		F49034A6294AC88800CDE442 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				F49034A4294AC72700CDE442 /* RegionLabel.swift */,
+				F49034A4294AC72700CDE442 /* AreaLabel.swift */,
 				F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */,
 			);
 			path = Custom;
@@ -570,6 +598,7 @@
 		F4D10EE12949828B000C02E0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F4E3E5F3295EA049009AFCFC /* Extension */,
 				F4E3E59629540D43009AFCFC /* Constant */,
 			);
 			path = Utils;
@@ -634,7 +663,7 @@
 		F4D10EF329498F5C000C02E0 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				F49034AB294C421300CDE442 /* Region.swift */,
+				F49034AB294C421300CDE442 /* Area.swift */,
 				F4E3E5AD29557132009AFCFC /* Review.swift */,
 				F4E3E5CD295DA6DF009AFCFC /* Campsite */,
 				F4E3E5CC295DA6D3009AFCFC /* TouristInfo */,
@@ -815,6 +844,10 @@
 			isa = PBXGroup;
 			children = (
 				F4E3E59029518A0C009AFCFC /* CampsiteRequestDTO.swift */,
+				F4E3E5D9295E81A5009AFCFC /* CampsiteBasicRequestDTO.swift */,
+				F4E3E5DB295E8422009AFCFC /* CampsiteLocationRequestDTO.swift */,
+				F4E3E5DD295E85DA009AFCFC /* CampsiteKeywordRequestDTO.swift */,
+				F4E3E5DF295E8687009AFCFC /* CampsiteImageRequestDTO.swift */,
 			);
 			path = Campsite;
 			sourceTree = "<group>";
@@ -823,6 +856,14 @@
 			isa = PBXGroup;
 			children = (
 				F4E3E5B2295D303E009AFCFC /* TouristInfoRequestDTO.swift */,
+				F4E3E5E1295E8A24009AFCFC /* TouristInfoAreaRequestDTO.swift */,
+				F4E3E5E3295E9431009AFCFC /* TouristInfoLocationRequestDTO.swift */,
+				F4E3E5E5295E946F009AFCFC /* TouristInfoKeywordRequestDTO.swift */,
+				F4E3E5E7295E948C009AFCFC /* TouristInfoFestivalRequestDTO.swift */,
+				F4E3E5E9295E9507009AFCFC /* TouristInfoCommonRequestDTO.swift */,
+				F4E3E5EB295E9511009AFCFC /* TouristInfoIntroRequestDTO.swift */,
+				F4E3E5ED295E9574009AFCFC /* TouristInfoImageRequestDTO.swift */,
+				F4E3E5EF295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift */,
 			);
 			path = TouristInfo;
 			sourceTree = "<group>";
@@ -859,7 +900,7 @@
 				F4E3E5C0295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift */,
 				F4E3E5C2295D7BE7009AFCFC /* TouristInfoIntroResponseDTO.swift */,
 				F4E3E5C8295D8342009AFCFC /* TouristInfoImageListResponseDTO.swift */,
-				F4E3E5CA295D8358009AFCFC /* TouristInfoRegionCodeResponseDTO.swift */,
+				F4E3E5CA295D8358009AFCFC /* TouristInfoAreaCodeResponseDTO.swift */,
 			);
 			path = TouristInfo;
 			sourceTree = "<group>";
@@ -869,6 +910,7 @@
 			children = (
 				F49034C2295004E100CDE442 /* TouristInfo.swift */,
 				F4E3E5BA295D779A009AFCFC /* TouristInfoCommon.swift */,
+				F4E3E5D7295DD48C009AFCFC /* TouristInfoContentType.swift */,
 				F4E3E5D2295DB1B6009AFCFC /* TouristInfoIntro */,
 			);
 			path = TouristInfo;
@@ -893,6 +935,14 @@
 				F4E3E5D3295DB4EC009AFCFC /* TouristInfoIntroRestaurant.swift */,
 			);
 			path = TouristInfoIntro;
+			sourceTree = "<group>";
+		};
+		F4E3E5F3295EA049009AFCFC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F4E3E5F1295EA028009AFCFC /* Date.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1059,12 +1109,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4D10ED629497C6E000C02E0 /* AppCoordinator.swift in Sources */,
+				F4E3E5DC295E8422009AFCFC /* CampsiteLocationRequestDTO.swift in Sources */,
 				F4D10EE4294982B5000C02E0 /* TabBarPageCase.swift in Sources */,
 				F49034B5294C5C6600CDE442 /* HomeCampsiteCell.swift in Sources */,
 				F49034E829515B4E00CDE442 /* WeatherAPIEnvironment.swift in Sources */,
 				F4D10EFC2949931D000C02E0 /* HomeView.swift in Sources */,
 				F4E3E5CF295DA92E009AFCFC /* TouristInfoIntroCulture.swift in Sources */,
 				F4E3E5C9295D8342009AFCFC /* TouristInfoImageListResponseDTO.swift in Sources */,
+				F4E3E5EE295E9574009AFCFC /* TouristInfoImageRequestDTO.swift in Sources */,
 				F4E3E5B5295D3053009AFCFC /* TouristInfoResponseDTO.swift in Sources */,
 				F49034D229504DD400CDE442 /* CampsiteTargetStub.swift in Sources */,
 				F4D10F4E2949ADF2000C02E0 /* AppFont.swift in Sources */,
@@ -1073,16 +1125,20 @@
 				F4E3E5952954007F009AFCFC /* CampsiteImageListResponseDTO.swift in Sources */,
 				F49034EA29515B5E00CDE442 /* NaverBlogAPIEnvironment.swift in Sources */,
 				F4E3E5C1295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift in Sources */,
-				F49034A5294AC72700CDE442 /* RegionLabel.swift in Sources */,
+				F49034A5294AC72700CDE442 /* AreaLabel.swift in Sources */,
+				F4E3E5DA295E81A5009AFCFC /* CampsiteBasicRequestDTO.swift in Sources */,
+				F4E3E5E8295E948C009AFCFC /* TouristInfoFestivalRequestDTO.swift in Sources */,
 				F4E3E5B0295AC26C009AFCFC /* TouristInfoRepository.swift in Sources */,
 				F49034E229515B0C00CDE442 /* WeatherAPIConstant.swift in Sources */,
 				F4D10EEA29498738000C02E0 /* CoordinatorDelegate.swift in Sources */,
+				F4E3E5EC295E9511009AFCFC /* TouristInfoIntroRequestDTO.swift in Sources */,
 				F4D10EE029498251000C02E0 /* TabBarCoordinator.swift in Sources */,
 				F4E3E59E29544796009AFCFC /* CampsiteRealmDTO.swift in Sources */,
+				F4E3E5E4295E9431009AFCFC /* TouristInfoLocationRequestDTO.swift in Sources */,
 				F49034DB295088CB00CDE442 /* TouristInfoTarget.swift in Sources */,
 				F4D10F272949A700000C02E0 /* AppAppearance.swift in Sources */,
 				F49034EE29515B8300CDE442 /* WeatherTarget.swift in Sources */,
-				F4E3E5CB295D8358009AFCFC /* TouristInfoRegionCodeResponseDTO.swift in Sources */,
+				F4E3E5CB295D8358009AFCFC /* TouristInfoAreaCodeResponseDTO.swift in Sources */,
 				F4D10EF529498F71000C02E0 /* Coordinate.swift in Sources */,
 				F49034CB295030F700CDE442 /* CampsiteAPIEnvironment.swift in Sources */,
 				F49034C3295004E100CDE442 /* TouristInfo.swift in Sources */,
@@ -1095,12 +1151,14 @@
 				F4E3E5D1295DB1A9009AFCFC /* TouristInfoIntroLeisure.swift in Sources */,
 				F49034C12950025200CDE442 /* TouristInfoRepositoryInterface.swift in Sources */,
 				F4E3E58D295181D1009AFCFC /* CampsiteQuery.swift in Sources */,
+				F4E3E5E0295E8687009AFCFC /* CampsiteImageRequestDTO.swift in Sources */,
 				F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */,
 				F49034A8294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift in Sources */,
 				F4E3E59C2954466C009AFCFC /* RealmStorage.swift in Sources */,
 				F4E3E58F295181EF009AFCFC /* TouristInfoQuery.swift in Sources */,
 				F4D10F0429499427000C02E0 /* ViewRepresentable.swift in Sources */,
-				F49034AC294C421300CDE442 /* Region.swift in Sources */,
+				F4E3E5F2295EA028009AFCFC /* Date.swift in Sources */,
+				F49034AC294C421300CDE442 /* Area.swift in Sources */,
 				F49034EC29515B7200CDE442 /* YoutubeAPIEnvironment.swift in Sources */,
 				F4D10EFE2949932B000C02E0 /* HomeViewModel.swift in Sources */,
 				F49034E429515B2300CDE442 /* NaverBlogAPIConstant.swift in Sources */,
@@ -1109,20 +1167,25 @@
 				F49034BD2950000500CDE442 /* RealmRepositoryInterface.swift in Sources */,
 				F49034D72950628E00CDE442 /* TouristInfoAPIConstant.swift in Sources */,
 				F49034F229515B9E00CDE442 /* YoutubeTarget.swift in Sources */,
+				F4E3E5DE295E85DA009AFCFC /* CampsiteKeywordRequestDTO.swift in Sources */,
 				F4E3E5B3295D303E009AFCFC /* TouristInfoRequestDTO.swift in Sources */,
 				F4E3E5BF295D77B1009AFCFC /* TouristInfoIntroSpot.swift in Sources */,
 				F4D10F0129499386000C02E0 /* ViewModel.swift in Sources */,
 				F49034C9295030DC00CDE442 /* CampsiteAPIConstant.swift in Sources */,
-				F4903499294AB2CA00CDE442 /* HomeRegionCell.swift in Sources */,
+				F4E3E5D8295DD48C009AFCFC /* TouristInfoContentType.swift in Sources */,
+				F4903499294AB2CA00CDE442 /* HomeAreaCell.swift in Sources */,
 				F4D10EED29498963000C02E0 /* HomeCoordinator.swift in Sources */,
 				F490349F294AB38400CDE442 /* HomeCollectionViewModel.swift in Sources */,
 				F4D10EE82949871D000C02E0 /* CoordinatorStyleCase.swift in Sources */,
+				F4E3E5E2295E8A24009AFCFC /* TouristInfoAreaRequestDTO.swift in Sources */,
+				F4E3E5F0295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift in Sources */,
 				F49034AA294C366600CDE442 /* HomeSectionModel.swift in Sources */,
 				F4E3E5C3295D7BE7009AFCFC /* TouristInfoIntroResponseDTO.swift in Sources */,
 				F49034B0294C475A00CDE442 /* TouristInfoIntroFestival.swift in Sources */,
 				F49034B8294C5E7600CDE442 /* HomeSectionHeader.swift in Sources */,
 				F49034D9295075F800CDE442 /* TouristInfoAPIEnvironment.swift in Sources */,
 				F4E3E5BB295D779B009AFCFC /* TouristInfoCommon.swift in Sources */,
+				F4E3E5E6295E946F009AFCFC /* TouristInfoKeywordRequestDTO.swift in Sources */,
 				F4903495294A172D00CDE442 /* HomeHeaderCell.swift in Sources */,
 				F4E3E5A92954C392009AFCFC /* UIViewController+Rx.swift in Sources */,
 				F49034E629515B3500CDE442 /* YoutubeAPIConstant.swift in Sources */,
@@ -1142,6 +1205,7 @@
 				F4E3E59829540D74009AFCFC /* Constant.swift in Sources */,
 				F49034D02950486900CDE442 /* CampsiteTarget.swift in Sources */,
 				F49034AE294C42B200CDE442 /* Campsite.swift in Sources */,
+				F4E3E5EA295E9507009AFCFC /* TouristInfoCommonRequestDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

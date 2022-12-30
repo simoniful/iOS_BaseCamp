@@ -10,16 +10,14 @@ import Moya
 
 enum TouristInfoTarget {
   case getServiceCateogryCode(parameters: DictionaryType)
-  case getTouristInfoListByRegion(parameters: DictionaryType)
+  case getTouristInfoListByArea(parameters: DictionaryType)
   case getTouristInfoListByLocation(parameters: DictionaryType)
   case getTouristInfoListByKeyword(parameters: DictionaryType)
   case getFestival(parameters: DictionaryType)
-  case getStay(parameters: DictionaryType)
   case getTouristInfo(parameters: DictionaryType)
   case getTouristInfoIntro(parameters: DictionaryType)
-  case getTouristInfoDetail(parameters: DictionaryType)
   case getTouristIngoImageList(parameters: DictionaryType)
-  case getRegionCode(parameters: DictionaryType)
+  case getAreaCode(parameters: DictionaryType)
 }
 
 extension TouristInfoTarget: TargetType {
@@ -34,7 +32,7 @@ extension TouristInfoTarget: TargetType {
     switch self {
     case .getServiceCateogryCode:
       return "/categoryCode"
-    case .getTouristInfoListByRegion:
+    case .getTouristInfoListByArea:
       return "/areaBasedList"
     case .getTouristInfoListByLocation:
       return "/locationBasedList"
@@ -42,17 +40,13 @@ extension TouristInfoTarget: TargetType {
       return "/searchKeyword"
     case .getFestival:
       return "/searchFestival"
-    case .getStay:
-      return "/searchStay"
     case .getTouristInfo:
       return "/detailCommon"
     case .getTouristInfoIntro:
       return "/detailIntro"
-    case .getTouristInfoDetail:
-      return "/detailInfo"
     case .getTouristIngoImageList:
       return "/detailImage"
-    case .getRegionCode:
+    case .getAreaCode:
       return "/areaCode"
     }
   }
@@ -60,16 +54,14 @@ extension TouristInfoTarget: TargetType {
   var method: Moya.Method {
     switch self {
     case .getServiceCateogryCode,
-         .getTouristInfoListByRegion,
+         .getTouristInfoListByArea,
          .getTouristInfoListByLocation,
          .getTouristInfoListByKeyword,
          .getFestival,
-         .getStay,
          .getTouristInfo,
          .getTouristInfoIntro,
-         .getTouristInfoDetail,
          .getTouristIngoImageList,
-         .getRegionCode:
+         .getAreaCode:
       return .get
     }
   }
@@ -81,16 +73,14 @@ extension TouristInfoTarget: TargetType {
   var task: Task {
     switch self {
     case .getServiceCateogryCode(let parameters),
-         .getTouristInfoListByRegion(let parameters),
+         .getTouristInfoListByArea(let parameters),
          .getTouristInfoListByLocation(let parameters),
          .getTouristInfoListByKeyword(let parameters),
          .getFestival(let parameters),
-         .getStay(let parameters),
          .getTouristInfo(let parameters),
          .getTouristInfoIntro(let parameters),
-         .getTouristInfoDetail(let parameters),
          .getTouristIngoImageList(let parameters),
-         .getRegionCode(let parameters):
+         .getAreaCode(let parameters):
       return .requestParameters(
         parameters: parameters,
         encoding: URLEncoding.default

@@ -1,5 +1,5 @@
 //
-//  Locale.swift
+//  Area.swift
 //  Basecamp
 //
 //  Created by Sang hun Lee on 2022/12/16.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Region: String, CaseIterable {
+enum Area: String, CaseIterable {
   case 서울특별시
   case 경기도
   case 인천광역시

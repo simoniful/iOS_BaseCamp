@@ -7,10 +7,10 @@
 
 import UIKit
 
-class HomeRegionCell: UICollectionViewCell {
-  static let identifier = "HomeRegionCell"
+class HomeAreaCell: UICollectionViewCell {
+  static let identifier = "HomeAreaCell"
   
-  private var regionLabel = RegionLabel()
+  private var areaLabel = AreaLabel()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -22,14 +22,14 @@ class HomeRegionCell: UICollectionViewCell {
   }
   
   private func setConstraint() {
-    contentView.addSubview(regionLabel)
-    regionLabel.snp.makeConstraints { make in
+    contentView.addSubview(areaLabel)
+    areaLabel.snp.makeConstraints { make in
       make.top.bottom.left.equalToSuperview()
       make.right.equalToSuperview().priority(999)
     }
   }
   
   func updateUI(hobby text: String) {
-    regionLabel.text = text
+    areaLabel.text = text
   }
 }

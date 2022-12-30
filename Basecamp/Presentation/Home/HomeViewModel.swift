@@ -67,7 +67,7 @@ final class HomeViewModel: ViewModel {
       case 0:
         return self.headerSection()
       case 1:
-        return self.regionSection()
+        return self.areaSection()
       case 3:
         return self.festivalSection()
       default:
@@ -86,7 +86,7 @@ private extension HomeViewModel {
       return section
   }
   
-  private func regionSection() -> NSCollectionLayoutSection {
+  private func areaSection() -> NSCollectionLayoutSection {
       let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
       item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1.2)), subitem: item, count: 1)

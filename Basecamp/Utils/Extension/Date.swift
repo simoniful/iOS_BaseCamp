@@ -1,0 +1,22 @@
+//
+//  Date.swift
+//  Basecamp
+//
+//  Created by Sang hun Lee on 2022/12/30.
+//
+
+import Foundation
+
+extension Date {
+  func toString(format: String = "yyyy-MM-dd") -> String {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .short
+    formatter.dateFormat = format
+    return formatter.string(from: self)
+  }
+  
+  func addMonths(numberOfMonths: Int) -> Date {
+    let endDate = Calendar.current.date(byAdding: .month, value: numberOfMonths, to: self)
+    return endDate ?? Date()
+  }
+}

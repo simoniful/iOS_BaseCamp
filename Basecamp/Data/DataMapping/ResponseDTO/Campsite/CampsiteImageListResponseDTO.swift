@@ -8,51 +8,41 @@
 import Foundation
 
 // MARK: - CampsiteImageListResponseDTO
-struct CampsiteImageListResponseDTO: Codable {
-  let response: CampsiteImageListResponseDTO_Response
+struct CampsiteImageResponseDTO: Codable {
+  let response: CampsiteImageResponseDTO_Response
 }
 
 // MARK: - Response
-struct CampsiteImageListResponseDTO_Response: Codable {
+struct CampsiteImageResponseDTO_Response: Codable {
   let header: Header
-  let body: CampsiteImageListResponseDTO_Body
+  let body: CampsiteImageResponseDTO_Body
 }
 
 // MARK: - Body
-struct CampsiteImageListResponseDTO_Body: Codable {
-  let items: CampsiteImageListResponseDTO_Items
+struct CampsiteImageResponseDTO_Body: Codable {
+  let items: CampsiteImageResponseDTO_Items
   let numOfRows, pageNo, totalCount: Int
 }
 
 // MARK: - Items
-struct CampsiteImageListResponseDTO_Items: Codable {
-  let item: [CampsiteImageListResponseDTO_Item]
+struct CampsiteImageResponseDTO_Items: Codable {
+  let item: [CampsiteImageResponseDTO_Item]
 }
 
 // MARK: - Item
-struct CampsiteImageListResponseDTO_Item: Codable {
-  let contentID, serialnum: String?
+struct CampsiteImageResponseDTO_Item: Codable {
+  let contentId, serialnum: String?
   let imageURL: String?
   let createdtime, modifiedtime: String?
 
   enum CodingKeys: String, CodingKey {
-      case contentID = "contentId"
-      case serialnum
+      case contentId, serialnum
       case imageURL = "imageUrl"
       case createdtime, modifiedtime
   }
-  
-  init(from decoder: Decoder) throws {
-    let container = try decoder.container(keyedBy: CodingKeys.self)
-    self.contentID = try? container.decodeIfPresent(String.self, forKey: .contentID)
-    self.serialnum = try? container.decodeIfPresent(String.self, forKey: .serialnum)
-    self.imageURL = try? container.decodeIfPresent(String.self, forKey: .imageURL)
-    self.createdtime = try? container.decodeIfPresent(String.self, forKey: .createdtime)
-    self.modifiedtime = try? container.decodeIfPresent(String.self, forKey: .modifiedtime)
-  }
 }
 
-extension CampsiteImageListResponseDTO {
+extension CampsiteImageResponseDTO {
   func toDomain() -> [String] {
     return response.body.items.item.map {
       $0.toDomain()
@@ -60,7 +50,7 @@ extension CampsiteImageListResponseDTO {
   }
 }
 
-extension CampsiteImageListResponseDTO_Item {
+extension CampsiteImageResponseDTO_Item {
   func toDomain() -> String {
     guard let imageURL = imageURL else { return "" }
     return imageURL

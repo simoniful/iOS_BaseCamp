@@ -11,7 +11,7 @@ enum CampsiteQueryType {
   case basic(numOfRows: Int, pageNo: Int)
   case location(numOfRows: Int, pageNo: Int, coordinate: Coordinate, radius: Int)
   case keyword(numOfRows: Int, pageNo: Int, keyword: String)
-  case imageList(numOfRows: Int, pageNo: Int, conteneId: Int)
+  case image(numOfRows: Int, pageNo: Int, conteneId: Int)
   
   var query: CampsiteQuery {
     switch self {
@@ -33,8 +33,7 @@ enum CampsiteQueryType {
         mobileOS: "IOS",
         moblieApp: "Basecamp",
         serviceKey: APIKey.campsite.rawValue,
-        mapX: coordinate.longitude,
-        mapY: coordinate.latitude,
+        coordinate: coordinate,
         radius: radius
       )
     case .keyword(let numOfRows,
@@ -48,10 +47,10 @@ enum CampsiteQueryType {
         serviceKey: APIKey.campsite.rawValue,
         keyword: keyword
       )
-    case .imageList(let numOfRows,
+    case .image(let numOfRows,
                     let pageNo,
                     let contentId):
-      return CampsiteImageListQuery(
+      return CampsiteImageQuery(
         numOfRows: numOfRows,
         pageNo: pageNo,
         mobileOS: "IOS",
@@ -85,8 +84,7 @@ struct CampsiteLocationQuery: CampsiteQuery {
   let mobileOS: String
   let moblieApp: String
   let serviceKey: String
-  var mapX: Double
-  var mapY: Double
+  var coordinate: Coordinate
   var radius: Int
 }
 
@@ -99,7 +97,7 @@ struct CampsiteKeywordQuery: CampsiteQuery {
   var keyword: String
 }
 
-struct CampsiteImageListQuery: CampsiteQuery {
+struct CampsiteImageQuery: CampsiteQuery {
   var numOfRows: Int
   var pageNo: Int
   let mobileOS: String

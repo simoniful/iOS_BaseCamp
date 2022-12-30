@@ -45,7 +45,7 @@ final class HomeUseCase {
   // Realm, Campsite, Tourist 데이터가 모두 완료된 후
   func getHomeSectionModel(
     _ realmData: [HomeHeaderItem],
-    _ regionData: [HomeRegionItem],
+    _ areaData: [HomeAreaItem],
     _ firstCampsiteList: [Campsite],
     _ secondCampsiteList: [Campsite],
     _ touristList: [TouristInfo]
@@ -53,10 +53,10 @@ final class HomeUseCase {
   ) -> [HomeSectionModel] {
     var data: [HomeSectionModel] = []
     data.append(.headerSection(items: realmData))
-    data.append(.regionSection(items: regionData))
+    data.append(.areaSection(items: areaData))
     data.append(.campsiteSection(header: "반려동물", items: firstCampsiteList))
     data.append(.campsiteSection(header: "아이들", items: secondCampsiteList))
-    data.append(.festivalSection(items: <#T##[Festival]#>))
+    data.append(.festivalSection(items: touristList))
     return data
   }
   
@@ -74,11 +74,11 @@ final class HomeUseCase {
   }
   
   // MARK: - 지역 정보 매핑
-  func requestResgionData() -> [HomeRegionItem] {
-    let regionList = Region.allCases.map {
-      HomeRegionItem(region: $0)
+  func requestResgionData() -> [HomeAreaItem] {
+    let areaList = Area.allCases.map {
+      HomeAreaItem(area: $0)
     }
-    return regionList
+    return areaList
   }
   
   // MARK: - 고캠핑 레포 연결

@@ -8,19 +8,19 @@
 import Foundation
 
 enum TouristInfoQueryType {
-  case region(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, areaCode: Int, sigunguCode: Int)
+  case area(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, areaCode: Area, sigunguCode: Sigungu)
   case location(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, coordinate: Coordinate, radius: Int)
-  case keyword(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, areaCode: Int, sigunguCode: Int, keyword: String)
-  case festival(numOfRows: Int, pageNo: Int, areaCode: Int, sigunguCode: Int, eventStartDate: String, eventEndDate: String)
+  case keyword(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, areaCode: Area, sigunguCode: Sigungu, keyword: String)
+  case festival(numOfRows: Int, pageNo: Int, areaCode: Area, sigunguCode: Sigungu, eventStartDate: Date)
   case commonInfo(contentId: Int, contentTypeId: TouristInfoContentType)
   case introInfo(contentId: Int, contentTypeId: TouristInfoContentType)
-  case imageList(contentId: Int)
-  case regionCode(numOfRows: Int, pageNo: Int, areaCode: Int)
+  case image(contentId: Int)
+  case areaCode(numOfRows: Int, pageNo: Int, areaCode: Area)
   
   var query: TouristInfoQuery {
     switch self {
-    case .region(let numOfRows, let pageNo, let contentTypeId, let areaCode, let sigunguCode):
-      return TouristInfoRegionQuery(
+    case .area(let numOfRows, let pageNo, let contentTypeId, let areaCode, let sigunguCode):
+      return TouristInfoAreaQuery(
         numOfRows: numOfRows,
         pageNo: pageNo,
         mobileOS: "IOS",
@@ -38,8 +38,7 @@ enum TouristInfoQueryType {
         moblieApp: "Basecamp",
         serviceKey: APIKey.touristInfo.rawValue,
         contentTypeId: contentTypeId,
-        mapX: coordinate.longitude,
-        mapY: coordinate.latitude,
+        coordinate: coordinate,
         radius: radius
       )
     case .keyword(let numOfRows, let pageNo, let contentTypeId, let areaCode, let sigunguCode, let keyword):
@@ -54,7 +53,7 @@ enum TouristInfoQueryType {
         sigunguCode: sigunguCode,
         keyword: keyword
        )
-    case .festival(let numOfRows, let pageNo, let areaCode, let sigunguCode, let eventStartDate, let eventEndDate):
+    case .festival(let numOfRows, let pageNo, let areaCode, let sigunguCode, let eventStartDate):
       return TouristInfoFestivalQuery(
         numOfRows: numOfRows,
         pageNo: pageNo,
@@ -63,8 +62,7 @@ enum TouristInfoQueryType {
         serviceKey: APIKey.touristInfo.rawValue,
         areaCode: areaCode,
         sigunguCode: sigunguCode,
-        eventStartDate: eventStartDate,
-        eventEndDate: eventEndDate
+        eventStartDate: eventStartDate
       )
     case .commonInfo(let contentId, let contentTypeId):
       return TouristInfoCommonQuery(
@@ -82,15 +80,15 @@ enum TouristInfoQueryType {
         contentId: contentId,
         contentTypeId: contentTypeId
       )
-    case .imageList(let contentId):
-      return TouristInfoImageListQuery(
+    case .image(let contentId):
+      return TouristInfoImageQuery(
         mobileOS: "IOS",
         moblieApp: "Basecamp",
         serviceKey: APIKey.touristInfo.rawValue,
         contentId: contentId
       )
-    case .regionCode(let numOfRows, let pageNo, let areaCode):
-      return TouristInfoRegionCodeQuery(
+    case .areaCode(let numOfRows, let pageNo, let areaCode):
+      return TouristInfoAreaCodeQuery(
         numOfRows: numOfRows,
         pageNo: pageNo,
         mobileOS: "IOS",
@@ -108,15 +106,15 @@ protocol TouristInfoQuery {
   var serviceKey: String { get }
 }
 
-struct TouristInfoRegionQuery: TouristInfoQuery {
+struct TouristInfoAreaQuery: TouristInfoQuery {
   var numOfRows: Int
   var pageNo: Int
   let mobileOS: String
   let moblieApp: String
   let serviceKey: String
   let contentTypeId: TouristInfoContentType
-  let areaCode: Int
-  let sigunguCode: Int
+  let areaCode: Area
+  let sigunguCode: Sigungu
 }
 
 struct TouristInfoLocationQuery: TouristInfoQuery {
@@ -126,8 +124,7 @@ struct TouristInfoLocationQuery: TouristInfoQuery {
   let moblieApp: String
   let serviceKey: String
   let contentTypeId: TouristInfoContentType
-  var mapX: Double
-  var mapY: Double
+  var coordinate: Coordinate
   var radius: Int
 }
 
@@ -138,8 +135,8 @@ struct TouristInfoKeywordQuery: TouristInfoQuery {
   let moblieApp: String
   let serviceKey: String
   let contentTypeId: TouristInfoContentType
-  var areaCode: Int
-  var sigunguCode: Int
+  var areaCode: Area
+  var sigunguCode: Sigungu
   var keyword: String
 }
 
@@ -149,10 +146,12 @@ struct TouristInfoFestivalQuery: TouristInfoQuery {
   let mobileOS: String
   let moblieApp: String
   let serviceKey: String
-  var areaCode: Int
-  var sigunguCode: Int
-  var eventStartDate: String
-  var eventEndDate: String
+  var areaCode: Area
+  var sigunguCode: Sigungu
+  var eventStartDate: Date = Date()
+  var eventEndDate: Date {
+    return eventStartDate.addMonths(numberOfMonths: 1)
+  }
 }
 
 struct TouristInfoCommonQuery: TouristInfoQuery {
@@ -171,18 +170,18 @@ struct TouristInfoIntroQuery: TouristInfoQuery {
   var contentTypeId: TouristInfoContentType
 }
 
-struct TouristInfoImageListQuery: TouristInfoQuery {
+struct TouristInfoImageQuery: TouristInfoQuery {
   let mobileOS: String
   let moblieApp: String
   let serviceKey: String
   var contentId: Int
 }
 
-struct TouristInfoRegionCodeQuery: TouristInfoQuery {
+struct TouristInfoAreaCodeQuery: TouristInfoQuery {
   var numOfRows: Int
   var pageNo: Int
   let mobileOS: String
   let moblieApp: String
   let serviceKey: String
-  var areaCode: Int
+  var areaCode: Area
 }
