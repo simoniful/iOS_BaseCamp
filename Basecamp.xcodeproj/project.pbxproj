@@ -908,9 +908,9 @@
 		F4E3E5CC295DA6D3009AFCFC /* TouristInfo */ = {
 			isa = PBXGroup;
 			children = (
+				F4E3E5D7295DD48C009AFCFC /* TouristInfoContentType.swift */,
 				F49034C2295004E100CDE442 /* TouristInfo.swift */,
 				F4E3E5BA295D779A009AFCFC /* TouristInfoCommon.swift */,
-				F4E3E5D7295DD48C009AFCFC /* TouristInfoContentType.swift */,
 				F4E3E5D2295DB1B6009AFCFC /* TouristInfoIntro */,
 			);
 			path = TouristInfo;

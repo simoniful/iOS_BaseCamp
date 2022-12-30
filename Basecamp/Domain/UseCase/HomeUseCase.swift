@@ -74,7 +74,7 @@ final class HomeUseCase {
   }
   
   // MARK: - 지역 정보 매핑
-  func requestResgionData() -> [HomeAreaItem] {
+  func requestAreaData() -> [HomeAreaItem] {
     let areaList = Area.allCases.map {
       HomeAreaItem(area: $0)
     }
@@ -84,26 +84,30 @@ final class HomeUseCase {
   // MARK: - 고캠핑 레포 연결
   // 파라미터 구성 및 viewModel 연결
   func requestCampsiteList(numOfRows: Int, pageNo: Int) -> Single<Result<[Campsite], CampsiteServiceError>> {
-    campsiteRepository.requestCampsite(
+    campsiteRepository.requestCampsiteList(
       campsiteQueryType: .basic(numOfRows: numOfRows, pageNo: pageNo)
     )
   }
   
   func requestCampsiteList(numOfRows: Int, pageNo: Int, keyword: String) -> Single<Result<[Campsite], CampsiteServiceError>> {
-    campsiteRepository.requestCampsite(
+    campsiteRepository.requestCampsiteList(
       campsiteQueryType: .keyword(numOfRows: numOfRows, pageNo: pageNo, keyword: keyword)
     )
   }
   
   func requestCampsiteList(numOfRows: Int, pageNo: Int, coordinate: Coordinate, radius: Int) -> Single<Result<[Campsite], CampsiteServiceError>> {
-    campsiteRepository.requestCampsite(
-      campsiteQueryType: .location(numOfRows: numOfRows, pageNo: pageNo, coordinate: coordinate, radius: radius)
+    campsiteRepository.requestCampsiteList(
+      campsiteQueryType: .location(
+        numOfRows: numOfRows, pageNo: pageNo, coordinate: coordinate, radius: radius
+      )
     )
   }
   
   // MARK: - 관광정보 레포 연결
-  // home의 경우 페스티벌만 이용 
-  func requestTouristInfoList() {
-    
+  func requestTouristInfoList(numOfRows: Int, pageNo: Int, areaCode: Area, sigunguCode: Sigungu, eventStartDate: Date = Date()) -> Single<Result<[TouristInfo], TouristInfoServiceError>> {
+    touristInfoRepository.requestTouristInfoList(
+      touristInfoQueryType: .festival(
+        numOfRows: numOfRows, pageNo: pageNo, areaCode: areaCode, sigunguCode: sigunguCode, eventStartDate: eventStartDate)
+    )
   }
 }
