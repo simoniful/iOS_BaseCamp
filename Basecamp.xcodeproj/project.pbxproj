@@ -108,7 +108,7 @@
 		F4E3E5BF295D77B1009AFCFC /* TouristInfoIntroSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5BE295D77B1009AFCFC /* TouristInfoIntroSpot.swift */; };
 		F4E3E5C1295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5C0295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift */; };
 		F4E3E5C3295D7BE7009AFCFC /* TouristInfoIntroResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5C2295D7BE7009AFCFC /* TouristInfoIntroResponseDTO.swift */; };
-		F4E3E5C9295D8342009AFCFC /* TouristInfoImageListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5C8295D8342009AFCFC /* TouristInfoImageListResponseDTO.swift */; };
+		F4E3E5C9295D8342009AFCFC /* TouristInfoImageResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5C8295D8342009AFCFC /* TouristInfoImageResponseDTO.swift */; };
 		F4E3E5CB295D8358009AFCFC /* TouristInfoAreaCodeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5CA295D8358009AFCFC /* TouristInfoAreaCodeResponseDTO.swift */; };
 		F4E3E5CF295DA92E009AFCFC /* TouristInfoIntroCulture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5CE295DA92E009AFCFC /* TouristInfoIntroCulture.swift */; };
 		F4E3E5D1295DB1A9009AFCFC /* TouristInfoIntroLeisure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5D0295DB1A9009AFCFC /* TouristInfoIntroLeisure.swift */; };
@@ -238,7 +238,7 @@
 		F4E3E5BE295D77B1009AFCFC /* TouristInfoIntroSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroSpot.swift; sourceTree = "<group>"; };
 		F4E3E5C0295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoCommonResponseDTO.swift; sourceTree = "<group>"; };
 		F4E3E5C2295D7BE7009AFCFC /* TouristInfoIntroResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroResponseDTO.swift; sourceTree = "<group>"; };
-		F4E3E5C8295D8342009AFCFC /* TouristInfoImageListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoImageListResponseDTO.swift; sourceTree = "<group>"; };
+		F4E3E5C8295D8342009AFCFC /* TouristInfoImageResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoImageResponseDTO.swift; sourceTree = "<group>"; };
 		F4E3E5CA295D8358009AFCFC /* TouristInfoAreaCodeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoAreaCodeResponseDTO.swift; sourceTree = "<group>"; };
 		F4E3E5CE295DA92E009AFCFC /* TouristInfoIntroCulture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroCulture.swift; sourceTree = "<group>"; };
 		F4E3E5D0295DB1A9009AFCFC /* TouristInfoIntroLeisure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroLeisure.swift; sourceTree = "<group>"; };
@@ -899,7 +899,7 @@
 				F4E3E5B4295D3053009AFCFC /* TouristInfoResponseDTO.swift */,
 				F4E3E5C0295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift */,
 				F4E3E5C2295D7BE7009AFCFC /* TouristInfoIntroResponseDTO.swift */,
-				F4E3E5C8295D8342009AFCFC /* TouristInfoImageListResponseDTO.swift */,
+				F4E3E5C8295D8342009AFCFC /* TouristInfoImageResponseDTO.swift */,
 				F4E3E5CA295D8358009AFCFC /* TouristInfoAreaCodeResponseDTO.swift */,
 			);
 			path = TouristInfo;
@@ -1115,7 +1115,7 @@
 				F49034E829515B4E00CDE442 /* WeatherAPIEnvironment.swift in Sources */,
 				F4D10EFC2949931D000C02E0 /* HomeView.swift in Sources */,
 				F4E3E5CF295DA92E009AFCFC /* TouristInfoIntroCulture.swift in Sources */,
-				F4E3E5C9295D8342009AFCFC /* TouristInfoImageListResponseDTO.swift in Sources */,
+				F4E3E5C9295D8342009AFCFC /* TouristInfoImageResponseDTO.swift in Sources */,
 				F4E3E5EE295E9574009AFCFC /* TouristInfoImageRequestDTO.swift in Sources */,
 				F4E3E5B5295D3053009AFCFC /* TouristInfoResponseDTO.swift in Sources */,
 				F49034D229504DD400CDE442 /* CampsiteTargetStub.swift in Sources */,

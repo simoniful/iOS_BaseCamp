@@ -89,7 +89,7 @@ enum Area: String, CaseIterable {
 }
 
 struct Sigungu {
-  let rnum: Int
-  let code: String
-  let name: String
+  let rnum: Int?
+  let code: String?
+  let name: String?
 }
