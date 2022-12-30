@@ -34,7 +34,7 @@ enum CampsiteTarget {
   case getCampsite(parameters: DictionaryType)
   case getCampsiteByLocation(parameters: DictionaryType)
   case getCampsiteByKeyword(parameters: DictionaryType)
-  case getCampsiteImageList(parameters: DictionaryType)
+  case getCampsiteImage(parameters: DictionaryType)
 }
 
 extension CampsiteTarget: TargetType {
@@ -53,7 +53,7 @@ extension CampsiteTarget: TargetType {
       return "/locationBasedList"
     case .getCampsiteByKeyword:
       return "/searchList"
-    case .getCampsiteImageList:
+    case .getCampsiteImage:
       return "/imageList"
     }
   }
@@ -63,7 +63,7 @@ extension CampsiteTarget: TargetType {
     case .getCampsite,
          .getCampsiteByLocation,
          .getCampsiteByKeyword,
-         .getCampsiteImageList:
+         .getCampsiteImage:
       return .get
     }
   }
@@ -77,7 +77,7 @@ extension CampsiteTarget: TargetType {
     case .getCampsite(let parameters),
          .getCampsiteByLocation(let parameters),
          .getCampsiteByKeyword(let parameters),
-         .getCampsiteImageList(let parameters):
+         .getCampsiteImage(let parameters):
       return .requestParameters(
         parameters: parameters,
         encoding: URLEncoding.default

@@ -26,7 +26,7 @@ struct TouristInfoIntroRequestDTO: Codable, TouristInfoRequestDTO {
     return dict
   }
   
-  init(query: TouristInfoCommonQuery) {
+  init(query: TouristInfoIntroQuery) {
     self.moblieOS = query.mobileOS
     self.mobileApp = query.moblieApp
     self.serviceKey = query.serviceKey

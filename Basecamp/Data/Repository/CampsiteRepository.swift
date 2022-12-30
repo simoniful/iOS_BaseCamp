@@ -52,16 +52,22 @@ extension CampsiteServiceError {
 
 final class CampsiteRepository: CampsiteRepositoryInterface {
   func requestCampsiteList(campsiteQueryType: CampsiteQueryType) -> Single<Result<[Campsite], CampsiteServiceError>> {
-    let requestDTO = CampsiteRequestDTO(campsiteQueryType: campsiteQueryType)
-    
     var target: MultiTarget
     switch campsiteQueryType {
+    case .basic:
+      let query = campsiteQueryType.query as! CampsiteBasicQuery
+      let requestDTO = CampsiteBasicRequestDTO(query: query)
+      target = MultiTarget(CampsiteTarget.getCampsite(parameters: requestDTO.toDictionary))
     case .location:
+      let query = campsiteQueryType.query as! CampsiteLocationQuery
+      let requestDTO = CampsiteLocationRequestDTO(query: query)
       target = MultiTarget(CampsiteTarget.getCampsiteByLocation(parameters: requestDTO.toDictionary))
     case .keyword:
+      let query = campsiteQueryType.query as! CampsiteKeywordQuery
+      let requestDTO = CampsiteKeywordRequestDTO(query: query)
       target = MultiTarget(CampsiteTarget.getCampsiteByKeyword(parameters: requestDTO.toDictionary))
-    default:
-      target = MultiTarget(CampsiteTarget.getCampsite(parameters: requestDTO.toDictionary))
+    case .image:
+      return Single.just(Result.failure(.applicationError))
     }
     
     return provider.rx.request(
@@ -78,13 +84,14 @@ final class CampsiteRepository: CampsiteRepositoryInterface {
   }
   
   func requestCampsiteImageList(campsiteQueryType: CampsiteQueryType) -> Single<Result<[String], CampsiteServiceError>> {
-    let requestDTO = CampsiteRequestDTO(campsiteQueryType: campsiteQueryType)
+    let query = campsiteQueryType.query as! CampsiteImageQuery
+    let requestDTO = CampsiteImageRequestDTO(query: query)
     return provider.rx.request(
-      MultiTarget(CampsiteTarget.getCampsiteImageList(parameters: requestDTO.toDictionary))
+      MultiTarget(CampsiteTarget.getCampsiteImage(parameters: requestDTO.toDictionary))
     )
     .filterSuccessfulStatusCodes()
     .flatMap { response -> Single<Result<[String], CampsiteServiceError>> in
-      let responseDTO = try response.map(CampsiteImageListResponseDTO.self)
+      let responseDTO = try response.map(CampsiteImageResponseDTO.self)
       return Single.just(Result.success(responseDTO.toDomain()))
     }
     .catch { error in

@@ -72,21 +72,27 @@ extension TouristInfoServiceError {
 
 final class TouristInfoRepository: TouristInfoRepositoryInterface {
   func requestTouristInfoList(touristInfoQueryType: TouristInfoQueryType) -> Single<Result<[TouristInfo], TouristInfoServiceError>> {
-    let requestDTO = TouristInfoRequestDTO(touristInfoQueryType: touristInfoQueryType)
     var target: MultiTarget
     switch touristInfoQueryType {
     case .area:
+      let query = touristInfoQueryType.query as! TouristInfoAreaQuery
+      let requestDTO = TouristInfoAreaRequestDTO(query: query)
       target = MultiTarget(TouristInfoTarget.getTouristInfoListByArea(parameters: requestDTO.toDictionary))
     case .location:
+      let query = touristInfoQueryType.query as! TouristInfoLocationQuery
+      let requestDTO = TouristInfoLocationRequestDTO(query: query)
       target = MultiTarget(TouristInfoTarget.getTouristInfoListByLocation(parameters: requestDTO.toDictionary))
     case .keyword:
+      let query = touristInfoQueryType.query as! TouristInfoKeywordQuery
+      let requestDTO = TouristInfoKeywordRequestDTO(query: query)
       target = MultiTarget(TouristInfoTarget.getTouristInfoListByKeyword(parameters: requestDTO.toDictionary))
     case .festival:
+      let query = touristInfoQueryType.query as! TouristInfoFestivalQuery
+      let requestDTO = TouristInfoFestivalRequestDTO(query: query)
       target = MultiTarget(TouristInfoTarget.getFestival(parameters: requestDTO.toDictionary))
-    default:
-      target = MultiTarget(TouristInfoTarget.getTouristInfoListByLocation(parameters: requestDTO.toDictionary))
+    case .commonInfo, .introInfo, .image, .areaCode:
+      return Single.just(Result.failure(.unknownError))
     }
-    
     return provider.rx.request(target)
       .filterSuccessfulStatusCodes()
       .flatMap { response -> Single<Result<[TouristInfo], TouristInfoServiceError>> in
@@ -99,7 +105,8 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
   }
   
   func requestTouristInfoCommon(touristInfoQueryType: TouristInfoQueryType) -> Single<Result<[TouristInfoCommon], TouristInfoServiceError>> {
-    let requestDTO = TouristInfoRequestDTO(touristInfoQueryType: touristInfoQueryType)
+    let query = touristInfoQueryType.query as! TouristInfoCommonQuery
+    let requestDTO = TouristInfoCommonRequestDTO(query: query)
     return provider.rx.request(
       MultiTarget(TouristInfoTarget.getTouristInfo(parameters: requestDTO.toDictionary))
     )
@@ -111,17 +118,16 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
     .catch { error in
       return Single.just(Result.failure(.unknownError))
     }
-    
   }
   
   func requestTouristInfoIntro(touristInfoQueryType: TouristInfoQueryType, contentType: TouristInfoContentType) -> Single<Result<[TouristInfoIntro], TouristInfoServiceError>> {
-    let requestDTO = TouristInfoRequestDTO(touristInfoQueryType: touristInfoQueryType)
+    let query = touristInfoQueryType.query as! TouristInfoIntroQuery
+    let requestDTO = TouristInfoIntroRequestDTO(query: query)
     return provider.rx.request(
       MultiTarget(TouristInfoTarget.getTouristInfoIntro(parameters: requestDTO.toDictionary))
     )
     .filterSuccessfulStatusCodes()
     .flatMap { response -> Single<Result<[TouristInfoIntro], TouristInfoServiceError>> in
-      // 함수 분리
       switch contentType {
       case .touristSpot:
         let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_SpotItem>.self)
@@ -149,11 +155,35 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
   }
   
   
-  func requestTouristInfoImageList(campsiteQueryType: CampsiteQueryType) -> Single<Result<[String], TouristInfoServiceError>> {
-    <#code#>
+  func requestTouristInfoImageList(touristInfoQueryType: TouristInfoQueryType) -> Single<Result<[String], TouristInfoServiceError>> {
+    let query = touristInfoQueryType.query as! TouristInfoImageQuery
+    let requestDTO = TouristInfoImageRequestDTO(query: query)
+    return provider.rx.request(
+      MultiTarget(TouristInfoTarget.getTouristInfoImage(parameters: requestDTO.toDictionary))
+    )
+    .filterSuccessfulStatusCodes()
+    .flatMap { response -> Single<Result<[String], TouristInfoServiceError>> in
+      let responseDTO = try response.map(TouristInfoImageResponseDTO.self)
+      return Single.just(Result.success(responseDTO.toDomain()))
+    }
+    .catch { error in
+      return Single.just(Result.failure(.unknownError))
+    }
   }
   
-  func requestTouristInfoAreaCode(campsiteQueryType: CampsiteQueryType) -> Single<Result<[Sigungu], TouristInfoServiceError>> {
-    
+  func requestTouristInfoAreaCode(touristInfoQueryType: TouristInfoQueryType) -> Single<Result<[Sigungu], TouristInfoServiceError>> {
+    let query = touristInfoQueryType.query as! TouristInfoAreaCodeQuery
+    let requestDTO = TouristInfoAreaCodeRequestDTO(query: query)
+    return provider.rx.request(
+      MultiTarget(TouristInfoTarget.getTouristInfoImage(parameters: requestDTO.toDictionary))
+    )
+    .filterSuccessfulStatusCodes()
+    .flatMap { response -> Single<Result<[Sigungu], TouristInfoServiceError>> in
+      let responseDTO = try response.map(TouristInfoAreaCodeResponseDTO.self)
+      return Single.just(Result.success(responseDTO.toDomain()))
+    }
+    .catch { error in
+      return Single.just(Result.failure(.unknownError))
+    }
   }
 }

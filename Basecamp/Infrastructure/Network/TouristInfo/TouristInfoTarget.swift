@@ -16,7 +16,7 @@ enum TouristInfoTarget {
   case getFestival(parameters: DictionaryType)
   case getTouristInfo(parameters: DictionaryType)
   case getTouristInfoIntro(parameters: DictionaryType)
-  case getTouristIngoImageList(parameters: DictionaryType)
+  case getTouristInfoImage(parameters: DictionaryType)
   case getAreaCode(parameters: DictionaryType)
 }
 
@@ -44,7 +44,7 @@ extension TouristInfoTarget: TargetType {
       return "/detailCommon"
     case .getTouristInfoIntro:
       return "/detailIntro"
-    case .getTouristIngoImageList:
+    case .getTouristInfoImage:
       return "/detailImage"
     case .getAreaCode:
       return "/areaCode"
@@ -60,7 +60,7 @@ extension TouristInfoTarget: TargetType {
          .getFestival,
          .getTouristInfo,
          .getTouristInfoIntro,
-         .getTouristIngoImageList,
+         .getTouristInfoImage,
          .getAreaCode:
       return .get
     }
@@ -79,7 +79,7 @@ extension TouristInfoTarget: TargetType {
          .getFestival(let parameters),
          .getTouristInfo(let parameters),
          .getTouristInfoIntro(let parameters),
-         .getTouristIngoImageList(let parameters),
+         .getTouristInfoImage(let parameters),
          .getAreaCode(let parameters):
       return .requestParameters(
         parameters: parameters,

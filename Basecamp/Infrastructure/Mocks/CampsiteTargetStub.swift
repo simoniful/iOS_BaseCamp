@@ -10,7 +10,7 @@ import Foundation
 extension CampsiteTarget {
   func stubData(_ target: CampsiteTarget) -> Data {
     switch self {
-    case .getCampsite, .getCampsiteByLocation, .getCampsiteByKeyword, .getCampsiteImageList:
+    case .getCampsite, .getCampsiteByLocation, .getCampsiteByKeyword, .getCampsiteImage:
       return Data(
         """
         {

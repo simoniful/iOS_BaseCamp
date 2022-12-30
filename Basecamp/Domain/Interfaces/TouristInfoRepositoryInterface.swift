@@ -15,5 +15,7 @@ protocol TouristInfoRepositoryInterface: AnyObject {
   
   func requestTouristInfoIntro(touristInfoQueryType: TouristInfoQueryType, contentType: TouristInfoContentType) -> Single<Result<[TouristInfoIntro], TouristInfoServiceError>>
   
-  func requestTouristInfoImageList(campsiteQueryType: CampsiteQueryType) -> Single<Result<[String], TouristInfoServiceError>>
+  func requestTouristInfoImageList(touristInfoQueryType: TouristInfoQueryType) -> Single<Result<[String], TouristInfoServiceError>>
+  
+  func requestTouristInfoAreaCode(touristInfoQueryType: TouristInfoQueryType) -> Single<Result<[Sigungu], TouristInfoServiceError>>
 }
