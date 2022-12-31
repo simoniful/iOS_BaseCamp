@@ -44,7 +44,7 @@ struct TouristInfoKeywordRequestDTO: Codable, TouristInfoRequestDTO {
     self.serviceKey = query.serviceKey
     self.contentTypeId = query.contentTypeId.rawValue.string
     self.areaCode = query.areaCode.areaCode.string
-    self.sigunguCode = query.sigunguCode.code
+    self.sigunguCode = query.sigunguCode.code ?? ""
     self.keyword = query.keyword
   }
 }

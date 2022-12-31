@@ -10,7 +10,8 @@ import UIKit
 class HomeCampsiteCell: UICollectionViewCell {
   static let identifier = "HomeCampsiteCell"
   
-  // Image, name, location
+  private var areaLabel = AreaLabel()
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setConstraint()
@@ -21,6 +22,14 @@ class HomeCampsiteCell: UICollectionViewCell {
   }
   
   private func setConstraint() {
+    contentView.addSubview(areaLabel)
+    areaLabel.snp.makeConstraints { make in
+      make.top.bottom.left.equalToSuperview()
+      make.right.equalToSuperview().priority(999)
+    }
+  }
+  
+  func setData(campsite: Campsite) {
     
   }
 

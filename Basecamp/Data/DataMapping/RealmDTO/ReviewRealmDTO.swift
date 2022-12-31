@@ -9,17 +9,29 @@ import Foundation
 import RealmSwift
 
 class ReviewDTO: Object {
-    @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted var rate: Double
-    @Persisted var content: String
-    @Persisted var regDate: Date
-    @Persisted var campsite: CampsiteRealmDTO
-    
-    convenience init(rate: Double, content: String, regDate: Date, campsite: CampsiteRealmDTO) {
-        self.init()
-        self.rate = rate
-        self.content = content
-        self.regDate = regDate
-        self.campsite = campsite
-    }
+  @Persisted(primaryKey: true) var _id: ObjectId
+  @Persisted var rate: Double?
+  @Persisted var content: String?
+  @Persisted var regDate: Date?
+  @Persisted var campsite: CampsiteRealmDTO?
+  
+  convenience init(rate: Double, content: String, regDate: Date, campsite: CampsiteRealmDTO) {
+    self.init()
+    self.rate = rate
+    self.content = content
+    self.regDate = regDate
+    self.campsite = campsite
+  }
+}
+
+extension ReviewDTO {
+  func toDomain() -> Review {
+    return .init(
+      _id: _id.stringValue,
+      rate: rate,
+      content: content,
+      regDate: regDate,
+      campsite: campsite?.toDomain()
+    )
+  }
 }

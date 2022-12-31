@@ -23,8 +23,6 @@
 		F49034922949BB5500CDE442 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = F49034912949BB5500CDE442 /* RxGesture */; };
 		F4903495294A172D00CDE442 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4903494294A172D00CDE442 /* HomeHeaderCell.swift */; };
 		F4903499294AB2CA00CDE442 /* HomeAreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4903498294AB2CA00CDE442 /* HomeAreaCell.swift */; };
-		F490349D294AB36A00CDE442 /* HomeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490349C294AB36A00CDE442 /* HomeCollectionView.swift */; };
-		F490349F294AB38400CDE442 /* HomeCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F490349E294AB38400CDE442 /* HomeCollectionViewModel.swift */; };
 		F49034A5294AC72700CDE442 /* AreaLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034A4294AC72700CDE442 /* AreaLabel.swift */; };
 		F49034A8294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */; };
 		F49034AA294C366600CDE442 /* HomeSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034A9294C366600CDE442 /* HomeSectionModel.swift */; };
@@ -72,7 +70,6 @@
 		F4D10EED29498963000C02E0 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EEC29498963000C02E0 /* HomeCoordinator.swift */; };
 		F4D10EF529498F71000C02E0 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EF429498F71000C02E0 /* Coordinate.swift */; };
 		F4D10EFA294992A8000C02E0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EF9294992A8000C02E0 /* HomeViewController.swift */; };
-		F4D10EFC2949931D000C02E0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EFB2949931D000C02E0 /* HomeView.swift */; };
 		F4D10EFE2949932B000C02E0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EFD2949932B000C02E0 /* HomeViewModel.swift */; };
 		F4D10F0129499386000C02E0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10F0029499386000C02E0 /* ViewModel.swift */; };
 		F4D10F0429499427000C02E0 /* ViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10F0329499427000C02E0 /* ViewRepresentable.swift */; };
@@ -128,6 +125,7 @@
 		F4E3E5EE295E9574009AFCFC /* TouristInfoImageRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5ED295E9574009AFCFC /* TouristInfoImageRequestDTO.swift */; };
 		F4E3E5F0295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5EF295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift */; };
 		F4E3E5F2295EA028009AFCFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5F1295EA028009AFCFC /* Date.swift */; };
+		F4E3E5F529604B43009AFCFC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5F429604B43009AFCFC /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,8 +148,6 @@
 /* Begin PBXFileReference section */
 		F4903494294A172D00CDE442 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		F4903498294AB2CA00CDE442 /* HomeAreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAreaCell.swift; sourceTree = "<group>"; };
-		F490349C294AB36A00CDE442 /* HomeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionView.swift; sourceTree = "<group>"; };
-		F490349E294AB38400CDE442 /* HomeCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewModel.swift; sourceTree = "<group>"; };
 		F49034A4294AC72700CDE442 /* AreaLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaLabel.swift; sourceTree = "<group>"; };
 		F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLeftAlignFlowLayout.swift; sourceTree = "<group>"; };
 		F49034A9294C366600CDE442 /* HomeSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionModel.swift; sourceTree = "<group>"; };
@@ -203,7 +199,6 @@
 		F4D10EEC29498963000C02E0 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		F4D10EF429498F71000C02E0 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		F4D10EF9294992A8000C02E0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		F4D10EFB2949931D000C02E0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F4D10EFD2949932B000C02E0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F4D10F0029499386000C02E0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		F4D10F0329499427000C02E0 /* ViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRepresentable.swift; sourceTree = "<group>"; };
@@ -258,6 +253,7 @@
 		F4E3E5ED295E9574009AFCFC /* TouristInfoImageRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoImageRequestDTO.swift; sourceTree = "<group>"; };
 		F4E3E5EF295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoAreaCodeRequestDTO.swift; sourceTree = "<group>"; };
 		F4E3E5F1295EA028009AFCFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		F4E3E5F429604B43009AFCFC /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,34 +297,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F4903493294A157E00CDE442 /* Subs */ = {
-			isa = PBXGroup;
-			children = (
-				F4903496294AB1DE00CDE442 /* Collection */,
-			);
-			path = Subs;
-			sourceTree = "<group>";
-		};
-		F4903496294AB1DE00CDE442 /* Collection */ = {
-			isa = PBXGroup;
-			children = (
-				F490349C294AB36A00CDE442 /* HomeCollectionView.swift */,
-				F490349E294AB38400CDE442 /* HomeCollectionViewModel.swift */,
-				F4903497294AB26600CDE442 /* Subs */,
-			);
-			path = Collection;
-			sourceTree = "<group>";
-		};
 		F4903497294AB26600CDE442 /* Subs */ = {
 			isa = PBXGroup;
 			children = (
 				F49034A0294AB3BD00CDE442 /* HeaderSectionCell */,
-				F49034A1294AB3E300CDE442 /* RegionSectionCell */,
+				F49034A1294AB3E300CDE442 /* AreaSectionCell */,
 				F49034B1294C4C0600CDE442 /* CampsiteSectionCell */,
 				F49034B9294F5C1600CDE442 /* FestivalSectionCell */,
 				F49034B6294C5E1F00CDE442 /* SectionHeader */,
 			);
-			path = Subs;
+			name = Subs;
+			path = Subs/Collection/Subs;
 			sourceTree = "<group>";
 		};
 		F49034A0294AB3BD00CDE442 /* HeaderSectionCell */ = {
@@ -339,12 +318,12 @@
 			path = HeaderSectionCell;
 			sourceTree = "<group>";
 		};
-		F49034A1294AB3E300CDE442 /* RegionSectionCell */ = {
+		F49034A1294AB3E300CDE442 /* AreaSectionCell */ = {
 			isa = PBXGroup;
 			children = (
 				F4903498294AB2CA00CDE442 /* HomeAreaCell.swift */,
 			);
-			path = RegionSectionCell;
+			path = AreaSectionCell;
 			sourceTree = "<group>";
 		};
 		F49034A6294AC88800CDE442 /* Custom */ = {
@@ -615,10 +594,9 @@
 		F4D10EE52949854B000C02E0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F4D10EFB2949931D000C02E0 /* HomeView.swift */,
 				F4D10EF9294992A8000C02E0 /* HomeViewController.swift */,
 				F4D10EFD2949932B000C02E0 /* HomeViewModel.swift */,
-				F4903493294A157E00CDE442 /* Subs */,
+				F4903497294AB26600CDE442 /* Subs */,
 				F4D10EEB2949894B000C02E0 /* Coordinator */,
 			);
 			path = Home;
@@ -941,6 +919,7 @@
 			isa = PBXGroup;
 			children = (
 				F4E3E5F1295EA028009AFCFC /* Date.swift */,
+				F4E3E5F429604B43009AFCFC /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1113,7 +1092,6 @@
 				F4D10EE4294982B5000C02E0 /* TabBarPageCase.swift in Sources */,
 				F49034B5294C5C6600CDE442 /* HomeCampsiteCell.swift in Sources */,
 				F49034E829515B4E00CDE442 /* WeatherAPIEnvironment.swift in Sources */,
-				F4D10EFC2949931D000C02E0 /* HomeView.swift in Sources */,
 				F4E3E5CF295DA92E009AFCFC /* TouristInfoIntroCulture.swift in Sources */,
 				F4E3E5C9295D8342009AFCFC /* TouristInfoImageResponseDTO.swift in Sources */,
 				F4E3E5EE295E9574009AFCFC /* TouristInfoImageRequestDTO.swift in Sources */,
@@ -1127,6 +1105,7 @@
 				F4E3E5C1295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift in Sources */,
 				F49034A5294AC72700CDE442 /* AreaLabel.swift in Sources */,
 				F4E3E5DA295E81A5009AFCFC /* CampsiteBasicRequestDTO.swift in Sources */,
+				F4E3E5F529604B43009AFCFC /* String.swift in Sources */,
 				F4E3E5E8295E948C009AFCFC /* TouristInfoFestivalRequestDTO.swift in Sources */,
 				F4E3E5B0295AC26C009AFCFC /* TouristInfoRepository.swift in Sources */,
 				F49034E229515B0C00CDE442 /* WeatherAPIConstant.swift in Sources */,
@@ -1175,7 +1154,6 @@
 				F4E3E5D8295DD48C009AFCFC /* TouristInfoContentType.swift in Sources */,
 				F4903499294AB2CA00CDE442 /* HomeAreaCell.swift in Sources */,
 				F4D10EED29498963000C02E0 /* HomeCoordinator.swift in Sources */,
-				F490349F294AB38400CDE442 /* HomeCollectionViewModel.swift in Sources */,
 				F4D10EE82949871D000C02E0 /* CoordinatorStyleCase.swift in Sources */,
 				F4E3E5E2295E8A24009AFCFC /* TouristInfoAreaRequestDTO.swift in Sources */,
 				F4E3E5F0295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift in Sources */,
@@ -1194,7 +1172,6 @@
 				F4E3E5892951657A009AFCFC /* CampsiteRepository.swift in Sources */,
 				F4D10EA729497831000C02E0 /* SceneDelegate.swift in Sources */,
 				F4D10F092949A3CA000C02E0 /* HomeUseCase.swift in Sources */,
-				F490349D294AB36A00CDE442 /* HomeCollectionView.swift in Sources */,
 				F4E3E585295161F9009AFCFC /* NaverBlogTargetStub.swift in Sources */,
 				F4E3E59A295410F4009AFCFC /* MoyaProvider.swift in Sources */,
 				F4E3E58729516347009AFCFC /* YoutubeTargetStub.swift in Sources */,

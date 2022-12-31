@@ -11,7 +11,7 @@ enum TouristInfoQueryType {
   case area(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, areaCode: Area, sigunguCode: Sigungu)
   case location(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, coordinate: Coordinate, radius: Int)
   case keyword(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, areaCode: Area, sigunguCode: Sigungu, keyword: String)
-  case festival(numOfRows: Int, pageNo: Int, areaCode: Area, sigunguCode: Sigungu, eventStartDate: Date)
+  case festival(numOfRows: Int, pageNo: Int, areaCode: Area?, sigunguCode: Sigungu?, eventStartDate: Date)
   case commonInfo(contentId: Int, contentTypeId: TouristInfoContentType)
   case introInfo(contentId: Int, contentTypeId: TouristInfoContentType)
   case image(contentId: Int)
@@ -25,7 +25,7 @@ enum TouristInfoQueryType {
         pageNo: pageNo,
         mobileOS: "IOS",
         moblieApp: "Basecamp",
-        serviceKey: APIKey.touristInfo.rawValue,
+        serviceKey: APIKey.tourism.rawValue.decodeUrl(),
         contentTypeId: contentTypeId,
         areaCode: areaCode,
         sigunguCode: sigunguCode
@@ -36,7 +36,7 @@ enum TouristInfoQueryType {
         pageNo: pageNo,
         mobileOS: "IOS",
         moblieApp: "Basecamp",
-        serviceKey: APIKey.touristInfo.rawValue,
+        serviceKey: APIKey.tourism.rawValue.decodeUrl(),
         contentTypeId: contentTypeId,
         coordinate: coordinate,
         radius: radius
@@ -47,7 +47,7 @@ enum TouristInfoQueryType {
         pageNo: pageNo,
         mobileOS: "IOS",
         moblieApp: "Basecamp",
-        serviceKey: APIKey.touristInfo.rawValue,
+        serviceKey: APIKey.tourism.rawValue.decodeUrl(),
         contentTypeId: contentTypeId,
         areaCode: areaCode,
         sigunguCode: sigunguCode,
@@ -59,7 +59,7 @@ enum TouristInfoQueryType {
         pageNo: pageNo,
         mobileOS: "IOS",
         moblieApp: "Basecamp",
-        serviceKey: APIKey.touristInfo.rawValue,
+        serviceKey: APIKey.tourism.rawValue.decodeUrl(),
         areaCode: areaCode,
         sigunguCode: sigunguCode,
         eventStartDate: eventStartDate
@@ -68,7 +68,7 @@ enum TouristInfoQueryType {
       return TouristInfoCommonQuery(
         mobileOS: "IOS",
         moblieApp: "Basecamp",
-        serviceKey: APIKey.touristInfo.rawValue,
+        serviceKey: APIKey.tourism.rawValue.decodeUrl(),
         contentId: contentId,
         contentTypeId: contentTypeId
       )
@@ -76,7 +76,7 @@ enum TouristInfoQueryType {
       return TouristInfoIntroQuery(
         mobileOS: "IOS",
         moblieApp: "Basecamp",
-        serviceKey: APIKey.touristInfo.rawValue,
+        serviceKey: APIKey.tourism.rawValue.decodeUrl(),
         contentId: contentId,
         contentTypeId: contentTypeId
       )
@@ -84,7 +84,7 @@ enum TouristInfoQueryType {
       return TouristInfoImageQuery(
         mobileOS: "IOS",
         moblieApp: "Basecamp",
-        serviceKey: APIKey.touristInfo.rawValue,
+        serviceKey: APIKey.tourism.rawValue.decodeUrl(),
         contentId: contentId
       )
     case .areaCode(let numOfRows, let pageNo, let areaCode):
@@ -93,7 +93,7 @@ enum TouristInfoQueryType {
         pageNo: pageNo,
         mobileOS: "IOS",
         moblieApp: "Basecamp",
-        serviceKey: APIKey.touristInfo.rawValue,
+        serviceKey: APIKey.tourism.rawValue.decodeUrl(),
         areaCode: areaCode
       )
     }
@@ -146,8 +146,8 @@ struct TouristInfoFestivalQuery: TouristInfoQuery {
   let mobileOS: String
   let moblieApp: String
   let serviceKey: String
-  var areaCode: Area
-  var sigunguCode: Sigungu
+  var areaCode: Area?
+  var sigunguCode: Sigungu?
   var eventStartDate: Date = Date()
   var eventEndDate: Date {
     return eventStartDate.addMonths(numberOfMonths: 1)

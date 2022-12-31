@@ -8,9 +8,9 @@
 import Foundation
 
 struct Review {
-  let _id: String
-  let rate: Double
-  let content: String
-  let regDate: Date
-  let campsite: Campsite
+  let _id: String?
+  let rate: Double?
+  let content: String?
+  let regDate: Date?
+  let campsite: Campsite?
 }

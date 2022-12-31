@@ -28,7 +28,7 @@ final class HomeCoordinator: Coordinator {
                 homeUseCase: HomeUseCase(
                   realmRepository: RealmRepository(),
                   campsiteRepository: CampsiteRepository(),
-                  touristInfoRepository: <#TouristInfoRepositoryInterface#>
+                  touristInfoRepository: TouristInfoRepository()
                 )
             )
         )

@@ -10,9 +10,9 @@ import RxDataSources
 
 enum HomeSectionModel {
   case headerSection(items: [HomeHeaderItem])
-  case areaSection(items: [HomeAreaItem])
+  case areaSection(header: String, items: [HomeAreaItem])
   case campsiteSection(header: String, items:[Campsite])
-  case festivalSection(items: [TouristInfo])
+  case festivalSection(header: String, items: [TouristInfo])
 }
 
 protocol HomeItem {}
@@ -35,8 +35,10 @@ extension HomeSectionModel: SectionModelType {
   
   var headers: String? {
       switch self {
-      case .campsiteSection(let header, _):
-          return header
+      case .areaSection(let header, _),
+           .campsiteSection(let header, _),
+           .festivalSection(let header, _):
+        return header
       default:
           return nil
       }
@@ -46,11 +48,11 @@ extension HomeSectionModel: SectionModelType {
     switch self {
     case .headerSection(items: let items):
       return items
-    case .areaSection(items: let items):
+    case .areaSection(_, items: let items):
       return items
     case .campsiteSection(_, items: let items):
       return items
-    case .festivalSection(items: let items):
+    case .festivalSection(_, items: let items):
       return items
     }
   }

@@ -15,7 +15,7 @@ import RxEnumKit
 
 final class HomeHeaderCell: UICollectionViewCell {
   static let identifier = "HomeHeaderCell"
-  private var disposeBag = DisposeBag()
+  private(set) var disposeBag = DisposeBag()
   
   private lazy var myCompView: UIView = {
     let view = UIView()
@@ -86,6 +86,10 @@ final class HomeHeaderCell: UICollectionViewCell {
       setupConstraints()
   }
   
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+  }
+  
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
@@ -103,8 +107,9 @@ extension HomeHeaderCell: ViewRepresentable {
       $0.top.equalTo(self.safeAreaLayoutGuide).offset(16)
       $0.left.equalToSuperview().offset(8)
       $0.right.equalToSuperview().offset(-8)
-      $0.height.equalTo(90)
     }
+    
+    myCompView.setContentHuggingPriority(.init(rawValue: 751), for: .vertical)
     
     myCompTitleLabel.snp.makeConstraints {
       $0.top.left.equalToSuperview().offset(8)
@@ -120,6 +125,7 @@ extension HomeHeaderCell: ViewRepresentable {
     myCompContentLabel.snp.makeConstraints {
       $0.top.equalTo(myCompTitleLabel.snp.bottom).offset(16.0)
       $0.left.equalToSuperview().offset(8)
+      $0.height.equalTo(22.0)
       $0.right.equalToSuperview().offset(-8)
       $0.bottom.equalToSuperview().offset(-8)
     }
@@ -128,9 +134,10 @@ extension HomeHeaderCell: ViewRepresentable {
       $0.top.equalTo(myCompView.snp.bottom).offset(8.0)
       $0.right.equalToSuperview().offset(-16)
       $0.left.equalToSuperview().offset(16)
-      $0.height.equalTo(120.0)
       $0.bottom.equalToSuperview().offset(-16)
     }
+    
+    compStackView.setContentHuggingPriority(.init(rawValue: 750), for: .vertical)
   }
   
   // HomeHeaderItem

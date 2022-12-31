@@ -57,7 +57,7 @@ class CampsiteRealmDTO: Object {
   
   convenience init(campsite: Campsite) {
     self.init()
-    self.contentID = campsite.contentID
+    self.contentID = campsite.contentID!
     self.facltNm = campsite.facltNm
     self.lineIntro = campsite.lineIntro
     self.intro = campsite.intro

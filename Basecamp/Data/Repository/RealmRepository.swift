@@ -28,23 +28,26 @@ final class RealmRepository: RealmRepositoryInterface {
   }
   
   func unsaveCampsite(campsite: Campsite) {
-    <#code#>
+    
   }
   
   func loadReview() -> [Review] {
-    <#code#>
+    let realmDTO = storage.readReviews().toArray()
+    return realmDTO.map {
+      $0.toDomain()
+    }
   }
   
   func saveReview(review: Review) {
-    <#code#>
+    
   }
-  
+
   func updateReveiw(review: Review) {
-    <#code#>
+    
   }
-  
+
   func deleteReview(review: Review) {
-    <#code#>
+    
   }
 }
 

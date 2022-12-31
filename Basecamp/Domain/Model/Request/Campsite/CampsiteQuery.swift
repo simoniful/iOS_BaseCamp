@@ -21,7 +21,7 @@ enum CampsiteQueryType {
         pageNo: pageNo,
         mobileOS: "IOS",
         moblieApp: "Basecamp",
-        serviceKey: APIKey.campsite.rawValue
+        serviceKey: APIKey.tourism.rawValue.decodeUrl()
       )
     case .location(let numOfRows,
                    let pageNo,
@@ -32,7 +32,7 @@ enum CampsiteQueryType {
         pageNo: pageNo,
         mobileOS: "IOS",
         moblieApp: "Basecamp",
-        serviceKey: APIKey.campsite.rawValue,
+        serviceKey: APIKey.tourism.rawValue.decodeUrl(),
         coordinate: coordinate,
         radius: radius
       )
@@ -44,7 +44,7 @@ enum CampsiteQueryType {
         pageNo: pageNo,
         mobileOS: "IOS",
         moblieApp: "Basecamp",
-        serviceKey: APIKey.campsite.rawValue,
+        serviceKey: APIKey.tourism.rawValue.decodeUrl(),
         keyword: keyword
       )
     case .image(let numOfRows,
@@ -55,7 +55,7 @@ enum CampsiteQueryType {
         pageNo: pageNo,
         mobileOS: "IOS",
         moblieApp: "Basecamp",
-        serviceKey: APIKey.campsite.rawValue,
+        serviceKey: APIKey.tourism.rawValue.decodeUrl(),
         contentId: contentId
       )
     }

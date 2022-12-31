@@ -42,8 +42,8 @@ struct TouristInfoFestivalRequestDTO: Codable, TouristInfoRequestDTO {
     self.moblieOS = query.mobileOS
     self.mobileApp = query.moblieApp
     self.serviceKey = query.serviceKey
-    self.areaCode = query.areaCode.areaCode.string
-    self.sigunguCode = query.sigunguCode.code
+    self.areaCode = query.areaCode?.areaCode.string ?? ""
+    self.sigunguCode = query.sigunguCode?.code ?? ""
     self.eventStartDate = query.eventStartDate.toString(format: "yyyyMMdd")
     self.eventEndDate = query.eventEndDate.toString(format: "yyyyMMdd")
   }

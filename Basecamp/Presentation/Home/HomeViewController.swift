@@ -7,10 +7,42 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class HomeViewController: UIViewController {
-  private let homeView = HomeView()
+  private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+  
+  lazy var rightBarSearchButton: UIBarButtonItem = {
+    let barButton = UIBarButtonItem()
+    barButton.image = UIImage(systemName: "magnifyingglass")
+    barButton.style = .plain
+    return barButton
+  }()
+  
+  lazy var rightBarListButton: UIBarButtonItem = {
+    let barButton = UIBarButtonItem()
+    barButton.image = UIImage(systemName: "list.bullet")
+    barButton.style = .plain
+    return barButton
+  }()
+  
+  lazy var rightBarMapButton: UIBarButtonItem = {
+    let barButton = UIBarButtonItem()
+    barButton.image = UIImage(systemName: "mappin.and.ellipse")
+    barButton.style = .plain
+    return barButton
+  }()
+  
   private let viewModel: HomeViewModel
+  private let disposeBag = DisposeBag()
+  
+  private lazy var input = HomeViewModel.Input(
+    viewDidLoad: self.rx.viewDidLoad.asObservable(),
+    viewWillAppear: self.rx.viewWillAppear.asObservable()
+  )
+  
+  private lazy var output = viewModel.transform(input: input)
   
   init(viewModel: HomeViewModel) {
     self.viewModel = viewModel
@@ -21,32 +53,43 @@ final class HomeViewController: UIViewController {
     fatalError("HomeViewController: fatal error")
   }
   
-  override func loadView() {
-    super.loadView()
-    view = homeView
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
+    bind()
+    register()
     setupNavigationBar()
-    bind(viewModel)
-    // collectionView Layout 매니저 구성 레이아웃 생성
+    setViews()
+    setConstraints()
   }
   
-  func bind(_ viewModel: HomeViewModel) {
-    homeView.collection.bind(viewModel.homeCollectionViewModel)
-    // DataSource 연결 로직
+  func bind() {
+    collectionView.collectionViewLayout = viewModel.createLayout()
+    let dataSource = viewModel.dataSource()
+    
+    output.data
+      .drive(self.collectionView.rx.items(dataSource: dataSource))
+      .disposed(by: disposeBag)
   }
 }
 
 private extension HomeViewController {
+  private func setViews() {
+    view.addSubview(collectionView)
+  }
+  
+  private func setConstraints() {
+    collectionView.snp.makeConstraints {
+      $0.edges.equalTo(view.safeAreaLayoutGuide)
+    }
+  }
+  
   func setupNavigationBar() {
     setupLogo()
     navigationItem.largeTitleDisplayMode = .never
     navigationItem.rightBarButtonItems = [
-      homeView.rightBarMapButton,
-      homeView.rightBarListButton,
-      homeView.rightBarSearchButton
+      rightBarMapButton,
+      rightBarListButton,
+      rightBarSearchButton
     ]
   }
   
@@ -60,6 +103,14 @@ private extension HomeViewController {
       $0.width.height.equalTo(44)
     }
     navigationItem.leftBarButtonItem = imageItem
+  }
+  
+  func register() {
+    self.collectionView.register(HomeHeaderCell.self, forCellWithReuseIdentifier: HomeHeaderCell.identifier)
+    self.collectionView.register(HomeAreaCell.self, forCellWithReuseIdentifier: HomeAreaCell.identifier)
+    self.collectionView.register(HomeCampsiteCell.self, forCellWithReuseIdentifier: HomeCampsiteCell.identifier)
+    self.collectionView.register(HomeFestivalCell.self, forCellWithReuseIdentifier: HomeFestivalCell.identifier)
+    self.collectionView.register(HomeSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeSectionHeader.identifier)
   }
 }
 

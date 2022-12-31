@@ -1,5 +1,5 @@
 //
-//  HomeCollectionViewCell.swift
+//  HomeAreaCell.swift
 //  Basecamp
 //
 //  Created by Sang hun Lee on 2022/12/15.
@@ -29,7 +29,7 @@ class HomeAreaCell: UICollectionViewCell {
     }
   }
   
-  func updateUI(hobby text: String) {
-    areaLabel.text = text
+  func setupData(area: Area) {
+    areaLabel.text = area.abbreviation
   }
 }
