@@ -126,6 +126,7 @@
 		F4E3E5F0295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5EF295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift */; };
 		F4E3E5F2295EA028009AFCFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5F1295EA028009AFCFC /* Date.swift */; };
 		F4E3E5F529604B43009AFCFC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5F429604B43009AFCFC /* String.swift */; };
+		F4E3E5F82961CD41009AFCFC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F4E3E5F72961CD41009AFCFC /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,6 +276,7 @@
 				F49034612949B63600CDE442 /* Toast in Frameworks */,
 				F490348C2949BA5B00CDE442 /* RxDataSources in Frameworks */,
 				F49034872949BA3300CDE442 /* RealmSwift in Frameworks */,
+				F4E3E5F82961CD41009AFCFC /* Kingfisher in Frameworks */,
 				F49034762949B88C00CDE442 /* SnapKit in Frameworks */,
 				F490348F2949BA9700CDE442 /* NMapsMap in Frameworks */,
 			);
@@ -957,6 +959,7 @@
 				F49034912949BB5500CDE442 /* RxGesture */,
 				F4E3E5A3295460A5009AFCFC /* EnumKit */,
 				F4E3E5A6295460D6009AFCFC /* RxEnumKit */,
+				F4E3E5F72961CD41009AFCFC /* Kingfisher */,
 			);
 			productName = Basecamp;
 			productReference = F4D10EA129497831000C02E0 /* Basecamp.app */;
@@ -1042,6 +1045,7 @@
 				F49034902949BB5500CDE442 /* XCRemoteSwiftPackageReference "RxGesture" */,
 				F4E3E5A2295460A5009AFCFC /* XCRemoteSwiftPackageReference "EnumKit" */,
 				F4E3E5A5295460D6009AFCFC /* XCRemoteSwiftPackageReference "RxEnumKit" */,
+				F4E3E5F62961CD41009AFCFC /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = F4D10EA229497831000C02E0 /* Products */;
 			projectDirPath = "";
@@ -1620,6 +1624,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		F4E3E5F62961CD41009AFCFC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1702,6 +1714,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F4E3E5A5295460D6009AFCFC /* XCRemoteSwiftPackageReference "RxEnumKit" */;
 			productName = RxEnumKit;
+		};
+		F4E3E5F72961CD41009AFCFC /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4E3E5F62961CD41009AFCFC /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
