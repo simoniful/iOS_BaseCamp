@@ -18,7 +18,7 @@ struct TouristInfoAreaRequestDTO: Codable, TouristInfoRequestDTO {
   let sigunguCode: String
   
   var toDictionary: [String: Any] {
-    var dict: [String: Any] = [
+    let dict: [String: Any] = [
       "numOfRows": numOfRows,
       "pageNo": pageNo,
       "mobileOS": moblieOS,

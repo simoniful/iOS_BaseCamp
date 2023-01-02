@@ -11,6 +11,9 @@ extension Date {
   func toString(format: String = "yyyy-MM-dd") -> String {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
+    formatter.timeZone = TimeZone(abbreviation: "KST")
+    formatter.locale = Locale(identifier: "ko_KR")
+    formatter.calendar = Calendar(identifier: .gregorian)
     formatter.dateFormat = format
     return formatter.string(from: self)
   }

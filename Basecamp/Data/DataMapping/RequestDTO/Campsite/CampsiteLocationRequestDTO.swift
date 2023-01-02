@@ -18,7 +18,7 @@ struct CampsiteLocationRequestDTO: Codable, CampsiteRequestDTO {
   var radius: String
   
   var toDictionary: [String: Any] {
-    var dict: [String: Any] = [
+    let dict: [String: Any] = [
       "numOfRows": numOfRows,
       "pageNo": pageNo,
       "mobileOS": moblieOS,

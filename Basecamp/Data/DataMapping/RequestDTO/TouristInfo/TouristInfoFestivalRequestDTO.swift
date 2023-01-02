@@ -19,7 +19,7 @@ struct TouristInfoFestivalRequestDTO: Codable, TouristInfoRequestDTO {
   var eventEndDate: String
   
   var toDictionary: [String: Any] {
-    var dict: [String: Any] = [
+    let dict: [String: Any] = [
       "numOfRows": numOfRows,
       "pageNo": pageNo,
       "mobileOS": moblieOS,

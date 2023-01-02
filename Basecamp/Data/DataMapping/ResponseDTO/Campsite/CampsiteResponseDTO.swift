@@ -128,6 +128,7 @@ extension CampsiteResponseDTO_Item {
       animalCmgCl: animalCmgCl,
       firstImageURL: firstImageURL,
       modifiedtime: modifiedtime,
+      posblFcltyCl: posblFcltyCl,
       isLiked: false
     )
   }

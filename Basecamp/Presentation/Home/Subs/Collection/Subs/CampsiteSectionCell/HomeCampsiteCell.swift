@@ -15,6 +15,9 @@ class HomeCampsiteCell: UICollectionViewCell {
     let imageView = UIImageView()
     imageView.image = UIImage(named: "placeHolder")
     imageView.contentMode = .scaleAspectFill
+    imageView.clipsToBounds = true
+    imageView.alpha = 0.7
+    imageView.layer.cornerRadius = 12.0
     return imageView
   }()
   
@@ -22,7 +25,7 @@ class HomeCampsiteCell: UICollectionViewCell {
     let label = UILabel()
     label.text = "캠핑장 개요"
     label.textColor = .white
-    label.font = .title5M12
+    label.font = .title3M14
     return label
   }()
   
@@ -30,7 +33,7 @@ class HomeCampsiteCell: UICollectionViewCell {
     let label = UILabel()
     label.text = "캠핑장 위치"
     label.textColor = .white
-    label.font = .captionR10
+    label.font = .body4R12
     return label
   }()
   
@@ -47,27 +50,32 @@ class HomeCampsiteCell: UICollectionViewCell {
     [imageView, titleLabel, locationLabel].forEach {
       contentView.addSubview($0)
     }
+    
+    contentView.backgroundColor = .black
+    contentView.layer.cornerRadius = 12.0
+    contentView.clipsToBounds = true
 
     imageView.snp.makeConstraints {
       $0.edges.equalTo(safeAreaLayoutGuide)
     }
     
     titleLabel.snp.makeConstraints {
-      $0.top.leading.equalToSuperview().offset(4.0)
-      $0.trailing.equalToSuperview().offset(-4.0)
+      $0.top.equalToSuperview().offset(8.0)
+      $0.leading.equalToSuperview().offset(12.0)
+      $0.trailing.equalToSuperview().offset(-12.0)
     }
     
     locationLabel.snp.makeConstraints {
-      $0.top.equalTo(titleLabel.snp.bottom).offset(4.0)
-      $0.trailing.equalToSuperview().offset(-4.0)
-      $0.leading.equalToSuperview().offset(4.0)
+      $0.top.equalTo(titleLabel.snp.bottom)
+      $0.trailing.equalToSuperview().offset(-12.0)
+      $0.leading.equalToSuperview().offset(12.0)
     }
   }
   
   func setData(campsite: Campsite) {
-    guard let urlString = campsite.firstImageURL else { return }
+     guard let urlString = campsite.firstImageURL else { return }
     let url = URL(string: urlString)
-    let processor = DownsamplingImageProcessor(size: imageView.bounds.size)
+    let processor = DownsamplingImageProcessor(size: CGSize(width: 400, height: 300))
     imageView.kf.indicatorType = .activity
     imageView.kf.setImage(
         with: url,
@@ -87,9 +95,11 @@ class HomeCampsiteCell: UICollectionViewCell {
             print("Job failed: \(error.localizedDescription)")
         }
     }
-    
+
     titleLabel.text = campsite.facltNm
-    locationLabel.text = campsite.addr1
+    
+    guard let doNm = campsite.doNm, let sigunguNm = campsite.sigunguNm else { return }
+    locationLabel.text = doNm + " " + sigunguNm
   }
   
 }

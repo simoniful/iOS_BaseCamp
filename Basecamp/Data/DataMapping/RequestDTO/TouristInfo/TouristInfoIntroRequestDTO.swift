@@ -15,7 +15,7 @@ struct TouristInfoIntroRequestDTO: Codable, TouristInfoRequestDTO {
   let contentTypeId: String
   
   var toDictionary: [String: Any] {
-    var dict: [String: Any] = [
+    let dict: [String: Any] = [
       "mobileOS": moblieOS,
       "mobileApp": mobileApp,
       "serviceKey": serviceKey,

@@ -23,6 +23,7 @@ final class HomeViewModel: ViewModel {
   struct Input {
     let viewDidLoad: Observable<Void>
     let viewWillAppear: Observable<Void>
+    let didSelectItemAt: Signal<(HomeItem, IndexPath)>
   }
   
   struct Output {
@@ -51,7 +52,7 @@ final class HomeViewModel: ViewModel {
 
     let campsiteResult = input.viewWillAppear
       .flatMapLatest { _ in
-        self.homeUseCase.requestCampsiteList(numOfRows: 20, pageNo: 1, keyword: "반려동물")
+        self.homeUseCase.requestCampsiteList(numOfRows: 20, pageNo: 1, keyword: "글램핑")
       }
       .share()
 
@@ -68,7 +69,7 @@ final class HomeViewModel: ViewModel {
     let touristInfoResult = input.viewWillAppear
       .flatMapLatest { _ in
         self.homeUseCase.requestTouristInfoList(
-          numOfRows: 20, pageNo: 1, areaCode: nil, sigunguCode: nil
+          numOfRows: 15, pageNo: 1, areaCode: nil, sigunguCode: nil
         )
       }
       .share()
@@ -110,6 +111,17 @@ final class HomeViewModel: ViewModel {
       }
       .disposed(by: disposeBag)
       
+    input.didSelectItemAt
+      .emit { (model, index) in
+        switch index.section {
+        case 0:
+          print("여긴 클릭하면 안됨")
+        default:
+          print(model)
+        }
+      }
+      .disposed(by: disposeBag)
+    
     return Output(data: data.asDriver(onErrorJustReturn: []))
   }
   
@@ -183,10 +195,10 @@ final class HomeViewModel: ViewModel {
 private extension HomeViewModel {
   func headerSection() -> NSCollectionLayoutSection {
     let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height / 3)))
-      item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+    item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
     let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height / 3)), subitem: item, count: 1)
-      let section = NSCollectionLayoutSection(group: group)
-      return section
+    let section = NSCollectionLayoutSection(group: group)
+    return section
   }
   
   private func areaSection() -> NSCollectionLayoutSection {
@@ -221,33 +233,62 @@ private extension HomeViewModel {
   
   private func campsiteSection() -> NSCollectionLayoutSection {
     let itemSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(0.3),
+      widthDimension: .fractionalWidth(1.0),
       heightDimension: .fractionalHeight(1.0)
     )
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
+    item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 8)
     let groupSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(1.0),
-      heightDimension: .fractionalHeight(0.25)
+      widthDimension: .fractionalWidth(0.7),
+      heightDimension: .fractionalWidth(0.525)
     )
-    let group = NSCollectionLayoutGroup.horizontal(
-      layoutSize: groupSize,
-      subitem: item,
-      count: 3
-    )
+   
+    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
     let section = NSCollectionLayoutSection(group: group)
+    section.interGroupSpacing = 4.0
     section.contentInsets = NSDirectionalEdgeInsets(top: 8.0, leading: 16.0, bottom: 16.0, trailing: 16.0)
-    
     section.orthogonalScrollingBehavior = .continuous
+    
+    let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
+    
+    let header = NSCollectionLayoutBoundarySupplementaryItem(
+           layoutSize: headerFooterSize,
+           elementKind: UICollectionView.elementKindSectionHeader,
+           alignment: .top
+         )
+    
+    section.boundarySupplementaryItems = [header]
     return section
   }
   
   private func festivalSection() -> NSCollectionLayoutSection {
-      let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-      item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-      let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1.2)), subitem: item, count: 1)
-      let section = NSCollectionLayoutSection(group: group)
-      return section
+    let itemSize = NSCollectionLayoutSize(
+      widthDimension: .fractionalWidth(1.0),
+      heightDimension: .fractionalHeight(1.0)
+    )
+    let item = NSCollectionLayoutItem(layoutSize: itemSize)
+    item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 8)
+    let groupSize = NSCollectionLayoutSize(
+      widthDimension: .fractionalWidth(0.4),
+      heightDimension: .fractionalWidth(0.533)
+    )
+
+    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+    let section = NSCollectionLayoutSection(group: group)
+    section.contentInsets = NSDirectionalEdgeInsets(top: 8.0, leading: 16.0, bottom: 16.0, trailing: 16.0)
+    section.interGroupSpacing = 4.0
+    section.orthogonalScrollingBehavior = .continuous
+    
+    let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
+    
+    let header = NSCollectionLayoutBoundarySupplementaryItem(
+           layoutSize: headerFooterSize,
+           elementKind: UICollectionView.elementKindSectionHeader,
+           alignment: .top
+         )
+    
+    section.boundarySupplementaryItems = [header]
+    return section
   }
 }
 

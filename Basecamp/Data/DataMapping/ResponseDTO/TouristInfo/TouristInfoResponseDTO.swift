@@ -76,7 +76,9 @@ extension TouristInfoResponseDTO_Item {
       readcount: readcount,
       sigunguCode: sigunguCode,
       tel: tel,
-      title: title
+      title: title,
+      eventStartDate: eventStartDate?.toDate(),
+      eventEndDate: eventEndDate?.toDate()
     )
   }
 }

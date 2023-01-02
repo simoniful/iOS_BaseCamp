@@ -39,7 +39,8 @@ final class HomeViewController: UIViewController {
   
   private lazy var input = HomeViewModel.Input(
     viewDidLoad: self.rx.viewDidLoad.asObservable(),
-    viewWillAppear: self.rx.viewWillAppear.asObservable()
+    viewWillAppear: self.rx.viewWillAppear.asObservable(),
+    didSelectItemAt: self.collectionView.rx.modelAndIndexSelected(HomeItem.self).asSignal()
   )
   
   private lazy var output = viewModel.transform(input: input)

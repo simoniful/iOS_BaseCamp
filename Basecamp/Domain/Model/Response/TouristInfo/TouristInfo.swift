@@ -15,4 +15,5 @@ struct TouristInfo: HomeItem {
   let mapX, mapY, mlevel: String?
   let readcount: Int?
   let sigunguCode, tel, title: String?
+  let eventStartDate, eventEndDate: Date?
 }

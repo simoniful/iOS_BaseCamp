@@ -9,14 +9,10 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-// like Model
 final class HomeUseCase {
   private let realmRepository: RealmRepositoryInterface
   private let campsiteRepository: CampsiteRepositoryInterface
   private let touristInfoRepository: TouristInfoRepositoryInterface
-  
-  var successCampsiteListSignal = PublishRelay<[Campsite]>()
-  var unKnownErrorSignal = PublishRelay<Void>()
   
   init(
     realmRepository: RealmRepositoryInterface,
@@ -66,7 +62,7 @@ final class HomeUseCase {
     var data: [HomeSectionModel] = []
     data.append(.headerSection(items: realmData))
     data.append(.areaSection(header: "어디로 가시나요?", items: areaData))
-    data.append(.campsiteSection(header: "반려동물", items: campsiteList))
+    data.append(.campsiteSection(header: "글램핑", items: campsiteList))
     data.append(.festivalSection(header: "축제/행사 소식", items: touristList))
     return data
   }
@@ -76,7 +72,6 @@ final class HomeUseCase {
     let likedCampsiteCount = realmRepository.loadCampsite().count
     let completedCampsiteCount = realmRepository.loadReview().count
     
-    print("aaaa")
     return [
       HomeHeaderItem(
         completedCampsiteCount: completedCampsiteCount,
@@ -94,7 +89,6 @@ final class HomeUseCase {
   }
   
   // MARK: - 고캠핑 레포 연결
-  // 파라미터 구성 및 viewModel 연결
   func requestCampsiteList(numOfRows: Int, pageNo: Int) -> Single<Result<[Campsite], CampsiteServiceError>> {
     campsiteRepository.requestCampsiteList(
       campsiteQueryType: .basic(numOfRows: numOfRows, pageNo: pageNo)

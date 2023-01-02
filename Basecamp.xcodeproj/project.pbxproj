@@ -127,6 +127,17 @@
 		F4E3E5F2295EA028009AFCFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5F1295EA028009AFCFC /* Date.swift */; };
 		F4E3E5F529604B43009AFCFC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5F429604B43009AFCFC /* String.swift */; };
 		F4E3E5F82961CD41009AFCFC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F4E3E5F72961CD41009AFCFC /* Kingfisher */; };
+		F4FD50902962851600FA3CB3 /* goCampingData.json in Resources */ = {isa = PBXBuildFile; fileRef = F4FD508F2962851600FA3CB3 /* goCampingData.json */; };
+		F4FD50922962857600FA3CB3 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50912962857600FA3CB3 /* IndicatorView.swift */; };
+		F4FD50942962BF4F00FA3CB3 /* UICollectionView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */; };
+		F4FD50972962C18E00FA3CB3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50962962C18E00FA3CB3 /* DetailViewController.swift */; };
+		F4FD509F2962E0F600FA3CB3 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD509E2962E0F600FA3CB3 /* DetailViewModel.swift */; };
+		F4FD50A12962E4D600FA3CB3 /* DetailSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50A02962E4D600FA3CB3 /* DetailSectionModel.swift */; };
+		F4FD50A5296303E600FA3CB3 /* DetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50A4296303E600FA3CB3 /* DetailHeaderCell.swift */; };
+		F4FD50AA296305DC00FA3CB3 /* DetailLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50A9296305DC00FA3CB3 /* DetailLocationCell.swift */; };
+		F4FD50AC296305EC00FA3CB3 /* DetailFacilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50AB296305EC00FA3CB3 /* DetailFacilityCell.swift */; };
+		F4FD50AE296305FA00FA3CB3 /* DetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50AD296305FA00FA3CB3 /* DetailInfoCell.swift */; };
+		F4FD50B329630C9000FA3CB3 /* DetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50B229630C9000FA3CB3 /* DetailUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,6 +266,17 @@
 		F4E3E5EF295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoAreaCodeRequestDTO.swift; sourceTree = "<group>"; };
 		F4E3E5F1295EA028009AFCFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F4E3E5F429604B43009AFCFC /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		F4FD508F2962851600FA3CB3 /* goCampingData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goCampingData.json; sourceTree = "<group>"; };
+		F4FD50912962857600FA3CB3 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
+		F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Rx.swift"; sourceTree = "<group>"; };
+		F4FD50962962C18E00FA3CB3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F4FD509E2962E0F600FA3CB3 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		F4FD50A02962E4D600FA3CB3 /* DetailSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSectionModel.swift; sourceTree = "<group>"; };
+		F4FD50A4296303E600FA3CB3 /* DetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderCell.swift; sourceTree = "<group>"; };
+		F4FD50A9296305DC00FA3CB3 /* DetailLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocationCell.swift; sourceTree = "<group>"; };
+		F4FD50AB296305EC00FA3CB3 /* DetailFacilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFacilityCell.swift; sourceTree = "<group>"; };
+		F4FD50AD296305FA00FA3CB3 /* DetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoCell.swift; sourceTree = "<group>"; };
+		F4FD50B229630C9000FA3CB3 /* DetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +355,7 @@
 			children = (
 				F49034A4294AC72700CDE442 /* AreaLabel.swift */,
 				F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */,
+				F4FD50912962857600FA3CB3 /* IndicatorView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -534,6 +557,7 @@
 			children = (
 				F4D10EDC294981ED000C02E0 /* Common */,
 				F4D10EDD294981FB000C02E0 /* TabBar */,
+				F4FD50952962C16500FA3CB3 /* Detail */,
 				F4D10EE52949854B000C02E0 /* Home */,
 			);
 			path = Presentation;
@@ -656,6 +680,7 @@
 			isa = PBXGroup;
 			children = (
 				F4D10F082949A3CA000C02E0 /* HomeUseCase.swift */,
+				F4FD50B229630C9000FA3CB3 /* DetailUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -715,6 +740,7 @@
 		F4D10F07294995F5000C02E0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F4FD508F2962851600FA3CB3 /* goCampingData.json */,
 				F4D10F452949AD4A000C02E0 /* Font */,
 				F4D10EAD29497833000C02E0 /* Assets.xcassets */,
 				F4D10EAF29497833000C02E0 /* LaunchScreen.storyboard */,
@@ -808,6 +834,7 @@
 			isa = PBXGroup;
 			children = (
 				F4E3E5A82954C392009AFCFC /* UIViewController+Rx.swift */,
+				F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -816,6 +843,7 @@
 			isa = PBXGroup;
 			children = (
 				F49034A9294C366600CDE442 /* HomeSectionModel.swift */,
+				F4FD50A02962E4D600FA3CB3 /* DetailSectionModel.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -924,6 +952,59 @@
 				F4E3E5F429604B43009AFCFC /* String.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		F4FD50952962C16500FA3CB3 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F4FD50962962C18E00FA3CB3 /* DetailViewController.swift */,
+				F4FD509E2962E0F600FA3CB3 /* DetailViewModel.swift */,
+				F4FD50A2296303C000FA3CB3 /* Subs */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		F4FD50A2296303C000FA3CB3 /* Subs */ = {
+			isa = PBXGroup;
+			children = (
+				F4FD50A3296303D300FA3CB3 /* HeaderSectionCell */,
+				F4FD50A62963043000FA3CB3 /* LocationSectionCell */,
+				F4FD50A72963048900FA3CB3 /* FacilitySectionCell */,
+				F4FD50A8296304D300FA3CB3 /* InfoSectionCell */,
+			);
+			path = Subs;
+			sourceTree = "<group>";
+		};
+		F4FD50A3296303D300FA3CB3 /* HeaderSectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				F4FD50A4296303E600FA3CB3 /* DetailHeaderCell.swift */,
+			);
+			path = HeaderSectionCell;
+			sourceTree = "<group>";
+		};
+		F4FD50A62963043000FA3CB3 /* LocationSectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				F4FD50A9296305DC00FA3CB3 /* DetailLocationCell.swift */,
+			);
+			path = LocationSectionCell;
+			sourceTree = "<group>";
+		};
+		F4FD50A72963048900FA3CB3 /* FacilitySectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				F4FD50AB296305EC00FA3CB3 /* DetailFacilityCell.swift */,
+			);
+			path = FacilitySectionCell;
+			sourceTree = "<group>";
+		};
+		F4FD50A8296304D300FA3CB3 /* InfoSectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				F4FD50AD296305FA00FA3CB3 /* DetailInfoCell.swift */,
+			);
+			path = InfoSectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1065,6 +1146,7 @@
 			files = (
 				F4D10F482949AD4A000C02E0 /* NotoSansKR-Medium.otf in Resources */,
 				F4D10EB129497833000C02E0 /* LaunchScreen.storyboard in Resources */,
+				F4FD50902962851600FA3CB3 /* goCampingData.json in Resources */,
 				F4D10F492949AD4A000C02E0 /* NotoSansKR-Regular.otf in Resources */,
 				F4D10EAE29497833000C02E0 /* Assets.xcassets in Resources */,
 			);
@@ -1091,8 +1173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4FD50972962C18E00FA3CB3 /* DetailViewController.swift in Sources */,
 				F4D10ED629497C6E000C02E0 /* AppCoordinator.swift in Sources */,
 				F4E3E5DC295E8422009AFCFC /* CampsiteLocationRequestDTO.swift in Sources */,
+				F4FD50AC296305EC00FA3CB3 /* DetailFacilityCell.swift in Sources */,
 				F4D10EE4294982B5000C02E0 /* TabBarPageCase.swift in Sources */,
 				F49034B5294C5C6600CDE442 /* HomeCampsiteCell.swift in Sources */,
 				F49034E829515B4E00CDE442 /* WeatherAPIEnvironment.swift in Sources */,
@@ -1101,6 +1185,7 @@
 				F4E3E5EE295E9574009AFCFC /* TouristInfoImageRequestDTO.swift in Sources */,
 				F4E3E5B5295D3053009AFCFC /* TouristInfoResponseDTO.swift in Sources */,
 				F49034D229504DD400CDE442 /* CampsiteTargetStub.swift in Sources */,
+				F4FD50942962BF4F00FA3CB3 /* UICollectionView+Rx.swift in Sources */,
 				F4D10F4E2949ADF2000C02E0 /* AppFont.swift in Sources */,
 				F4E3E5A129544823009AFCFC /* ReviewRealmDTO.swift in Sources */,
 				F4E3E58329515FDA009AFCFC /* WeatherTargetStub.swift in Sources */,
@@ -1147,11 +1232,13 @@
 				F49034E429515B2300CDE442 /* NaverBlogAPIConstant.swift in Sources */,
 				F4E3E5D6295DB4F7009AFCFC /* TouristInfoIntroShopping.swift in Sources */,
 				F49034BF2950007300CDE442 /* CampsiteRepositoryInterface.swift in Sources */,
+				F4FD50AA296305DC00FA3CB3 /* DetailLocationCell.swift in Sources */,
 				F49034BD2950000500CDE442 /* RealmRepositoryInterface.swift in Sources */,
 				F49034D72950628E00CDE442 /* TouristInfoAPIConstant.swift in Sources */,
 				F49034F229515B9E00CDE442 /* YoutubeTarget.swift in Sources */,
 				F4E3E5DE295E85DA009AFCFC /* CampsiteKeywordRequestDTO.swift in Sources */,
 				F4E3E5B3295D303E009AFCFC /* TouristInfoRequestDTO.swift in Sources */,
+				F4FD509F2962E0F600FA3CB3 /* DetailViewModel.swift in Sources */,
 				F4E3E5BF295D77B1009AFCFC /* TouristInfoIntroSpot.swift in Sources */,
 				F4D10F0129499386000C02E0 /* ViewModel.swift in Sources */,
 				F49034C9295030DC00CDE442 /* CampsiteAPIConstant.swift in Sources */,
@@ -1178,15 +1265,20 @@
 				F4D10F092949A3CA000C02E0 /* HomeUseCase.swift in Sources */,
 				F4E3E585295161F9009AFCFC /* NaverBlogTargetStub.swift in Sources */,
 				F4E3E59A295410F4009AFCFC /* MoyaProvider.swift in Sources */,
+				F4FD50922962857600FA3CB3 /* IndicatorView.swift in Sources */,
 				F4E3E58729516347009AFCFC /* YoutubeTargetStub.swift in Sources */,
 				F4E3E593295210BD009AFCFC /* CampsiteResponseDTO.swift in Sources */,
 				F4D10EFA294992A8000C02E0 /* HomeViewController.swift in Sources */,
 				F4E3E59129518A0C009AFCFC /* CampsiteRequestDTO.swift in Sources */,
 				F4E3E5D4295DB4EC009AFCFC /* TouristInfoIntroRestaurant.swift in Sources */,
+				F4FD50B329630C9000FA3CB3 /* DetailUseCase.swift in Sources */,
+				F4FD50A12962E4D600FA3CB3 /* DetailSectionModel.swift in Sources */,
 				F4E3E59829540D74009AFCFC /* Constant.swift in Sources */,
+				F4FD50AE296305FA00FA3CB3 /* DetailInfoCell.swift in Sources */,
 				F49034D02950486900CDE442 /* CampsiteTarget.swift in Sources */,
 				F49034AE294C42B200CDE442 /* Campsite.swift in Sources */,
 				F4E3E5EA295E9507009AFCFC /* TouristInfoCommonRequestDTO.swift in Sources */,
+				F4FD50A5296303E600FA3CB3 /* DetailHeaderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

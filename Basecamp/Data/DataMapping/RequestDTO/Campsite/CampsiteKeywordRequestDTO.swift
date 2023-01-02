@@ -16,7 +16,7 @@ struct CampsiteKeywordRequestDTO: Codable, CampsiteRequestDTO {
   var keyword: String
   
   var toDictionary: [String: Any] {
-    var dict: [String: Any] = [
+    let dict: [String: Any] = [
       "numOfRows": numOfRows,
       "pageNo": pageNo,
       "mobileOS": moblieOS,

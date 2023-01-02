@@ -51,5 +51,6 @@ struct Campsite: HomeItem, Codable {
   let animalCmgCl: String?
   let firstImageURL: String?
   let modifiedtime: String?
+  let posblFcltyCl: String?
   var isLiked: Bool
 }

@@ -53,6 +53,7 @@ class CampsiteRealmDTO: Object {
   @Persisted var animalCmgCl: String?
   @Persisted var firstImageURL: String?
   @Persisted var modifiedtime: String?
+  @Persisted var posblFcltyCl: String?
   @Persisted var isLiked: Bool
   
   convenience init(campsite: Campsite) {
@@ -100,6 +101,7 @@ class CampsiteRealmDTO: Object {
     self.animalCmgCl = campsite.animalCmgCl
     self.firstImageURL = campsite.firstImageURL
     self.modifiedtime = campsite.modifiedtime
+    self.posblFcltyCl = campsite.posblFcltyCl
     self.isLiked = campsite.isLiked
   }
 }
@@ -150,6 +152,7 @@ extension CampsiteRealmDTO {
       animalCmgCl: animalCmgCl,
       firstImageURL: firstImageURL,
       modifiedtime: modifiedtime,
+      posblFcltyCl: posblFcltyCl,
       isLiked: isLiked
     )
   }
