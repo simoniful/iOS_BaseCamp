@@ -13,4 +13,6 @@ enum APIKey: String {
   case youtube = "AIzaSyAwPMjR_6Hv-5fb8cSYBAMGuEE78h9T0a0"
   case naverBlogId = "wE5Nze7qwvLYACNQw8FX"
   case naverBlogSecret = "tebcgxqL8e"
+  case naverMapId = "uqo6c9j11n"
+  case naverMapSecret = "7ugOafUW9OXnSJxfN6Pwyea7I9v8xUIVP4odo5kL"
 }

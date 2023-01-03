@@ -10,26 +10,6 @@ import Moya
 
 typealias DictionaryType = [String: Any]
 
-//private func JSONResponseDataFormatter(_ data: Data) -> String {
-//    do {
-//        let dataAsJSON = try JSONSerialization.jsonObject(with: data)
-//        let prettyData = try JSONSerialization.data(withJSONObject: dataAsJSON, options: .prettyPrinted)
-//        return String(data: prettyData, encoding: .utf8) ?? String(data: data, encoding: .utf8) ?? ""
-//    } catch {
-//        return String(data: data, encoding: .utf8) ?? ""
-//    }
-//}
-//
-//public func url(_ route: TargetType) -> String {
-//    route.baseURL.appendingPathComponent(route.path).absoluteString
-//}
-//
-//private extension String {
-//    var urlEscaped: String {
-//        self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-//    }
-//}
-
 enum CampsiteTarget {
   case getCampsite(parameters: DictionaryType)
   case getCampsiteByLocation(parameters: DictionaryType)

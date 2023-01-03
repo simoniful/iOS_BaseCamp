@@ -7,6 +7,7 @@
 
 import UIKit
 import UserNotifications
+import NMapsMap
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     sleep(4)
     
     AppAppearance.setupAppearance()
-    
+    NMFAuthManager.shared().clientId = APIKey.naverMapId.rawValue
     UNUserNotificationCenter.current().delegate = self
 
     let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]

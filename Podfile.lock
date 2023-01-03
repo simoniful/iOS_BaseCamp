@@ -1,0 +1,41 @@
+PODS:
+  - DropDown (2.3.13)
+  - NMapsGeometry (1.0.1)
+  - NMapsMap (3.16.1):
+    - NMapsGeometry
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxFSPagerView (0.2.1):
+    - RxCocoa
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+
+DEPENDENCIES:
+  - DropDown
+  - NMapsMap
+  - RxFSPagerView
+
+SPEC REPOS:
+  trunk:
+    - DropDown
+    - NMapsGeometry
+    - NMapsMap
+    - RxCocoa
+    - RxFSPagerView
+    - RxRelay
+    - RxSwift
+
+SPEC CHECKSUMS:
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  NMapsGeometry: 53c573ead66466681cf123f99f698dc8071a4b83
+  NMapsMap: 926c3a303d381a24bec8da3cd6e198f50af93ae9
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxFSPagerView: 2df5953d7e4c118ede349ccebb6f2d1930d325d2
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+
+PODFILE CHECKSUM: 153e62795ab929c20d75fa6ec3084b0afa1e628b
+
+COCOAPODS: 1.11.3

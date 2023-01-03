@@ -23,7 +23,7 @@ extension WeatherTarget: TargetType {
   var path: String {
     switch self {
     case .getWeather(_):
-      return ""
+      return "/onecall"
     }
   }
   

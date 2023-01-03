@@ -22,14 +22,14 @@ extension YoutubeTarget: TargetType {
   
   var path: String {
     switch self {
-    case .getYoutube(_):
-      return ""
+    case .getYoutube:
+      return "/search"
     }
   }
   
   var method: Moya.Method {
     switch self {
-    case.getYoutube(_):
+    case.getYoutube:
       return .get
     }
   }

@@ -22,14 +22,14 @@ extension NaverBlogTarget: TargetType {
   
   var path: String {
     switch self {
-    case .getNaverBlog(_):
-      return ""
+    case .getNaverBlog:
+      return "search/blog.json"
     }
   }
   
   var method: Moya.Method {
     switch self {
-    case.getNaverBlog(_):
+    case.getNaverBlog:
       return .get
     }
   }

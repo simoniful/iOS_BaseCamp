@@ -10,5 +10,5 @@ import Foundation
 enum NaverBlogAPIEnvironment: String {
   case qa = "qa"
   case staging = "staging"
-  case production = "https://apis.data.go.kr/B551011/GoCamping"
+  case production = "https://openapi.naver.com/v1"
 }
