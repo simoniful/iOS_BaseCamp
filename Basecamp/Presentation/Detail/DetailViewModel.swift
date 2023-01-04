@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+// 스타일에 따른 다른 데이터 소스/레이아웃 구성
 enum DetailStyle {
   case campsite(campsite: Campsite)
   case touristInfo(touristInfo :TouristInfo)
@@ -26,25 +27,54 @@ final class DetailViewModel: ViewModel {
   }
   
   struct Input {
+    let viewWillAppear: Observable<Void>
   }
   
   struct Output {
+    
   }
+  
+  private let aroundCellAction = PublishRelay<(DetailItem, IndexPath)>()
   
   var disposeBag = DisposeBag()
   
   func transform(input: Input) -> Output {
-    return Output()
-  }
-  
-  func a() {
-    switch self.style {
+    switch style {
+    case .campsite(let campsite):
+      let campsiteImageResult = input.viewWillAppear
+        .flatMapLatest { _ in
+          self.detailUseCase.requestCampsiteImageList(
+            numOfRows: 30, pageNo: 1, contentId: campsite.contentID!
+          )
+        }
       
-    case .campsite(campsite: let campsite):
-      <#code#>
-    case .touristInfo(touristInfo: let touristInfo):
+      let campsiteImageValue = campsiteImageResult
+        .compactMap { data -> [String]? in
+          self.detailUseCase.getCampsiteImageValue(data)
+        }
+      
+      let campsiteImageError = campsiteImageResult
+        .compactMap { data -> String? in
+          self.detailUseCase.getCampsiteImageError(data)
+        }
+      
+      let campsiteValue = Observable.just(campsite)
+      
+      let headerValue = Observable.combineLatest(campsiteImageValue, campsiteValue) {
+        images, campsite -> [DetailCampsiteHeaderItem] in
+        self.detailUseCase.requestHeaderData(campsite: campsite, images: images)
+      }
+      
+      let weatherResult = input.viewWillAppear
+        .flatMapLatest { _ in
+          <#code#>
+        }
+
+      
+    case .touristInfo(let touristInfo):
       <#code#>
     }
+    return Output()
   }
 }
   

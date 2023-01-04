@@ -12,6 +12,7 @@ final class AppAppearance {
 
     static func setupAppearance() {
         let appearance = UINavigationBarAppearance()
+        appearance.titlePositionAdjustment = .init(horizontal: -max(UIScreen.main.bounds.width, UIScreen.main.bounds.height), vertical: 0)
         appearance.configureWithDefaultBackground()
         appearance.backgroundColor = .systemBackground
         appearance.titleTextAttributes = [.foregroundColor: UIColor.label]

@@ -36,6 +36,10 @@ final class DetailHeaderCell: UICollectionViewCell {
   
   private lazy var placeholderImageView: UIImageView = {
     let imageView = UIImageView()
+    imageView.image = UIImage(named: "placeHolder")
+    imageView.contentMode = .scaleAspectFill
+    imageView.clipsToBounds = true
+    return imageView
   }()
   
   private lazy var buttonStack: UIStackView = {
@@ -135,11 +139,44 @@ final class DetailHeaderCell: UICollectionViewCell {
 
 extension DetailHeaderCell: ViewRepresentable {
   func setupView() {
-    [pagerView, pagerControl].forEach {
+    [placeholderImageView, pagerView, pagerControl, buttonStack, infoStack].forEach {
       addSubview($0)
     }
   }
   
   func setupConstraints() {
+    placeholderImageView.snp.makeConstraints {
+      $0.top.leading.trailing.equalToSuperview()
+      $0.height.equalTo(contentView.snp.width).multipliedBy(0.75)
+    }
+    
+    pagerView.snp.makeConstraints {
+      $0.top.leading.trailing.equalToSuperview()
+      $0.height.equalTo(contentView.snp.width).multipliedBy(0.75)
+    }
+    
+    pagerControl.snp.makeConstraints {
+      $0.centerX.equalTo(pagerView.snp.centerX)
+      $0.bottom.equalTo(pagerView.snp.bottom).offset(-10.0)
+      $0.width.equalTo(100.0)
+    }
+    
+    buttonStack.snp.makeConstraints {
+      $0.top.equalTo(placeholderImageView.snp.bottom).offset(16.0)
+      $0.leading.equalToSuperview().offset(16.0)
+      $0.trailing.equalToSuperview().offset(-16.0)
+      $0.height.equalTo(contentView.snp.width).multipliedBy(0.3)
+    }
+    
+    infoStack.snp.makeConstraints {
+      $0.top.equalTo(buttonStack.snp.bottom).offset(16.0)
+      $0.leading.equalToSuperview().offset(16.0)
+      $0.trailing.equalToSuperview().offset(-16.0)
+      $0.bottom.equalToSuperview().offset(-16.0)
+    }
+  }
+  
+  func setData(data: DetailCampsiteHeaderItem) {
     
   }
+}

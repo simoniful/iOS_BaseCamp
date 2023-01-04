@@ -116,8 +116,16 @@ final class HomeViewModel: ViewModel {
         switch index.section {
         case 0:
           print("여긴 클릭하면 안됨")
+        case 1:
+          self.coordinator?.changeTabByIndex(tabCase: .list, message: "지역별로 검색해보세요")
+        case 2:
+          guard let campsite = model as? Campsite else { return }
+          self.coordinator?.showDetailViewController(detailStyle: .campsite(campsite: campsite), name: campsite.facltNm!)
+        case 3:
+          guard let touristInfo = model as? TouristInfo else { return }
+          self.coordinator?.showDetailViewController(detailStyle: .touristInfo(touristInfo: touristInfo), name: touristInfo.title!)
         default:
-          print(model)
+          print("여긴 클릭하면 안됨")
         }
       }
       .disposed(by: disposeBag)
@@ -157,8 +165,7 @@ final class HomeViewModel: ViewModel {
         cell.setData(touristInfo: item)
         return cell
         }
-      }
-      ,
+      },
       configureSupplementaryView: { dataSource, collectionView, kind, indexPath in
         switch dataSource[indexPath.section] {
         case .headerSection:
@@ -204,31 +211,24 @@ private extension HomeViewModel {
   private func areaSection() -> NSCollectionLayoutSection {
     let estimatedHeight: CGFloat = 50
     let estimatedWidth: CGFloat = 50
-    
     let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(estimatedWidth),
                                           heightDimension: .estimated(estimatedHeight))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    
     item.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: .fixed(8), trailing: .fixed(8), bottom: .fixed(8))
-    
     let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                            heightDimension: .estimated(estimatedHeight))
     let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                    subitems: [item])
     let section = NSCollectionLayoutSection(group: group)
     section.contentInsets = NSDirectionalEdgeInsets(top: 8.0, leading: 16.0, bottom: 16.0, trailing: 16.0)
-    
     let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
-    
     let header = NSCollectionLayoutBoundarySupplementaryItem(
            layoutSize: headerFooterSize,
            elementKind: UICollectionView.elementKindSectionHeader,
            alignment: .top
          )
-    
     section.boundarySupplementaryItems = [header]
     return section
-    
   }
   
   private func campsiteSection() -> NSCollectionLayoutSection {
@@ -242,21 +242,18 @@ private extension HomeViewModel {
       widthDimension: .fractionalWidth(0.7),
       heightDimension: .fractionalWidth(0.525)
     )
-   
     let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
     let section = NSCollectionLayoutSection(group: group)
     section.interGroupSpacing = 4.0
     section.contentInsets = NSDirectionalEdgeInsets(top: 8.0, leading: 16.0, bottom: 16.0, trailing: 16.0)
     section.orthogonalScrollingBehavior = .continuous
-    
     let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
     
     let header = NSCollectionLayoutBoundarySupplementaryItem(
-           layoutSize: headerFooterSize,
-           elementKind: UICollectionView.elementKindSectionHeader,
-           alignment: .top
-         )
-    
+      layoutSize: headerFooterSize,
+      elementKind: UICollectionView.elementKindSectionHeader,
+      alignment: .top
+    )
     section.boundarySupplementaryItems = [header]
     return section
   }
@@ -272,15 +269,12 @@ private extension HomeViewModel {
       widthDimension: .fractionalWidth(0.4),
       heightDimension: .fractionalWidth(0.533)
     )
-
     let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
     let section = NSCollectionLayoutSection(group: group)
     section.contentInsets = NSDirectionalEdgeInsets(top: 8.0, leading: 16.0, bottom: 16.0, trailing: 16.0)
     section.interGroupSpacing = 4.0
     section.orthogonalScrollingBehavior = .continuous
-    
     let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
-    
     let header = NSCollectionLayoutBoundarySupplementaryItem(
            layoutSize: headerFooterSize,
            elementKind: UICollectionView.elementKindSectionHeader,

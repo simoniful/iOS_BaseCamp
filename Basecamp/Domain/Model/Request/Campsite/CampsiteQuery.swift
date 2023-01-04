@@ -11,7 +11,7 @@ enum CampsiteQueryType {
   case basic(numOfRows: Int, pageNo: Int)
   case location(numOfRows: Int, pageNo: Int, coordinate: Coordinate, radius: Int)
   case keyword(numOfRows: Int, pageNo: Int, keyword: String)
-  case image(numOfRows: Int, pageNo: Int, conteneId: Int)
+  case image(numOfRows: Int, pageNo: Int, contentId: String)
   
   var query: CampsiteQuery {
     switch self {
@@ -103,5 +103,5 @@ struct CampsiteImageQuery: CampsiteQuery {
   let mobileOS: String
   let moblieApp: String
   let serviceKey: String
-  var contentId: Int
+  var contentId: String
 }

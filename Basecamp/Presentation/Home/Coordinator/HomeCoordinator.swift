@@ -35,10 +35,24 @@ final class HomeCoordinator: Coordinator {
     navigationController.pushViewController(vc, animated: true)
   }
   
-  func showCampsiteDetailViewController(campsite: Campsite) {
-    let vc = UIViewController()
-    
+  func showDetailViewController(detailStyle: DetailStyle, name: String) {
+    let vc = DetailViewController(
+      viewModel: DetailViewModel(
+        coordinator: self,
+        detailUseCase: DetailUseCase(
+          campsiteRepository: CampsiteRepository(),
+          realmRepository: RealmRepository(),
+          touristInfoRepository: TouristInfoRepository(),
+          weatherRepository: WeatherRepository(),
+          naverBlogRepository: NaverBlogRepository(),
+          youtubeRepository: YoutubeRepository()
+        ),
+        style: detailStyle
+      ),
+      name: name
+    )
     vc.hidesBottomBarWhenPushed = true
+    navigationController.pushViewController(vc, animated: true)
   }
   
   func changeTabByIndex(tabCase: TabBarPageCase ,message: String) {

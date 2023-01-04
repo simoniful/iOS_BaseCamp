@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 final class DetailViewController: UIViewController {
-  
+  private let name: String
   
   private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
   
@@ -29,26 +29,19 @@ final class DetailViewController: UIViewController {
     return barButton
   }()
   
-  lazy var leftBarDismissButton: UIBarButtonItem = {
-    let barButton = UIBarButtonItem()
-    barButton.image = UIImage(systemName: "xmark")
-    barButton.style = .plain
-    return barButton
-  }()
-  
-  private let viewModel: DetailViewModel
+  let viewModel: DetailViewModel
   private let disposeBag = DisposeBag()
   
-  private lazy var input = HomeViewModel.Input(
-    viewDidLoad: self.rx.viewDidLoad.asObservable(),
-    viewWillAppear: self.rx.viewWillAppear.asObservable()
+  private lazy var input = DetailViewModel.Input(
+     viewWillAppear: self.rx.viewWillAppear.asObservable()
   )
   
   private lazy var output = viewModel.transform(input: input)
   
-  init(viewModel: DetailViewModel) {
-      self.viewModel = viewModel
-      super.init(nibName: nil, bundle: nil)
+  init(viewModel: DetailViewModel, name: String) {
+    self.viewModel = viewModel
+    self.name = name
+    super.init(nibName: nil, bundle: nil)
   }
   
   required init?(coder: NSCoder) {
@@ -83,13 +76,11 @@ private extension DetailViewController {
   
   func setupNavigationBar() {
     navigationItem.largeTitleDisplayMode = .never
-    navigationItem.title = viewModel
+    navigationController?.navigationBar.topItem?.title = ""
+    navigationItem.title = name
     navigationItem.rightBarButtonItems = [
       rightBarShareButton,
       rightBarDropDownButton
-    ]
-    navigationItem.leftBarButtonItems = [
-      leftBarDismissButton
     ]
   }
 

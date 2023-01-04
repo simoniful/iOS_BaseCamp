@@ -8,5 +8,8 @@
 import Foundation
 
 struct YoutubeInfo: Codable, SocialMediaInfo {
-  
+  var type: String
+  var title: String
+  var link: String
+  var description: String
 }
