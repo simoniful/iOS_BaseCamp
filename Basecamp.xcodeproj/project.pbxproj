@@ -147,6 +147,13 @@
 		F4F0E099296576120006C9D4 /* DetailAroundTabmanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E098296576120006C9D4 /* DetailAroundTabmanViewController.swift */; };
 		F4F0E09C29657AEA0006C9D4 /* DetailAroundTabmanSubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E09B29657AEA0006C9D4 /* DetailAroundTabmanSubViewController.swift */; };
 		F4F0E09F2965A9920006C9D4 /* DetailSocialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E09E2965A9910006C9D4 /* DetailSocialCell.swift */; };
+		F4F0E0A72965CAC00006C9D4 /* WeatherRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0A62965CAC00006C9D4 /* WeatherRequestDTO.swift */; };
+		F4F0E0A92965CD620006C9D4 /* NaverBlogRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0A82965CD620006C9D4 /* NaverBlogRequestDTO.swift */; };
+		F4F0E0AB2965CD770006C9D4 /* YoutubeRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0AA2965CD770006C9D4 /* YoutubeRequestDTO.swift */; };
+		F4F0E0AD29666B8F0006C9D4 /* WeatherResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0AC29666B8F0006C9D4 /* WeatherResponseDTO.swift */; };
+		F4F0E0AF29666BA20006C9D4 /* NaverBlogResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0AE29666BA20006C9D4 /* NaverBlogResponseDTO.swift */; };
+		F4F0E0B129666BAF0006C9D4 /* YoutubeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0B029666BAF0006C9D4 /* YoutubeResponseDTO.swift */; };
+		F4F0E0B5296683A00006C9D4 /* LosslessStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0B4296683A00006C9D4 /* LosslessStringConvertible.swift */; };
 		F4FD50902962851600FA3CB3 /* goCampingData.json in Resources */ = {isa = PBXBuildFile; fileRef = F4FD508F2962851600FA3CB3 /* goCampingData.json */; };
 		F4FD50922962857600FA3CB3 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50912962857600FA3CB3 /* IndicatorView.swift */; };
 		F4FD50942962BF4F00FA3CB3 /* UICollectionView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */; };
@@ -318,6 +325,13 @@
 		F4F0E098296576120006C9D4 /* DetailAroundTabmanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAroundTabmanViewController.swift; sourceTree = "<group>"; };
 		F4F0E09B29657AEA0006C9D4 /* DetailAroundTabmanSubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAroundTabmanSubViewController.swift; sourceTree = "<group>"; };
 		F4F0E09E2965A9910006C9D4 /* DetailSocialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSocialCell.swift; sourceTree = "<group>"; };
+		F4F0E0A62965CAC00006C9D4 /* WeatherRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRequestDTO.swift; sourceTree = "<group>"; };
+		F4F0E0A82965CD620006C9D4 /* NaverBlogRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogRequestDTO.swift; sourceTree = "<group>"; };
+		F4F0E0AA2965CD770006C9D4 /* YoutubeRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRequestDTO.swift; sourceTree = "<group>"; };
+		F4F0E0AC29666B8F0006C9D4 /* WeatherResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponseDTO.swift; sourceTree = "<group>"; };
+		F4F0E0AE29666BA20006C9D4 /* NaverBlogResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogResponseDTO.swift; sourceTree = "<group>"; };
+		F4F0E0B029666BAF0006C9D4 /* YoutubeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeResponseDTO.swift; sourceTree = "<group>"; };
+		F4F0E0B4296683A00006C9D4 /* LosslessStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LosslessStringConvertible.swift; sourceTree = "<group>"; };
 		F4FD508F2962851600FA3CB3 /* goCampingData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goCampingData.json; sourceTree = "<group>"; };
 		F4FD50912962857600FA3CB3 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Rx.swift"; sourceTree = "<group>"; };
@@ -774,11 +788,11 @@
 		F4D10EF829499016000C02E0 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				F4F0E07D296463E30006C9D4 /* Weather */,
-				F4F0E077296459B20006C9D4 /* Youtube */,
 				F4E3E5B9295D3F97009AFCFC /* Campsite */,
 				F4E3E5B8295D3F19009AFCFC /* TouristInfo */,
+				F4F0E07D296463E30006C9D4 /* Weather */,
 				F4F0E07C29645BF30006C9D4 /* NaverBlog */,
+				F4F0E077296459B20006C9D4 /* Youtube */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -883,6 +897,9 @@
 			children = (
 				F4E3E5B6295D3EBB009AFCFC /* Campsite */,
 				F4E3E5B7295D3EC2009AFCFC /* TouristInfo */,
+				F4F0E0A12965BF430006C9D4 /* Weather */,
+				F4F0E0A02965BF330006C9D4 /* NaverBlog */,
+				F4F0E0A22965BF520006C9D4 /* Youtube */,
 			);
 			path = RequestDTO;
 			sourceTree = "<group>";
@@ -892,6 +909,9 @@
 			children = (
 				F4E3E5C6295D82E4009AFCFC /* Campsite */,
 				F4E3E5C7295D8300009AFCFC /* TouristInfo */,
+				F4F0E0A32965BF7B0006C9D4 /* Weather */,
+				F4F0E0A42965BF910006C9D4 /* NaverBlog */,
+				F4F0E0A52965BFA60006C9D4 /* Youtube */,
 			);
 			path = ResponseDTO;
 			sourceTree = "<group>";
@@ -1034,6 +1054,7 @@
 			children = (
 				F4E3E5F1295EA028009AFCFC /* Date.swift */,
 				F4E3E5F429604B43009AFCFC /* String.swift */,
+				F4F0E0B4296683A00006C9D4 /* LosslessStringConvertible.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1102,6 +1123,54 @@
 				F4F0E09E2965A9910006C9D4 /* DetailSocialCell.swift */,
 			);
 			path = SocialSectionCell;
+			sourceTree = "<group>";
+		};
+		F4F0E0A02965BF330006C9D4 /* NaverBlog */ = {
+			isa = PBXGroup;
+			children = (
+				F4F0E0A82965CD620006C9D4 /* NaverBlogRequestDTO.swift */,
+			);
+			path = NaverBlog;
+			sourceTree = "<group>";
+		};
+		F4F0E0A12965BF430006C9D4 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				F4F0E0A62965CAC00006C9D4 /* WeatherRequestDTO.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		F4F0E0A22965BF520006C9D4 /* Youtube */ = {
+			isa = PBXGroup;
+			children = (
+				F4F0E0AA2965CD770006C9D4 /* YoutubeRequestDTO.swift */,
+			);
+			path = Youtube;
+			sourceTree = "<group>";
+		};
+		F4F0E0A32965BF7B0006C9D4 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				F4F0E0AC29666B8F0006C9D4 /* WeatherResponseDTO.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		F4F0E0A42965BF910006C9D4 /* NaverBlog */ = {
+			isa = PBXGroup;
+			children = (
+				F4F0E0AE29666BA20006C9D4 /* NaverBlogResponseDTO.swift */,
+			);
+			path = NaverBlog;
+			sourceTree = "<group>";
+		};
+		F4F0E0A52965BFA60006C9D4 /* Youtube */ = {
+			isa = PBXGroup;
+			children = (
+				F4F0E0B029666BAF0006C9D4 /* YoutubeResponseDTO.swift */,
+			);
+			path = Youtube;
 			sourceTree = "<group>";
 		};
 		F4FD50952962C16500FA3CB3 /* Detail */ = {
@@ -1447,6 +1516,7 @@
 				F4FD50AC296305EC00FA3CB3 /* DetailFacilityCell.swift in Sources */,
 				F4D10EE4294982B5000C02E0 /* TabBarPageCase.swift in Sources */,
 				F49034B5294C5C6600CDE442 /* HomeCampsiteCell.swift in Sources */,
+				F4F0E0A92965CD620006C9D4 /* NaverBlogRequestDTO.swift in Sources */,
 				F49034E829515B4E00CDE442 /* WeatherAPIEnvironment.swift in Sources */,
 				F4F0E083296469210006C9D4 /* WeatherInfo.swift in Sources */,
 				F4E3E5CF295DA92E009AFCFC /* TouristInfoIntroCulture.swift in Sources */,
@@ -1457,8 +1527,12 @@
 				F4FD50942962BF4F00FA3CB3 /* UICollectionView+Rx.swift in Sources */,
 				F4D10F4E2949ADF2000C02E0 /* AppFont.swift in Sources */,
 				F4E3E5A129544823009AFCFC /* ReviewRealmDTO.swift in Sources */,
+				F4F0E0A72965CAC00006C9D4 /* WeatherRequestDTO.swift in Sources */,
+				F4F0E0AB2965CD770006C9D4 /* YoutubeRequestDTO.swift in Sources */,
+				F4F0E0AF29666BA20006C9D4 /* NaverBlogResponseDTO.swift in Sources */,
 				F4E3E58329515FDA009AFCFC /* WeatherTargetStub.swift in Sources */,
 				F4E3E5952954007F009AFCFC /* CampsiteImageListResponseDTO.swift in Sources */,
+				F4F0E0AD29666B8F0006C9D4 /* WeatherResponseDTO.swift in Sources */,
 				F4F0E081296468A10006C9D4 /* SocialMediaInfo.swift in Sources */,
 				F49034EA29515B5E00CDE442 /* NaverBlogAPIEnvironment.swift in Sources */,
 				F46BFB7D29632465007EB676 /* YoutubeRepositoryInterface.swift in Sources */,
@@ -1482,6 +1556,7 @@
 				F4D10F272949A700000C02E0 /* AppAppearance.swift in Sources */,
 				F49034EE29515B8300CDE442 /* WeatherTarget.swift in Sources */,
 				F4E3E5CB295D8358009AFCFC /* TouristInfoAreaCodeResponseDTO.swift in Sources */,
+				F4F0E0B5296683A00006C9D4 /* LosslessStringConvertible.swift in Sources */,
 				F4D10EF529498F71000C02E0 /* Coordinate.swift in Sources */,
 				F49034CB295030F700CDE442 /* CampsiteAPIEnvironment.swift in Sources */,
 				F49034C3295004E100CDE442 /* TouristInfo.swift in Sources */,
@@ -1498,6 +1573,7 @@
 				F49034C12950025200CDE442 /* TouristInfoRepositoryInterface.swift in Sources */,
 				F46BFB7B29632451007EB676 /* NaverBlogRepositoryInterface.swift in Sources */,
 				F4E3E58D295181D1009AFCFC /* CampsiteQuery.swift in Sources */,
+				F4F0E0B129666BAF0006C9D4 /* YoutubeResponseDTO.swift in Sources */,
 				F4E3E5E0295E8687009AFCFC /* CampsiteImageRequestDTO.swift in Sources */,
 				F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */,
 				F4F0E0852964694F0006C9D4 /* YoutubeInfo.swift in Sources */,

@@ -16,7 +16,7 @@ enum WeatherQueryType {
       return WeatherQuery(
         lat: lat,
         lon: lon,
-        appid: APIKey.weather.rawValue
+        appid: APIKey.weather.rawValue.decodeUrl()
       )
     }
   }

@@ -176,7 +176,7 @@ extension DetailHeaderCell: ViewRepresentable {
     }
   }
   
-  func setData(data: DetailCampsiteHeaderItem) {
+  func setupData(data: DetailCampsiteHeaderItem) {
     
   }
 }

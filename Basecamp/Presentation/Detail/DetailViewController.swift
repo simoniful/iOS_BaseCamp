@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 final class DetailViewController: UIViewController {
   private let name: String
@@ -58,7 +59,15 @@ final class DetailViewController: UIViewController {
   }
   
   func bind() {
-    
+    switch viewModel.style {
+    case .campsite:
+      collectionView.collectionViewLayout = viewModel.createLayout()
+      let dataSource = viewModel.campsiteDataSource()
+      output.data
+        .drive(self.collectionView.rx.items(dataSource: dataSource))
+    case .touristInfo:
+      print("Not yet")
+    }
   }
 }
 

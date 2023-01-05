@@ -7,9 +7,13 @@
 
 import Foundation
 
-protocol SocialMediaInfo: Codable {
-  var type: String { get }
-  var title: String { get }
-  var link: String { get }
-  var description: String { get }
+protocol SocialMediaInfo {
+  var type: String? { get }
+  var title: String? { get }
+  var url: String? { get }
+  var description: String? { get }
 }
+
+
+
+

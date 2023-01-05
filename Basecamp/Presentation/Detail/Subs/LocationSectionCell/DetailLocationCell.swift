@@ -22,12 +22,14 @@ final class DetailLocationCell: UICollectionViewCell {
     let label = UILabel()
     label.text = "주소"
     label.font = .display1R20
+    label.numberOfLines = 0
     return label
   }()
   private let directionLabel: UILabel = {
     let label = UILabel()
-    label.text = "방법"
+    label.text = "찾아오는 길: 문의처에 문의 바랍니다."
     label.font = .display1R20
+    label.numberOfLines = 0
     return label
   }()
   
@@ -47,7 +49,6 @@ final class DetailLocationCell: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
 }
-
 
 extension DetailLocationCell: ViewRepresentable {
   func setupView() {
@@ -83,7 +84,7 @@ extension DetailLocationCell: ViewRepresentable {
     }
   }
   
-  func setData(data: DetailLocationItem) {
+  func setupData(data: DetailLocationItem) {
     
   }
   

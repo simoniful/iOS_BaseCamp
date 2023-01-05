@@ -11,7 +11,7 @@ final class DetailAroundTabmanSubViewController: UIViewController {
   private let viewModel: DetailViewModel
   
   init(viewModel: DetailViewModel, locationData: DetailAroundItem) {
-    
+    self.viewModel = viewModel
   }
   
   required init?(coder: NSCoder) {

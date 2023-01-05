@@ -8,9 +8,9 @@
 import Foundation
 
 struct WeatherInfo: Codable {
-    let date: Int
-    let minTemp: Double
-    let maxTemp: Double
-    let weatherIcon: String
-    let weather: String
+    let date: Date?
+    let minTemp: Double?
+    let maxTemp: Double?
+    let weatherIcon: String?
+    let description: String?
 }

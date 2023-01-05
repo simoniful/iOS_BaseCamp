@@ -14,7 +14,7 @@ enum YoutubeQueryType {
     switch self {
     case .basic(let keyword, let maxResults):
       return YoutubeQuery(
-        key: APIKey.youtube.rawValue,
+        key: APIKey.youtube.rawValue.decodeUrl(),
         q: keyword,
         maxResults: maxResults
       )

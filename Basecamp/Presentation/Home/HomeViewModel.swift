@@ -208,7 +208,7 @@ private extension HomeViewModel {
     return section
   }
   
-  private func areaSection() -> NSCollectionLayoutSection {
+  func areaSection() -> NSCollectionLayoutSection {
     let estimatedHeight: CGFloat = 50
     let estimatedWidth: CGFloat = 50
     let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(estimatedWidth),
@@ -231,7 +231,7 @@ private extension HomeViewModel {
     return section
   }
   
-  private func campsiteSection() -> NSCollectionLayoutSection {
+  func campsiteSection() -> NSCollectionLayoutSection {
     let itemSize = NSCollectionLayoutSize(
       widthDimension: .fractionalWidth(1.0),
       heightDimension: .fractionalHeight(1.0)

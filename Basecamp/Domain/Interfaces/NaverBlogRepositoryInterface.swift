@@ -9,5 +9,5 @@ import Foundation
 import RxSwift
 
 protocol NaverBlogRepositoryInterface: AnyObject {
-  
+  func requestNaverBlogInfoList(naverBlogQueryType: NaverBlogQueryType) -> Single<Result<[NaverBlogInfo], NaverBlogServiceError>>
 }

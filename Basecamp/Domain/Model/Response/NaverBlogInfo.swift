@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct NaverBlogInfo: Codable, SocialMediaInfo {
-  var type: String
-  var title: String
-  var link: String
-  var description: String
+struct NaverBlogInfo: SocialMediaInfo {
+  var type: String?
+  var title: String?
+  var url: String?
+  var description: String?
 }

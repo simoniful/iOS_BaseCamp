@@ -9,5 +9,5 @@ import Foundation
 import RxSwift
 
 protocol YoutubeRepositoryInterface: AnyObject {
-  
+  func requestYoutubeInfoList(youtubeQueryType: YoutubeQueryType) -> Single<Result<[YoutubeInfo], YoutubeServiceError>>
 }

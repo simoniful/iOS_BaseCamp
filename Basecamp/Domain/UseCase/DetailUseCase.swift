@@ -33,28 +33,14 @@ final class DetailUseCase {
     self.youtubeRepository = youtubeRepository
   }
   
-  func getCampsiteImageValue(_ result: Result<[String], CampsiteServiceError>) -> [String]? {
+  func getValue<T>(_ result: Result<[T], some Error>) -> [T]? {
     guard case .success(let value) = result else {
       return nil
     }
     return value
   }
   
-  func getCampsiteImageError(_ result: Result<[String], CampsiteServiceError>) -> String? {
-    guard case .failure(let error) = result else {
-      return nil
-    }
-    return error.localizedDescription
-  }
-  
-  func getTouristInfoValue(_ result: Result<[TouristInfo], TouristInfoServiceError>) -> [TouristInfo]? {
-    guard case .success(let value) = result else {
-      return nil
-    }
-    return value
-  }
-  
-  func getTouristInfoError(_ result: Result<[TouristInfo], TouristInfoServiceError>) -> String? {
+  func getError<T>(_ result: Result<[T], some Error>) -> String? {
     guard case .failure(let error) = result else {
       return nil
     }
@@ -80,11 +66,86 @@ final class DetailUseCase {
     ]
   }
   
+  func requestLocationData(campsite: Campsite, weatherData: [WeatherInfo]) -> [DetailLocationItem] {
+    return [
+      DetailLocationItem(
+        mapX: campsite.mapX!,
+        mapY: campsite.mapY!,
+        address: campsite.addr1!,
+        direction: campsite.direction ?? "문의처에 문의 바랍니다",
+        weatherInfos: weatherData
+      )
+    ]
+  }
+  
+  func requestFacilityData(campsite: Campsite) -> [DetailCampsiteFacilityItem] {
+    var facArr: [Facility] = []
+    let sbrsClArr = campsite.sbrsCl?.components(separatedBy: ",")
+    sbrsClArr?.forEach {
+      if let enumCase = Facility(rawValue: $0) {
+        facArr.append(enumCase)
+      }
+    }
+    let result = facArr.map {
+      DetailCampsiteFacilityItem(facility: $0)
+    }
+    return result
+  }
+  
+  func requsetInfoData(campsite: Campsite) -> [DetailCampsiteInfoItem] {
+    return [
+      DetailCampsiteInfoItem(
+        gnrlSiteCo: campsite.gnrlSiteCo!,
+        autoSiteCo: campsite.autoSiteCo!,
+        glampSiteCo: campsite.glampSiteCo!,
+        caravSiteCo: campsite.caravSiteCo!,
+        sbrsEtc: campsite.sbrsEtc!,
+        animalCmgCl: campsite.animalCmgCl!,
+        glampInnerFclty: campsite.glampInnerFclty!,
+        caravInnerFclty: campsite.caravInnerFclty!,
+        brazierCl: campsite.brazierCl!,
+        extshrCo: campsite.extshrCo!,
+        frprvtWrppCo: campsite.frprvtWrppCo!,
+        frprvtSandCo: campsite.frprvtSandCo!,
+        fireSensorCo: campsite.fireSensorCo!,
+        overview: campsite.intro!,
+        themaEnvrnCl: campsite.themaEnvrnCl!,
+        tooltip: campsite.tooltip!
+      )
+    ]
+  }
+  
+  func requestSocialData(youtubeData: [YoutubeInfo], naverBlogData: [NaverBlogInfo]) ->  [DetailSocialItem] {
+    var mediaInfoList: [SocialMediaInfo] = youtubeData + naverBlogData
+    let result = mediaInfoList.map {
+      DetailSocialItem(socialMediaInfo: $0)
+    }
+    return result
+  }
+  
+  func requestAroundData(campsite: Campsite) -> [DetailAroundItem] {
+    return [
+      DetailAroundItem(
+        mapX: campsite.mapX!,
+        mapY: campsite.mapY!,
+        radius: "10000"
+      )
+    ]
+  }
+  
+  func requestImageData(strings: [String]) -> [DetailImageItem] {
+    return strings.map {
+      DetailImageItem(imageUrl: $0)
+    }
+  }
+  
   func getDetailCampsiteSectionModel(
     _ headerData: [DetailCampsiteHeaderItem],
     _ locationData: [DetailLocationItem],
     _ facilityData: [DetailCampsiteFacilityItem],
     _ infoData: [DetailCampsiteInfoItem],
+    _ socialData: [DetailSocialItem],
+    _ aroundData: [DetailAroundItem],
     _ imageData: [DetailImageItem]
   ) -> [DetailCampsiteSectionModel] {
     var data: [DetailCampsiteSectionModel] = []
@@ -92,6 +153,8 @@ final class DetailUseCase {
     data.append(.locationSection(header: "위치/주변 정보", items: locationData))
     data.append(.facilitySection(header: "시설 정보", items: facilityData))
     data.append(.infoSection(items: infoData))
+    data.append(.socialSection(header: "SNS", items: socialData))
+    data.append(.aroundSection(header: "주변에 갈만한 곳", items: aroundData))
     data.append(.imageSection(header: "캠핑장 사진", items: imageData))
     return data
   }
@@ -103,5 +166,18 @@ final class DetailUseCase {
     )
   }
   
+  // MARK: - 날씨 레포 연결
+  func requestWeatherList(lat: Double, lon: Double) -> Single<Result<[WeatherInfo], WeatherServiceError>> {
+    weatherRepository.requestWeatherList(weatherQueryType: .basic(lat: lat, lon: lon))
+  }
   
+  // MARK: - 네이버 블로그 검색 레포 연결
+  func requestNaverBlogInfoList(keyword: String, display: Int) -> Single<Result<[NaverBlogInfo], NaverBlogServiceError>> {
+    naverBlogRepository.requestNaverBlogInfoList(naverBlogQueryType: .basic(keyword: keyword, display: display))
+  }
+  
+  // MARK: - 유튜브 검색 레포 연결
+  func requestYoutubeInfoList(keyword: String, maxResults: Int) -> Single<Result<[YoutubeInfo], YoutubeServiceError>> {
+    youtubeRepository.requestYoutubeInfoList(youtubeQueryType: .basic(keyword: keyword, maxResults: maxResults))
+  }
 }

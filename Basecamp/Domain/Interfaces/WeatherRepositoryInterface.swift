@@ -9,5 +9,5 @@ import Foundation
 import RxSwift
 
 protocol WeatherRepositoryInterface: AnyObject {
-  
+  func requestWeatherList(weatherQueryType: WeatherQueryType) -> Single<Result<[WeatherInfo], WeatherServiceError>>
 }

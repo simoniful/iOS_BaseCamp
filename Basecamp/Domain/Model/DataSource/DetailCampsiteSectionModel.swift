@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxDataSources
 
 protocol DetailSectionModel {}
 
@@ -14,8 +15,8 @@ enum DetailCampsiteSectionModel: DetailSectionModel {
   case locationSection(header: String, items: [DetailLocationItem])
   case facilitySection(header: String, items:[DetailCampsiteFacilityItem])
   case infoSection(items: [DetailCampsiteInfoItem])
-  case socialSection(items: [DetailSocialItem])
-  case aroundSection(items: [DetailAroundItem])
+  case socialSection(header: String, items: [DetailSocialItem])
+  case aroundSection(header: String, items: [DetailAroundItem])
   case imageSection(header: String, items: [DetailImageItem])
 }
 
@@ -45,8 +46,7 @@ struct DetailLocationItem: DetailItem {
 }
 
 struct DetailCampsiteFacilityItem: DetailItem {
-  // 배열화 필요
-  var sbrsCl: String
+  var facility: Facility
 }
 
 struct DetailCampsiteInfoItem: DetailItem {
@@ -89,6 +89,46 @@ struct DetailAroundItem: DetailItem {
 
 struct DetailImageItem: DetailItem {
   var imageUrl: String
+}
+
+extension DetailCampsiteSectionModel: SectionModelType {
+  typealias Item = DetailItem
+  
+  init(original: DetailCampsiteSectionModel, items: [Item]) {
+    self = original
+  }
+  
+  var headers: String? {
+    switch self {
+    case .locationSection(let header, _),
+         .facilitySection(let header, _),
+         .socialSection(let header, _),
+         .aroundSection(let header, _),
+         .imageSection(let header, _):
+      return header
+    default:
+      return nil
+    }
+  }
+  
+  var items: [Item] {
+    switch self {
+    case .headerSection(let items):
+      return items
+    case .locationSection(_, let items):
+      return items
+    case .facilitySection(_, let items):
+      return items
+    case .infoSection(let items):
+      return items
+    case .socialSection(_, let items):
+      return items
+    case .aroundSection(_, let items):
+      return items
+    case .imageSection(_, let items):
+      return items
+    }
+  }
 }
 
 

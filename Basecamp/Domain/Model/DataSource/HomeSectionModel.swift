@@ -46,13 +46,13 @@ extension HomeSectionModel: SectionModelType {
 
   var items: [Item] {
     switch self {
-    case .headerSection(items: let items):
+    case .headerSection(let items):
       return items
-    case .areaSection(_, items: let items):
+    case .areaSection(_, let items):
       return items
-    case .campsiteSection(_, items: let items):
+    case .campsiteSection(_, let items):
       return items
-    case .festivalSection(_, items: let items):
+    case .festivalSection(_, let items):
       return items
     }
   }
