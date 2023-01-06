@@ -9,9 +9,9 @@ import Foundation
 
 // MARK: - YoutubeResponseDTO
 struct YoutubeResponseDTO: Codable {
-    let kind, etag, nextPageToken, regionCode: String?
-    let pageInfo: YoutubeResponseDTO_PageInfo?
-    let items: [YoutubeResponseDTO_Item]?
+  let kind, etag, nextPageToken, regionCode: String?
+  let pageInfo: YoutubeResponseDTO_PageInfo?
+  let items: [YoutubeResponseDTO_Item]?
 }
 
 // MARK: - Item
@@ -19,25 +19,37 @@ struct YoutubeResponseDTO_Item: Codable {
     let kind, etag: String?
     let id: YoutubeResponseDTO_ID?
     let snippet: YoutubeResponseDTO_Snippet?
+  
 }
 
 // MARK: - ID
 struct YoutubeResponseDTO_ID: Codable {
-    let kind, videoID: String?
+    let kind, videoId: String?
 }
 
 // MARK: - Snippet
 struct YoutubeResponseDTO_Snippet: Codable {
-    let publishedAt: Date?
-    let channelID, title, snippetDescription: String?
+    let publishedAt: String?
+    let channelId, title, snippetDescription: String?
     let thumbnails: YoutubeResponseDTO_Thumbnails?
     let channelTitle, liveBroadcastContent: String?
-    let publishTime: Date?
+    let publishTime: String?
+  
+  enum CodingKeys: String, CodingKey {
+    case publishedAt, channelId, title
+    case snippetDescription = "description"
+    case thumbnails, channelTitle, liveBroadcastContent, publishTime
+  }
 }
 
 // MARK: - Thumbnails
 struct YoutubeResponseDTO_Thumbnails: Codable {
-    let thumbnailsDefault, medium, high: YoutubeResponseDTO_Default?
+  let thumbnailsDefault, medium, high: YoutubeResponseDTO_Default?
+  
+  enum CodingKeys: String, CodingKey {
+    case thumbnailsDefault = "default"
+    case medium, high
+  }
 }
 
 // MARK: - Default
@@ -68,7 +80,7 @@ extension YoutubeResponseDTO_Item {
     .init(
       type: "youtube",
       title: snippet?.title,
-      url: "https://www.youtube.com/watch?v=" + (id?.videoID)!,
+      url: "https://www.youtube.com/watch?v=" + (id?.videoId)!,
       description: snippet?.snippetDescription,
       thumbnailUrl: snippet?.thumbnails?.thumbnailsDefault?.url
     )

@@ -13,7 +13,7 @@ struct TouristInfoImageResponseDTO: Codable {
 
 // MARK: - Response
 struct TouristInfoImageResponseDTO_Response: Codable {
-  let header: Header
+  let header: TouristInfoResponseDTO_Header
   let body: TouristInfoImageResponseDTO_Body
 }
 

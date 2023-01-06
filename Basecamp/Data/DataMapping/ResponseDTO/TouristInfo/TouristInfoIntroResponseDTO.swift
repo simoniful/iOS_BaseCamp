@@ -12,7 +12,7 @@ struct TouristInfoIntroResponseDTO<T: Codable & TouristInfoIntroResponseDTO_Item
 }
 
 struct TouristInfoIntroResponseDTO_Response<T: Codable & TouristInfoIntroResponseDTO_Item>: Codable {
-  let header: Header
+  let header: TouristInfoResponseDTO_Header
   let body: TouristInfoIntroResponseDTO_Body<T>
 }
 

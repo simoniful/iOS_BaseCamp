@@ -26,7 +26,7 @@
 		F49034922949BB5500CDE442 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = F49034912949BB5500CDE442 /* RxGesture */; };
 		F4903495294A172D00CDE442 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4903494294A172D00CDE442 /* HomeHeaderCell.swift */; };
 		F4903499294AB2CA00CDE442 /* HomeAreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4903498294AB2CA00CDE442 /* HomeAreaCell.swift */; };
-		F49034A5294AC72700CDE442 /* AreaLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034A4294AC72700CDE442 /* AreaLabel.swift */; };
+		F49034A5294AC72700CDE442 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034A4294AC72700CDE442 /* PaddingLabel.swift */; };
 		F49034A8294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */; };
 		F49034AA294C366600CDE442 /* HomeSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034A9294C366600CDE442 /* HomeSectionModel.swift */; };
 		F49034AC294C421300CDE442 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034AB294C421300CDE442 /* Area.swift */; };
@@ -154,6 +154,12 @@
 		F4F0E0AF29666BA20006C9D4 /* NaverBlogResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0AE29666BA20006C9D4 /* NaverBlogResponseDTO.swift */; };
 		F4F0E0B129666BAF0006C9D4 /* YoutubeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0B029666BAF0006C9D4 /* YoutubeResponseDTO.swift */; };
 		F4F0E0B5296683A00006C9D4 /* LosslessStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0B4296683A00006C9D4 /* LosslessStringConvertible.swift */; };
+		F4F0E0B7296725960006C9D4 /* DetailAroundTabmanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0B6296725950006C9D4 /* DetailAroundTabmanViewModel.swift */; };
+		F4F0E0B9296726120006C9D4 /* DetailAroundTabmanSubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0B8296726120006C9D4 /* DetailAroundTabmanSubViewModel.swift */; };
+		F4F0E0BB2967A7A30006C9D4 /* Facility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0BA2967A7A30006C9D4 /* Facility.swift */; };
+		F4F0E0BD2967B31E0006C9D4 /* InfoPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0BC2967B31E0006C9D4 /* InfoPlusView.swift */; };
+		F4F0E0BF2967F6320006C9D4 /* DefaultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0BE2967F6320006C9D4 /* DefaultLabel.swift */; };
+		F4F0E0C2296826180006C9D4 /* DetailLocationWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C1296826180006C9D4 /* DetailLocationWeatherCell.swift */; };
 		F4FD50902962851600FA3CB3 /* goCampingData.json in Resources */ = {isa = PBXBuildFile; fileRef = F4FD508F2962851600FA3CB3 /* goCampingData.json */; };
 		F4FD50922962857600FA3CB3 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50912962857600FA3CB3 /* IndicatorView.swift */; };
 		F4FD50942962BF4F00FA3CB3 /* UICollectionView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */; };
@@ -203,7 +209,7 @@
 		F46BFB7C29632465007EB676 /* YoutubeRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepositoryInterface.swift; sourceTree = "<group>"; };
 		F4903494294A172D00CDE442 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		F4903498294AB2CA00CDE442 /* HomeAreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAreaCell.swift; sourceTree = "<group>"; };
-		F49034A4294AC72700CDE442 /* AreaLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaLabel.swift; sourceTree = "<group>"; };
+		F49034A4294AC72700CDE442 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLeftAlignFlowLayout.swift; sourceTree = "<group>"; };
 		F49034A9294C366600CDE442 /* HomeSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionModel.swift; sourceTree = "<group>"; };
 		F49034AB294C421300CDE442 /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
@@ -332,6 +338,12 @@
 		F4F0E0AE29666BA20006C9D4 /* NaverBlogResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogResponseDTO.swift; sourceTree = "<group>"; };
 		F4F0E0B029666BAF0006C9D4 /* YoutubeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeResponseDTO.swift; sourceTree = "<group>"; };
 		F4F0E0B4296683A00006C9D4 /* LosslessStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LosslessStringConvertible.swift; sourceTree = "<group>"; };
+		F4F0E0B6296725950006C9D4 /* DetailAroundTabmanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAroundTabmanViewModel.swift; sourceTree = "<group>"; };
+		F4F0E0B8296726120006C9D4 /* DetailAroundTabmanSubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAroundTabmanSubViewModel.swift; sourceTree = "<group>"; };
+		F4F0E0BA2967A7A30006C9D4 /* Facility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facility.swift; sourceTree = "<group>"; };
+		F4F0E0BC2967B31E0006C9D4 /* InfoPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlusView.swift; sourceTree = "<group>"; };
+		F4F0E0BE2967F6320006C9D4 /* DefaultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLabel.swift; sourceTree = "<group>"; };
+		F4F0E0C1296826180006C9D4 /* DetailLocationWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocationWeatherCell.swift; sourceTree = "<group>"; };
 		F4FD508F2962851600FA3CB3 /* goCampingData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goCampingData.json; sourceTree = "<group>"; };
 		F4FD50912962857600FA3CB3 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Rx.swift"; sourceTree = "<group>"; };
@@ -433,10 +445,12 @@
 		F49034A6294AC88800CDE442 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				F49034A4294AC72700CDE442 /* AreaLabel.swift */,
-				F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */,
+				F4F0E0BE2967F6320006C9D4 /* DefaultLabel.swift */,
+				F49034A4294AC72700CDE442 /* PaddingLabel.swift */,
 				F4FD50912962857600FA3CB3 /* IndicatorView.swift */,
 				F4F0E0732963F4850006C9D4 /* InfoStackLabel.swift */,
+				F4F0E0BC2967B31E0006C9D4 /* InfoPlusView.swift */,
+				F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1032,6 +1046,7 @@
 			isa = PBXGroup;
 			children = (
 				F49034AD294C42B200CDE442 /* Campsite.swift */,
+				F4F0E0BA2967A7A30006C9D4 /* Facility.swift */,
 			);
 			path = Campsite;
 			sourceTree = "<group>";
@@ -1112,7 +1127,9 @@
 			isa = PBXGroup;
 			children = (
 				F4F0E098296576120006C9D4 /* DetailAroundTabmanViewController.swift */,
+				F4F0E0B6296725950006C9D4 /* DetailAroundTabmanViewModel.swift */,
 				F4F0E09B29657AEA0006C9D4 /* DetailAroundTabmanSubViewController.swift */,
+				F4F0E0B8296726120006C9D4 /* DetailAroundTabmanSubViewModel.swift */,
 			);
 			path = Subs;
 			sourceTree = "<group>";
@@ -1173,6 +1190,14 @@
 			path = Youtube;
 			sourceTree = "<group>";
 		};
+		F4F0E0C0296826060006C9D4 /* Subs */ = {
+			isa = PBXGroup;
+			children = (
+				F4F0E0C1296826180006C9D4 /* DetailLocationWeatherCell.swift */,
+			);
+			path = Subs;
+			sourceTree = "<group>";
+		};
 		F4FD50952962C16500FA3CB3 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1210,6 +1235,7 @@
 			isa = PBXGroup;
 			children = (
 				F4FD50A9296305DC00FA3CB3 /* DetailLocationCell.swift */,
+				F4F0E0C0296826060006C9D4 /* Subs */,
 			);
 			path = LocationSectionCell;
 			sourceTree = "<group>";
@@ -1525,6 +1551,7 @@
 				F4E3E5B5295D3053009AFCFC /* TouristInfoResponseDTO.swift in Sources */,
 				F49034D229504DD400CDE442 /* CampsiteTargetStub.swift in Sources */,
 				F4FD50942962BF4F00FA3CB3 /* UICollectionView+Rx.swift in Sources */,
+				F4F0E0BD2967B31E0006C9D4 /* InfoPlusView.swift in Sources */,
 				F4D10F4E2949ADF2000C02E0 /* AppFont.swift in Sources */,
 				F4E3E5A129544823009AFCFC /* ReviewRealmDTO.swift in Sources */,
 				F4F0E0A72965CAC00006C9D4 /* WeatherRequestDTO.swift in Sources */,
@@ -1539,8 +1566,9 @@
 				F4E3E5C1295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift in Sources */,
 				F4F0E099296576120006C9D4 /* DetailAroundTabmanViewController.swift in Sources */,
 				F4F0E094296575A00006C9D4 /* DetailImageCell.swift in Sources */,
-				F49034A5294AC72700CDE442 /* AreaLabel.swift in Sources */,
+				F49034A5294AC72700CDE442 /* PaddingLabel.swift in Sources */,
 				F4E3E5DA295E81A5009AFCFC /* CampsiteBasicRequestDTO.swift in Sources */,
+				F4F0E0C2296826180006C9D4 /* DetailLocationWeatherCell.swift in Sources */,
 				F4E3E5F529604B43009AFCFC /* String.swift in Sources */,
 				F4E3E5E8295E948C009AFCFC /* TouristInfoFestivalRequestDTO.swift in Sources */,
 				F4E3E5B0295AC26C009AFCFC /* TouristInfoRepository.swift in Sources */,
@@ -1571,10 +1599,12 @@
 				F4F0E097296575BD0006C9D4 /* DetailSectionHeader.swift in Sources */,
 				F46BFB75296323F5007EB676 /* NaverBlogRepository.swift in Sources */,
 				F49034C12950025200CDE442 /* TouristInfoRepositoryInterface.swift in Sources */,
+				F4F0E0B7296725960006C9D4 /* DetailAroundTabmanViewModel.swift in Sources */,
 				F46BFB7B29632451007EB676 /* NaverBlogRepositoryInterface.swift in Sources */,
 				F4E3E58D295181D1009AFCFC /* CampsiteQuery.swift in Sources */,
 				F4F0E0B129666BAF0006C9D4 /* YoutubeResponseDTO.swift in Sources */,
 				F4E3E5E0295E8687009AFCFC /* CampsiteImageRequestDTO.swift in Sources */,
+				F4F0E0BB2967A7A30006C9D4 /* Facility.swift in Sources */,
 				F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */,
 				F4F0E0852964694F0006C9D4 /* YoutubeInfo.swift in Sources */,
 				F49034A8294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift in Sources */,
@@ -1593,10 +1623,12 @@
 				F49034BD2950000500CDE442 /* RealmRepositoryInterface.swift in Sources */,
 				F49034D72950628E00CDE442 /* TouristInfoAPIConstant.swift in Sources */,
 				F49034F229515B9E00CDE442 /* YoutubeTarget.swift in Sources */,
+				F4F0E0BF2967F6320006C9D4 /* DefaultLabel.swift in Sources */,
 				F4E3E5DE295E85DA009AFCFC /* CampsiteKeywordRequestDTO.swift in Sources */,
 				F4E3E5B3295D303E009AFCFC /* TouristInfoRequestDTO.swift in Sources */,
 				F4FD509F2962E0F600FA3CB3 /* DetailViewModel.swift in Sources */,
 				F4E3E5BF295D77B1009AFCFC /* TouristInfoIntroSpot.swift in Sources */,
+				F4F0E0B9296726120006C9D4 /* DetailAroundTabmanSubViewModel.swift in Sources */,
 				F4D10F0129499386000C02E0 /* ViewModel.swift in Sources */,
 				F49034C9295030DC00CDE442 /* CampsiteAPIConstant.swift in Sources */,
 				F4E3E5D8295DD48C009AFCFC /* TouristInfoContentType.swift in Sources */,

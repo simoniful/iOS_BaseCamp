@@ -39,7 +39,7 @@ final class InfoStackLabel: UIStackView {
     
     self.translatesAutoresizingMaskIntoConstraints = false
     self.axis = .horizontal
-    self.distribution = .fill
+    self.distribution = .fillProportionally
   }
   
   func setupConstraints() {

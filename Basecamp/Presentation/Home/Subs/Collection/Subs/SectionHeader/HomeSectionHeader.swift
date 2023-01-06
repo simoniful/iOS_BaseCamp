@@ -10,7 +10,7 @@ import UIKit
 class HomeSectionHeader: UICollectionReusableView {
   static let identifier = "HomeSectionHeader"
   
-  private let titleLabel = UILabel()
+  private let titleLabel = DefaultLabel(font: .systemFont(ofSize: 20, weight: .bold))
   
   override init(frame: CGRect) {
       super.init(frame: frame)

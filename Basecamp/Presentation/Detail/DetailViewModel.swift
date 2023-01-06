@@ -5,7 +5,7 @@
 //  Created by Sang hun Lee on 2023/01/02.
 //
 
-import UIKit
+import Foundation
 import RxSwift
 import RxCocoa
 import RxDataSources
@@ -32,12 +32,12 @@ final class DetailViewModel: ViewModel {
   }
   
   struct Output {
-    let data: Driver<[DetailSectionModel]>
+    let data: Driver<[DetailCampsiteSectionModel]>
   }
   
-  private let data = PublishRelay<[DetailSectionModel]>()
-  private let aroundCellAction = PublishRelay<(DetailItem, IndexPath)>()
-  private let aroundTabmanSubViewWillAppear = PublishRelay<Void>()
+  let aroundTabmanViewModel = DetailAroundTabmanViewModel()
+  
+  private let data = PublishRelay<[DetailCampsiteSectionModel]>()
   
   var disposeBag = DisposeBag()
   
@@ -53,6 +53,9 @@ final class DetailViewModel: ViewModel {
         }
       
       let campsiteImageValue = campsiteImageResult
+        .do(onNext: { data in
+          print(data, "캠핑 이미지 데이터 패칭 ----")
+        })
         .compactMap { data -> [String]? in
           self.detailUseCase.getValue(data)
         }
@@ -70,14 +73,17 @@ final class DetailViewModel: ViewModel {
       let weatherResult = input.viewWillAppear
         .flatMapLatest { _ in
           self.detailUseCase.requestWeatherList(
-            lat: Double(campsite.mapX!)!,
-            lon: Double(campsite.mapY!)!
+            lat: Double(campsite.mapY!)!,
+            lon: Double(campsite.mapX!)!
           )
         }
       
       let weatherValue = weatherResult
+        .do(onNext: { data in
+          print(data, "날씨 데이터 패칭 ----")
+        })
         .compactMap { data -> [WeatherInfo]? in
-          self.detailUseCase.getValue(data)
+          return self.detailUseCase.getValue(data)
         }
       
       let weatherError = weatherResult
@@ -109,10 +115,13 @@ final class DetailViewModel: ViewModel {
 
       let youtubeResult = input.viewWillAppear
         .flatMapLatest { _ in
-          self.detailUseCase.requestYoutubeInfoList(keyword:campsite.facltNm!, maxResults: 3)
+          self.detailUseCase.requestYoutubeInfoList(keyword: campsite.facltNm!, maxResults: 3)
         }
       
       let naverBlogValue = naverBlogResult
+        .do(onNext: { data in
+          print(data, "네이버 데이터 패칭 ----")
+        })
         .compactMap { data -> [NaverBlogInfo]? in
           self.detailUseCase.getValue(data)
         }
@@ -123,6 +132,9 @@ final class DetailViewModel: ViewModel {
         }
       
       let youtubeValue = youtubeResult
+        .do(onNext: { data in
+          print(data, "유튜브 데이터 패칭 ----")
+        })
         .compactMap { data -> [YoutubeInfo]? in
           self.detailUseCase.getValue(data)
         }
@@ -156,7 +168,8 @@ final class DetailViewModel: ViewModel {
         imageValue
       ) {
         header, location, facility, info, social, around, image -> [DetailCampsiteSectionModel] in
-        self.detailUseCase.getDetailCampsiteSectionModel(header, location, facility, info, social, around, image)
+        print("데이터 패칭 완료")
+        return self.detailUseCase.getDetailCampsiteSectionModel(header, location, facility, info, social, around, image)
       }
       .bind(to: data)
       .disposed(by: disposeBag)
@@ -167,162 +180,8 @@ final class DetailViewModel: ViewModel {
     return Output(data: data.asDriver(onErrorJustReturn: []))
   }
   
-  func campsiteDataSource() -> RxCollectionViewSectionedReloadDataSource<DetailCampsiteSectionModel> {
-    let dataSource = RxCollectionViewSectionedReloadDataSource<DetailCampsiteSectionModel>(
-      configureCell: { dataSource, collectionView, indexPath, item in
-        switch dataSource[indexPath.section] {
-        case .headerSection(items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailHeaderCell.identifier, for: indexPath) as? DetailHeaderCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        case .locationSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailLocationCell.identifier, for: indexPath) as? DetailLocationCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        case .facilitySection(header: let header, items: let items):
-          <#code#>
-        case .infoSection(items: let items):
-          <#code#>
-        case .socialSection(header: let header, items: let items):
-          <#code#>
-        case .aroundSection(header: let header, items: let items):
-          <#code#>
-        case .imageSection(header: let header, items: let items):
-          <#code#>
-        }
-      },
-      configureSupplementaryView: { dataSource, collectionView, kind, indexPath in
-        switch dataSource[indexPath.section] {
-        case .headerSection(items: let items):
-          <#code#>
-        case .locationSection(header: let header, items: let items):
-          <#code#>
-        case .facilitySection(header: let header, items: let items):
-          <#code#>
-        case .infoSection(items: let items):
-          <#code#>
-        case .socialSection(header: let header, items: let items):
-          <#code#>
-        case .aroundSection(header: let header, items: let items):
-          <#code#>
-        case .imageSection(header: let header, items: let items):
-          <#code#>
-        }
-      })
-  }
   
-  func createLayout() -> UICollectionViewCompositionalLayout {
-    return UICollectionViewCompositionalLayout{ (sectionNumber, env) -> NSCollectionLayoutSection? in
-      switch sectionNumber {
-      case 2:
-        return self.facilitySection()
-      case 4:
-        return self.socialSection()
-      case 6:
-        return self.imageSection()
-      default:
-        return self.wholeSection()
-      }
-    }
-  }
+  
 }
 
-private extension DetailViewModel {
-  func wholeSection() -> NSCollectionLayoutSection {
-    let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height / 3)))
-    item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-    let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height / 3)), subitem: item, count: 1)
-    let section = NSCollectionLayoutSection(group: group)
-    return section
-  }
-  
-  func facilitySection() -> NSCollectionLayoutSection {
-    let itemSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(1.0),
-      heightDimension: .fractionalHeight(1.0)
-    )
-    let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 8)
-    let groupSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(0.7),
-      heightDimension: .fractionalWidth(0.525)
-    )
-    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-    let section = NSCollectionLayoutSection(group: group)
-    section.interGroupSpacing = 4.0
-    section.contentInsets = NSDirectionalEdgeInsets(top: 8.0, leading: 16.0, bottom: 16.0, trailing: 16.0)
-    section.orthogonalScrollingBehavior = .continuous
-    let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
-    
-    let header = NSCollectionLayoutBoundarySupplementaryItem(
-      layoutSize: headerFooterSize,
-      elementKind: UICollectionView.elementKindSectionHeader,
-      alignment: .top
-    )
-    section.boundarySupplementaryItems = [header]
-    return section
-  }
-  
-  func socialSection() -> NSCollectionLayoutSection {
-    let itemSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(1.0),
-      heightDimension: .fractionalHeight(1.0)
-    )
-    let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 8)
-    let groupSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(0.7),
-      heightDimension: .fractionalWidth(0.525)
-    )
-    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-    let section = NSCollectionLayoutSection(group: group)
-    section.interGroupSpacing = 4.0
-    section.contentInsets = NSDirectionalEdgeInsets(top: 8.0, leading: 16.0, bottom: 16.0, trailing: 16.0)
-    section.orthogonalScrollingBehavior = .continuous
-    let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
-    
-    let header = NSCollectionLayoutBoundarySupplementaryItem(
-      layoutSize: headerFooterSize,
-      elementKind: UICollectionView.elementKindSectionHeader,
-      alignment: .top
-    )
-    section.boundarySupplementaryItems = [header]
-    return section
-  }
-  
-  func imageSection() -> NSCollectionLayoutSection {
-    let itemSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(1.0),
-      heightDimension: .fractionalHeight(1.0)
-    )
-    let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 8)
-    let groupSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(0.4),
-      heightDimension: .fractionalWidth(0.533)
-    )
-    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-    let section = NSCollectionLayoutSection(group: group)
-    section.contentInsets = NSDirectionalEdgeInsets(top: 8.0, leading: 16.0, bottom: 16.0, trailing: 16.0)
-    section.interGroupSpacing = 4.0
-    section.orthogonalScrollingBehavior = .continuous
-    let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
-    let header = NSCollectionLayoutBoundarySupplementaryItem(
-           layoutSize: headerFooterSize,
-           elementKind: UICollectionView.elementKindSectionHeader,
-           alignment: .top
-         )
-    
-    section.boundarySupplementaryItems = [header]
-    return section
-  }
-  
-  
-}
-  
+

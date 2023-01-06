@@ -14,7 +14,7 @@ struct CampsiteResponseDTO: Codable {
 
 // MARK: - Response
 struct CampsiteResponseDTO_Response: Codable {
-  let header: Header
+  let header: CampsiteResponseDTO_Header
   let body: CampsiteResponseDTO_Body
 }
 
@@ -70,7 +70,7 @@ struct CampsiteResponseDTO_Item: Codable {
 }
 
 // MARK: - Header
-struct Header: Codable {
+struct CampsiteResponseDTO_Header: Codable {
     let resultCode, resultMsg: String
 }
 

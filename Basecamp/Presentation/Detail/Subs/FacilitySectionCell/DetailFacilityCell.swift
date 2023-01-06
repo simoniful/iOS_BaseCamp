@@ -7,63 +7,61 @@
 
 import UIKit
 
-enum Facility: String {
-  case 온수
-  case 마트 = "마트.편의점"
-  case 운동장
-  case 놀이터
-  case 물놀이장
-  case 운동시설
-  case 무선인터넷
-  case 산책로
-  case 장작판매
-  case 전기
-  case 트렘폴린
-  
-  var engName: String {
-    switch self {
-    case .온수:
-      return "hotwater"
-    case .마트:
-      return "mart"
-    case .운동장:
-      return "ground"
-    case .놀이터:
-      return "playzone"
-    case .물놀이장:
-      return "pool"
-    case .운동시설:
-      return "sports"
-    case .무선인터넷:
-      return "wifi"
-    case .산책로:
-      return "walk"
-    case .장작판매:
-      return "wood"
-    case .전기:
-      return "bolt"
-    case .트렘폴린:
-      return "tramp"
-    }
-  }
-  
-  var iconName: String {
-    return "ico_\(self.engName)"
-  }
-}
-
 final class DetailFacilityCell: UICollectionViewCell {
   static let identifier = "DetailFacilityCell"
   
   private lazy var iconImageView: UIImageView = {
     let imageView = UIImageView()
+    imageView.contentMode = .scaleAspectFit
     return imageView
   }()
   
   private lazy var titleLabel: UILabel = {
     let label = UILabel()
+    label.textAlignment = .center
+    label.font = .body4R12
     return label
   }()
   
-  // stack
+  override func layoutSubviews() {
+      super.layoutSubviews()
+      setupView()
+      setupConstraints()
+  }
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+}
+
+extension DetailFacilityCell: ViewRepresentable {
+  func setupView() {
+    [iconImageView, titleLabel].forEach {
+      contentView.addSubview($0)
+    }
+  }
+  
+  func setupConstraints() {
+    iconImageView.snp.makeConstraints {
+      $0.top.equalToSuperview().offset(12.0)
+      $0.leading.equalToSuperview().offset(12.0)
+      $0.trailing.equalToSuperview().offset(-12.0)
+      $0.height.equalTo(iconImageView.snp.width).multipliedBy(1.0)
+    }
+    
+    titleLabel.snp.makeConstraints {
+      $0.centerX.equalTo(iconImageView.snp.centerX)
+      $0.top.equalTo(iconImageView.snp.bottom).offset(4.0)
+      $0.bottom.equalToSuperview().offset(-8.0)
+    }
+  }
+  
+  func setupData(data: DetailCampsiteFacilityItem) {
+    iconImageView.image = UIImage(named: data.facility.iconName)
+    titleLabel.text = data.facility.rawValue
+  }
 }

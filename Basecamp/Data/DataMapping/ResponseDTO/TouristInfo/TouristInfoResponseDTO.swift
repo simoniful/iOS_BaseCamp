@@ -12,8 +12,12 @@ struct TouristInfoResponseDTO: Codable {
 }
 
 struct TouristInfoResponseDTO_Response: Codable {
-  let header: Header
+  let header: TouristInfoResponseDTO_Header
   let body: TouristInfoResponseDTO_Body
+}
+
+struct TouristInfoResponseDTO_Header: Codable {
+    let resultCode, resultMsg: String?
 }
 
 struct TouristInfoResponseDTO_Body: Codable {

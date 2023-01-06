@@ -16,9 +16,15 @@ struct NaverBlogResponseDTO: Codable {
 
 // MARK: - Item
 struct NaverBlogResponseDTO_Item: Codable {
-    let title: String?
-    let link: String?
-    let itemDescription, bloggername, bloggerlink, postdate: String?
+  let title: String?
+  let link: String?
+  let itemDescription, bloggername, bloggerlink, postdate: String?
+  
+  enum CodingKeys: String, CodingKey {
+    case title, link
+    case itemDescription = "description"
+    case bloggername, bloggerlink, postdate
+  }
 }
 
 extension NaverBlogResponseDTO {

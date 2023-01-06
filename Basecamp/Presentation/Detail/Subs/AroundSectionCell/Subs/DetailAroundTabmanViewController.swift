@@ -13,11 +13,9 @@ final class DetailAroundTabmanViewController: TabmanViewController {
   var locationData: DetailAroundItem
   private var tablist = TouristInfoContentType.allCases
   private var vclist: [UIViewController] = []
-  private var viewModel: DetailViewModel?
   
-  init(locationData: DetailAroundItem, viewModel: DetailViewModel) {
+  init(locationData: DetailAroundItem) {
     self.locationData = locationData
-    self.viewModel = viewModel
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -28,11 +26,15 @@ final class DetailAroundTabmanViewController: TabmanViewController {
   override func viewDidLoad() {
       super.viewDidLoad()
       self.isScrollEnabled = false
-      tablist.forEach { type in
-        let vc = setVC(type: type)
-        vclist.append(vc)
-      }
       self.configTabbar()
+  }
+  
+  func bind(_ viewModel: DetailAroundTabmanViewModel) {
+    tablist.forEach { type in
+      let vc = DetailAroundTabmanSubViewController(locationData: locationData, type: type)
+      vc.bind(viewModel.detailAroundTabmanSubViewModel)
+      vclist.append(vc)
+    }
   }
 
   func configTabbar() {
@@ -43,19 +45,13 @@ final class DetailAroundTabmanViewController: TabmanViewController {
     bar.heightAnchor.constraint(equalToConstant: 32).isActive = true
     bar.backgroundView.style = .clear
     bar.buttons.customize { (button) in
-      button.selectedTintColor =  UIColor(red: 165, green: 185, blue: 171, alpha: 1.0)
+      button.selectedTintColor = .orange
       button.contentInset = UIEdgeInsets(top: 0.0, left: 4, bottom: 0.0, right: 4)
     }
     bar.indicator.overscrollBehavior = .compress
     bar.indicator.weight = .medium
     bar.indicator.tintColor = UIColor(red: 185, green: 205, blue: 191, alpha: 1.0)
     addBar(bar, dataSource: self, at: .top)
-  }
-  
-  func setVC(type: TouristInfoContentType) -> UIViewController {
-    guard let viewModel = viewModel else { return UIViewController() }
-    let vc = DetailAroundTabmanSubViewController(viewModel: viewModel, locationData: locationData)
-    return vc
   }
 }
 

@@ -10,7 +10,7 @@ import UIKit
 class DetailSectionHeader: UICollectionReusableView {
   static let identifier = "DetailSectionHeader"
   
-  private let titleLabel = UILabel()
+  private lazy var titleLabel = DefaultLabel(font: .systemFont(ofSize: 20, weight: .bold))
   
   override init(frame: CGRect) {
       super.init(frame: frame)

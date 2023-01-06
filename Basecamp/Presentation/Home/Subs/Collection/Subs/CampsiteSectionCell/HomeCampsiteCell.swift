@@ -73,7 +73,7 @@ class HomeCampsiteCell: UICollectionViewCell {
   }
   
   func setData(campsite: Campsite) {
-     guard let urlString = campsite.firstImageURL else { return }
+    guard let urlString = campsite.firstImageURL else { return }
     let url = URL(string: urlString)
     let processor = DownsamplingImageProcessor(size: CGSize(width: 400, height: 300))
     imageView.kf.indicatorType = .activity

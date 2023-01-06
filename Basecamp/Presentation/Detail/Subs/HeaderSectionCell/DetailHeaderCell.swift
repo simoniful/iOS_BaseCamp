@@ -16,6 +16,7 @@ import RxFSPagerView
 
 final class DetailHeaderCell: UICollectionViewCell {
   static let identifier = "DetailHeaderCell"
+  
   private(set) var disposeBag = DisposeBag()
   
   private lazy var pagerView: FSPagerView = {
@@ -60,8 +61,11 @@ final class DetailHeaderCell: UICollectionViewCell {
     let button = UIButton()
     button.setImage(UIImage(systemName: "phone"), for: .normal)
     button.setTitle("전화", for: .normal)
-    button.contentMode = .scaleToFill
-    button.imageEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    button.imageView?.contentMode = .scaleAspectFit
+    button.tintColor = .darkGray
+    button.titleLabel?.font = .body4R12
+    button.setTitleColor(.darkGray, for: .normal)
+    button.imageEdgeInsets = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
     button.alignTextBelow()
     return button
   }()
@@ -70,8 +74,11 @@ final class DetailHeaderCell: UICollectionViewCell {
     let button = UIButton()
     button.setImage(UIImage(systemName: "calendar"), for: .normal)
     button.setTitle("예약", for: .normal)
-    button.contentMode = .scaleToFill
-    button.imageEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    button.imageView?.contentMode = .scaleAspectFit
+    button.tintColor = .darkGray
+    button.titleLabel?.font = .body4R12
+    button.setTitleColor(.darkGray, for: .normal)
+    button.imageEdgeInsets = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
     button.alignTextBelow()
     return button
   }()
@@ -80,8 +87,11 @@ final class DetailHeaderCell: UICollectionViewCell {
     let button = UIButton()
     button.setImage(UIImage(systemName: "flag.fill"), for: .normal)
     button.setTitle("방문", for: .normal)
-    button.contentMode = .scaleToFill
-    button.imageEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    button.imageView?.contentMode = .scaleAspectFit
+    button.tintColor = .darkGray
+    button.titleLabel?.font = .body4R12
+    button.setTitleColor(.darkGray, for: .normal)
+    button.imageEdgeInsets = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
     button.alignTextBelow()
     return button
   }()
@@ -90,37 +100,81 @@ final class DetailHeaderCell: UICollectionViewCell {
     let button = UIButton()
     button.setImage(UIImage(systemName: "heart"), for: .normal)
     button.setTitle("찜", for: .normal)
-    button.contentMode = .scaleToFill
-    button.imageEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    button.imageView?.contentMode = .scaleAspectFit
+    button.tintColor = .darkGray
+    button.titleLabel?.font = .body3R14
+    button.setTitleColor(.darkGray, for: .normal)
+    button.imageEdgeInsets = UIEdgeInsets(top: 32, left: 32, bottom: 32, right: 32)
     button.alignTextBelow()
     return button
   }()
   
   private lazy var infoStack: UIStackView = {
     let stackView = UIStackView()
-    [addressLabel, telLabel, lctClFacltDivNmLabel,
-     indutyLabel, operPdClLabel, operDeClLabel,
-     homepageLabel, resveClLabel, posblFcltyClLabel
-    ].forEach{ stackView.addArrangedSubview($0) }
-    stackView.translatesAutoresizingMaskIntoConstraints = false
+    [ hStack , hStack2 ].forEach{ stackView.addArrangedSubview($0) }
+    stackView.translatesAutoresizingMaskIntoConstraints = true
     stackView.axis = .vertical
-    stackView.distribution = .fillEqually
+    stackView.alignment = .fill
+    stackView.distribution = .fill
     stackView.spacing = 0
     stackView.layer.cornerRadius = 8.0
     stackView.clipsToBounds = true
     stackView.layer.borderColor = UIColor.systemGray2.cgColor
+    stackView.backgroundColor = .systemGray2
     return stackView
   }()
   
-  private lazy var addressLabel = InfoStackLabel()
-  private lazy var telLabel = InfoStackLabel()
-  private lazy var lctClFacltDivNmLabel = InfoStackLabel()
-  private lazy var indutyLabel = InfoStackLabel()
-  private lazy var operPdClLabel = InfoStackLabel()
-  private lazy var operDeClLabel = InfoStackLabel()
-  private lazy var homepageLabel = InfoStackLabel()
-  private lazy var resveClLabel = InfoStackLabel()
-  private lazy var posblFcltyClLabel = InfoStackLabel()
+  
+  private lazy var hStack: UIStackView = {
+    let stackView = UIStackView()
+    [testlabel, testlabel2].forEach {
+      stackView.addArrangedSubview($0)
+    }
+    stackView.axis = .horizontal
+    stackView.alignment = .top
+    stackView.distribution = .fill
+
+    return stackView
+  }()
+  
+  private lazy var hStack2: UIStackView = {
+    let stackView = UIStackView()
+    [testlabel3, testlabel4].forEach {
+      stackView.addArrangedSubview($0)
+    }
+    stackView.axis = .horizontal
+    stackView.alignment = .top
+    stackView.distribution = .fill
+    
+    return stackView
+  }()
+  
+  let testlabel: UILabel = {
+    let label = UILabel()
+    label.text = "타이틀"
+    return label
+  }()
+  
+  let testlabel2: UILabel = {
+    let label = UILabel()
+    label.text = "내용"
+    return label
+  }()
+  
+  let testlabel3: UILabel = {
+    let label = UILabel()
+    label.text = "시험"
+    label.textAlignment = .center
+    return label
+  }()
+  
+  let testlabel4: UILabel = {
+    let label = UILabel()
+    label.text = "시험"
+    return label
+  }()
+  
+  
   
   override func layoutSubviews() {
       super.layoutSubviews()
@@ -140,7 +194,7 @@ final class DetailHeaderCell: UICollectionViewCell {
 extension DetailHeaderCell: ViewRepresentable {
   func setupView() {
     [placeholderImageView, pagerView, pagerControl, buttonStack, infoStack].forEach {
-      addSubview($0)
+      contentView.addSubview($0)
     }
   }
   
@@ -165,7 +219,7 @@ extension DetailHeaderCell: ViewRepresentable {
       $0.top.equalTo(placeholderImageView.snp.bottom).offset(16.0)
       $0.leading.equalToSuperview().offset(16.0)
       $0.trailing.equalToSuperview().offset(-16.0)
-      $0.height.equalTo(contentView.snp.width).multipliedBy(0.3)
+      $0.height.equalTo(80.0)
     }
     
     infoStack.snp.makeConstraints {
@@ -173,6 +227,7 @@ extension DetailHeaderCell: ViewRepresentable {
       $0.leading.equalToSuperview().offset(16.0)
       $0.trailing.equalToSuperview().offset(-16.0)
       $0.bottom.equalToSuperview().offset(-16.0)
+
     }
   }
   

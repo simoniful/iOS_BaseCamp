@@ -63,6 +63,11 @@ final class HomeViewController: UIViewController {
     setConstraints()
   }
   
+  override func viewWillLayoutSubviews() {
+    super.viewWillLayoutSubviews()
+    self.collectionView.performBatchUpdates(nil, completion: nil)
+  }
+  
   func bind() {
     collectionView.collectionViewLayout = viewModel.createLayout()
     let dataSource = viewModel.dataSource()

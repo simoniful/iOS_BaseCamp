@@ -10,7 +10,7 @@ import UIKit
 class HomeAreaCell: UICollectionViewCell {
   static let identifier = "HomeAreaCell"
   
-  private var areaLabel = AreaLabel()
+  private var areaLabel = PaddingLabel()
   
   override init(frame: CGRect) {
     super.init(frame: frame)

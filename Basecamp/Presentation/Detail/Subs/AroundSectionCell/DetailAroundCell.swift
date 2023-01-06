@@ -9,6 +9,7 @@ import UIKit
 
 final class DetailAroundCell: UICollectionViewCell {
   static let identifier = "DetailAroundCell"
+  
   weak var parent: DetailViewController? = nil
   
   private lazy var container = UIView()
@@ -19,9 +20,10 @@ final class DetailAroundCell: UICollectionViewCell {
     setupConstraints()
   }
   
-  func setData(data: DetailAroundItem) {
+  func setupData(data: DetailAroundItem) {
     guard let parent = parent else { return }
-    let tabman = DetailAroundTabmanViewController(locationData: data, viewModel: parent.viewModel)
+    let tabman = DetailAroundTabmanViewController(locationData: data)
+    tabman.bind(parent.viewModel.aroundTabmanViewModel)
     parent.addChild(tabman)
     container.addSubview(tabman.view)
     tabman.view.snp.makeConstraints {
@@ -41,6 +43,8 @@ extension DetailAroundCell: ViewRepresentable {
       $0.edges.equalTo(safeAreaLayoutGuide)
     }
   }
+  
+  
 }
 
 

@@ -116,7 +116,7 @@ final class DetailUseCase {
   }
   
   func requestSocialData(youtubeData: [YoutubeInfo], naverBlogData: [NaverBlogInfo]) ->  [DetailSocialItem] {
-    var mediaInfoList: [SocialMediaInfo] = youtubeData + naverBlogData
+    let mediaInfoList: [SocialMediaInfo] = youtubeData + naverBlogData
     let result = mediaInfoList.map {
       DetailSocialItem(socialMediaInfo: $0)
     }

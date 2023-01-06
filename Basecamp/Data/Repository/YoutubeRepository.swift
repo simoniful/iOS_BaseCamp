@@ -11,6 +11,7 @@ import Moya
 import RxMoya
 
 enum YoutubeServiceError: Error {
+  case serviceError
   case unknownError
 }
 

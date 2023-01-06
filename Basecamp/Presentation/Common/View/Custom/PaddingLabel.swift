@@ -7,7 +7,7 @@
 
 import UIKit.UILabel
 
-final class AreaLabel: UILabel {
+final class PaddingLabel: UILabel {
   
   private var padding = UIEdgeInsets(top: 5.0, left: 10.0, bottom: 5.0, right: 10.0)
   

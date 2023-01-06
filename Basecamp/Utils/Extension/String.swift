@@ -26,4 +26,18 @@ extension String {
 
       return date
   }
+  
+  func changeHtmlTag() -> String {
+      let convertStr = self
+          .replacingOccurrences(of: "<b>", with: "")
+          .replacingOccurrences(of: "</b>", with: "")
+          .replacingOccurrences(of: "&amp;", with: "&")
+          .replacingOccurrences(of: "&nbsp;", with: " ")
+          .replacingOccurrences(of: "&lt;", with: "<")
+          .replacingOccurrences(of: "&gt;", with: ">")
+          .replacingOccurrences(of: "&quot;", with: "\"")
+          .replacingOccurrences(of: "&#035;", with: "#")
+          .replacingOccurrences(of: "&#039;", with: "\'")
+      return convertStr
+  }
 }

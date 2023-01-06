@@ -140,12 +140,10 @@ extension HomeHeaderCell: ViewRepresentable {
     compStackView.setContentHuggingPriority(.init(rawValue: 750), for: .vertical)
   }
   
-  // HomeHeaderItem
   func setupData(completedCount: Int, likedCount: Int) {
     self.myCompContentLabel.text = "현재까지 \(completedCount)곳을 방문하고, \(likedCount)곳을 후보지로 찜하셨어요!"
   }
   
-  // 셀에서 데이터 반환하도록 함수 작성
   func viewModel(item: HomeHeaderItem) -> Observable<HeaderCellAction> {
     return Observable.merge(
       myCompView.rx.tapGesture()
