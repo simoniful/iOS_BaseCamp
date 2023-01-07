@@ -63,7 +63,7 @@ final class DetailHeaderCell: UICollectionViewCell {
     button.setTitle("전화", for: .normal)
     button.imageView?.contentMode = .scaleAspectFit
     button.tintColor = .darkGray
-    button.titleLabel?.font = .body4R12
+    button.titleLabel?.font = .body3R14
     button.setTitleColor(.darkGray, for: .normal)
     button.imageEdgeInsets = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
     button.alignTextBelow()
@@ -76,7 +76,7 @@ final class DetailHeaderCell: UICollectionViewCell {
     button.setTitle("예약", for: .normal)
     button.imageView?.contentMode = .scaleAspectFit
     button.tintColor = .darkGray
-    button.titleLabel?.font = .body4R12
+    button.titleLabel?.font = .body3R14
     button.setTitleColor(.darkGray, for: .normal)
     button.imageEdgeInsets = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
     button.alignTextBelow()
@@ -89,7 +89,7 @@ final class DetailHeaderCell: UICollectionViewCell {
     button.setTitle("방문", for: .normal)
     button.imageView?.contentMode = .scaleAspectFit
     button.tintColor = .darkGray
-    button.titleLabel?.font = .body4R12
+    button.titleLabel?.font = .body3R14
     button.setTitleColor(.darkGray, for: .normal)
     button.imageEdgeInsets = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
     button.alignTextBelow()

@@ -62,20 +62,18 @@ extension DetailLocationCell: ViewRepresentable {
     [weatherCollectionView, mapView, addressLabel, directionLabel].forEach {
       contentView.addSubview($0)
     }
-    weatherCollectionView.collectionViewLayout = createLayout()
+    
     weatherCollectionView.register(DetailLocationWeatherCell.self, forCellWithReuseIdentifier: DetailLocationWeatherCell.identifier)
+    weatherCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    weatherCollectionView.collectionViewLayout = createLayout()
+    weatherCollectionView.delegate = self
+    weatherCollectionView.dataSource = self
   }
   
   func setupConstraints() {
-    weatherCollectionView.snp.makeConstraints {
-      $0.top.leading.trailing.equalToSuperview()
-      $0.height.equalTo(85.0)
-    }
-    
     mapView.snp.makeConstraints {
-      $0.top.equalTo(weatherCollectionView.snp.bottom).offset(12.0)
+      $0.top.equalToSuperview()
       $0.leading.trailing.equalToSuperview()
-      $0.height.equalTo(mapView.snp.width).multipliedBy(1.0)
     }
     
     addressLabel.snp.makeConstraints {
@@ -88,14 +86,22 @@ extension DetailLocationCell: ViewRepresentable {
       $0.top.equalTo(addressLabel.snp.bottom)
       $0.leading.equalToSuperview()
       $0.trailing.equalToSuperview()
-      $0.bottom.equalToSuperview().offset(-8.0)
+    }
+    
+    weatherCollectionView.snp.makeConstraints {
+      $0.top.equalTo(directionLabel.snp.bottom).offset(8.0)
+      $0.leading.trailing.equalToSuperview()
+      $0.height.equalTo(100)
+      $0.bottom.equalToSuperview()
     }
   }
   
   func setupData(data: DetailLocationItem) {
-    addressLabel.text = data.address
-    directionLabel.text = data.direction == "" ? "찾아오는 길: 문의처에 문의 바랍니다." : data.direction
-    weatherData = data.weatherInfos
+    weatherCollectionView.performBatchUpdates {
+      addressLabel.text = data.address
+      directionLabel.text = data.direction == "" ? "찾아오는 길: 문의처에 문의 바랍니다." : data.direction
+      weatherData = data.weatherInfos
+    }
   }
   
   func setMapView() {
@@ -158,21 +164,17 @@ extension DetailLocationCell: CLLocationManagerDelegate {
   }
   
   func createLayout() -> UICollectionViewCompositionalLayout {
-    let itemSize = NSCollectionLayoutSize(
-      widthDimension: .estimated(40),
-      heightDimension: .estimated(60)
-    )
-    let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    
-    let groupSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(1.0),
-      heightDimension: .estimated(60.0)
-    )
-    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-    
-    let section = NSCollectionLayoutSection(group: group)
-    
-    return UICollectionViewCompositionalLayout(section: section)
+    let layout = UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection? in
+      let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+      let item = NSCollectionLayoutItem(layoutSize: itemSize)
+      item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
+      let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.18), heightDimension:.estimated(100.0))
+      let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+      let section = NSCollectionLayoutSection(group: group)
+      section.orthogonalScrollingBehavior = .continuous
+      return section
+    }
+    return layout
   }
 }
 
@@ -186,6 +188,8 @@ extension DetailLocationCell: UICollectionViewDelegate, UICollectionViewDataSour
     cell.setupData(weatherInfo: weatherData[indexPath.item])
     return cell
   }
+  
+  
 }
 
 

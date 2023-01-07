@@ -23,15 +23,23 @@ final class YoutubeRepository: YoutubeRepositoryInterface {
       let requestDTO = YoutubeRequestDTO(query: query)
       let target = MultiTarget(YoutubeTarget.getYoutube(parameters: requestDTO.toDictionary))
       
+      // 실제로 스테이터 코드 분기를 통한 에러 핸들링 필요
       return provider.rx.request(target)
         .filterSuccessfulStatusCodes()
         .flatMap { response ->  Single<Result<[YoutubeInfo], YoutubeServiceError>> in
+          print(response.statusCode, "리스폰스 코드 확인")
           let responseDTO = try response.map(YoutubeResponseDTO.self)
           return Single.just(Result.success(responseDTO.toDomain(keyword: keyword)))
         }
-        .catch { error in
-          return Single.just(Result.failure(.unknownError))
-        }
+        .catchAndReturn(.success([
+          YoutubeInfo(
+            type: "youtube",
+            title: keyword,
+            url: "https://www.youtube.com/results?search_query=\(keyword)",
+            description: "YouTube 검색 결과창으로 이동",
+            thumbnailUrl: ""
+          )
+        ]))
     }
   }
 }

@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class InfoStackLabel: UIStackView {
+final class InfoStackView: UIStackView {
   private lazy var titleLabel: UILabel = {
     let label = UILabel()
     label.font = .boldSystemFont(ofSize: 14)
@@ -34,12 +34,18 @@ final class InfoStackLabel: UIStackView {
   }
   
   func setupView() {
-    self.addArrangedSubview(titleLabel)
-    self.addArrangedSubview(contentLabel)
+
     
-    self.translatesAutoresizingMaskIntoConstraints = false
-    self.axis = .horizontal
-    self.distribution = .fillProportionally
+    self.translatesAutoresizingMaskIntoConstraints = true
+    self.translatesAutoresizingMaskIntoConstraints = true
+    self.axis = .vertical
+    self.alignment = .fill
+    self.distribution = .fill
+    self.spacing = 0
+    self.layer.cornerRadius = 8.0
+    self.clipsToBounds = true
+    self.layer.borderColor = UIColor(red: 165, green: 185, blue: 171, alpha: 1.0).cgColor
+    self.layer.borderWidth = 1.0
   }
   
   func setupConstraints() {

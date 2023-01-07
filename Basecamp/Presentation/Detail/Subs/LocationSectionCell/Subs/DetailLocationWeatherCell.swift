@@ -45,32 +45,32 @@ extension DetailLocationWeatherCell: ViewRepresentable {
   }
   
   func setupConstraints() {
-    dateLabel.snp.makeConstraints {
-      $0.centerX.equalToSuperview()
-      $0.top.equalToSuperview().offset(8.0)
-    }
-    
     iconImageView.snp.makeConstraints {
       $0.centerX.equalToSuperview()
-      $0.top.equalTo(dateLabel.snp.bottom).offset(8.0)
-      $0.width.equalTo(32.0)
-      $0.height.equalTo(32.0)
+      $0.top.equalToSuperview()
+      $0.width.equalTo(45.0)
+      $0.height.equalTo(45.0)
     }
     
     maxLabel.snp.makeConstraints {
       $0.centerX.equalToSuperview()
-      $0.top.equalTo(iconImageView.snp.bottom).offset(4.0)
+      $0.top.equalTo(iconImageView.snp.bottom)
     }
     
     minLabel.snp.makeConstraints {
       $0.centerX.equalToSuperview()
-      $0.top.equalTo(maxLabel.snp.bottom).offset(4.0)
-      $0.bottom.equalToSuperview().offset(-8.0)
+      $0.top.equalTo(maxLabel.snp.bottom)
+    }
+    
+    dateLabel.snp.makeConstraints {
+      $0.top.equalTo(minLabel.snp.bottom)
+      $0.centerX.equalToSuperview()
+      $0.bottom.equalToSuperview()
     }
   }
   
   func setupData(weatherInfo: WeatherInfo) {
-    dateLabel.text = weatherInfo.date?.toString(format: "MM.dd")
+    dateLabel.text = weatherInfo.date?.toString(format: "M.d(E)")
     guard let iconString = weatherInfo.weatherIcon else { return }
     let urlString = "https://openweathermap.org/img/wn/\(iconString)@2x.png"
     let url = URL(string: urlString)

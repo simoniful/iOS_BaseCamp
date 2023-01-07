@@ -194,7 +194,7 @@ private extension DetailViewController {
       case 0:
         return self.wholeSection(fractionalHeight: 0.7)
       case 1:
-        return self.insetSectionWithHeader(fractionalHeight: 0.6)
+        return self.insetSectionWithHeader(fractionalHeight: 0.55)
       case 2:
         return self.facilitySection()
       case 3:

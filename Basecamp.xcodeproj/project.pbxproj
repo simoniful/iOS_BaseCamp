@@ -130,7 +130,7 @@
 		F4E3E5F2295EA028009AFCFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5F1295EA028009AFCFC /* Date.swift */; };
 		F4E3E5F529604B43009AFCFC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5F429604B43009AFCFC /* String.swift */; };
 		F4E3E5F82961CD41009AFCFC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F4E3E5F72961CD41009AFCFC /* Kingfisher */; };
-		F4F0E0742963F4850006C9D4 /* InfoStackLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0732963F4850006C9D4 /* InfoStackLabel.swift */; };
+		F4F0E0742963F4850006C9D4 /* InfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0732963F4850006C9D4 /* InfoStackView.swift */; };
 		F4F0E0762963FE870006C9D4 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0752963FE870006C9D4 /* UIButton.swift */; };
 		F4F0E079296459EC0006C9D4 /* YoutubeQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E078296459EC0006C9D4 /* YoutubeQuery.swift */; };
 		F4F0E07B29645BBB0006C9D4 /* NaverBlogQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E07A29645BBB0006C9D4 /* NaverBlogQuery.swift */; };
@@ -160,6 +160,8 @@
 		F4F0E0BD2967B31E0006C9D4 /* InfoPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0BC2967B31E0006C9D4 /* InfoPlusView.swift */; };
 		F4F0E0BF2967F6320006C9D4 /* DefaultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0BE2967F6320006C9D4 /* DefaultLabel.swift */; };
 		F4F0E0C2296826180006C9D4 /* DetailLocationWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C1296826180006C9D4 /* DetailLocationWeatherCell.swift */; };
+		F4F0E0C42969199B0006C9D4 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C32969199B0006C9D4 /* AppColor.swift */; };
+		F4F0E0C6296919CC0006C9D4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C5296919CC0006C9D4 /* UIColor.swift */; };
 		F4FD50902962851600FA3CB3 /* goCampingData.json in Resources */ = {isa = PBXBuildFile; fileRef = F4FD508F2962851600FA3CB3 /* goCampingData.json */; };
 		F4FD50922962857600FA3CB3 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50912962857600FA3CB3 /* IndicatorView.swift */; };
 		F4FD50942962BF4F00FA3CB3 /* UICollectionView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */; };
@@ -315,7 +317,7 @@
 		F4E3E5EF295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoAreaCodeRequestDTO.swift; sourceTree = "<group>"; };
 		F4E3E5F1295EA028009AFCFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F4E3E5F429604B43009AFCFC /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		F4F0E0732963F4850006C9D4 /* InfoStackLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoStackLabel.swift; sourceTree = "<group>"; };
+		F4F0E0732963F4850006C9D4 /* InfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoStackView.swift; sourceTree = "<group>"; };
 		F4F0E0752963FE870006C9D4 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		F4F0E078296459EC0006C9D4 /* YoutubeQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeQuery.swift; sourceTree = "<group>"; };
 		F4F0E07A29645BBB0006C9D4 /* NaverBlogQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogQuery.swift; sourceTree = "<group>"; };
@@ -344,6 +346,8 @@
 		F4F0E0BC2967B31E0006C9D4 /* InfoPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlusView.swift; sourceTree = "<group>"; };
 		F4F0E0BE2967F6320006C9D4 /* DefaultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLabel.swift; sourceTree = "<group>"; };
 		F4F0E0C1296826180006C9D4 /* DetailLocationWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocationWeatherCell.swift; sourceTree = "<group>"; };
+		F4F0E0C32969199B0006C9D4 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		F4F0E0C5296919CC0006C9D4 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F4FD508F2962851600FA3CB3 /* goCampingData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goCampingData.json; sourceTree = "<group>"; };
 		F4FD50912962857600FA3CB3 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Rx.swift"; sourceTree = "<group>"; };
@@ -448,7 +452,7 @@
 				F4F0E0BE2967F6320006C9D4 /* DefaultLabel.swift */,
 				F49034A4294AC72700CDE442 /* PaddingLabel.swift */,
 				F4FD50912962857600FA3CB3 /* IndicatorView.swift */,
-				F4F0E0732963F4850006C9D4 /* InfoStackLabel.swift */,
+				F4F0E0732963F4850006C9D4 /* InfoStackView.swift */,
 				F4F0E0BC2967B31E0006C9D4 /* InfoPlusView.swift */,
 				F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */,
 			);
@@ -635,6 +639,7 @@
 				F4D10EA629497831000C02E0 /* SceneDelegate.swift */,
 				F4D10F262949A700000C02E0 /* AppAppearance.swift */,
 				F4D10F4D2949ADF2000C02E0 /* AppFont.swift */,
+				F4F0E0C32969199B0006C9D4 /* AppColor.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -901,6 +906,7 @@
 			children = (
 				F4D10F4B2949ADBE000C02E0 /* UIFont.swift */,
 				F4F0E0752963FE870006C9D4 /* UIButton.swift */,
+				F4F0E0C5296919CC0006C9D4 /* UIColor.swift */,
 				F4E3E5AA2954C3C5009AFCFC /* Rx */,
 			);
 			path = Extension;
@@ -1545,6 +1551,7 @@
 				F4F0E0A92965CD620006C9D4 /* NaverBlogRequestDTO.swift in Sources */,
 				F49034E829515B4E00CDE442 /* WeatherAPIEnvironment.swift in Sources */,
 				F4F0E083296469210006C9D4 /* WeatherInfo.swift in Sources */,
+				F4F0E0C42969199B0006C9D4 /* AppColor.swift in Sources */,
 				F4E3E5CF295DA92E009AFCFC /* TouristInfoIntroCulture.swift in Sources */,
 				F4E3E5C9295D8342009AFCFC /* TouristInfoImageResponseDTO.swift in Sources */,
 				F4E3E5EE295E9574009AFCFC /* TouristInfoImageRequestDTO.swift in Sources */,
@@ -1657,7 +1664,7 @@
 				F4E3E585295161F9009AFCFC /* NaverBlogTargetStub.swift in Sources */,
 				F4E3E59A295410F4009AFCFC /* MoyaProvider.swift in Sources */,
 				F46BFB73296323DE007EB676 /* YoutubeRepository.swift in Sources */,
-				F4F0E0742963F4850006C9D4 /* InfoStackLabel.swift in Sources */,
+				F4F0E0742963F4850006C9D4 /* InfoStackView.swift in Sources */,
 				F4FD50922962857600FA3CB3 /* IndicatorView.swift in Sources */,
 				F4E3E58729516347009AFCFC /* YoutubeTargetStub.swift in Sources */,
 				F4F0E0762963FE870006C9D4 /* UIButton.swift in Sources */,
@@ -1674,6 +1681,7 @@
 				F4E3E59829540D74009AFCFC /* Constant.swift in Sources */,
 				F4FD50AE296305FA00FA3CB3 /* DetailInfoCell.swift in Sources */,
 				F49034D02950486900CDE442 /* CampsiteTarget.swift in Sources */,
+				F4F0E0C6296919CC0006C9D4 /* UIColor.swift in Sources */,
 				F49034AE294C42B200CDE442 /* Campsite.swift in Sources */,
 				F4E3E5EA295E9507009AFCFC /* TouristInfoCommonRequestDTO.swift in Sources */,
 				F4FD50A5296303E600FA3CB3 /* DetailHeaderCell.swift in Sources */,
