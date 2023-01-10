@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D3FAA50E34A9054C6C90CEC /* Pods_Basecamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F575D0BF5FDD6E43B61B3085 /* Pods_Basecamp.framework */; };
+		F45C09DD296DB0C50075E1AC /* DetailLocationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DC296DB0C50075E1AC /* DetailLocationCellViewModel.swift */; };
 		F46BFB73296323DE007EB676 /* YoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB72296323DE007EB676 /* YoutubeRepository.swift */; };
 		F46BFB75296323F5007EB676 /* NaverBlogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */; };
 		F46BFB7729632404007EB676 /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB7629632404007EB676 /* WeatherRepository.swift */; };
@@ -130,7 +131,7 @@
 		F4E3E5F2295EA028009AFCFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5F1295EA028009AFCFC /* Date.swift */; };
 		F4E3E5F529604B43009AFCFC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5F429604B43009AFCFC /* String.swift */; };
 		F4E3E5F82961CD41009AFCFC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F4E3E5F72961CD41009AFCFC /* Kingfisher */; };
-		F4F0E0742963F4850006C9D4 /* InfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0732963F4850006C9D4 /* InfoStackView.swift */; };
+		F4F0E0742963F4850006C9D4 /* DetailHeaderStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0732963F4850006C9D4 /* DetailHeaderStackView.swift */; };
 		F4F0E0762963FE870006C9D4 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0752963FE870006C9D4 /* UIButton.swift */; };
 		F4F0E079296459EC0006C9D4 /* YoutubeQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E078296459EC0006C9D4 /* YoutubeQuery.swift */; };
 		F4F0E07B29645BBB0006C9D4 /* NaverBlogQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E07A29645BBB0006C9D4 /* NaverBlogQuery.swift */; };
@@ -162,6 +163,10 @@
 		F4F0E0C2296826180006C9D4 /* DetailLocationWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C1296826180006C9D4 /* DetailLocationWeatherCell.swift */; };
 		F4F0E0C42969199B0006C9D4 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C32969199B0006C9D4 /* AppColor.swift */; };
 		F4F0E0C6296919CC0006C9D4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C5296919CC0006C9D4 /* UIColor.swift */; };
+		F4F0E0C8296BC0E10006C9D4 /* DetailInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C7296BC0E00006C9D4 /* DetailInfoStackView.swift */; };
+		F4F0E0CA296BC4CC0006C9D4 /* DetailInfoPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C9296BC4CC0006C9D4 /* DetailInfoPlusView.swift */; };
+		F4F0E0CE296C02100006C9D4 /* DetailAroundSubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0CD296C02100006C9D4 /* DetailAroundSubCell.swift */; };
+		F4F0E0E7296D98980006C9D4 /* FSPagerView in Frameworks */ = {isa = PBXBuildFile; productRef = F4F0E0E6296D98980006C9D4 /* FSPagerView */; };
 		F4FD50902962851600FA3CB3 /* goCampingData.json in Resources */ = {isa = PBXBuildFile; fileRef = F4FD508F2962851600FA3CB3 /* goCampingData.json */; };
 		F4FD50922962857600FA3CB3 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50912962857600FA3CB3 /* IndicatorView.swift */; };
 		F4FD50942962BF4F00FA3CB3 /* UICollectionView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */; };
@@ -203,6 +208,7 @@
 		A45C0F39EADB6F1F4F347F3D /* Pods-Basecamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basecamp.debug.xcconfig"; path = "Target Support Files/Pods-Basecamp/Pods-Basecamp.debug.xcconfig"; sourceTree = "<group>"; };
 		BDEE084F014DAF09A7739C86 /* Pods_Basecamp_BasecampUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Basecamp_BasecampUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC532F1879E5FD5136D3FFB /* Pods-BasecampTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasecampTests.debug.xcconfig"; path = "Target Support Files/Pods-BasecampTests/Pods-BasecampTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F45C09DC296DB0C50075E1AC /* DetailLocationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocationCellViewModel.swift; sourceTree = "<group>"; };
 		F46BFB72296323DE007EB676 /* YoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepository.swift; sourceTree = "<group>"; };
 		F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogRepository.swift; sourceTree = "<group>"; };
 		F46BFB7629632404007EB676 /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
@@ -317,7 +323,7 @@
 		F4E3E5EF295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoAreaCodeRequestDTO.swift; sourceTree = "<group>"; };
 		F4E3E5F1295EA028009AFCFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F4E3E5F429604B43009AFCFC /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		F4F0E0732963F4850006C9D4 /* InfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoStackView.swift; sourceTree = "<group>"; };
+		F4F0E0732963F4850006C9D4 /* DetailHeaderStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderStackView.swift; sourceTree = "<group>"; };
 		F4F0E0752963FE870006C9D4 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		F4F0E078296459EC0006C9D4 /* YoutubeQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeQuery.swift; sourceTree = "<group>"; };
 		F4F0E07A29645BBB0006C9D4 /* NaverBlogQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogQuery.swift; sourceTree = "<group>"; };
@@ -348,6 +354,9 @@
 		F4F0E0C1296826180006C9D4 /* DetailLocationWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocationWeatherCell.swift; sourceTree = "<group>"; };
 		F4F0E0C32969199B0006C9D4 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		F4F0E0C5296919CC0006C9D4 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		F4F0E0C7296BC0E00006C9D4 /* DetailInfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoStackView.swift; sourceTree = "<group>"; };
+		F4F0E0C9296BC4CC0006C9D4 /* DetailInfoPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoPlusView.swift; sourceTree = "<group>"; };
+		F4F0E0CD296C02100006C9D4 /* DetailAroundSubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAroundSubCell.swift; sourceTree = "<group>"; };
 		F4FD508F2962851600FA3CB3 /* goCampingData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goCampingData.json; sourceTree = "<group>"; };
 		F4FD50912962857600FA3CB3 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Rx.swift"; sourceTree = "<group>"; };
@@ -381,6 +390,7 @@
 				F49034872949BA3300CDE442 /* RealmSwift in Frameworks */,
 				F4E3E5F82961CD41009AFCFC /* Kingfisher in Frameworks */,
 				F49034762949B88C00CDE442 /* SnapKit in Frameworks */,
+				F4F0E0E7296D98980006C9D4 /* FSPagerView in Frameworks */,
 				2D3FAA50E34A9054C6C90CEC /* Pods_Basecamp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,7 +462,6 @@
 				F4F0E0BE2967F6320006C9D4 /* DefaultLabel.swift */,
 				F49034A4294AC72700CDE442 /* PaddingLabel.swift */,
 				F4FD50912962857600FA3CB3 /* IndicatorView.swift */,
-				F4F0E0732963F4850006C9D4 /* InfoStackView.swift */,
 				F4F0E0BC2967B31E0006C9D4 /* InfoPlusView.swift */,
 				F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */,
 			);
@@ -1136,6 +1145,7 @@
 				F4F0E0B6296725950006C9D4 /* DetailAroundTabmanViewModel.swift */,
 				F4F0E09B29657AEA0006C9D4 /* DetailAroundTabmanSubViewController.swift */,
 				F4F0E0B8296726120006C9D4 /* DetailAroundTabmanSubViewModel.swift */,
+				F4F0E0CD296C02100006C9D4 /* DetailAroundSubCell.swift */,
 			);
 			path = Subs;
 			sourceTree = "<group>";
@@ -1204,6 +1214,23 @@
 			path = Subs;
 			sourceTree = "<group>";
 		};
+		F4F0E0CB296BC4E40006C9D4 /* Subs */ = {
+			isa = PBXGroup;
+			children = (
+				F4F0E0C7296BC0E00006C9D4 /* DetailInfoStackView.swift */,
+				F4F0E0C9296BC4CC0006C9D4 /* DetailInfoPlusView.swift */,
+			);
+			path = Subs;
+			sourceTree = "<group>";
+		};
+		F4F0E0CC296BC4F30006C9D4 /* Subs */ = {
+			isa = PBXGroup;
+			children = (
+				F4F0E0732963F4850006C9D4 /* DetailHeaderStackView.swift */,
+			);
+			path = Subs;
+			sourceTree = "<group>";
+		};
 		F4FD50952962C16500FA3CB3 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1233,6 +1260,7 @@
 			isa = PBXGroup;
 			children = (
 				F4FD50A4296303E600FA3CB3 /* DetailHeaderCell.swift */,
+				F4F0E0CC296BC4F30006C9D4 /* Subs */,
 			);
 			path = HeaderSectionCell;
 			sourceTree = "<group>";
@@ -1241,6 +1269,7 @@
 			isa = PBXGroup;
 			children = (
 				F4FD50A9296305DC00FA3CB3 /* DetailLocationCell.swift */,
+				F45C09DC296DB0C50075E1AC /* DetailLocationCellViewModel.swift */,
 				F4F0E0C0296826060006C9D4 /* Subs */,
 			);
 			path = LocationSectionCell;
@@ -1258,6 +1287,7 @@
 			isa = PBXGroup;
 			children = (
 				F4FD50AD296305FA00FA3CB3 /* DetailInfoCell.swift */,
+				F4F0E0CB296BC4E40006C9D4 /* Subs */,
 			);
 			path = InfoSectionCell;
 			sourceTree = "<group>";
@@ -1283,7 +1313,7 @@
 				F4D10E9D29497831000C02E0 /* Sources */,
 				F4D10E9E29497831000C02E0 /* Frameworks */,
 				F4D10E9F29497831000C02E0 /* Resources */,
-				1506F1C82E25FB3C0EBAC526 /* [CP] Embed Pods Frameworks */,
+				1A6E53451FBC8925F48C33A9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1305,6 +1335,7 @@
 				F4E3E5A6295460D6009AFCFC /* RxEnumKit */,
 				F4E3E5F72961CD41009AFCFC /* Kingfisher */,
 				F4F0E089296473D30006C9D4 /* Tabman */,
+				F4F0E0E6296D98980006C9D4 /* FSPagerView */,
 			);
 			productName = Basecamp;
 			productReference = F4D10EA129497831000C02E0 /* Basecamp.app */;
@@ -1337,7 +1368,7 @@
 				F4D10EBD29497834000C02E0 /* Sources */,
 				F4D10EBE29497834000C02E0 /* Frameworks */,
 				F4D10EBF29497834000C02E0 /* Resources */,
-				5CDC67B770A2968058972757 /* [CP] Embed Pods Frameworks */,
+				C1DB9CEDA69AFCA4A0D38659 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1393,6 +1424,7 @@
 				F4E3E5A5295460D6009AFCFC /* XCRemoteSwiftPackageReference "RxEnumKit" */,
 				F4E3E5F62961CD41009AFCFC /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F4F0E088296473D30006C9D4 /* XCRemoteSwiftPackageReference "Tabman" */,
+				F4F0E0E5296D98970006C9D4 /* XCRemoteSwiftPackageReference "FSPagerView" */,
 			);
 			productRefGroup = F4D10EA229497831000C02E0 /* Products */;
 			projectDirPath = "";
@@ -1435,7 +1467,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1506F1C82E25FB3C0EBAC526 /* [CP] Embed Pods Frameworks */ = {
+		1A6E53451FBC8925F48C33A9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1450,23 +1482,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5CDC67B770A2968058972757 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7829F611047847431C9B3A6B /* [CP] Check Pods Manifest.lock */ = {
@@ -1535,6 +1550,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C1DB9CEDA69AFCA4A0D38659 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1555,6 +1587,7 @@
 				F4E3E5CF295DA92E009AFCFC /* TouristInfoIntroCulture.swift in Sources */,
 				F4E3E5C9295D8342009AFCFC /* TouristInfoImageResponseDTO.swift in Sources */,
 				F4E3E5EE295E9574009AFCFC /* TouristInfoImageRequestDTO.swift in Sources */,
+				F45C09DD296DB0C50075E1AC /* DetailLocationCellViewModel.swift in Sources */,
 				F4E3E5B5295D3053009AFCFC /* TouristInfoResponseDTO.swift in Sources */,
 				F49034D229504DD400CDE442 /* CampsiteTargetStub.swift in Sources */,
 				F4FD50942962BF4F00FA3CB3 /* UICollectionView+Rx.swift in Sources */,
@@ -1593,6 +1626,7 @@
 				F4E3E5CB295D8358009AFCFC /* TouristInfoAreaCodeResponseDTO.swift in Sources */,
 				F4F0E0B5296683A00006C9D4 /* LosslessStringConvertible.swift in Sources */,
 				F4D10EF529498F71000C02E0 /* Coordinate.swift in Sources */,
+				F4F0E0CA296BC4CC0006C9D4 /* DetailInfoPlusView.swift in Sources */,
 				F49034CB295030F700CDE442 /* CampsiteAPIEnvironment.swift in Sources */,
 				F49034C3295004E100CDE442 /* TouristInfo.swift in Sources */,
 				F4E3E5AE29557132009AFCFC /* Review.swift in Sources */,
@@ -1605,6 +1639,7 @@
 				F4E3E5D1295DB1A9009AFCFC /* TouristInfoIntroLeisure.swift in Sources */,
 				F4F0E097296575BD0006C9D4 /* DetailSectionHeader.swift in Sources */,
 				F46BFB75296323F5007EB676 /* NaverBlogRepository.swift in Sources */,
+				F4F0E0CE296C02100006C9D4 /* DetailAroundSubCell.swift in Sources */,
 				F49034C12950025200CDE442 /* TouristInfoRepositoryInterface.swift in Sources */,
 				F4F0E0B7296725960006C9D4 /* DetailAroundTabmanViewModel.swift in Sources */,
 				F46BFB7B29632451007EB676 /* NaverBlogRepositoryInterface.swift in Sources */,
@@ -1664,7 +1699,7 @@
 				F4E3E585295161F9009AFCFC /* NaverBlogTargetStub.swift in Sources */,
 				F4E3E59A295410F4009AFCFC /* MoyaProvider.swift in Sources */,
 				F46BFB73296323DE007EB676 /* YoutubeRepository.swift in Sources */,
-				F4F0E0742963F4850006C9D4 /* InfoStackView.swift in Sources */,
+				F4F0E0742963F4850006C9D4 /* DetailHeaderStackView.swift in Sources */,
 				F4FD50922962857600FA3CB3 /* IndicatorView.swift in Sources */,
 				F4E3E58729516347009AFCFC /* YoutubeTargetStub.swift in Sources */,
 				F4F0E0762963FE870006C9D4 /* UIButton.swift in Sources */,
@@ -1679,6 +1714,7 @@
 				F4F0E079296459EC0006C9D4 /* YoutubeQuery.swift in Sources */,
 				F4F0E08C296477FB0006C9D4 /* DetailTouristSectionModel.swift in Sources */,
 				F4E3E59829540D74009AFCFC /* Constant.swift in Sources */,
+				F4F0E0C8296BC0E10006C9D4 /* DetailInfoStackView.swift in Sources */,
 				F4FD50AE296305FA00FA3CB3 /* DetailInfoCell.swift in Sources */,
 				F49034D02950486900CDE442 /* CampsiteTarget.swift in Sources */,
 				F4F0E0C6296919CC0006C9D4 /* UIColor.swift in Sources */,
@@ -2128,6 +2164,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		F4F0E0E5296D98970006C9D4 /* XCRemoteSwiftPackageReference "FSPagerView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSPagerView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2200,6 +2244,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F4F0E088296473D30006C9D4 /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
+		};
+		F4F0E0E6296D98980006C9D4 /* FSPagerView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4F0E0E5296D98970006C9D4 /* XCRemoteSwiftPackageReference "FSPagerView" */;
+			productName = FSPagerView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

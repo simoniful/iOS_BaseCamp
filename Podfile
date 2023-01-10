@@ -6,9 +6,7 @@ target 'Basecamp' do
   use_frameworks!
 
   # Pods for Basecamp
-  pod 'DropDown'
   pod 'NMapsMap'
-  pod 'RxFSPagerView'
 
   target 'BasecampTests' do
     inherit! :search_paths

@@ -133,9 +133,9 @@ final class DetailUseCase {
     ]
   }
   
-  func requestImageData(strings: [String]) -> [DetailImageItem] {
-    return strings.map {
-      DetailImageItem(imageUrl: $0)
+  func requestImageData(images: [String]) -> [DetailImageItem] {
+    return images.map {
+      DetailImageItem(image: $0)
     }
   }
   
@@ -179,5 +179,10 @@ final class DetailUseCase {
   // MARK: - 유튜브 검색 레포 연결
   func requestYoutubeInfoList(keyword: String, maxResults: Int) -> Single<Result<[YoutubeInfo], YoutubeServiceError>> {
     youtubeRepository.requestYoutubeInfoList(youtubeQueryType: .basic(keyword: keyword, maxResults: maxResults))
+  }
+  
+  // MARK: - 관광정보 레포 연결
+  func requestTouristInfoList(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, coordinate: Coordinate, radius: Int) -> Single<Result<[TouristInfo], TouristInfoServiceError>> {
+    touristInfoRepository.requestTouristInfoList(touristInfoQueryType: .location(numOfRows: numOfRows, pageNo: pageNo, contentTypeId: contentTypeId, coordinate: coordinate, radius: radius))
   }
 }

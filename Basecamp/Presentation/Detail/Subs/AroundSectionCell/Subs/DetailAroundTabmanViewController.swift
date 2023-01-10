@@ -41,16 +41,16 @@ final class DetailAroundTabmanViewController: TabmanViewController {
     self.dataSource = self
     let bar = TMBar.ButtonBar()
     bar.layout.transitionStyle = .snap
-    bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 8.0, bottom: 0.0, right: 8.0)
+    bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
     bar.heightAnchor.constraint(equalToConstant: 32).isActive = true
     bar.backgroundView.style = .clear
     bar.buttons.customize { (button) in
-      button.selectedTintColor = .orange
+      button.selectedTintColor = .main
       button.contentInset = UIEdgeInsets(top: 0.0, left: 4, bottom: 0.0, right: 4)
     }
     bar.indicator.overscrollBehavior = .compress
     bar.indicator.weight = .medium
-    bar.indicator.tintColor = UIColor(red: 185, green: 205, blue: 191, alpha: 1.0)
+    bar.indicator.tintColor = .main
     addBar(bar, dataSource: self, at: .top)
   }
 }

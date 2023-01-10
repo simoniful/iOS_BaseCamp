@@ -88,7 +88,7 @@ struct DetailAroundItem: DetailItem {
 }
 
 struct DetailImageItem: DetailItem {
-  var imageUrl: String
+  var image: String
 }
 
 extension DetailCampsiteSectionModel: SectionModelType {

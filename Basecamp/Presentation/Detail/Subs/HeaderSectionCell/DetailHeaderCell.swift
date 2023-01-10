@@ -12,16 +12,20 @@ import RxCocoa
 import RxGesture
 import EnumKit
 import RxEnumKit
-import RxFSPagerView
+import FSPagerView
+import Kingfisher
+import Alamofire
 
 final class DetailHeaderCell: UICollectionViewCell {
   static let identifier = "DetailHeaderCell"
+  
+  private var imageDataList = [String]()
   
   private(set) var disposeBag = DisposeBag()
   
   private lazy var pagerView: FSPagerView = {
     let pagerView = FSPagerView()
-    pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
+    pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "HeaderPagerViewCell")
     pagerView.itemSize = FSPagerView.automaticSize
     pagerView.isInfinite = true
     pagerView.automaticSlidingInterval = 6.0
@@ -109,73 +113,8 @@ final class DetailHeaderCell: UICollectionViewCell {
     return button
   }()
   
-  private lazy var infoStack: UIStackView = {
-    let stackView = UIStackView()
-    [ hStack , hStack2 ].forEach{ stackView.addArrangedSubview($0) }
-    stackView.translatesAutoresizingMaskIntoConstraints = true
-    stackView.axis = .vertical
-    stackView.alignment = .fill
-    stackView.distribution = .fill
-    stackView.spacing = 0
-    stackView.layer.cornerRadius = 8.0
-    stackView.clipsToBounds = true
-    stackView.layer.borderColor = UIColor.systemGray2.cgColor
-    stackView.backgroundColor = .systemGray2
-    return stackView
-  }()
-  
-  
-  private lazy var hStack: UIStackView = {
-    let stackView = UIStackView()
-    [testlabel, testlabel2].forEach {
-      stackView.addArrangedSubview($0)
-    }
-    stackView.axis = .horizontal
-    stackView.alignment = .top
-    stackView.distribution = .fill
+  private lazy var infoStack = DetailHeaderStackView()
 
-    return stackView
-  }()
-  
-  private lazy var hStack2: UIStackView = {
-    let stackView = UIStackView()
-    [testlabel3, testlabel4].forEach {
-      stackView.addArrangedSubview($0)
-    }
-    stackView.axis = .horizontal
-    stackView.alignment = .top
-    stackView.distribution = .fill
-    
-    return stackView
-  }()
-  
-  let testlabel: UILabel = {
-    let label = UILabel()
-    label.text = "타이틀"
-    return label
-  }()
-  
-  let testlabel2: UILabel = {
-    let label = UILabel()
-    label.text = "내용"
-    return label
-  }()
-  
-  let testlabel3: UILabel = {
-    let label = UILabel()
-    label.text = "시험"
-    label.textAlignment = .center
-    return label
-  }()
-  
-  let testlabel4: UILabel = {
-    let label = UILabel()
-    label.text = "시험"
-    return label
-  }()
-  
-  
-  
   override func layoutSubviews() {
       super.layoutSubviews()
       setupView()
@@ -196,6 +135,10 @@ extension DetailHeaderCell: ViewRepresentable {
     [placeholderImageView, pagerView, pagerControl, buttonStack, infoStack].forEach {
       contentView.addSubview($0)
     }
+    pagerView.delegate = self
+    pagerView.dataSource = self
+    pagerControl.hidesForSinglePage = true
+    pagerControl.contentHorizontalAlignment = .right
   }
   
   func setupConstraints() {
@@ -227,11 +170,67 @@ extension DetailHeaderCell: ViewRepresentable {
       $0.leading.equalToSuperview().offset(16.0)
       $0.trailing.equalToSuperview().offset(-16.0)
       $0.bottom.equalToSuperview().offset(-16.0)
-
     }
   }
   
   func setupData(data: DetailCampsiteHeaderItem) {
+    infoStack.setData(data: data)
+    if data.imageDataList.isEmpty {
+      self.pagerView.isHidden = true
+      self.pagerControl.isHidden = true
+    } else {
+      self.placeholderImageView.image = nil
+    }
     
+    if data.imageDataList.count < 7 {
+      imageDataList = Array(data.imageDataList[data.imageDataList.indices])
+    } else {
+      imageDataList = Array(data.imageDataList[0..<7])
+    }
   }
 }
+
+extension DetailHeaderCell: FSPagerViewDelegate, FSPagerViewDataSource {
+  func numberOfItems(in pagerView: FSPagerView) -> Int {
+      pagerControl.numberOfPages = imageDataList.count
+      return imageDataList.count
+  }
+
+  func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+    let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "HeaderPagerViewCell", at: index)
+    let item =  imageDataList[index]
+    let url = URL(string: item)
+    let processor = DownsamplingImageProcessor(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / 4 * 3))
+    cell.imageView?.kf.indicatorType = .activity
+    cell.imageView?.kf.setImage(
+        with: url,
+        options: [
+            .processor(processor),
+            .scaleFactor(UIScreen.main.scale),
+            .transition(.fade(1)),
+            .cacheOriginalImage
+        ])
+    {
+        result in
+        switch result {
+        case .success(let value):
+            print("Task done for: \(value.source.url?.absoluteString ?? "")")
+        case .failure(let error):
+            print("Job failed: \(error.localizedDescription)")
+        }
+    }
+    cell.imageView?.contentMode = .scaleAspectFill
+    pagerControl.currentPage = index
+    return cell
+  }
+
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+      let page = scrollView.contentOffset.x / scrollView.frame.width
+      pagerControl.currentPage = Int(page)
+  }
+
+  func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
+    let item =  imageDataList[index]
+  }
+}
+

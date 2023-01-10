@@ -10,24 +10,14 @@ import UIKit
 final class DetailInfoCell: UICollectionViewCell {
   static let identifier = "DetailInfoCell"
   
-  private lazy var infoStack: UIStackView = {
-    let stackView = UIStackView()
-    stackView.translatesAutoresizingMaskIntoConstraints = false
-    stackView.axis = .vertical
-    stackView.distribution = .fillEqually
-    stackView.spacing = 0
-    stackView.layer.cornerRadius = 8.0
-    stackView.clipsToBounds = true
-    stackView.layer.borderColor = UIColor.systemGray2.cgColor
-    return stackView
-  }()
+  private lazy var infoStack = DetailInfoStackView()
   
   private lazy var overviewTextView: UITextView = {
     let textView = UITextView()
     textView.isEditable = false
     textView.font = .body1M16
-    textView.contentInset = .init(top: 4.0, left: 4.0, bottom: 4.0, right: 4.0)
-    textView.layer.cornerRadius = 4.0
+    textView.textContainerInset = .init(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
+    textView.layer.cornerRadius = 8.0
     textView.clipsToBounds = true
     textView.layer.borderWidth = 1
     textView.layer.borderColor = UIColor.orange.cgColor
@@ -77,7 +67,6 @@ extension DetailInfoCell: ViewRepresentable {
       $0.top.equalToSuperview()
       $0.leading.equalToSuperview()
       $0.trailing.equalToSuperview()
-      $0.height.equalTo(200.0)
     }
     
     tooltipLabel.snp.makeConstraints {

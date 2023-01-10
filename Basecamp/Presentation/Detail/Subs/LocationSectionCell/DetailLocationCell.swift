@@ -10,12 +10,9 @@ import SnapKit
 import RxSwift
 import RxCocoa
 import NMapsMap
-import CoreLocation
 
 final class DetailLocationCell: UICollectionViewCell {
   static let identifier = "DetailLocationCell"
-  
-  private let locationManager = CLLocationManager()
   
   private lazy var mapView = NMFMapView()
   private lazy var weatherCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -39,8 +36,6 @@ final class DetailLocationCell: UICollectionViewCell {
       weatherCollectionView.reloadData()
     }
   }
-  
-  private let isAutorizedLocation = PublishRelay<Bool>()
   
   override func layoutSubviews() {
     super.layoutSubviews()
@@ -68,6 +63,7 @@ extension DetailLocationCell: ViewRepresentable {
     weatherCollectionView.collectionViewLayout = createLayout()
     weatherCollectionView.delegate = self
     weatherCollectionView.dataSource = self
+    mapView.addCameraDelegate(delegate: self)
   }
   
   func setupConstraints() {
@@ -102,65 +98,15 @@ extension DetailLocationCell: ViewRepresentable {
       directionLabel.text = data.direction == "" ? "찾아오는 길: 문의처에 문의 바랍니다." : data.direction
       weatherData = data.weatherInfos
     }
-  }
-  
-  func setMapView() {
-    mapView.addCameraDelegate(delegate: self)
-    locationManager.delegate = self
-    locationManager.requestWhenInUseAuthorization()
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    updateMyLocation()
-  }
-  
-  func updateMyLocation() {
-    let authorization = self.locationManager.authorizationStatus
-    if authorization == .authorizedAlways || authorization == .authorizedWhenInUse {
-      self.isAutorizedLocation.accept(true)
-      locationManager.startUpdatingLocation()
-    }
-  }
-}
-
-
-extension DetailLocationCell: NMFMapViewCameraDelegate {
-  func mapViewCameraIdle(_ mapView: NMFMapView) {
-    print("mapViewCameraIdle-->")
-    print("가운데 좌표 :", mapView.cameraPosition.target)
-    //      let centerCoordi = mapView.cameraPosition.target
-    //      requestOnqueueInfo.accept(Coordinate(latitude: centerCoordi.lat, longitude: centerCoordi.lng))
-  }
-}
-
-extension DetailLocationCell: CLLocationManagerDelegate {
-  func getLocationUsagePermission() {
-    self.locationManager.requestWhenInUseAuthorization()
-  }
-  
-  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-    switch status {
-    case .authorizedAlways, .authorizedWhenInUse:
-      print("GPS 권한 설정됨")
-      self.locationManager.startUpdatingLocation()
-    case .restricted, .notDetermined:
-      print("GPS 권한 설정되지 않음")
-      getLocationUsagePermission()
-    case .denied:
-      print("GPS 권한 요청 거부됨")
-      getLocationUsagePermission()
-    default:
-      print("GPS: Default")
-    }
-  }
-  
-  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    let location: CLLocation = locations[locations.count - 1]
-    let longtitude: CLLocationDegrees = location.coordinate.longitude
-    let latitude: CLLocationDegrees = location.coordinate.latitude
-    let coordi = NMGLatLng(lat: latitude, lng: longtitude)
-    let cameraUpdate = NMFCameraUpdate(scrollTo: coordi)
+    
+    let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: Double(data.mapY)!, lng: Double(data.mapX)!))
     cameraUpdate.animation = .easeIn
     mapView.moveCamera(cameraUpdate)
-    locationManager.stopUpdatingLocation()
+    
+    let marker = NMFMarker()
+    marker.position = NMGLatLng(lat: Double(data.mapY)!, lng: Double(data.mapX)!)
+    marker.mapView = mapView
+    marker.iconImage = NMFOverlayImage(name: "NMF_MARKER_IMAGE_YELLOW")
   }
   
   func createLayout() -> UICollectionViewCompositionalLayout {
@@ -178,6 +124,9 @@ extension DetailLocationCell: CLLocationManagerDelegate {
   }
 }
 
+
+extension DetailLocationCell: NMFMapViewCameraDelegate {}
+
 extension DetailLocationCell: UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return weatherData.count
@@ -188,8 +137,6 @@ extension DetailLocationCell: UICollectionViewDelegate, UICollectionViewDataSour
     cell.setupData(weatherInfo: weatherData[indexPath.item])
     return cell
   }
-  
-  
 }
 
 

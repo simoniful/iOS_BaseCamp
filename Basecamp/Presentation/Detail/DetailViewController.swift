@@ -9,10 +9,13 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import CoreLocation
 import RxDataSources
 
 final class DetailViewController: UIViewController {
   private let name: String
+  private let locationManager = CLLocationManager()
+  private let isAutorizedLocation = PublishRelay<Bool>()
   
   private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
   
@@ -34,7 +37,8 @@ final class DetailViewController: UIViewController {
   private let disposeBag = DisposeBag()
   
   private lazy var input = DetailViewModel.Input(
-     viewWillAppear: self.rx.viewWillAppear.asObservable()
+     viewWillAppear: self.rx.viewWillAppear.asObservable(),
+     isAutorizedLocation: isAutorizedLocation.asSignal()
   )
   
   private lazy var output = viewModel.transform(input: input)
@@ -67,13 +71,28 @@ final class DetailViewController: UIViewController {
     switch viewModel.style {
     case .campsite:
       collectionView.collectionViewLayout = createLayout()
-      let dataSource = campsiteDataSource()
+      let dataSource = viewModel.campsiteDataSource()
       output.data
         .drive(self.collectionView.rx.items(dataSource: dataSource))
         .disposed(by: disposeBag)
       
     case .touristInfo:
       print("Not yet")
+    }
+  }
+  
+  func setMapView() {
+    locationManager.delegate = self
+    locationManager.requestWhenInUseAuthorization()
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    updateMyLocation()
+  }
+  
+  func updateMyLocation() {
+    let authorization = self.locationManager.authorizationStatus
+    if authorization == .authorizedAlways || authorization == .authorizedWhenInUse {
+      self.isAutorizedLocation.accept(true)
+      locationManager.startUpdatingLocation()
     }
   }
 }
@@ -111,83 +130,6 @@ private extension DetailViewController {
     self.collectionView.register(DetailSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailSectionHeader.identifier)
   }
   
-  func campsiteDataSource() -> RxCollectionViewSectionedReloadDataSource<DetailCampsiteSectionModel> {
-    let dataSource = RxCollectionViewSectionedReloadDataSource<DetailCampsiteSectionModel>(
-      configureCell: { dataSource, collectionView, indexPath, item in
-        switch dataSource[indexPath.section] {
-        case .headerSection(items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailHeaderCell.identifier, for: indexPath) as? DetailHeaderCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          // cell.viewModel
-          return cell
-        case .locationSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailLocationCell.identifier, for: indexPath) as? DetailLocationCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        case .facilitySection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailFacilityCell.identifier, for: indexPath) as? DetailFacilityCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        case .infoSection(items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        case .socialSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailSocialCell.identifier, for: indexPath) as? DetailSocialCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        case .aroundSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailAroundCell.identifier, for: indexPath) as? DetailAroundCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.parent = self
-          cell.setupData(data: item)
-          return cell
-        case .imageSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailImageCell.identifier, for: indexPath) as? DetailImageCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        }
-      },
-      configureSupplementaryView: { dataSource, collectionView, kind, indexPath in
-        switch dataSource[indexPath.section] {
-        case .headerSection,
-             .infoSection:
-          let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailSectionHeader.identifier, for: indexPath)
-          return header
-        case .locationSection(header: let headerStr, _),
-             .facilitySection(header: let headerStr, _),
-             .socialSection(header: let headerStr, _),
-             .aroundSection(header: let headerStr, _),
-             .imageSection(header: let headerStr, _):
-          guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailSectionHeader.identifier, for: indexPath) as? DetailSectionHeader else { return UICollectionReusableView() }
-          header.setData(header: headerStr)
-          return header
-        }
-      }
-    )
-    return dataSource
-  }
-  
   func createLayout() -> UICollectionViewCompositionalLayout {
     return UICollectionViewCompositionalLayout{ (sectionNumber, env) -> NSCollectionLayoutSection? in
       switch sectionNumber {
@@ -201,6 +143,8 @@ private extension DetailViewController {
         return self.insetSection(fractionalHeight: 0.3)
       case 4:
         return self.socialSection()
+      case 5:
+        return self.insetSectionWithHeader(fractionalHeight: 0.4)
       case 6:
         return self.imageSection()
       default:
@@ -279,9 +223,10 @@ private extension DetailViewController {
     let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
     
-    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60))
+    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
     let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
     group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0)
+    group.interItemSpacing = .fixed(4.0)
     
     let section = NSCollectionLayoutSection(group: group)
     section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 24, trailing: 15)
@@ -322,5 +267,27 @@ private extension DetailViewController {
     
     section.boundarySupplementaryItems = [header]
     return section
+  }
+}
+
+extension DetailViewController: CLLocationManagerDelegate {
+  func getLocationUsagePermission() {
+    self.locationManager.requestWhenInUseAuthorization()
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    switch status {
+    case .authorizedAlways, .authorizedWhenInUse:
+      print("GPS 권한 설정됨")
+      self.locationManager.startUpdatingLocation()
+    case .restricted, .notDetermined:
+      print("GPS 권한 설정되지 않음")
+      getLocationUsagePermission()
+    case .denied:
+      print("GPS 권한 요청 거부됨")
+      getLocationUsagePermission()
+    default:
+      print("GPS: Default")
+    }
   }
 }

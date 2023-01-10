@@ -13,7 +13,6 @@ final class DetailSocialCell: UICollectionViewCell {
   private lazy var iconImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFit
-    imageView.backgroundColor = .systemGray5
     imageView.layer.cornerRadius = 8.0
     imageView.clipsToBounds = true
     return imageView
@@ -23,13 +22,13 @@ final class DetailSocialCell: UICollectionViewCell {
     let stackView = UIStackView()
     stackView.axis = .vertical
     stackView.distribution = .fill
-    // stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.translatesAutoresizingMaskIntoConstraints = true
     return stackView
   }()
   
   private lazy var titleLabel: UILabel = {
     let label = UILabel()
-    label.font = .title1M16
+    label.font = .title3M14
     label.numberOfLines = 1
     label.text = "타이틀"
     return label
@@ -37,7 +36,7 @@ final class DetailSocialCell: UICollectionViewCell {
   
   private lazy var descLabel: UILabel = {
     let label = UILabel()
-    label.font = .body3R14
+    label.font = .body4R12
     label.numberOfLines = 1
     label.text = "설명"
     label.textColor = .darkGray
@@ -70,17 +69,17 @@ extension DetailSocialCell: ViewRepresentable {
   
   func setupConstraints() {
     iconImageView.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(8.0)
-      $0.leading.equalToSuperview().offset(8.0)
-      $0.width.equalTo(44.0)
+      $0.top.equalToSuperview()
+      $0.leading.equalToSuperview()
+      $0.width.equalTo(36.0)
       $0.bottom.equalToSuperview().offset(-8.0)
     }
     
     infoStack.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(4.0)
+      $0.centerY.equalTo(iconImageView.snp.centerY)
       $0.leading.equalTo(iconImageView.snp.trailing).offset(8.0)
-      $0.trailing.equalToSuperview().offset(-8.0)
-      $0.bottom.equalToSuperview().offset(-8.0)
+      $0.trailing.equalToSuperview()
+      $0.height.equalTo(36.0)
     }
   }
   

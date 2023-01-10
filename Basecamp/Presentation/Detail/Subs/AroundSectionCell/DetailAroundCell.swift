@@ -11,8 +11,17 @@ final class DetailAroundCell: UICollectionViewCell {
   static let identifier = "DetailAroundCell"
   
   weak var parent: DetailViewController? = nil
+  private var tabmanSetFlag: Bool = false
   
   private lazy var container = UIView()
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   
   override func layoutSubviews() {
     super.layoutSubviews()
@@ -21,15 +30,18 @@ final class DetailAroundCell: UICollectionViewCell {
   }
   
   func setupData(data: DetailAroundItem) {
-    guard let parent = parent else { return }
-    let tabman = DetailAroundTabmanViewController(locationData: data)
-    tabman.bind(parent.viewModel.aroundTabmanViewModel)
-    parent.addChild(tabman)
-    container.addSubview(tabman.view)
-    tabman.view.snp.makeConstraints {
-      $0.edges.equalToSuperview()
+    if tabmanSetFlag == false {
+      guard let parent = parent else { return }
+      let tabman = DetailAroundTabmanViewController(locationData: data)
+      tabman.bind(parent.viewModel.aroundTabmanViewModel)
+      parent.addChild(tabman)
+      container.addSubview(tabman.view)
+      tabman.view.snp.makeConstraints {
+        $0.edges.equalToSuperview()
+      }
+      tabman.didMove(toParent: parent)
+      tabmanSetFlag.toggle()
     }
-    tabman.didMove(toParent: parent)
   }
 }
 
@@ -40,11 +52,9 @@ extension DetailAroundCell: ViewRepresentable {
   
   func setupConstraints() {
     container.snp.makeConstraints {
-      $0.edges.equalTo(safeAreaLayoutGuide)
+      $0.edges.equalToSuperview()
     }
   }
-  
-  
 }
 
 

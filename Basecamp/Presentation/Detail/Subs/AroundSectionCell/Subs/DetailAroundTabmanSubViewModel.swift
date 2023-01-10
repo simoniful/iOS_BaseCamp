@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 struct DetailAroundTabmanSubViewModel {
-  let viewWillAppear = PublishRelay<Void>()
+  let viewWillAppearWithContentType = PublishRelay<(Void, TouristInfoContentType)>()
   let didSelectItemAt = PublishRelay<(TouristInfo, IndexPath)>()
   
   let resultCellData = PublishSubject<[TouristInfo]>()
