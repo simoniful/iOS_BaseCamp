@@ -28,7 +28,12 @@ final class RealmRepository: RealmRepositoryInterface {
   }
   
   func unsaveCampsite(campsite: Campsite) {
-    
+    let campsiteDTO = CampsiteRealmDTO(campsite: campsite)
+    storage.deleteCampsite(campsite: campsiteDTO)
+  }
+  
+  func checkCampsite(campsite: Campsite) -> Bool {
+    storage.hasCampsites(contentID: campsite.contentID!)
   }
   
   func loadReview() -> [Review] {

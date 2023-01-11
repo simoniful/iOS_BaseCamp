@@ -17,6 +17,11 @@ final class RealmStorage {
     return realm.objects(CampsiteRealmDTO.self).filter("isLiked == true")
   }
   
+  func hasCampsites(contentID: String) -> Bool {
+    print(contentID, "콘텐츠 아이디 확인")
+    return !(realm.objects(CampsiteRealmDTO.self).filter("contentID == '\(contentID)'").isEmpty)
+  }
+  
   func createCampsite(campsite: CampsiteRealmDTO) {
     try! realm.write {
       realm.add(campsite)

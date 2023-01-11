@@ -61,7 +61,8 @@ final class DetailUseCase {
         homepage: campsite.homepage!,
         resveCl: campsite.resveCl!,
         posblFcltyCl: campsite.posblFcltyCl!,
-        tel: campsite.tel!
+        tel: campsite.tel!,
+        isLiked: realmRepository.checkCampsite(campsite: campsite)
       )
     ]
   }

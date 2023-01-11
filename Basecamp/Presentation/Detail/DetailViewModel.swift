@@ -47,6 +47,7 @@ final class DetailViewModel: ViewModel {
   private let updateLocationAction = PublishRelay<Void>()
   private let unAutorizedLocationAlert = PublishRelay<(String, String)>()
   private let isAutorizedLocation = BehaviorRelay<Bool>(value: false)
+  let headerAction = PublishRelay<HeaderCellAction>()
   
   var disposeBag = DisposeBag()
   
@@ -240,6 +241,34 @@ final class DetailViewModel: ViewModel {
       input.isAutorizedLocation
           .emit(to: isAutorizedLocation)
           .disposed(by: disposeBag)
+      
+      headerAction
+        .capture(case: HeaderCellAction.call)
+        .bind { _ in
+          print("전화")
+        }
+        .disposed(by: disposeBag)
+      
+      headerAction
+        .capture(case: HeaderCellAction.reserve)
+        .bind { _ in
+          print("예약")
+        }
+        .disposed(by: disposeBag)
+      
+      headerAction
+        .capture(case: HeaderCellAction.visit)
+        .bind { _ in
+          print("방문 리뷰 작성")
+        }
+        .disposed(by: disposeBag)
+      
+      headerAction
+        .capture(case: HeaderCellAction.like)
+        .bind { _ in
+          print("찜")
+        }
+        .disposed(by: disposeBag)
       
     case .touristInfo(let touristInfo):
       break

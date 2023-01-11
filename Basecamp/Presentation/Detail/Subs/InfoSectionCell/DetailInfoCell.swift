@@ -56,7 +56,7 @@ extension DetailInfoCell: ViewRepresentable {
   
   func setupConstraints() {
     infoStack.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(8.0)
+      $0.top.equalToSuperview()
       $0.leading.equalToSuperview()
       $0.trailing.equalToSuperview()
     }

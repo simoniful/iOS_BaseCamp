@@ -14,7 +14,6 @@ import EnumKit
 import RxEnumKit
 import FSPagerView
 import Kingfisher
-import Alamofire
 
 final class DetailHeaderCell: UICollectionViewCell {
   static let identifier = "DetailHeaderCell"
@@ -61,57 +60,10 @@ final class DetailHeaderCell: UICollectionViewCell {
     return stackView
   }()
   
-  private lazy var callButton: UIButton = {
-    let button = UIButton()
-    button.setImage(UIImage(systemName: "phone"), for: .normal)
-    button.setTitle("전화", for: .normal)
-    button.imageView?.contentMode = .scaleAspectFit
-    button.tintColor = .darkGray
-    button.titleLabel?.font = .body3R14
-    button.setTitleColor(.darkGray, for: .normal)
-    button.imageEdgeInsets = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
-    button.alignTextBelow()
-    return button
-  }()
-  
-  private lazy var reservationButton: UIButton = {
-    let button = UIButton()
-    button.setImage(UIImage(systemName: "calendar"), for: .normal)
-    button.setTitle("예약", for: .normal)
-    button.imageView?.contentMode = .scaleAspectFit
-    button.tintColor = .darkGray
-    button.titleLabel?.font = .body3R14
-    button.setTitleColor(.darkGray, for: .normal)
-    button.imageEdgeInsets = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
-    button.alignTextBelow()
-    return button
-  }()
-  
-  private lazy var visitButton: UIButton = {
-    let button = UIButton()
-    button.setImage(UIImage(systemName: "flag.fill"), for: .normal)
-    button.setTitle("방문", for: .normal)
-    button.imageView?.contentMode = .scaleAspectFit
-    button.tintColor = .darkGray
-    button.titleLabel?.font = .body3R14
-    button.setTitleColor(.darkGray, for: .normal)
-    button.imageEdgeInsets = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
-    button.alignTextBelow()
-    return button
-  }()
-  
-  private lazy var likeButton: UIButton = {
-    let button = UIButton()
-    button.setImage(UIImage(systemName: "heart"), for: .normal)
-    button.setTitle("찜", for: .normal)
-    button.imageView?.contentMode = .scaleAspectFit
-    button.tintColor = .darkGray
-    button.titleLabel?.font = .body3R14
-    button.setTitleColor(.darkGray, for: .normal)
-    button.imageEdgeInsets = UIEdgeInsets(top: 32, left: 32, bottom: 32, right: 32)
-    button.alignTextBelow()
-    return button
-  }()
+  private lazy var callButton = makeButton(iconName: "phone", title: "전화")
+  private lazy var reservationButton = makeButton(iconName: "calendar", title: "예약")
+  private lazy var visitButton = makeButton(iconName: "flag", title: "방문")
+  private lazy var likeButton = makeButton(iconName: "heart", title: "찜")
   
   private lazy var infoStack = DetailHeaderStackView()
 
@@ -175,6 +127,8 @@ extension DetailHeaderCell: ViewRepresentable {
   
   func setupData(data: DetailCampsiteHeaderItem) {
     infoStack.setData(data: data)
+    
+    
     if data.imageDataList.isEmpty {
       self.pagerView.isHidden = true
       self.pagerControl.isHidden = true
@@ -187,6 +141,40 @@ extension DetailHeaderCell: ViewRepresentable {
     } else {
       imageDataList = Array(data.imageDataList[0..<7])
     }
+  }
+  
+  func viewModel(item: DetailCampsiteHeaderItem) -> Observable<HeaderCellAction> {
+    return Observable.merge(
+      callButton.rx.tap
+        .map({ _ in
+          HeaderCellAction.call(item)
+        }),
+      reservationButton.rx.tap
+        .map({ _ in
+          HeaderCellAction.reserve(item)
+        }),
+      visitButton.rx.tap
+        .map({ _ in
+          HeaderCellAction.visit(item)
+        }),
+      likeButton.rx.tap
+        .map({ _ in
+          HeaderCellAction.like(item)
+        })
+    )
+  }
+  
+  func makeButton(iconName: String, title: String) -> UIButton {
+    let button = UIButton()
+    button.setImage(UIImage(systemName: iconName), for: .normal)
+    button.setTitle(title, for: .normal)
+    button.imageView?.contentMode = .scaleAspectFit
+    button.tintColor = .darkGray
+    button.titleLabel?.font = .body3R14
+    button.setTitleColor(.darkGray, for: .normal)
+    button.imageEdgeInsets = UIEdgeInsets(top: 32, left: 32, bottom: 32, right: 32)
+    button.alignTextBelow()
+    return button
   }
 }
 
@@ -222,7 +210,7 @@ extension DetailHeaderCell: FSPagerViewDelegate, FSPagerViewDataSource {
   }
 
   func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
-    let item =  imageDataList[index]
+    let item = imageDataList[index]
   }
 }
 

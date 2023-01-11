@@ -10,6 +10,7 @@
 		2D3FAA50E34A9054C6C90CEC /* Pods_Basecamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F575D0BF5FDD6E43B61B3085 /* Pods_Basecamp.framework */; };
 		F45C09DF296DB6730075E1AC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DE296DB6730075E1AC /* AlertView.swift */; };
 		F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E0296EB8130075E1AC /* StackingLabel.swift */; };
+		F45C09E3296F03070075E1AC /* DetailViewSectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */; };
 		F46BFB73296323DE007EB676 /* YoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB72296323DE007EB676 /* YoutubeRepository.swift */; };
 		F46BFB75296323F5007EB676 /* NaverBlogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */; };
 		F46BFB7729632404007EB676 /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB7629632404007EB676 /* WeatherRepository.swift */; };
@@ -211,6 +212,7 @@
 		DCC532F1879E5FD5136D3FFB /* Pods-BasecampTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasecampTests.debug.xcconfig"; path = "Target Support Files/Pods-BasecampTests/Pods-BasecampTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F45C09DE296DB6730075E1AC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		F45C09E0296EB8130075E1AC /* StackingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackingLabel.swift; sourceTree = "<group>"; };
+		F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewSectionLayoutManager.swift; sourceTree = "<group>"; };
 		F46BFB72296323DE007EB676 /* YoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepository.swift; sourceTree = "<group>"; };
 		F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogRepository.swift; sourceTree = "<group>"; };
 		F46BFB7629632404007EB676 /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
@@ -1240,6 +1242,7 @@
 			children = (
 				F4FD50962962C18E00FA3CB3 /* DetailViewController.swift */,
 				F4FD509E2962E0F600FA3CB3 /* DetailViewModel.swift */,
+				F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */,
 				F4FD50A2296303C000FA3CB3 /* Subs */,
 			);
 			path = Detail;
@@ -1614,6 +1617,7 @@
 				F4F0E0C2296826180006C9D4 /* DetailLocationWeatherCell.swift in Sources */,
 				F4E3E5F529604B43009AFCFC /* String.swift in Sources */,
 				F4E3E5E8295E948C009AFCFC /* TouristInfoFestivalRequestDTO.swift in Sources */,
+				F45C09E3296F03070075E1AC /* DetailViewSectionLayoutManager.swift in Sources */,
 				F4E3E5B0295AC26C009AFCFC /* TouristInfoRepository.swift in Sources */,
 				F49034E229515B0C00CDE442 /* WeatherAPIConstant.swift in Sources */,
 				F4D10EEA29498738000C02E0 /* CoordinatorDelegate.swift in Sources */,

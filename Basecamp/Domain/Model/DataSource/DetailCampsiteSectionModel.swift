@@ -35,6 +35,7 @@ struct DetailCampsiteHeaderItem: DetailItem {
   var resveCl: String
   var posblFcltyCl: String
   var tel: String
+  var isLiked: Bool
 }
 
 struct DetailLocationItem: DetailItem {

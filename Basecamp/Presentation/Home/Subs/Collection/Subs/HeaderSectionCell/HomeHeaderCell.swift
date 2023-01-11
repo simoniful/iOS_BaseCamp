@@ -169,4 +169,8 @@ enum HeaderCellAction: CaseAccessible {
   case myMenu(HomeHeaderItem)
   case map(HomeHeaderItem)
   case search(HomeHeaderItem)
+  case call(DetailCampsiteHeaderItem)
+  case reserve(DetailCampsiteHeaderItem)
+  case visit(DetailCampsiteHeaderItem)
+  case like(DetailCampsiteHeaderItem)
 }

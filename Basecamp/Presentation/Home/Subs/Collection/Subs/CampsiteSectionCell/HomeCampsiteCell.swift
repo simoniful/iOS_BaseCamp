@@ -25,7 +25,7 @@ class HomeCampsiteCell: UICollectionViewCell {
     let label = UILabel()
     label.text = "캠핑장 개요"
     label.textColor = .white
-    label.font = .title3M14
+    label.font = .title1M16
     return label
   }()
   
@@ -33,7 +33,7 @@ class HomeCampsiteCell: UICollectionViewCell {
     let label = UILabel()
     label.text = "캠핑장 위치"
     label.textColor = .white
-    label.font = .body4R12
+    label.font = .body3R14
     return label
   }()
   
@@ -85,16 +85,8 @@ class HomeCampsiteCell: UICollectionViewCell {
             .scaleFactor(UIScreen.main.scale),
             .transition(.fade(1)),
             .cacheOriginalImage
-        ])
-    {
-        result in
-        switch result {
-        case .success(let value):
-            print("Task done for: \(value.source.url?.absoluteString ?? "")")
-        case .failure(let error):
-            print("Job failed: \(error.localizedDescription)")
-        }
-    }
+        ]
+    )
 
     titleLabel.text = campsite.facltNm
     
