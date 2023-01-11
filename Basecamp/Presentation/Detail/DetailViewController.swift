@@ -37,8 +37,8 @@ final class DetailViewController: UIViewController {
   private let disposeBag = DisposeBag()
   
   private lazy var input = DetailViewModel.Input(
-     viewWillAppear: self.rx.viewWillAppear.asObservable(),
-     isAutorizedLocation: isAutorizedLocation.asSignal()
+    viewWillAppear: self.rx.viewWillAppear.asObservable(),
+    isAutorizedLocation: isAutorizedLocation.asSignal()
   )
   
   private lazy var output = viewModel.transform(input: input)
@@ -57,8 +57,8 @@ final class DetailViewController: UIViewController {
     super.viewDidLoad()
     register()
     setupNavigationBar()
-    setViews()
-    setConstraints()
+    setupView()
+    setupConstraints()
     bind()
   }
   
@@ -71,39 +71,50 @@ final class DetailViewController: UIViewController {
     switch viewModel.style {
     case .campsite:
       collectionView.collectionViewLayout = createLayout()
-      let dataSource = viewModel.campsiteDataSource()
+      let dataSource = campsiteDataSource()
       output.data
         .drive(self.collectionView.rx.items(dataSource: dataSource))
+        .disposed(by: disposeBag)
+      
+      locationManager.delegate = self
+      
+      output.confirmAuthorizedLocation
+        .emit(onNext: { [weak self] _ in
+          let auth = self?.locationManager.authorizationStatus
+          let status = auth == .authorizedAlways || auth == .authorizedWhenInUse
+          self?.isAutorizedLocation.accept(status)
+        })
+        .disposed(by: disposeBag)
+      
+      output.updateLocationAction
+        .emit(onNext: { [weak self] _ in
+          self?.locationManager.startUpdatingLocation()
+        })
+        .disposed(by: disposeBag)
+      
+      output.unAutorizedLocationAlert
+        .emit(onNext: { [weak self] (title, message) in
+          guard let self = self else { return }
+          let alert = AlertView.init(title: title, message: message) {
+            self.moveToPhoneSetting()
+          }
+          alert.showAlert()
+        })
         .disposed(by: disposeBag)
       
     case .touristInfo:
       print("Not yet")
     }
   }
-  
-  func setMapView() {
-    locationManager.delegate = self
-    locationManager.requestWhenInUseAuthorization()
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    updateMyLocation()
-  }
-  
-  func updateMyLocation() {
-    let authorization = self.locationManager.authorizationStatus
-    if authorization == .authorizedAlways || authorization == .authorizedWhenInUse {
-      self.isAutorizedLocation.accept(true)
-      locationManager.startUpdatingLocation()
-    }
-  }
 }
 
 
-private extension DetailViewController {
-  private func setViews() {
+extension DetailViewController: ViewRepresentable {
+  func setupView() {
     view.addSubview(collectionView)
   }
   
-  private func setConstraints() {
+  func setupConstraints() {
     collectionView.snp.makeConstraints {
       $0.edges.equalTo(view.safeAreaLayoutGuide)
     }
@@ -118,7 +129,13 @@ private extension DetailViewController {
       rightBarDropDownButton
     ]
   }
-
+  
+  private func moveToPhoneSetting() {
+    if let url = URL(string: UIApplication.openSettingsURLString) {
+      UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+  }
+  
   func register() {
     self.collectionView.register(DetailHeaderCell.self, forCellWithReuseIdentifier: DetailHeaderCell.identifier)
     self.collectionView.register(DetailLocationCell.self, forCellWithReuseIdentifier: DetailLocationCell.identifier)
@@ -140,11 +157,11 @@ private extension DetailViewController {
       case 2:
         return self.facilitySection()
       case 3:
-        return self.insetSection(fractionalHeight: 0.3)
+        return self.insetSection(fractionalHeight: 0.75)
       case 4:
         return self.socialSection()
       case 5:
-        return self.insetSectionWithHeader(fractionalHeight: 0.4)
+        return self.aroundSection()
       case 6:
         return self.imageSection()
       default:
@@ -152,13 +169,90 @@ private extension DetailViewController {
       }
     }
   }
+  
+  func campsiteDataSource() -> RxCollectionViewSectionedReloadDataSource<DetailCampsiteSectionModel> {
+    let dataSource = RxCollectionViewSectionedReloadDataSource<DetailCampsiteSectionModel>(
+      configureCell: { dataSource, collectionView, indexPath, item in
+        switch dataSource[indexPath.section] {
+        case .headerSection(items: let items):
+          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailHeaderCell.identifier, for: indexPath) as? DetailHeaderCell else {
+            return UICollectionViewCell()
+          }
+          let item = items[indexPath.row]
+          cell.setupData(data: item)
+          // cell.viewModel로 버튼 enum 구성
+          return cell
+        case .locationSection(header: _, items: let items):
+          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailLocationCell.identifier, for: indexPath) as? DetailLocationCell else {
+            return UICollectionViewCell()
+          }
+          let item = items[indexPath.row]
+          cell.setupData(data: item)
+          return cell
+        case .facilitySection(header: _, items: let items):
+          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailFacilityCell.identifier, for: indexPath) as? DetailFacilityCell else {
+            return UICollectionViewCell()
+          }
+          let item = items[indexPath.row]
+          cell.setupData(data: item)
+          return cell
+        case .infoSection(items: let items):
+          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell else {
+            return UICollectionViewCell()
+          }
+          let item = items[indexPath.row]
+          cell.setupData(data: item)
+          return cell
+        case .socialSection(header: _, items: let items):
+          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailSocialCell.identifier, for: indexPath) as? DetailSocialCell else {
+            return UICollectionViewCell()
+          }
+          let item = items[indexPath.row]
+          cell.setupData(data: item)
+          return cell
+        case .aroundSection(header: _, items: let items):
+          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailAroundCell.identifier, for: indexPath) as? DetailAroundCell else {
+            return UICollectionViewCell()
+          }
+          let item = items[indexPath.row]
+          cell.parent = self
+          cell.setupData(data: item)
+          return cell
+        case .imageSection(header: _, items: let items):
+          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailImageCell.identifier, for: indexPath) as? DetailImageCell else {
+            return UICollectionViewCell()
+          }
+          let item = items[indexPath.row]
+          cell.setupData(data: item)
+          return cell
+        }
+      },
+      configureSupplementaryView: { dataSource, collectionView, kind, indexPath in
+        switch dataSource[indexPath.section] {
+        case .headerSection,
+            .infoSection:
+          let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailSectionHeader.identifier, for: indexPath)
+          return header
+        case .locationSection(header: let headerStr, _),
+            .facilitySection(header: let headerStr, _),
+            .socialSection(header: let headerStr, _),
+            .aroundSection(header: let headerStr, _),
+            .imageSection(header: let headerStr, _):
+          guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailSectionHeader.identifier, for: indexPath) as? DetailSectionHeader else { return UICollectionReusableView() }
+          header.setData(header: headerStr)
+          return header
+        }
+      }
+    )
+    return dataSource
+  }
 }
-
+// 매니저를 통한 분리
 private extension DetailViewController {
   func wholeSection(fractionalHeight: Double) -> NSCollectionLayoutSection {
     let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight)))
     item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-    let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight)), subitem: item, count: 1)
+    let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight)), subitems: [item])
     let section = NSCollectionLayoutSection(group: group)
     section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 0.0, bottom: 16.0, trailing: 0.0)
     return section
@@ -167,7 +261,7 @@ private extension DetailViewController {
   func insetSectionWithHeader(fractionalHeight: Double) -> NSCollectionLayoutSection {
     let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight )))
     item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-    let group = NSCollectionLayoutGroup.vertical(layoutSize:  .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight )), subitem: item, count: 1)
+    let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight )), subitems: [item])
     let section = NSCollectionLayoutSection(group: group)
     section.contentInsets = NSDirectionalEdgeInsets(top: 16.0, leading: 16.0, bottom: 16.0, trailing: 16.0)
     let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
@@ -225,12 +319,29 @@ private extension DetailViewController {
     
     let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
     let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-    group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0)
+    // group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0)
     group.interItemSpacing = .fixed(4.0)
     
     let section = NSCollectionLayoutSection(group: group)
     section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 24, trailing: 15)
     
+    let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
+    
+    let header = NSCollectionLayoutBoundarySupplementaryItem(
+      layoutSize: headerFooterSize,
+      elementKind: UICollectionView.elementKindSectionHeader,
+      alignment: .top
+    )
+    section.boundarySupplementaryItems = [header]
+    return section
+  }
+  
+  func aroundSection() -> NSCollectionLayoutSection {
+    let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(364.0)))
+    item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+    let group = NSCollectionLayoutGroup.vertical(layoutSize:  .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(364.0)), subitem: item, count: 1)
+    let section = NSCollectionLayoutSection(group: group)
+    section.contentInsets = NSDirectionalEdgeInsets(top: 16.0, leading: 16.0, bottom: 16.0, trailing: 16.0)
     let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
     
     let header = NSCollectionLayoutBoundarySupplementaryItem(
@@ -260,10 +371,10 @@ private extension DetailViewController {
     section.orthogonalScrollingBehavior = .continuous
     let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
     let header = NSCollectionLayoutBoundarySupplementaryItem(
-           layoutSize: headerFooterSize,
-           elementKind: UICollectionView.elementKindSectionHeader,
-           alignment: .top
-         )
+      layoutSize: headerFooterSize,
+      elementKind: UICollectionView.elementKindSectionHeader,
+      alignment: .top
+    )
     
     section.boundarySupplementaryItems = [header]
     return section
@@ -271,23 +382,67 @@ private extension DetailViewController {
 }
 
 extension DetailViewController: CLLocationManagerDelegate {
-  func getLocationUsagePermission() {
-    self.locationManager.requestWhenInUseAuthorization()
+  
+  func checkUserLocationServicesAuthorization() {
+    let authorizationStatus: CLAuthorizationStatus
+    if #available(iOS 14.0, *) {
+      authorizationStatus = locationManager.authorizationStatus
+    } else {
+      authorizationStatus = CLLocationManager.authorizationStatus()
+    }
+    DispatchQueue.global().async {
+      if CLLocationManager.locationServicesEnabled() {
+        if CLLocationManager.locationServicesEnabled() {
+          self.checkCurrentLocationAuthorization(authorizationStatus)
+        } else {
+          print("iOS 위치 서비스를 켜주세요")
+          self.isAutorizedLocation.accept(false)
+        }
+      }
+    }
+  }
+  
+  func checkCurrentLocationAuthorization(_ authorizationStatus: CLAuthorizationStatus) {
+    switch authorizationStatus {
+    case .notDetermined:
+      locationManager.desiredAccuracy = kCLLocationAccuracyBest
+      locationManager.requestWhenInUseAuthorization()
+      locationManager.startUpdatingLocation()
+    case .restricted, .denied:
+      print("Denied, 설정 유도")
+      isAutorizedLocation.accept(false)
+    case .authorizedWhenInUse:
+      locationManager.startUpdatingLocation()
+    case .authorizedAlways:
+      print("Always")
+    @unknown default:
+      print("Default")
+    }
+    
+    if #available(iOS 14.0, *) {
+      let accurancyState = locationManager.accuracyAuthorization
+      switch accurancyState {
+      case .fullAccuracy:
+        print("Full")
+      case .reducedAccuracy:
+        print("Reduce")
+      @unknown default:
+        print("Default")
+      }
+    }
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    print(#function)
   }
   
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-    switch status {
-    case .authorizedAlways, .authorizedWhenInUse:
-      print("GPS 권한 설정됨")
-      self.locationManager.startUpdatingLocation()
-    case .restricted, .notDetermined:
-      print("GPS 권한 설정되지 않음")
-      getLocationUsagePermission()
-    case .denied:
-      print("GPS 권한 요청 거부됨")
-      getLocationUsagePermission()
-    default:
-      print("GPS: Default")
-    }
+    print(#function)
+    checkUserLocationServicesAuthorization()
+  }
+  
+  func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    print(#function)
+    checkUserLocationServicesAuthorization()
   }
 }

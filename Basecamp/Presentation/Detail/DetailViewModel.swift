@@ -41,10 +41,12 @@ final class DetailViewModel: ViewModel {
   }
   
   let aroundTabmanViewModel = DetailAroundTabmanViewModel()
-  let locationViewModel = DetailLocationCellViewModel()
   
   private let data = PublishRelay<[DetailCampsiteSectionModel]>()
-  private let locationAuthorization = BehaviorRelay<Bool>(value: false)
+  private let confirmAuthorizedLocation = PublishRelay<Void>()
+  private let updateLocationAction = PublishRelay<Void>()
+  private let unAutorizedLocationAlert = PublishRelay<(String, String)>()
+  private let isAutorizedLocation = BehaviorRelay<Bool>(value: false)
   
   var disposeBag = DisposeBag()
   
@@ -61,9 +63,9 @@ final class DetailViewModel: ViewModel {
         }
       
       let campsiteImageValue = campsiteImageResult
-        .do(onNext: { data in
-          print(data, "캠핑 이미지 데이터 패칭 ----")
-        })
+//        .do(onNext: { data in
+//          print(data, "캠핑 이미지 데이터 패칭 ----")
+//        })
         .compactMap { [weak self] data -> [String]? in
           self?.detailUseCase.getValue(data)
         }
@@ -90,9 +92,9 @@ final class DetailViewModel: ViewModel {
         }
       
       let weatherValue = weatherResult
-        .do(onNext: { data in
-          print(data, "날씨 데이터 패칭 ----")
-        })
+//        .do(onNext: { data in
+//          print(data, "날씨 데이터 패칭 ----")
+//        })
         .compactMap { [weak self] data -> [WeatherInfo]? in
           self?.detailUseCase.getValue(data)
         }
@@ -134,9 +136,9 @@ final class DetailViewModel: ViewModel {
         }
       
       let naverBlogValue = naverBlogResult
-        .do(onNext: { data in
-          print(data, "네이버 데이터 패칭 ----")
-        })
+//        .do(onNext: { data in
+//          print(data, "네이버 데이터 패칭 ----")
+//        })
         .compactMap { [weak self] data -> [NaverBlogInfo]? in
           self?.detailUseCase.getValue(data)
         }
@@ -147,9 +149,9 @@ final class DetailViewModel: ViewModel {
         }
       
       let youtubeValue = youtubeResult
-        .do(onNext: { data in
-          print(data, "유튜브 데이터 패칭 ----")
-        })
+//        .do(onNext: { data in
+//          print(data, "유튜브 데이터 패칭 ----")
+//        })
         .compactMap { [weak self] data -> [YoutubeInfo]? in
           self?.detailUseCase.getValue(data)
         }
@@ -208,9 +210,9 @@ final class DetailViewModel: ViewModel {
         }
         
       let touristValue = touristResult
-        .do(onNext: { data in
-          print(data, "관광정보 데이터 패칭 ----")
-        })
+//        .do(onNext: { data in
+//          print(data, "관광정보 데이터 패칭 ----")
+//        })
         .compactMap { [weak self] data -> [TouristInfo]? in
           self?.detailUseCase.getValue(data)
         }
@@ -224,96 +226,30 @@ final class DetailViewModel: ViewModel {
         .bind(to: aroundTabmanViewModel.detailAroundTabmanSubViewModel.resultCellData)
         .disposed(by: disposeBag)
       
-      locationAuthorization
-        .subscribe { isAuth in
-          <#code#>
-        }
+      input.isAutorizedLocation
+        .emit(onNext: { [weak self] isEnable in
+            guard let self = self else { return }
+            if isEnable {
+                self.updateLocationAction.accept(())
+            } else {
+                self.unAutorizedLocationAlert.accept(("위치 서비스 사용 불가", "아이폰 설정으로 이동합니다."))
+            }
+        })
+        .disposed(by: disposeBag)
       
+      input.isAutorizedLocation
+          .emit(to: isAutorizedLocation)
+          .disposed(by: disposeBag)
       
     case .touristInfo(let touristInfo):
       break
     }
-    return Output(data: data.asDriver(onErrorJustReturn: []))
-  }
-  
-  func campsiteDataSource() -> RxCollectionViewSectionedReloadDataSource<DetailCampsiteSectionModel> {
-    let dataSource = RxCollectionViewSectionedReloadDataSource<DetailCampsiteSectionModel>(
-      configureCell: { dataSource, collectionView, indexPath, item in
-        switch dataSource[indexPath.section] {
-        case .headerSection(items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailHeaderCell.identifier, for: indexPath) as? DetailHeaderCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          // cell.viewModel로 버튼 enum 구성
-          return cell
-        case .locationSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailLocationCell.identifier, for: indexPath) as? DetailLocationCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          cell.viewModel(item: item)
-            .bind(to: self.locationAuthorization)
-            .disposed(by: disposeBag)
-          return cell
-        case .facilitySection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailFacilityCell.identifier, for: indexPath) as? DetailFacilityCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        case .infoSection(items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        case .socialSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailSocialCell.identifier, for: indexPath) as? DetailSocialCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        case .aroundSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailAroundCell.identifier, for: indexPath) as? DetailAroundCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.parent = self
-          cell.setupData(data: item)
-          return cell
-        case .imageSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailImageCell.identifier, for: indexPath) as? DetailImageCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        }
-      },
-      configureSupplementaryView: { dataSource, collectionView, kind, indexPath in
-        switch dataSource[indexPath.section] {
-        case .headerSection,
-             .infoSection:
-          let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailSectionHeader.identifier, for: indexPath)
-          return header
-        case .locationSection(header: let headerStr, _),
-             .facilitySection(header: let headerStr, _),
-             .socialSection(header: let headerStr, _),
-             .aroundSection(header: let headerStr, _),
-             .imageSection(header: let headerStr, _):
-          guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailSectionHeader.identifier, for: indexPath) as? DetailSectionHeader else { return UICollectionReusableView() }
-          header.setData(header: headerStr)
-          return header
-        }
-      }
+    return Output(
+      data: data.asDriver(onErrorJustReturn: []),
+      confirmAuthorizedLocation: confirmAuthorizedLocation.asSignal(),
+      updateLocationAction: updateLocationAction.asSignal(),
+      unAutorizedLocationAlert: unAutorizedLocationAlert.asSignal()
     )
-    return dataSource
   }
 }
 

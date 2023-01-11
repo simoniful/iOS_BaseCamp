@@ -12,51 +12,51 @@ final class DetailHeaderStackView: UIStackView {
   
   private lazy var telStack = makeStack(first: telCategoryLabel, second: telContentLabel, axis: .vertical)
   
-  private lazy var telCategoryLabel = DefaultLabel(title: "문의처", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  private lazy var telContentLabel = DefaultLabel(title: "문의요망", font: .body2R16)
+  private lazy var telCategoryLabel = StackingLabel(title: "문의처", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
+  private lazy var telContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
-
+  
   private lazy var campsiteTypeHStack = makeStack(first: lctClFacltDivNmStack, second: indutyStack, axis: .horizontal)
   
   private lazy var lctClFacltDivNmStack = makeStack(first: lctClFacltDivNmCategoryLabel, second: lctClFacltDivNmContentLabel, axis: .vertical)
   
-  private lazy var lctClFacltDivNmCategoryLabel = DefaultLabel(title: "캠핑장 환경", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  private lazy var lctClFacltDivNmContentLabel = DefaultLabel(title: "문의요망", font: .body2R16)
+  private lazy var lctClFacltDivNmCategoryLabel = StackingLabel(title: "캠핑장 환경", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
+  private lazy var lctClFacltDivNmContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
   private lazy var indutyStack = makeStack(first: indutyCategoryLabel, second: indutyContentLabel, axis: .vertical)
   
-  private lazy var indutyCategoryLabel = DefaultLabel(title: "캠핑장 유형", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  private lazy var indutyContentLabel = DefaultLabel(title: "문의요망", font: .body2R16)
+  private lazy var indutyCategoryLabel = StackingLabel(title: "캠핑장 유형", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
+  private lazy var indutyContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
   
   private lazy var campsiteOperHStack = makeStack(first: operPDClStack, second: operDeClStack, axis: .horizontal)
   
   private lazy var operPDClStack = makeStack(first: operPDClCategoryLabel, second: operPDClContentLabel, axis: .vertical)
 
-  private lazy var operPDClCategoryLabel = DefaultLabel(title: "운영기간", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  private lazy var operPDClContentLabel = DefaultLabel(title: "문의요망", font: .body2R16)
+  private lazy var operPDClCategoryLabel = StackingLabel(title: "운영기간", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
+  private lazy var operPDClContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
   private lazy var operDeClStack = makeStack(first: operDeClCategoryLabel, second: operDeClContentLabel, axis: .vertical)
   
-  private lazy var operDeClCategoryLabel = DefaultLabel(title: "운영일", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  private lazy var operDeClContentLabel = DefaultLabel(title: "문의요망", font: .body2R16)
+  private lazy var operDeClCategoryLabel = StackingLabel(title: "운영일", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
+  private lazy var operDeClContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
   
   private lazy var homepageStack = makeStack(first: homepageCategoryLabel, second: homepageContentLabel, axis: .vertical)
   
-  private lazy var homepageCategoryLabel = DefaultLabel(title: "홈페이지", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  private lazy var homepageContentLabel = DefaultLabel(title: "문의요망", font: .body2R16)
+  private lazy var homepageCategoryLabel = StackingLabel(title: "홈페이지", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
+  private lazy var homepageContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
   
   private lazy var posblFcltyClStack = makeStack(first: homepageCategoryLabel, second: homepageContentLabel, axis: .vertical)
   
-  private lazy var posblFcltyClCategoryLabel = DefaultLabel(title: "주변이용가능시설", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  private lazy var posblFcltyClContentLabel = DefaultLabel(title: "문의요망", font: .body2R16)
+  private lazy var posblFcltyClCategoryLabel = StackingLabel(title: "주변이용가능시설", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
+  private lazy var posblFcltyClContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
   private lazy var resveClStack = makeStack(first: resveClCategoryLabel, second: resveClContentLabel, axis: .vertical)
   
-  private lazy var resveClCategoryLabel = DefaultLabel(title: "예약방법", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  private lazy var resveClContentLabel = DefaultLabel(title: "문의요망", font: .body2R16)
+  private lazy var resveClCategoryLabel = StackingLabel(title: "예약방법", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
+  private lazy var resveClContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
   
   override init(frame: CGRect) {
@@ -69,7 +69,7 @@ final class DetailHeaderStackView: UIStackView {
   }
   
   func setupView() {
-    self.translatesAutoresizingMaskIntoConstraints = true
+    self.translatesAutoresizingMaskIntoConstraints = false
     self.axis = .vertical
     self.alignment = .fill
     self.distribution = .fill
@@ -95,27 +95,17 @@ final class DetailHeaderStackView: UIStackView {
     resveClContentLabel.text = data.resveCl.isEmpty ? "문의요망" : data.resveCl
   }
   
-  private func makeStack(first: UIView, second: UIView, axis:  NSLayoutConstraint.Axis) -> UIStackView {
+  private func makeStack(first: UIView, second: UIView, axis: NSLayoutConstraint.Axis) -> UIStackView {
     let stackView = UIStackView()
     stackView.axis = axis
     stackView.alignment = .fill
     stackView.distribution = .fill
     stackView.spacing = 0
+    stackView.translatesAutoresizingMaskIntoConstraints = false
     
     [first, second].forEach {
       stackView.addArrangedSubview($0)
     }
-    
-    if axis == .vertical {
-      first.snp.makeConstraints {
-        $0.height.equalTo(36.0)
-      }
-      
-      second.snp.makeConstraints {
-        $0.height.equalTo(36.0)
-      }
-    }
-
     return stackView
   }
 }

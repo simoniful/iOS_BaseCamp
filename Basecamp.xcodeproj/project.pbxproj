@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2D3FAA50E34A9054C6C90CEC /* Pods_Basecamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F575D0BF5FDD6E43B61B3085 /* Pods_Basecamp.framework */; };
-		F45C09DD296DB0C50075E1AC /* DetailLocationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DC296DB0C50075E1AC /* DetailLocationCellViewModel.swift */; };
+		F45C09DF296DB6730075E1AC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DE296DB6730075E1AC /* AlertView.swift */; };
+		F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E0296EB8130075E1AC /* StackingLabel.swift */; };
 		F46BFB73296323DE007EB676 /* YoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB72296323DE007EB676 /* YoutubeRepository.swift */; };
 		F46BFB75296323F5007EB676 /* NaverBlogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */; };
 		F46BFB7729632404007EB676 /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB7629632404007EB676 /* WeatherRepository.swift */; };
@@ -208,7 +209,8 @@
 		A45C0F39EADB6F1F4F347F3D /* Pods-Basecamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basecamp.debug.xcconfig"; path = "Target Support Files/Pods-Basecamp/Pods-Basecamp.debug.xcconfig"; sourceTree = "<group>"; };
 		BDEE084F014DAF09A7739C86 /* Pods_Basecamp_BasecampUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Basecamp_BasecampUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC532F1879E5FD5136D3FFB /* Pods-BasecampTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasecampTests.debug.xcconfig"; path = "Target Support Files/Pods-BasecampTests/Pods-BasecampTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F45C09DC296DB0C50075E1AC /* DetailLocationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocationCellViewModel.swift; sourceTree = "<group>"; };
+		F45C09DE296DB6730075E1AC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		F45C09E0296EB8130075E1AC /* StackingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackingLabel.swift; sourceTree = "<group>"; };
 		F46BFB72296323DE007EB676 /* YoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepository.swift; sourceTree = "<group>"; };
 		F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogRepository.swift; sourceTree = "<group>"; };
 		F46BFB7629632404007EB676 /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
@@ -460,10 +462,12 @@
 			isa = PBXGroup;
 			children = (
 				F4F0E0BE2967F6320006C9D4 /* DefaultLabel.swift */,
+				F45C09E0296EB8130075E1AC /* StackingLabel.swift */,
 				F49034A4294AC72700CDE442 /* PaddingLabel.swift */,
 				F4FD50912962857600FA3CB3 /* IndicatorView.swift */,
 				F4F0E0BC2967B31E0006C9D4 /* InfoPlusView.swift */,
 				F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */,
+				F45C09DE296DB6730075E1AC /* AlertView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1269,7 +1273,6 @@
 			isa = PBXGroup;
 			children = (
 				F4FD50A9296305DC00FA3CB3 /* DetailLocationCell.swift */,
-				F45C09DC296DB0C50075E1AC /* DetailLocationCellViewModel.swift */,
 				F4F0E0C0296826060006C9D4 /* Subs */,
 			);
 			path = LocationSectionCell;
@@ -1587,10 +1590,10 @@
 				F4E3E5CF295DA92E009AFCFC /* TouristInfoIntroCulture.swift in Sources */,
 				F4E3E5C9295D8342009AFCFC /* TouristInfoImageResponseDTO.swift in Sources */,
 				F4E3E5EE295E9574009AFCFC /* TouristInfoImageRequestDTO.swift in Sources */,
-				F45C09DD296DB0C50075E1AC /* DetailLocationCellViewModel.swift in Sources */,
 				F4E3E5B5295D3053009AFCFC /* TouristInfoResponseDTO.swift in Sources */,
 				F49034D229504DD400CDE442 /* CampsiteTargetStub.swift in Sources */,
 				F4FD50942962BF4F00FA3CB3 /* UICollectionView+Rx.swift in Sources */,
+				F45C09DF296DB6730075E1AC /* AlertView.swift in Sources */,
 				F4F0E0BD2967B31E0006C9D4 /* InfoPlusView.swift in Sources */,
 				F4D10F4E2949ADF2000C02E0 /* AppFont.swift in Sources */,
 				F4E3E5A129544823009AFCFC /* ReviewRealmDTO.swift in Sources */,
@@ -1680,6 +1683,7 @@
 				F4E3E5E2295E8A24009AFCFC /* TouristInfoAreaRequestDTO.swift in Sources */,
 				F4E3E5F0295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift in Sources */,
 				F49034AA294C366600CDE442 /* HomeSectionModel.swift in Sources */,
+				F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */,
 				F4E3E5C3295D7BE7009AFCFC /* TouristInfoIntroResponseDTO.swift in Sources */,
 				F49034B0294C475A00CDE442 /* TouristInfoIntroFestival.swift in Sources */,
 				F46BFB7729632404007EB676 /* WeatherRepository.swift in Sources */,

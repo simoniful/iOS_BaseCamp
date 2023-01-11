@@ -88,7 +88,7 @@ extension DetailLocationCell: ViewRepresentable {
       $0.top.equalTo(directionLabel.snp.bottom).offset(8.0)
       $0.leading.trailing.equalToSuperview()
       $0.height.equalTo(100)
-      $0.bottom.equalToSuperview()
+      $0.bottom.equalToSuperview().offset(-16.0)
     }
   }
   
@@ -106,7 +106,7 @@ extension DetailLocationCell: ViewRepresentable {
     let marker = NMFMarker()
     marker.position = NMGLatLng(lat: Double(data.mapY)!, lng: Double(data.mapX)!)
     marker.mapView = mapView
-    marker.iconImage = NMFOverlayImage(name: "NMF_MARKER_IMAGE_YELLOW")
+    marker.iconImage = NMF_MARKER_IMAGE_YELLOW
   }
   
   func createLayout() -> UICollectionViewCompositionalLayout {

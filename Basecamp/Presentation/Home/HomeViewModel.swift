@@ -57,6 +57,9 @@ final class HomeViewModel: ViewModel {
       .share()
 
     let campsiteValue = campsiteResult
+//      .do(onNext: { data in
+//        print(data, "홈 캠핑 데이터 패칭 ----")
+//      })
       .compactMap { data -> [Campsite]? in
         self.homeUseCase.getCampsiteValue(data)
       }
@@ -75,6 +78,9 @@ final class HomeViewModel: ViewModel {
       .share()
 
     let touristInfoValue = touristInfoResult
+//      .do(onNext: { data in
+//        print(data, "홈 관광정보 데이터 패칭 ----")
+//      })
       .compactMap { data -> [TouristInfo]? in
         self.homeUseCase.getTouristInfoValue(data)
       }
@@ -84,11 +90,17 @@ final class HomeViewModel: ViewModel {
         self.homeUseCase.getTouristInfoError(data)
       }
 
-    Observable.combineLatest(realmValue, areaValue, campsiteValue, touristInfoValue) { realmData, areaData, campsiteList, touristList -> [HomeSectionModel] in
-      self.homeUseCase.getHomeSectionModel( realmData, areaData, campsiteList, touristList)
-    }
-    .bind(to: data)
-    .disposed(by: disposeBag)
+    Observable.combineLatest(realmValue, areaValue, campsiteValue, touristInfoValue)
+      .do(onNext: { _ in
+        print("home 데이터 패칭 완료")
+      })
+      .withUnretained(self)
+      .compactMap { (owner, values) -> [HomeSectionModel] in
+        let (realmData, areaData, campsiteList, touristList) = values
+        return owner.homeUseCase.getHomeSectionModel( realmData, areaData, campsiteList, touristList)
+      }
+      .bind(to: data)
+      .disposed(by: disposeBag)
     
     headerAction
       .capture(case: HeaderCellAction.map)

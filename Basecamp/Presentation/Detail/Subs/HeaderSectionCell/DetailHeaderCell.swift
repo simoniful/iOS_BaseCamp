@@ -138,35 +138,35 @@ extension DetailHeaderCell: ViewRepresentable {
     pagerView.delegate = self
     pagerView.dataSource = self
     pagerControl.hidesForSinglePage = true
-    pagerControl.contentHorizontalAlignment = .right
+    pagerControl.contentHorizontalAlignment = .center
   }
   
   func setupConstraints() {
     placeholderImageView.snp.makeConstraints {
       $0.top.leading.trailing.equalToSuperview()
-      $0.height.equalTo(contentView.snp.width).multipliedBy(0.75)
+      $0.height.equalTo(UIScreen.main.bounds.width / 4 * 3)
     }
     
     pagerView.snp.makeConstraints {
       $0.top.leading.trailing.equalToSuperview()
-      $0.height.equalTo(contentView.snp.width).multipliedBy(0.75)
+      $0.height.equalTo(UIScreen.main.bounds.width / 4 * 3)
     }
     
     pagerControl.snp.makeConstraints {
-      $0.centerX.equalTo(pagerView.snp.centerX)
-      $0.bottom.equalTo(pagerView.snp.bottom).offset(-10.0)
-      $0.width.equalTo(100.0)
+      $0.centerX.equalTo(placeholderImageView.snp.centerX)
+      $0.bottom.equalTo(placeholderImageView.snp.bottom).offset(-10.0)
+      $0.width.equalTo(80.0)
     }
     
     buttonStack.snp.makeConstraints {
       $0.top.equalTo(placeholderImageView.snp.bottom).offset(16.0)
       $0.leading.equalToSuperview().offset(16.0)
       $0.trailing.equalToSuperview().offset(-16.0)
-      $0.height.equalTo(80.0)
+      $0.height.greaterThanOrEqualTo(80.0)
+      $0.bottom.equalTo(infoStack.snp.top).offset(-16.0)
     }
     
     infoStack.snp.makeConstraints {
-      $0.top.equalTo(buttonStack.snp.bottom).offset(16.0)
       $0.leading.equalToSuperview().offset(16.0)
       $0.trailing.equalToSuperview().offset(-16.0)
       $0.bottom.equalToSuperview().offset(-16.0)
@@ -210,15 +210,7 @@ extension DetailHeaderCell: FSPagerViewDelegate, FSPagerViewDataSource {
             .transition(.fade(1)),
             .cacheOriginalImage
         ])
-    {
-        result in
-        switch result {
-        case .success(let value):
-            print("Task done for: \(value.source.url?.absoluteString ?? "")")
-        case .failure(let error):
-            print("Job failed: \(error.localizedDescription)")
-        }
-    }
+    
     cell.imageView?.contentMode = .scaleAspectFill
     pagerControl.currentPage = index
     return cell

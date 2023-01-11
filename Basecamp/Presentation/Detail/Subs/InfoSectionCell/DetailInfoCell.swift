@@ -32,8 +32,6 @@ final class DetailInfoCell: UICollectionViewCell {
     return label
   }()
   
-  
-  
   override func layoutSubviews() {
       super.layoutSubviews()
       setupView()
@@ -51,35 +49,37 @@ final class DetailInfoCell: UICollectionViewCell {
 
 extension DetailInfoCell: ViewRepresentable {
   func setupView() {
-    [overviewTextView, tooltipLabel].forEach {
+    [infoStack, overviewTextView, tooltipLabel].forEach {
       contentView.addSubview($0)
     }
   }
   
   func setupConstraints() {
-//    infoStack.snp.makeConstraints {
-//      $0.top.equalToSuperview().offset(8.0)
-//      $0.leading.equalToSuperview().offset(8.0)
-//      $0.trailing.equalToSuperview().offset(-8.0)
-//    }
-    
-    overviewTextView.snp.makeConstraints {
-      $0.top.equalToSuperview()
+    infoStack.snp.makeConstraints {
+      $0.top.equalToSuperview().offset(8.0)
       $0.leading.equalToSuperview()
       $0.trailing.equalToSuperview()
     }
     
-    tooltipLabel.snp.makeConstraints {
-      $0.top.equalTo(overviewTextView.snp.bottom).offset(16.0)
+    overviewTextView.snp.makeConstraints {
+      $0.top.equalTo(infoStack.snp.bottom).offset(8.0)
       $0.leading.equalToSuperview()
       $0.trailing.equalToSuperview()
-      $0.bottom.equalToSuperview()
+      $0.width.greaterThanOrEqualTo(200.0)
+    }
+    
+    tooltipLabel.snp.makeConstraints {
+      $0.top.equalTo(overviewTextView.snp.bottom).offset(8.0)
+      $0.leading.equalToSuperview()
+      $0.trailing.equalToSuperview()
+      $0.bottom.equalToSuperview().offset(-16.0)
     }
   }
   
   func setupData(data: DetailCampsiteInfoItem) {
-    overviewTextView.text = data.overview
+    infoStack.setData(data: data)
+    overviewTextView.text = data.overview.isEmpty ? "캠핑장 사이트에서 자세히 알 수 있습니다." : data.overview
 //    themaEnvrnClLabel.text = data.themaEnvrnCl == "" ? "자체 행사 관련하여 캠핑장으로 추가적인 문의바랍니다." : data.themaEnvrnCl
-    tooltipLabel.text = data.tooltip  == "" ? "캠핑장에 주변 지역 관광 정보가 구비되어있습니다." : data.tooltip
+    tooltipLabel.text = data.tooltip.isEmpty ? "캠핑장에 주변 지역 관광 정보가 구비되어있습니다." : data.tooltip
   }
 }
