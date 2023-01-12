@@ -1,8 +1,8 @@
 //
-//  DetailHeaderCell.swift
+//  DetailTouristInfoHeaderCell.swift
 //  Basecamp
 //
-//  Created by Sang hun Lee on 2023/01/02.
+//  Created by Sang hun Lee on 2023/01/12.
 //
 
 import UIKit
@@ -15,8 +15,8 @@ import RxEnumKit
 import FSPagerView
 import Kingfisher
 
-final class DetailHeaderCell: UICollectionViewCell {
-  static let identifier = "DetailHeaderCell"
+final class DetailTouristInfoHeaderCell: UICollectionViewCell {
+  static let identifier = "DetailTouristInfoHeaderCell"
   
   private var imageDataList = [String]()
   
@@ -46,26 +46,7 @@ final class DetailHeaderCell: UICollectionViewCell {
     return imageView
   }()
   
-  private lazy var buttonStack: UIStackView = {
-    let stackView = UIStackView()
-    [callButton, reservationButton, visitButton, likeButton].forEach{ stackView.addArrangedSubview($0) }
-    stackView.translatesAutoresizingMaskIntoConstraints = false
-    stackView.axis = .horizontal
-    stackView.distribution = .fillEqually
-    stackView.spacing = 8.0
-    stackView.layer.cornerRadius = 12.0
-    stackView.clipsToBounds = true
-    stackView.layer.borderColor = UIColor.systemGray2.cgColor
-    stackView.backgroundColor = .systemGray6
-    return stackView
-  }()
-  
-  private lazy var callButton = makeButton(iconName: "phone", title: "전화")
-  private lazy var reservationButton = makeButton(iconName: "calendar", title: "예약")
-  private lazy var visitButton = makeButton(iconName: "flag", title: "방문")
-  private lazy var likeButton = makeButton(iconName: "heart", title: "찜")
-  
-  private lazy var infoStack = DetailHeaderStackView()
+  private lazy var infoStack = DetailTouristInfoHeaderStackView()
 
   override func layoutSubviews() {
       super.layoutSubviews()
@@ -82,9 +63,9 @@ final class DetailHeaderCell: UICollectionViewCell {
   }
 }
 
-extension DetailHeaderCell: ViewRepresentable {
+extension DetailTouristInfoHeaderCell: ViewRepresentable {
   func setupView() {
-    [placeholderImageView, pagerView, pagerControl, buttonStack, infoStack].forEach {
+    [placeholderImageView, pagerView, pagerControl, infoStack].forEach {
       contentView.addSubview($0)
     }
     pagerView.delegate = self
@@ -110,14 +91,6 @@ extension DetailHeaderCell: ViewRepresentable {
       $0.width.equalTo(80.0)
     }
     
-    buttonStack.snp.makeConstraints {
-      $0.top.equalTo(placeholderImageView.snp.bottom).offset(16.0)
-      $0.leading.equalToSuperview().offset(16.0)
-      $0.trailing.equalToSuperview().offset(-16.0)
-      $0.height.greaterThanOrEqualTo(80.0)
-      $0.bottom.equalTo(infoStack.snp.top).offset(-16.0)
-    }
-    
     infoStack.snp.makeConstraints {
       $0.leading.equalToSuperview().offset(16.0)
       $0.trailing.equalToSuperview().offset(-16.0)
@@ -127,8 +100,6 @@ extension DetailHeaderCell: ViewRepresentable {
   
   func setupData(data: DetailCampsiteHeaderItem) {
     infoStack.setData(data: data)
-    
-    
     if data.imageDataList.isEmpty {
       self.pagerView.isHidden = true
       self.pagerControl.isHidden = true
@@ -143,42 +114,13 @@ extension DetailHeaderCell: ViewRepresentable {
     }
   }
   
-  func viewModel(item: DetailCampsiteHeaderItem) -> Observable<HeaderCellAction> {
-    return Observable.merge(
-      callButton.rx.tap
-        .map({ _ in
-          HeaderCellAction.call(item)
-        }),
-      reservationButton.rx.tap
-        .map({ _ in
-          HeaderCellAction.reserve(item)
-        }),
-      visitButton.rx.tap
-        .map({ _ in
-          HeaderCellAction.visit(item)
-        }),
-      likeButton.rx.tap
-        .map({ _ in
-          HeaderCellAction.like(item)
-        })
-    )
-  }
-  
-  func makeButton(iconName: String, title: String) -> UIButton {
-    let button = UIButton()
-    button.setImage(UIImage(systemName: iconName), for: .normal)
-    button.setTitle(title, for: .normal)
-    button.imageView?.contentMode = .scaleAspectFit
-    button.tintColor = .darkGray
-    button.titleLabel?.font = .body3R14
-    button.setTitleColor(.darkGray, for: .normal)
-    button.imageEdgeInsets = UIEdgeInsets(top: 32, left: 32, bottom: 32, right: 32)
-    button.alignTextBelow()
-    return button
-  }
+//  func viewModel(item: DetailCampsiteHeaderItem) -> Observable<HeaderCellAction> {
+//    
+//    
+//  }
 }
 
-extension DetailHeaderCell: FSPagerViewDelegate, FSPagerViewDataSource {
+extension DetailTouristInfoHeaderCell: FSPagerViewDelegate, FSPagerViewDataSource {
   func numberOfItems(in pagerView: FSPagerView) -> Int {
       pagerControl.numberOfPages = imageDataList.count
       return imageDataList.count

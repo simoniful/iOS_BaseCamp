@@ -11,6 +11,10 @@
 		F45C09DF296DB6730075E1AC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DE296DB6730075E1AC /* AlertView.swift */; };
 		F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E0296EB8130075E1AC /* StackingLabel.swift */; };
 		F45C09E3296F03070075E1AC /* DetailViewSectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */; };
+		F45C09E529703CF80075E1AC /* DetailTouristInfoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E429703CF80075E1AC /* DetailTouristInfoHeaderCell.swift */; };
+		F45C09E729703D530075E1AC /* DetailTouristInfoHeaderStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E629703D530075E1AC /* DetailTouristInfoHeaderStackView.swift */; };
+		F45C09E929703E4D0075E1AC /* DetailTouristInfoIntroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E829703E4D0075E1AC /* DetailTouristInfoIntroCell.swift */; };
+		F45C09EB29703EA40075E1AC /* DetailTouristInfoIntroStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09EA29703EA40075E1AC /* DetailTouristInfoIntroStackView.swift */; };
 		F46BFB73296323DE007EB676 /* YoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB72296323DE007EB676 /* YoutubeRepository.swift */; };
 		F46BFB75296323F5007EB676 /* NaverBlogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */; };
 		F46BFB7729632404007EB676 /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB7629632404007EB676 /* WeatherRepository.swift */; };
@@ -133,7 +137,7 @@
 		F4E3E5F2295EA028009AFCFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5F1295EA028009AFCFC /* Date.swift */; };
 		F4E3E5F529604B43009AFCFC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5F429604B43009AFCFC /* String.swift */; };
 		F4E3E5F82961CD41009AFCFC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F4E3E5F72961CD41009AFCFC /* Kingfisher */; };
-		F4F0E0742963F4850006C9D4 /* DetailHeaderStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0732963F4850006C9D4 /* DetailHeaderStackView.swift */; };
+		F4F0E0742963F4850006C9D4 /* DetailCampsiteHeaderStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0732963F4850006C9D4 /* DetailCampsiteHeaderStackView.swift */; };
 		F4F0E0762963FE870006C9D4 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0752963FE870006C9D4 /* UIButton.swift */; };
 		F4F0E079296459EC0006C9D4 /* YoutubeQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E078296459EC0006C9D4 /* YoutubeQuery.swift */; };
 		F4F0E07B29645BBB0006C9D4 /* NaverBlogQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E07A29645BBB0006C9D4 /* NaverBlogQuery.swift */; };
@@ -165,7 +169,7 @@
 		F4F0E0C2296826180006C9D4 /* DetailLocationWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C1296826180006C9D4 /* DetailLocationWeatherCell.swift */; };
 		F4F0E0C42969199B0006C9D4 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C32969199B0006C9D4 /* AppColor.swift */; };
 		F4F0E0C6296919CC0006C9D4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C5296919CC0006C9D4 /* UIColor.swift */; };
-		F4F0E0C8296BC0E10006C9D4 /* DetailInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C7296BC0E00006C9D4 /* DetailInfoStackView.swift */; };
+		F4F0E0C8296BC0E10006C9D4 /* DetailCampsiteInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C7296BC0E00006C9D4 /* DetailCampsiteInfoStackView.swift */; };
 		F4F0E0CA296BC4CC0006C9D4 /* DetailInfoPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C9296BC4CC0006C9D4 /* DetailInfoPlusView.swift */; };
 		F4F0E0CE296C02100006C9D4 /* DetailAroundSubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0CD296C02100006C9D4 /* DetailAroundSubCell.swift */; };
 		F4F0E0E7296D98980006C9D4 /* FSPagerView in Frameworks */ = {isa = PBXBuildFile; productRef = F4F0E0E6296D98980006C9D4 /* FSPagerView */; };
@@ -175,10 +179,10 @@
 		F4FD50972962C18E00FA3CB3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50962962C18E00FA3CB3 /* DetailViewController.swift */; };
 		F4FD509F2962E0F600FA3CB3 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD509E2962E0F600FA3CB3 /* DetailViewModel.swift */; };
 		F4FD50A12962E4D600FA3CB3 /* DetailCampsiteSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50A02962E4D600FA3CB3 /* DetailCampsiteSectionModel.swift */; };
-		F4FD50A5296303E600FA3CB3 /* DetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50A4296303E600FA3CB3 /* DetailHeaderCell.swift */; };
+		F4FD50A5296303E600FA3CB3 /* DetailCampsiteHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50A4296303E600FA3CB3 /* DetailCampsiteHeaderCell.swift */; };
 		F4FD50AA296305DC00FA3CB3 /* DetailLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50A9296305DC00FA3CB3 /* DetailLocationCell.swift */; };
 		F4FD50AC296305EC00FA3CB3 /* DetailFacilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50AB296305EC00FA3CB3 /* DetailFacilityCell.swift */; };
-		F4FD50AE296305FA00FA3CB3 /* DetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50AD296305FA00FA3CB3 /* DetailInfoCell.swift */; };
+		F4FD50AE296305FA00FA3CB3 /* DetailCampsiteInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50AD296305FA00FA3CB3 /* DetailCampsiteInfoCell.swift */; };
 		F4FD50B329630C9000FA3CB3 /* DetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50B229630C9000FA3CB3 /* DetailUseCase.swift */; };
 		F7ED210E70035965F1650888 /* Pods_Basecamp_BasecampUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDEE084F014DAF09A7739C86 /* Pods_Basecamp_BasecampUITests.framework */; };
 		FEA783C5C576825C8002C401 /* Pods_BasecampTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2F724C218DF8BCA37F4331 /* Pods_BasecampTests.framework */; };
@@ -213,6 +217,10 @@
 		F45C09DE296DB6730075E1AC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		F45C09E0296EB8130075E1AC /* StackingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackingLabel.swift; sourceTree = "<group>"; };
 		F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewSectionLayoutManager.swift; sourceTree = "<group>"; };
+		F45C09E429703CF80075E1AC /* DetailTouristInfoHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTouristInfoHeaderCell.swift; sourceTree = "<group>"; };
+		F45C09E629703D530075E1AC /* DetailTouristInfoHeaderStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTouristInfoHeaderStackView.swift; sourceTree = "<group>"; };
+		F45C09E829703E4D0075E1AC /* DetailTouristInfoIntroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTouristInfoIntroCell.swift; sourceTree = "<group>"; };
+		F45C09EA29703EA40075E1AC /* DetailTouristInfoIntroStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTouristInfoIntroStackView.swift; sourceTree = "<group>"; };
 		F46BFB72296323DE007EB676 /* YoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepository.swift; sourceTree = "<group>"; };
 		F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogRepository.swift; sourceTree = "<group>"; };
 		F46BFB7629632404007EB676 /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
@@ -327,7 +335,7 @@
 		F4E3E5EF295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoAreaCodeRequestDTO.swift; sourceTree = "<group>"; };
 		F4E3E5F1295EA028009AFCFC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F4E3E5F429604B43009AFCFC /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		F4F0E0732963F4850006C9D4 /* DetailHeaderStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderStackView.swift; sourceTree = "<group>"; };
+		F4F0E0732963F4850006C9D4 /* DetailCampsiteHeaderStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampsiteHeaderStackView.swift; sourceTree = "<group>"; };
 		F4F0E0752963FE870006C9D4 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		F4F0E078296459EC0006C9D4 /* YoutubeQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeQuery.swift; sourceTree = "<group>"; };
 		F4F0E07A29645BBB0006C9D4 /* NaverBlogQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogQuery.swift; sourceTree = "<group>"; };
@@ -358,7 +366,7 @@
 		F4F0E0C1296826180006C9D4 /* DetailLocationWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocationWeatherCell.swift; sourceTree = "<group>"; };
 		F4F0E0C32969199B0006C9D4 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		F4F0E0C5296919CC0006C9D4 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		F4F0E0C7296BC0E00006C9D4 /* DetailInfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoStackView.swift; sourceTree = "<group>"; };
+		F4F0E0C7296BC0E00006C9D4 /* DetailCampsiteInfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampsiteInfoStackView.swift; sourceTree = "<group>"; };
 		F4F0E0C9296BC4CC0006C9D4 /* DetailInfoPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoPlusView.swift; sourceTree = "<group>"; };
 		F4F0E0CD296C02100006C9D4 /* DetailAroundSubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAroundSubCell.swift; sourceTree = "<group>"; };
 		F4FD508F2962851600FA3CB3 /* goCampingData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goCampingData.json; sourceTree = "<group>"; };
@@ -367,10 +375,10 @@
 		F4FD50962962C18E00FA3CB3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F4FD509E2962E0F600FA3CB3 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		F4FD50A02962E4D600FA3CB3 /* DetailCampsiteSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampsiteSectionModel.swift; sourceTree = "<group>"; };
-		F4FD50A4296303E600FA3CB3 /* DetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderCell.swift; sourceTree = "<group>"; };
+		F4FD50A4296303E600FA3CB3 /* DetailCampsiteHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampsiteHeaderCell.swift; sourceTree = "<group>"; };
 		F4FD50A9296305DC00FA3CB3 /* DetailLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocationCell.swift; sourceTree = "<group>"; };
 		F4FD50AB296305EC00FA3CB3 /* DetailFacilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFacilityCell.swift; sourceTree = "<group>"; };
-		F4FD50AD296305FA00FA3CB3 /* DetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoCell.swift; sourceTree = "<group>"; };
+		F4FD50AD296305FA00FA3CB3 /* DetailCampsiteInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampsiteInfoCell.swift; sourceTree = "<group>"; };
 		F4FD50B229630C9000FA3CB3 /* DetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCase.swift; sourceTree = "<group>"; };
 		F575D0BF5FDD6E43B61B3085 /* Pods_Basecamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Basecamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1223,8 +1231,9 @@
 		F4F0E0CB296BC4E40006C9D4 /* Subs */ = {
 			isa = PBXGroup;
 			children = (
-				F4F0E0C7296BC0E00006C9D4 /* DetailInfoStackView.swift */,
+				F4F0E0C7296BC0E00006C9D4 /* DetailCampsiteInfoStackView.swift */,
 				F4F0E0C9296BC4CC0006C9D4 /* DetailInfoPlusView.swift */,
+				F45C09EA29703EA40075E1AC /* DetailTouristInfoIntroStackView.swift */,
 			);
 			path = Subs;
 			sourceTree = "<group>";
@@ -1232,7 +1241,8 @@
 		F4F0E0CC296BC4F30006C9D4 /* Subs */ = {
 			isa = PBXGroup;
 			children = (
-				F4F0E0732963F4850006C9D4 /* DetailHeaderStackView.swift */,
+				F4F0E0732963F4850006C9D4 /* DetailCampsiteHeaderStackView.swift */,
+				F45C09E629703D530075E1AC /* DetailTouristInfoHeaderStackView.swift */,
 			);
 			path = Subs;
 			sourceTree = "<group>";
@@ -1266,7 +1276,8 @@
 		F4FD50A3296303D300FA3CB3 /* HeaderSectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				F4FD50A4296303E600FA3CB3 /* DetailHeaderCell.swift */,
+				F4FD50A4296303E600FA3CB3 /* DetailCampsiteHeaderCell.swift */,
+				F45C09E429703CF80075E1AC /* DetailTouristInfoHeaderCell.swift */,
 				F4F0E0CC296BC4F30006C9D4 /* Subs */,
 			);
 			path = HeaderSectionCell;
@@ -1292,7 +1303,8 @@
 		F4FD50A8296304D300FA3CB3 /* InfoSectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				F4FD50AD296305FA00FA3CB3 /* DetailInfoCell.swift */,
+				F4FD50AD296305FA00FA3CB3 /* DetailCampsiteInfoCell.swift */,
+				F45C09E829703E4D0075E1AC /* DetailTouristInfoIntroCell.swift */,
 				F4F0E0CB296BC4E40006C9D4 /* Subs */,
 			);
 			path = InfoSectionCell;
@@ -1590,6 +1602,7 @@
 				F49034E829515B4E00CDE442 /* WeatherAPIEnvironment.swift in Sources */,
 				F4F0E083296469210006C9D4 /* WeatherInfo.swift in Sources */,
 				F4F0E0C42969199B0006C9D4 /* AppColor.swift in Sources */,
+				F45C09EB29703EA40075E1AC /* DetailTouristInfoIntroStackView.swift in Sources */,
 				F4E3E5CF295DA92E009AFCFC /* TouristInfoIntroCulture.swift in Sources */,
 				F4E3E5C9295D8342009AFCFC /* TouristInfoImageResponseDTO.swift in Sources */,
 				F4E3E5EE295E9574009AFCFC /* TouristInfoImageRequestDTO.swift in Sources */,
@@ -1612,6 +1625,7 @@
 				F4E3E5C1295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift in Sources */,
 				F4F0E099296576120006C9D4 /* DetailAroundTabmanViewController.swift in Sources */,
 				F4F0E094296575A00006C9D4 /* DetailImageCell.swift in Sources */,
+				F45C09E929703E4D0075E1AC /* DetailTouristInfoIntroCell.swift in Sources */,
 				F49034A5294AC72700CDE442 /* PaddingLabel.swift in Sources */,
 				F4E3E5DA295E81A5009AFCFC /* CampsiteBasicRequestDTO.swift in Sources */,
 				F4F0E0C2296826180006C9D4 /* DetailLocationWeatherCell.swift in Sources */,
@@ -1650,10 +1664,12 @@
 				F49034C12950025200CDE442 /* TouristInfoRepositoryInterface.swift in Sources */,
 				F4F0E0B7296725960006C9D4 /* DetailAroundTabmanViewModel.swift in Sources */,
 				F46BFB7B29632451007EB676 /* NaverBlogRepositoryInterface.swift in Sources */,
+				F45C09E529703CF80075E1AC /* DetailTouristInfoHeaderCell.swift in Sources */,
 				F4E3E58D295181D1009AFCFC /* CampsiteQuery.swift in Sources */,
 				F4F0E0B129666BAF0006C9D4 /* YoutubeResponseDTO.swift in Sources */,
 				F4E3E5E0295E8687009AFCFC /* CampsiteImageRequestDTO.swift in Sources */,
 				F4F0E0BB2967A7A30006C9D4 /* Facility.swift in Sources */,
+				F45C09E729703D530075E1AC /* DetailTouristInfoHeaderStackView.swift in Sources */,
 				F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */,
 				F4F0E0852964694F0006C9D4 /* YoutubeInfo.swift in Sources */,
 				F49034A8294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift in Sources */,
@@ -1707,7 +1723,7 @@
 				F4E3E585295161F9009AFCFC /* NaverBlogTargetStub.swift in Sources */,
 				F4E3E59A295410F4009AFCFC /* MoyaProvider.swift in Sources */,
 				F46BFB73296323DE007EB676 /* YoutubeRepository.swift in Sources */,
-				F4F0E0742963F4850006C9D4 /* DetailHeaderStackView.swift in Sources */,
+				F4F0E0742963F4850006C9D4 /* DetailCampsiteHeaderStackView.swift in Sources */,
 				F4FD50922962857600FA3CB3 /* IndicatorView.swift in Sources */,
 				F4E3E58729516347009AFCFC /* YoutubeTargetStub.swift in Sources */,
 				F4F0E0762963FE870006C9D4 /* UIButton.swift in Sources */,
@@ -1722,13 +1738,13 @@
 				F4F0E079296459EC0006C9D4 /* YoutubeQuery.swift in Sources */,
 				F4F0E08C296477FB0006C9D4 /* DetailTouristSectionModel.swift in Sources */,
 				F4E3E59829540D74009AFCFC /* Constant.swift in Sources */,
-				F4F0E0C8296BC0E10006C9D4 /* DetailInfoStackView.swift in Sources */,
-				F4FD50AE296305FA00FA3CB3 /* DetailInfoCell.swift in Sources */,
+				F4F0E0C8296BC0E10006C9D4 /* DetailCampsiteInfoStackView.swift in Sources */,
+				F4FD50AE296305FA00FA3CB3 /* DetailCampsiteInfoCell.swift in Sources */,
 				F49034D02950486900CDE442 /* CampsiteTarget.swift in Sources */,
 				F4F0E0C6296919CC0006C9D4 /* UIColor.swift in Sources */,
 				F49034AE294C42B200CDE442 /* Campsite.swift in Sources */,
 				F4E3E5EA295E9507009AFCFC /* TouristInfoCommonRequestDTO.swift in Sources */,
-				F4FD50A5296303E600FA3CB3 /* DetailHeaderCell.swift in Sources */,
+				F4FD50A5296303E600FA3CB3 /* DetailCampsiteHeaderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

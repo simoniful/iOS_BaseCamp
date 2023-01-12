@@ -101,7 +101,30 @@ final class DetailViewController: UIViewController {
         .disposed(by: disposeBag)
       
     case .touristInfo:
-      print("Not yet")
+      print("뷰컨에서 불리는가?")
+      output.confirmAuthorizedLocation
+        .emit(onNext: { [weak self] _ in
+          let auth = self?.locationManager.authorizationStatus
+          let status = auth == .authorizedAlways || auth == .authorizedWhenInUse
+          self?.isAutorizedLocation.accept(status)
+        })
+        .disposed(by: disposeBag)
+      
+      output.updateLocationAction
+        .emit(onNext: { [weak self] _ in
+          self?.locationManager.startUpdatingLocation()
+        })
+        .disposed(by: disposeBag)
+      
+      output.unAutorizedLocationAlert
+        .emit(onNext: { [weak self] (title, message) in
+          guard let self = self else { return }
+          let alert = AlertView.init(title: title, message: message) {
+            self.moveToPhoneSetting()
+          }
+          alert.showAlert()
+        })
+        .disposed(by: disposeBag)
     }
   }
 }
@@ -137,10 +160,10 @@ extension DetailViewController: ViewRepresentable {
   }
   
   func register() {
-    self.collectionView.register(DetailHeaderCell.self, forCellWithReuseIdentifier: DetailHeaderCell.identifier)
+    self.collectionView.register(DetailCampsiteHeaderCell.self, forCellWithReuseIdentifier: DetailCampsiteHeaderCell.identifier)
     self.collectionView.register(DetailLocationCell.self, forCellWithReuseIdentifier: DetailLocationCell.identifier)
     self.collectionView.register(DetailFacilityCell.self, forCellWithReuseIdentifier: DetailFacilityCell.identifier)
-    self.collectionView.register(DetailInfoCell.self, forCellWithReuseIdentifier: DetailInfoCell.identifier)
+    self.collectionView.register(DetailCampsiteInfoCell.self, forCellWithReuseIdentifier: DetailCampsiteInfoCell.identifier)
     self.collectionView.register(DetailSocialCell.self, forCellWithReuseIdentifier: DetailSocialCell.identifier)
     self.collectionView.register(DetailAroundCell.self, forCellWithReuseIdentifier: DetailAroundCell.identifier)
     self.collectionView.register(DetailImageCell.self, forCellWithReuseIdentifier: DetailImageCell.identifier)
@@ -152,7 +175,7 @@ extension DetailViewController: ViewRepresentable {
       configureCell: { dataSource, collectionView, indexPath, item in
         switch dataSource[indexPath.section] {
         case .headerSection(items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailHeaderCell.identifier, for: indexPath) as? DetailHeaderCell else {
+          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCampsiteHeaderCell.identifier, for: indexPath) as? DetailCampsiteHeaderCell else {
             return UICollectionViewCell()
           }
           let item = items[indexPath.row]
@@ -176,7 +199,7 @@ extension DetailViewController: ViewRepresentable {
           cell.setupData(data: item)
           return cell
         case .infoSection(items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailInfoCell.identifier, for: indexPath) as? DetailInfoCell else {
+          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCampsiteInfoCell.identifier, for: indexPath) as? DetailCampsiteInfoCell else {
             return UICollectionViewCell()
           }
           let item = items[indexPath.row]

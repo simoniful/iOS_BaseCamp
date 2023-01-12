@@ -1,14 +1,14 @@
 //
-//  CampsiteInfoStackView.swift
+//  DetailTouristInfoIntroStackView.swift
 //  Basecamp
 //
-//  Created by Sang hun Lee on 2023/01/09.
+//  Created by Sang hun Lee on 2023/01/12.
 //
 
 import UIKit
 import SnapKit
 
-final class DetailInfoStackView: UIStackView {
+final class DetailTouristInfoIntroStackView: UIStackView {
   
   private lazy var siteCoStack = makeStack(first: siteCoCategoryLabel, second: siteCoContentLabel, axis: .vertical)
   

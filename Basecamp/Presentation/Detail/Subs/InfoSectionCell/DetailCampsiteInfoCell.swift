@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class DetailInfoCell: UICollectionViewCell {
-  static let identifier = "DetailInfoCell"
+final class DetailCampsiteInfoCell: UICollectionViewCell {
+  static let identifier = "DetailCampsiteInfoCell"
   
-  private lazy var infoStack = DetailInfoStackView()
+  private lazy var infoStack = DetailCampsiteInfoStackView()
   
   private lazy var overviewTextView: UITextView = {
     let textView = UITextView()
@@ -47,7 +47,7 @@ final class DetailInfoCell: UICollectionViewCell {
   }
 }
 
-extension DetailInfoCell: ViewRepresentable {
+extension DetailCampsiteInfoCell: ViewRepresentable {
   func setupView() {
     [infoStack, overviewTextView, tooltipLabel].forEach {
       contentView.addSubview($0)

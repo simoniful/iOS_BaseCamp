@@ -8,8 +8,8 @@
 import Foundation
 
 struct TouristInfoIntroRestaurant: TouristInfoIntro {
-  let contentId: String?
-  let contentTypeId: String?
+  let contentId: Int?
+  let contentTypeId: TouristInfoContentType
   let seat, kidsfacility: String?
   let firstmenu, treatmenu, smoking, packing: String?
   let infocenterfood, scalefood, parkingfood, opendatefood: String?

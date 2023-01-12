@@ -67,6 +67,21 @@ final class DetailUseCase {
     ]
   }
   
+  func requestHeaderData(touristInfo: TouristInfo, touristCommon: [TouristInfoCommon], images: [String]) -> [DetailTouristInfoHeaderItem]{
+    return [
+      DetailTouristInfoHeaderItem(
+        imageDataList: images,
+        title: touristInfo.title!,
+        address: touristInfo.address!,
+        tel: touristInfo.tel!,
+        homepage: (touristCommon.first?.homepage)!,
+        contentId: touristInfo.contentId!,
+        contentTypeId: touristInfo.contentTypeId,
+        overview: (touristCommon.first?.overview)!
+      )
+    ]
+  }
+  
   func requestLocationData(campsite: Campsite, weatherData: [WeatherInfo]) -> [DetailLocationItem] {
     return [
       DetailLocationItem(
@@ -74,6 +89,18 @@ final class DetailUseCase {
         mapY: campsite.mapY!,
         address: campsite.addr1!,
         direction: campsite.direction ?? "문의처에 문의 바랍니다",
+        weatherInfos: weatherData
+      )
+    ]
+  }
+  
+  func requestLocationData(touristInfo: TouristInfo, weatherData: [WeatherInfo]) -> [DetailLocationItem] {
+    return [
+      DetailLocationItem(
+        mapX: touristInfo.mapX!,
+        mapY: touristInfo.mapY!,
+        address: touristInfo.address!,
+        direction: "문의처에 문의 바랍니다",
         weatherInfos: weatherData
       )
     ]
@@ -116,6 +143,23 @@ final class DetailUseCase {
     ]
   }
   
+  func requestIntroData(intro: [TouristInfoIntro], contentType: TouristInfoContentType) -> [any  DetailTouristInfoIntroItem] {
+    switch contentType {
+    case .touristSpot:
+      return [DetailTouristInfoSpotIntroItem(intro: intro.first as! TouristInfoIntroSpot)]
+    case .cultureFacilities:
+      return [DetailTouristInfoCultureIntroItem(intro: intro.first as! TouristInfoIntroCulture)]
+    case .festival:
+      return [DetailTouristInfoFestivalIntroItem(intro: intro.first as! TouristInfoIntroFestival)]
+    case .leisure:
+      return [DetailTouristInfoLeisureIntroItem(intro: intro.first as! TouristInfoIntroLeisure)]
+    case .shoppingSpot:
+      return [DetailTouristInfoShoppingIntroItem(intro: intro.first as! TouristInfoIntroShopping)]
+    case .restaurant:
+      return [DetailTouristInfoRestaurantIntroItem(intro: intro.first as! TouristInfoIntroRestaurant)]
+    }
+  }
+  
   func requestSocialData(youtubeData: [YoutubeInfo], naverBlogData: [NaverBlogInfo]) ->  [DetailSocialItem] {
     let mediaInfoList: [SocialMediaInfo] = youtubeData + naverBlogData
     let result = mediaInfoList.map {
@@ -130,6 +174,16 @@ final class DetailUseCase {
         mapX: campsite.mapX!,
         mapY: campsite.mapY!,
         radius: "10000"
+      )
+    ]
+  }
+  
+  func requestAroundData(touristInfo: TouristInfo) -> [DetailAroundItem] {
+    return [
+      DetailAroundItem(
+        mapX: touristInfo.mapX!,
+        mapY: touristInfo.mapY!,
+        radius: "20000"
       )
     ]
   }
@@ -160,6 +214,24 @@ final class DetailUseCase {
     return data
   }
   
+  func getDetailTouristInfoSectionModel(
+    _ headerData: [DetailTouristInfoHeaderItem],
+    _ locationData: [DetailLocationItem],
+    _ introData: [any DetailTouristInfoIntroItem],
+    _ socialData: [DetailSocialItem],
+    _ aroundData: [DetailAroundItem],
+    _ imageData: [DetailImageItem]
+  ) -> [DetailTouristInfoSectionModel] {
+    var data: [DetailTouristInfoSectionModel] = []
+    data.append(.headerSection(items: headerData))
+    data.append(.locationSection(header: "위치/주변 정보", items: locationData))
+    data.append(.introSection(header: "세부 정보", items: introData))
+    data.append(.socialSection(header: "SNS", items: socialData))
+    data.append(.aroundSection(header: "주변에 갈만한 곳", items: aroundData))
+    data.append(.imageSection(header: "사진", items: imageData))
+    return data
+  }
+  
   // MARK: - 고캠핑 레포 연결
   func requestCampsiteImageList(numOfRows: Int, pageNo: Int, contentId: String) -> Single<Result<[String], CampsiteServiceError>> {
     campsiteRepository.requestCampsiteImageList(
@@ -185,5 +257,17 @@ final class DetailUseCase {
   // MARK: - 관광정보 레포 연결
   func requestTouristInfoList(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, coordinate: Coordinate, radius: Int) -> Single<Result<[TouristInfo], TouristInfoServiceError>> {
     touristInfoRepository.requestTouristInfoList(touristInfoQueryType: .location(numOfRows: numOfRows, pageNo: pageNo, contentTypeId: contentTypeId, coordinate: coordinate, radius: radius))
+  }
+  
+  func requestTouristInfoImageList(contentId: Int) -> Single<Result<[String], TouristInfoServiceError>> {
+    touristInfoRepository.requestTouristInfoImageList(touristInfoQueryType: .image(contentId: contentId))
+  }
+  
+  func requestTouristInfoCommon(contentId: Int, contentTypeId: TouristInfoContentType) -> Single<Result<[TouristInfoCommon], TouristInfoServiceError>> {
+    touristInfoRepository.requestTouristInfoCommon(touristInfoQueryType: .commonInfo(contentId: contentId, contentTypeId: contentTypeId))
+  }
+  
+  func requestTouristInfoIntro(contentId: Int, contentTypeId: TouristInfoContentType) -> Single<Result<[TouristInfoIntro], TouristInfoServiceError>> {
+    touristInfoRepository.requestTouristInfoIntro(touristInfoQueryType: .introInfo(contentId: contentId, contentTypeId: contentTypeId), contentType: contentTypeId)
   }
 }

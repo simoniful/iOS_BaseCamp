@@ -42,7 +42,8 @@ final class DetailViewModel: ViewModel {
   
   let aroundTabmanViewModel = DetailAroundTabmanViewModel()
   
-  private let data = PublishRelay<[DetailCampsiteSectionModel]>()
+  private let campsiteData = PublishRelay<[DetailCampsiteSectionModel]>()
+  private let touristInfoData = PublishRelay<[DetailTouristInfoSectionModel]>()
   private let confirmAuthorizedLocation = PublishRelay<Void>()
   private let updateLocationAction = PublishRelay<Void>()
   private let unAutorizedLocationAlert = PublishRelay<(String, String)>()
@@ -64,9 +65,6 @@ final class DetailViewModel: ViewModel {
         }
       
       let campsiteImageValue = campsiteImageResult
-//        .do(onNext: { data in
-//          print(data, "캠핑 이미지 데이터 패칭 ----")
-//        })
         .compactMap { [weak self] data -> [String]? in
           self?.detailUseCase.getValue(data)
         }
@@ -93,9 +91,6 @@ final class DetailViewModel: ViewModel {
         }
       
       let weatherValue = weatherResult
-//        .do(onNext: { data in
-//          print(data, "날씨 데이터 패칭 ----")
-//        })
         .compactMap { [weak self] data -> [WeatherInfo]? in
           self?.detailUseCase.getValue(data)
         }
@@ -137,9 +132,6 @@ final class DetailViewModel: ViewModel {
         }
       
       let naverBlogValue = naverBlogResult
-//        .do(onNext: { data in
-//          print(data, "네이버 데이터 패칭 ----")
-//        })
         .compactMap { [weak self] data -> [NaverBlogInfo]? in
           self?.detailUseCase.getValue(data)
         }
@@ -150,9 +142,6 @@ final class DetailViewModel: ViewModel {
         }
       
       let youtubeValue = youtubeResult
-//        .do(onNext: { data in
-//          print(data, "유튜브 데이터 패칭 ----")
-//        })
         .compactMap { [weak self] data -> [YoutubeInfo]? in
           self?.detailUseCase.getValue(data)
         }
@@ -192,7 +181,7 @@ final class DetailViewModel: ViewModel {
         let (header, location, facility, info, social, around, image) = values
         return owner.detailUseCase.getDetailCampsiteSectionModel(header, location, facility, info, social, around, image)
       }
-      .bind(to: data)
+      .bind(to: campsiteData)
       .disposed(by: disposeBag)
       
       let touristResult = aroundTabmanViewModel.detailAroundTabmanSubViewModel.viewWillAppearWithContentType
@@ -211,9 +200,6 @@ final class DetailViewModel: ViewModel {
         }
         
       let touristValue = touristResult
-//        .do(onNext: { data in
-//          print(data, "관광정보 데이터 패칭 ----")
-//        })
         .compactMap { [weak self] data -> [TouristInfo]? in
           self?.detailUseCase.getValue(data)
         }
@@ -271,10 +257,223 @@ final class DetailViewModel: ViewModel {
         .disposed(by: disposeBag)
       
     case .touristInfo(let touristInfo):
-      break
+      // MARK: - Header Data
+      let touristImageResult = input.viewWillAppear
+        .withUnretained(self)
+        .flatMapLatest { (owner, _) in
+           owner.detailUseCase.requestTouristInfoImageList(contentId: touristInfo.contentId!)
+        }
+      
+      let touristImageValue = touristImageResult
+        .do(onNext: { data in
+          print(data, "관광정보 데이터 패칭")
+        })
+        .compactMap { [weak self] data -> [String]? in
+          self?.detailUseCase.getValue(data)
+        }
+      
+      let touristImageError = touristImageResult
+        .compactMap { [weak self] data -> String? in
+          self?.detailUseCase.getError(data)
+        }
+      
+      let touristCommonResult = input.viewWillAppear
+        .withUnretained(self)
+        .flatMapLatest { (owner, _) in
+          owner.detailUseCase.requestTouristInfoCommon(contentId: touristInfo.contentId!, contentTypeId: touristInfo.contentTypeId)
+        }
+      
+      let touristCommonValue = touristCommonResult
+        .do(onNext: { data in
+          print(data, "관광정보 커먼 데이터 패칭")
+        })
+        .compactMap { [weak self] data -> [TouristInfoCommon]? in
+          self?.detailUseCase.getValue(data)
+        }
+      
+      let touristCommonError = touristCommonResult
+        .compactMap { [weak self] data -> String? in
+          self?.detailUseCase.getError(data)
+        }
+      
+      let headerValue = Observable.combineLatest(touristImageValue, touristCommonValue)
+        .withUnretained(self)
+        .compactMap { (owner, data) -> [DetailTouristInfoHeaderItem] in
+          let (images, touristCommon) = data
+          return owner.detailUseCase.requestHeaderData(
+            touristInfo: touristInfo,
+            touristCommon: touristCommon,
+            images: images
+          )
+        }
+      
+      // MARK: - Location Data
+      let weatherResult = input.viewWillAppear
+        .withUnretained(self)
+        .flatMapLatest { (owner, _) in
+          owner.detailUseCase.requestWeatherList(
+            lat: Double(touristInfo.mapY!)!,
+            lon: Double(touristInfo.mapX!)!
+          )
+        }
+      
+      let weatherValue = weatherResult
+        .compactMap { [weak self] data -> [WeatherInfo]? in
+          self?.detailUseCase.getValue(data)
+        }
+      
+      let weatherError = weatherResult
+        .compactMap { [weak self] data -> String? in
+          self?.detailUseCase.getError(data)
+        }
+      
+      let locationValue = weatherValue
+        .withUnretained(self)
+        .map { (owner, weatherData) -> [DetailLocationItem] in
+          owner.detailUseCase.requestLocationData(touristInfo: touristInfo, weatherData: weatherData)
+        }
+      
+      // MARK: - Intro Data
+      let touristIntroResult = input.viewWillAppear
+        .withUnretained(self)
+        .flatMapLatest { (owner, _) in
+          owner.detailUseCase.requestTouristInfoIntro(contentId: touristInfo.contentId!, contentTypeId: touristInfo.contentTypeId)
+        }
+      
+      let touristIntroValue = touristIntroResult
+        .do(onNext: { data in
+          print(data, "관광정보 인트로 데이터 패칭")
+        })
+        .compactMap { [weak self] data -> [TouristInfoIntro]? in
+          self?.detailUseCase.getValue(data)
+        }
+      
+      let touristIntroError = touristIntroResult
+        .compactMap { [weak self] data -> String? in
+          self?.detailUseCase.getError(data)
+        }
+      
+      let introValue = touristIntroValue
+        .withUnretained(self)
+        .compactMap { (owner, intro) -> [any DetailTouristInfoIntroItem] in
+          owner.detailUseCase.requestIntroData(
+            intro: intro,
+            contentType: touristInfo.contentTypeId
+          )
+        }
+      
+      // MARK: - Social Data
+      let naverBlogResult = input.viewWillAppear
+        .withUnretained(self)
+        .flatMapLatest { (owner, _) in
+          owner.detailUseCase.requestNaverBlogInfoList(keyword: touristInfo.title! ,display: 3)
+        }
+
+      let youtubeResult = input.viewWillAppear
+        .withUnretained(self)
+        .flatMapLatest { (owner, _) in
+          owner.detailUseCase.requestYoutubeInfoList(keyword: touristInfo.title!, maxResults: 3)
+        }
+      
+      let naverBlogValue = naverBlogResult
+        .compactMap { [weak self] data -> [NaverBlogInfo]? in
+          self?.detailUseCase.getValue(data)
+        }
+      
+      let naverBlogError = naverBlogResult
+        .compactMap { [weak self] data -> String? in
+          self?.detailUseCase.getError(data)
+        }
+      
+      let youtubeValue = youtubeResult
+        .compactMap { [weak self] data -> [YoutubeInfo]? in
+          self?.detailUseCase.getValue(data)
+        }
+      
+      let youtubeError = youtubeResult
+        .compactMap { [weak self] data -> String? in
+          self?.detailUseCase.getError(data)
+        }
+      
+      let socialValue = Observable.combineLatest(naverBlogValue, youtubeValue)
+        .withUnretained(self)
+        .compactMap{ (owner, social) -> [DetailSocialItem] in
+          let (naverBlog, youtube) = social
+          return owner.detailUseCase.requestSocialData(youtubeData: youtube, naverBlogData: naverBlog)
+        }
+      
+      // MARK: - Around Data
+      let aroundValue = input.viewWillAppear
+        .compactMap { [weak self] _ in
+          self?.detailUseCase.requestAroundData(touristInfo: touristInfo)
+        }
+      
+      // MARK: - Image Data
+      let imageValue = touristImageValue
+        .compactMap { [weak self] data in
+          self?.detailUseCase.requestImageData(images: data)
+        }
+      
+      Observable.combineLatest(
+        headerValue, locationValue,
+        introValue, socialValue,
+        aroundValue, imageValue
+      )
+      .withUnretained(self)
+      .compactMap { (owner, values) -> [DetailTouristInfoSectionModel] in
+        let (header, location, intro, social, around, image) = values
+        return owner.detailUseCase.getDetailTouristInfoSectionModel(header, location, intro, social, around, image)
+      }
+      .bind(to: touristInfoData)
+      .disposed(by: disposeBag)
+      
+      let touristResult = aroundTabmanViewModel.detailAroundTabmanSubViewModel.viewWillAppearWithContentType
+        .withUnretained(self)
+        .flatMapLatest { (owner, eventWithType) in
+          let (_, contentType) = eventWithType
+          return owner.detailUseCase.requestTouristInfoList(
+            numOfRows: 15, pageNo: 1,
+            contentTypeId: contentType,
+            coordinate: Coordinate(
+              latitude: Double(touristInfo.mapY!)!,
+              longitude: Double(touristInfo.mapX!)!
+            ),
+            radius: 20000
+          )
+        }
+        
+      let touristValue = touristResult
+        .compactMap { [weak self] data -> [TouristInfo]? in
+          self?.detailUseCase.getValue(data)
+        }
+      
+      let touristError = touristResult
+        .compactMap { [weak self] data -> String? in
+          self?.detailUseCase.getError(data)
+        }
+      
+      touristValue
+        .bind(to: aroundTabmanViewModel.detailAroundTabmanSubViewModel.resultCellData)
+        .disposed(by: disposeBag)
+      
+      input.isAutorizedLocation
+        .emit(onNext: { [weak self] isEnable in
+            guard let self = self else { return }
+            if isEnable {
+                self.updateLocationAction.accept(())
+            } else {
+                self.unAutorizedLocationAlert.accept(("위치 서비스 사용 불가", "아이폰 설정으로 이동합니다."))
+            }
+        })
+        .disposed(by: disposeBag)
+      
+      input.isAutorizedLocation
+          .emit(to: isAutorizedLocation)
+          .disposed(by: disposeBag)
+      
     }
     return Output(
-      data: data.asDriver(onErrorJustReturn: []),
+      data: campsiteData.asDriver(onErrorJustReturn: []),
       confirmAuthorizedLocation: confirmAuthorizedLocation.asSignal(),
       updateLocationAction: updateLocationAction.asSignal(),
       unAutorizedLocationAlert: unAutorizedLocationAlert.asSignal()

@@ -8,8 +8,8 @@
 import Foundation
 
 struct TouristInfoIntroFestival: TouristInfoIntro {
-  let contentId: String?
-  let contentTypeId: String?
+  let contentId: Int?
+  let contentTypeId: TouristInfoContentType
   let sponsor1, sponsor1Tel: String?
   let sponsor2, sponsor2Tel, eventEndDate, playtime: String?
   let eventplace, eventhomepage, agelimit, bookingplace: String?

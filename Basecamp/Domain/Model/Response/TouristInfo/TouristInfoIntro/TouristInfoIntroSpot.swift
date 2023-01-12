@@ -1,5 +1,5 @@
 //
-//  TouristInfoIntro.swift
+//  TouristInfoIntroSpot.swift
 //  Basecamp
 //
 //  Created by Sang hun Lee on 2022/12/29.
@@ -8,13 +8,13 @@
 import Foundation
 
 protocol TouristInfoIntro {
-  var contentId: String? { get }
-  var contentTypeId: String? { get }
+  var contentId: Int? { get }
+  var contentTypeId: TouristInfoContentType { get }
 }
 
 struct TouristInfoIntroSpot: TouristInfoIntro {
-  let contentId: String?
-  let contentTypeId: String?
+  let contentId: Int?
+  let contentTypeId: TouristInfoContentType
   let infocenter: String?
   let opendate: String?
   let restdate: String?

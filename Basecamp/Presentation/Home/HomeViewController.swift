@@ -102,11 +102,11 @@ private extension HomeViewController {
   func setupLogo() {
     let logoImage = UIImage.init(named: "logo")
     let logoImageView = UIImageView.init(image: logoImage)
-    logoImageView.frame = CGRect(x: 0.0, y: 0.0,  width: 44, height: 44.0)
+    logoImageView.frame = CGRect(x: 0.0, y: 0.0,  width: 36, height: 36.0)
     logoImageView.contentMode = .scaleAspectFit
     let imageItem = UIBarButtonItem.init(customView: logoImageView)
     logoImageView.snp.makeConstraints {
-      $0.width.height.equalTo(44)
+      $0.width.height.equalTo(36)
     }
     navigationItem.leftBarButtonItem = imageItem
   }

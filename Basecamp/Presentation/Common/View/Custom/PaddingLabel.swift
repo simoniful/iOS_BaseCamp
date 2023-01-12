@@ -33,7 +33,7 @@ final class PaddingLabel: UILabel {
   }
   
   private func setConfiguration() {
-    font = .title4R14
+    font = .title2R16
     numberOfLines = 1
     textAlignment = .center
     layer.cornerRadius = 16.0

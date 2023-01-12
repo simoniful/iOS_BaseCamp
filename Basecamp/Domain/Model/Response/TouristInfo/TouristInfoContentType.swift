@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TouristInfoContentType: Int, CaseIterable {
+enum TouristInfoContentType: Int, CaseIterable, Codable {
   case touristSpot = 12
   case cultureFacilities = 14
   case festival = 15

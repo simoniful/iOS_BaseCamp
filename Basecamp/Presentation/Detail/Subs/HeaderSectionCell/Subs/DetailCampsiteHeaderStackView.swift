@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class DetailHeaderStackView: UIStackView {
+final class DetailCampsiteHeaderStackView: UIStackView {
   
   private lazy var telStack = makeStack(first: telCategoryLabel, second: telContentLabel, axis: .vertical)
   

@@ -16,7 +16,7 @@ class HomeFestivalCell: UICollectionViewCell {
     imageView.image = UIImage(named: "placeHolder")
     imageView.contentMode = .scaleAspectFill
     imageView.clipsToBounds = true
-    imageView.alpha = 0.7
+    imageView.alpha = 0.4
     imageView.layer.cornerRadius = 12.0
     return imageView
   }()
@@ -24,8 +24,8 @@ class HomeFestivalCell: UICollectionViewCell {
   private var titleLabel: UILabel = {
     let label = UILabel()
     label.text = "축제 개요"
-    label.textColor = .white
-    label.font = .title3M14
+    label.textColor = .brown1
+    label.font = .title1M16
     return label
   }()
   
@@ -33,7 +33,7 @@ class HomeFestivalCell: UICollectionViewCell {
     let label = UILabel()
     label.text = "캠핑장 위치"
     label.textColor = .white
-    label.font = .body4R12
+    label.font = .title3M14
     return label
   }()
   

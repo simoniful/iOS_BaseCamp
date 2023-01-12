@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 struct DetailViewSectionLayoutManager {
   func createCampsiteLayout() -> UICollectionViewCompositionalLayout {
     return UICollectionViewCompositionalLayout{ (sectionNumber, env) -> NSCollectionLayoutSection? in

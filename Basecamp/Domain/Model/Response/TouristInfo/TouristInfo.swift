@@ -9,8 +9,9 @@ import Foundation
 
 struct TouristInfo: HomeItem {
   let address, areaCode: String?
-  let contentId: String?
-  let contentTypeId, dist: String?
+  let contentId: Int?
+  let contentTypeId: TouristInfoContentType
+  let dist: String?
   let mainImage, subImage: String?
   let mapX, mapY, mlevel: String?
   let readcount: Int?

@@ -28,23 +28,24 @@ final class HomeHeaderCell: UICollectionViewCell {
   private lazy var myCompTitleLabel: UILabel = {
     let label = UILabel()
     label.text = "캠핑 로그를 기록해 보세요."
-    label.font = .display1R20
+    label.font = .systemFont(ofSize: 22, weight: .bold)
     return label
   }()
   
   private lazy var myCompArrowImage: UIImageView = {
     let image = UIImage(named: "arrow.right")
     let imageView = UIImageView(image: image)
+    imageView.contentMode = .scaleAspectFit
     return imageView
   }()
   
   private lazy var myCompContentLabel: UILabel = {
     let label = UILabel()
     label.text = "현재까지 0곳을 방문하고, 0곳을 후보지로 찜하셨어요!"
-    label.font = .title5R12
+    label.font = .title3M14
     label.textAlignment = .center
-    label.textColor = .gray
-    label.backgroundColor = .systemGray6
+    label.textColor = .white
+    label.backgroundColor = .brown2
     label.layer.cornerRadius = 8.0
     label.clipsToBounds = true
     return label
@@ -105,36 +106,37 @@ extension HomeHeaderCell: ViewRepresentable {
   func setupConstraints() {
     myCompView.snp.makeConstraints {
       $0.top.equalTo(self.safeAreaLayoutGuide).offset(16)
-      $0.left.equalToSuperview().offset(8)
-      $0.right.equalToSuperview().offset(-8)
+      $0.leading.equalToSuperview()
+      $0.trailing.equalToSuperview()
     }
     
     myCompView.setContentHuggingPriority(.init(rawValue: 751), for: .vertical)
     
     myCompTitleLabel.snp.makeConstraints {
-      $0.top.left.equalToSuperview().offset(8)
-      $0.height.equalTo(22.0)
+      $0.top.equalToSuperview().offset(8)
+      $0.leading.equalToSuperview()
+      $0.height.equalTo(24.0)
     }
     
     myCompArrowImage.snp.makeConstraints {
       $0.centerY.equalTo(myCompTitleLabel.snp.centerY)
-      $0.right.equalToSuperview().offset(-8)
-      $0.height.width.equalTo(16)
+      $0.trailing.equalToSuperview()
+      $0.height.width.equalTo(14)
     }
     
     myCompContentLabel.snp.makeConstraints {
       $0.top.equalTo(myCompTitleLabel.snp.bottom).offset(16.0)
-      $0.left.equalToSuperview().offset(8)
-      $0.height.equalTo(22.0)
-      $0.right.equalToSuperview().offset(-8)
+      $0.leading.equalToSuperview()
+      $0.height.equalTo(26.0)
+      $0.trailing.equalToSuperview()
       $0.bottom.equalToSuperview().offset(-8)
     }
     
     compStackView.snp.makeConstraints {
       $0.top.equalTo(myCompView.snp.bottom).offset(8.0)
-      $0.right.equalToSuperview().offset(-16)
-      $0.left.equalToSuperview().offset(16)
-      $0.bottom.equalToSuperview().offset(-16)
+      $0.leading.equalToSuperview()
+      $0.trailing.equalToSuperview()
+      $0.bottom.equalToSuperview()
     }
     
     compStackView.setContentHuggingPriority(.init(rawValue: 750), for: .vertical)

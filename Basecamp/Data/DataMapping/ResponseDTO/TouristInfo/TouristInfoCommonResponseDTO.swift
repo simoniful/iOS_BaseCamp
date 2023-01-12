@@ -58,6 +58,7 @@ extension TouristInfoCommonResponseDTO {
 }
 
 extension TouristInfoCommonResponseDTO_Item {
+  // homepage, overview 정보 활용
   func toDomain() -> TouristInfoCommon {
     .init(
       contentId: contentId,

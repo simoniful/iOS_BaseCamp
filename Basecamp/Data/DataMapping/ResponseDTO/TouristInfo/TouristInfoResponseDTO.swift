@@ -69,8 +69,8 @@ extension TouristInfoResponseDTO_Item {
     .init(
       address: addr1,
       areaCode: areaCode,
-      contentId: contentId,
-      contentTypeId: contentTypeId,
+      contentId: Int(contentId!),
+      contentTypeId: TouristInfoContentType(rawValue: Int(contentTypeId!)!)!,
       dist: dist,
       mainImage: firstimage,
       subImage: firstimage2,
