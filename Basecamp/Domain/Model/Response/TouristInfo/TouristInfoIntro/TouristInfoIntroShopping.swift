@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct TouristInfoIntroShopping: TouristInfoIntro {
+struct TouristInfoIntroShopping: TouristInfoIntro, PropertyIterable {
   let contentId: Int?
   let contentTypeId: TouristInfoContentType
-  let saleitem, saleitemcost: String?
-  let fairday, opendateshopping, shopguide, culturecenter: String?
-  let restroom, infocentershopping, scaleshopping, restdateshopping: String?
-  let parkingshopping, chkbabycarriageshopping, chkpetshopping, chkcreditcardshopping: String?
-  let opentime: String?
+  let saleitem, saleitemcost: String
+  let fairday, opendateshopping, shopguide, culturecenter: String
+  let restroom, infocentershopping, scaleshopping, restdateshopping: String
+  let parkingshopping, chkbabycarriageshopping, chkpetshopping, chkcreditcardshopping: String
+  let opentime: String
 }

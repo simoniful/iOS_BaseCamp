@@ -17,6 +17,7 @@
 		F45C09EB29703EA40075E1AC /* DetailTouristInfoIntroStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09EA29703EA40075E1AC /* DetailTouristInfoIntroStackView.swift */; };
 		F45C09ED2970EFB50075E1AC /* DetailViewDataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09EC2970EFB50075E1AC /* DetailViewDataSourceManager.swift */; };
 		F45C09EF2970FA2E0075E1AC /* StackingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09EE2970FA2E0075E1AC /* StackingTextView.swift */; };
+		F45C09F229713FEE0075E1AC /* PropertyIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09F129713FEE0075E1AC /* PropertyIterable.swift */; };
 		F46BFB73296323DE007EB676 /* YoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB72296323DE007EB676 /* YoutubeRepository.swift */; };
 		F46BFB75296323F5007EB676 /* NaverBlogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */; };
 		F46BFB7729632404007EB676 /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB7629632404007EB676 /* WeatherRepository.swift */; };
@@ -225,6 +226,7 @@
 		F45C09EA29703EA40075E1AC /* DetailTouristInfoIntroStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTouristInfoIntroStackView.swift; sourceTree = "<group>"; };
 		F45C09EC2970EFB50075E1AC /* DetailViewDataSourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewDataSourceManager.swift; sourceTree = "<group>"; };
 		F45C09EE2970FA2E0075E1AC /* StackingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackingTextView.swift; sourceTree = "<group>"; };
+		F45C09F129713FEE0075E1AC /* PropertyIterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyIterable.swift; sourceTree = "<group>"; };
 		F46BFB72296323DE007EB676 /* YoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepository.swift; sourceTree = "<group>"; };
 		F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogRepository.swift; sourceTree = "<group>"; };
 		F46BFB7629632404007EB676 /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
@@ -441,6 +443,14 @@
 				3F22684DBB817F455F0F9B89 /* Pods-BasecampTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F45C09F029713FCE0075E1AC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F45C09F129713FEE0075E1AC /* PropertyIterable.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		F4903497294AB26600CDE442 /* Subs */ = {
@@ -733,6 +743,7 @@
 		F4D10EE12949828B000C02E0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F45C09F029713FCE0075E1AC /* Protocol */,
 				F4E3E5F3295EA049009AFCFC /* Extension */,
 				F4E3E59629540D43009AFCFC /* Constant */,
 			);
@@ -1608,6 +1619,7 @@
 				F49034E829515B4E00CDE442 /* WeatherAPIEnvironment.swift in Sources */,
 				F4F0E083296469210006C9D4 /* WeatherInfo.swift in Sources */,
 				F4F0E0C42969199B0006C9D4 /* AppColor.swift in Sources */,
+				F45C09F229713FEE0075E1AC /* PropertyIterable.swift in Sources */,
 				F45C09EB29703EA40075E1AC /* DetailTouristInfoIntroStackView.swift in Sources */,
 				F4E3E5CF295DA92E009AFCFC /* TouristInfoIntroCulture.swift in Sources */,
 				F4E3E5C9295D8342009AFCFC /* TouristInfoImageResponseDTO.swift in Sources */,

@@ -9,28 +9,9 @@ import UIKit
 
 final class DetailTouristInfoIntroCell: UICollectionViewCell {
   static let identifier = "DetailTouristInfoIntroCell"
+  private var infoStackSetFlag: Bool = false
   
-  private lazy var infoStack = DetailCampsiteInfoStackView()
-  
-  private lazy var overviewTextView: UITextView = {
-    let textView = UITextView()
-    textView.isEditable = false
-    textView.font = .body1M16
-    textView.textContainerInset = .init(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
-    textView.layer.cornerRadius = 8.0
-    textView.clipsToBounds = true
-    textView.layer.borderWidth = 1
-    textView.layer.borderColor = UIColor.orange.cgColor
-    return textView
-  }()
-  
-  // 커스텀 뷰
-  private lazy var tooltipLabel: UILabel = {
-    let label = DefaultLabel(font: .body3R14)
-    label.text = "정보 플러스"
-    label.numberOfLines = 0
-    return label
-  }()
+  private lazy var infoStack = DetailTouristInfoIntroStackView()
   
   override func layoutSubviews() {
       super.layoutSubviews()
@@ -49,9 +30,7 @@ final class DetailTouristInfoIntroCell: UICollectionViewCell {
 
 extension DetailTouristInfoIntroCell: ViewRepresentable {
   func setupView() {
-    [infoStack, overviewTextView, tooltipLabel].forEach {
-      contentView.addSubview($0)
-    }
+    contentView.addSubview(infoStack)
   }
   
   func setupConstraints() {
@@ -59,27 +38,14 @@ extension DetailTouristInfoIntroCell: ViewRepresentable {
       $0.top.equalToSuperview()
       $0.leading.equalToSuperview()
       $0.trailing.equalToSuperview()
-    }
-    
-    overviewTextView.snp.makeConstraints {
-      $0.top.equalTo(infoStack.snp.bottom).offset(8.0)
-      $0.leading.equalToSuperview()
-      $0.trailing.equalToSuperview()
-      $0.width.greaterThanOrEqualTo(200.0)
-    }
-    
-    tooltipLabel.snp.makeConstraints {
-      $0.top.equalTo(overviewTextView.snp.bottom).offset(8.0)
-      $0.leading.equalToSuperview()
-      $0.trailing.equalToSuperview()
       $0.bottom.equalToSuperview().offset(-16.0)
     }
   }
   
   func setupData(data: any DetailTouristInfoIntroItem) {
-//    infoStack.setData(data: data)
-//    overviewTextView.text = data.overview.isEmpty ? "캠핑장 사이트에서 자세히 알 수 있습니다." : data.overview
-////    themaEnvrnClLabel.text = data.themaEnvrnCl == "" ? "자체 행사 관련하여 캠핑장으로 추가적인 문의바랍니다." : data.themaEnvrnCl
-//    tooltipLabel.text = data.tooltip.isEmpty ? "캠핑장에 주변 지역 관광 정보가 구비되어있습니다." : data.tooltip
+    if infoStackSetFlag == false {
+      infoStack.setData(data: data)
+      infoStackSetFlag.toggle()
+    }
   }
 }

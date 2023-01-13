@@ -12,18 +12,18 @@ protocol TouristInfoIntro {
   var contentTypeId: TouristInfoContentType { get }
 }
 
-struct TouristInfoIntroSpot: TouristInfoIntro {
+struct TouristInfoIntroSpot: TouristInfoIntro, PropertyIterable {
   let contentId: Int?
   let contentTypeId: TouristInfoContentType
-  let infocenter: String?
-  let opendate: String?
-  let restdate: String?
-  let expguide: String?
-  let expagerange: String?
-  let accomcount: String?
-  let useseason: String?
-  let usetime: String?
-  let parking: String?
-  let chkpet: String?
-  let chkcreditcard: String?
+  let infocenter: String
+  let opendate: String
+  let restdate: String
+  let expguide: String
+  let expagerange: String
+  let accomcount: String
+  let useseason: String
+  let usetime: String
+  let parking: String
+  let chkpet: String
+  let chkcreditcard: String
 }

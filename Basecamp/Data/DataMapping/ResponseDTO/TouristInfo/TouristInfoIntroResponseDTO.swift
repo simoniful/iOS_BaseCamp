@@ -62,17 +62,17 @@ struct TouristInfoIntroResponseDTO_SpotItem: Codable, TouristInfoIntroResponseDT
     return TouristInfoIntroSpot(
       contentId: Int(contentId!),
       contentTypeId: TouristInfoContentType(rawValue: Int(contentTypeId!)!)!,
-      infocenter: infocenter,
-      opendate: opendate,
-      restdate: restdate,
-      expguide: expguide,
-      expagerange: expagerange,
-      accomcount: accomcount,
-      useseason: useseason,
-      usetime: usetime,
-      parking: parking,
-      chkpet: chkpet,
-      chkcreditcard: chkcreditcard
+      infocenter: infocenter ?? "",
+      opendate: opendate ?? "",
+      restdate: restdate ?? "",
+      expguide: expguide ?? "",
+      expagerange: expagerange ?? "",
+      accomcount: accomcount ?? "",
+      useseason: useseason ?? "",
+      usetime: usetime ?? "",
+      parking: parking ?? "",
+      chkpet: chkpet ?? "",
+      chkcreditcard: chkcreditcard ?? ""
     )
   }
 }
@@ -95,17 +95,17 @@ struct TouristInfoIntroResponseDTO_CultureItem: Codable, TouristInfoIntroRespons
     return TouristInfoIntroCulture(
       contentId: Int(contentId!),
       contentTypeId: TouristInfoContentType(rawValue: Int(contentTypeId!)!)!,
-      usefee: usefee,
-      discountinfo: discountinfo,
-      spendtime: spendtime,
-      parkingfee: parkingfee,
-      infocenterculture: infocenterculture,
-      accomcountculture: accomcountculture,
-      usetimeculture: usetimeculture,
-      restdateculture: restdateculture,
-      parkingculture: parkingculture,
-      chkpetculture: chkpetculture,
-      chkcreditcardculture: chkcreditcardculture
+      usefee: usefee ?? "",
+      discountinfo: discountinfo ?? "",
+      spendtime: spendtime ?? "",
+      parkingfee: parkingfee ?? "",
+      infocenterculture: infocenterculture ?? "",
+      accomcountculture: accomcountculture ?? "",
+      usetimeculture: usetimeculture ?? "",
+      restdateculture: restdateculture ?? "",
+      parkingculture: parkingculture ?? "",
+      chkpetculture: chkpetculture ?? "",
+      chkcreditcardculture: chkcreditcardculture ?? ""
     )
   }
 }
@@ -132,23 +132,23 @@ struct TouristInfoIntroResponseDTO_FestivalItem: Codable, TouristInfoIntroRespon
     return TouristInfoIntroFestival(
       contentId: Int(contentId!),
       contentTypeId: TouristInfoContentType(rawValue: Int(contentTypeId!)!)!,
-      sponsor1: sponsor1,
-      sponsor1Tel: sponsor1Tel,
-      sponsor2: sponsor2,
-      sponsor2Tel: sponsor2Tel,
-      eventEndDate: eventEndDate,
-      playtime: playtime,
-      eventplace: eventplace,
-      eventhomepage: eventhomepage,
-      agelimit: agelimit,
-      bookingplace: bookingplace,
-      placeinfo: placeinfo,
-      subevent: subevent,
-      program: program,
-      eventStartDate: eventStartDate,
-      usetimefestival: usetimefestival,
-      discountinfofestival: discountinfofestival,
-      spendtimefestival: spendtimefestival
+      sponsor1: sponsor1 ?? "",
+      sponsor1Tel: sponsor1Tel ?? "",
+      sponsor2: sponsor2 ?? "",
+      sponsor2Tel: sponsor2Tel ?? "",
+      eventEndDate: eventEndDate ?? "",
+      playtime: playtime ?? "",
+      eventplace: eventplace ?? "",
+      eventhomepage: eventhomepage ?? "",
+      agelimit: agelimit ?? "",
+      bookingplace: bookingplace ?? "",
+      placeinfo: placeinfo ?? "",
+      subevent: subevent ?? "",
+      program: program ?? "",
+      eventStartDate: eventStartDate ?? "",
+      usetimefestival: usetimefestival ?? "",
+      discountinfofestival: discountinfofestival ?? "",
+      spendtimefestival: spendtimefestival ?? ""
     )
   }
 }
@@ -170,18 +170,18 @@ struct TouristInfoIntroResponseDTO_LeisureItem: Codable, TouristInfoIntroRespons
     return TouristInfoIntroLeisure(
       contentId: Int(contentId!),
       contentTypeId: TouristInfoContentType(rawValue: Int(contentTypeId!)!)!,
-      openperiod: openperiod,
-      reservation: reservation,
-      infocenterleports: infocenterleports,
-      accomcountleports: accomcountleports,
-      restdateleports: restdateleports,
-      usetimeleports: usetimeleports,
-      usefeeleports: usefeeleports,
-      expagerangeleports: expagerangeleports,
-      parkingleports: parkingleports,
-      parkingfeeleports: parkingfeeleports,
-      chkpetleports: chkpetleports,
-      chkcreditcardleports: chkcreditcardleports
+      openperiod: openperiod ?? "",
+      reservation: reservation ?? "",
+      infocenterleports: infocenterleports ?? "",
+      accomcountleports: accomcountleports ?? "",
+      restdateleports: restdateleports ?? "",
+      usetimeleports: usetimeleports ?? "",
+      usefeeleports: usefeeleports ?? "",
+      expagerangeleports: expagerangeleports ?? "",
+      parkingleports: parkingleports ?? "",
+      parkingfeeleports: parkingfeeleports ?? "",
+      chkpetleports: chkpetleports ?? "",
+      chkcreditcardleports: chkcreditcardleports ?? ""
     )
   }
 }
@@ -204,21 +204,21 @@ struct TouristInfoIntroResponseDTO_ShoppingItem: Codable, TouristInfoIntroRespon
     return TouristInfoIntroShopping(
       contentId: Int(contentId!),
       contentTypeId: TouristInfoContentType(rawValue: Int(contentTypeId!)!)!,
-      saleitem: saleitem,
-      saleitemcost: saleitemcost,
-      fairday: fairday,
-      opendateshopping: opendateshopping,
-      shopguide: shopguide,
-      culturecenter: culturecenter,
-      restroom: restroom,
-      infocentershopping: infocentershopping,
-      scaleshopping: scaleshopping,
-      restdateshopping: restdateshopping,
-      parkingshopping: parkingshopping,
-      chkbabycarriageshopping: chkcreditcardshopping,
-      chkpetshopping: chkpetshopping,
-      chkcreditcardshopping: chkcreditcardshopping,
-      opentime: opentime
+      saleitem: saleitem ?? "",
+      saleitemcost: saleitemcost ?? "",
+      fairday: fairday ?? "",
+      opendateshopping: opendateshopping ?? "",
+      shopguide: shopguide ?? "",
+      culturecenter: culturecenter ?? "",
+      restroom: restroom ?? "",
+      infocentershopping: infocentershopping ?? "",
+      scaleshopping: scaleshopping ?? "",
+      restdateshopping: restdateshopping ?? "",
+      parkingshopping: parkingshopping ?? "",
+      chkbabycarriageshopping: chkcreditcardshopping ?? "",
+      chkpetshopping: chkpetshopping ?? "",
+      chkcreditcardshopping: chkcreditcardshopping ?? "",
+      opentime: opentime ?? ""
     )
   }
 }
@@ -241,22 +241,22 @@ struct TouristInfoIntroResponseDTO_RestaurantItem: Codable, TouristInfoIntroResp
     return TouristInfoIntroRestaurant(
       contentId: Int(contentId!),
       contentTypeId: TouristInfoContentType(rawValue: Int(contentTypeId!)!)!,
-      seat: seat,
-      kidsfacility: kidsfacility,
-      firstmenu: firstmenu,
-      treatmenu: treatmenu,
-      smoking: smoking,
-      packing: packing,
-      infocenterfood: infocenterfood,
-      scalefood: scalefood,
-      parkingfood: parkingfood,
-      opendatefood: opendatefood,
-      opentimefood: opentimefood,
-      restdatefood: restdatefood,
-      discountinfofood: discountinfofood,
-      chkcreditcardfood: chkcreditcardfood,
-      reservationfood: reservationfood,
-      lcnsno: lcnsno
+      seat: seat ?? "",
+      kidsfacility: kidsfacility ?? "",
+      firstmenu: firstmenu ?? "",
+      treatmenu: treatmenu ?? "",
+      smoking: smoking ?? "",
+      packing: packing ?? "",
+      infocenterfood: infocenterfood ?? "",
+      scalefood: scalefood ?? "",
+      parkingfood: parkingfood ?? "",
+      opendatefood: opendatefood ?? "",
+      opentimefood: opentimefood ?? "",
+      restdatefood: restdatefood ?? "",
+      discountinfofood: discountinfofood ?? "",
+      chkcreditcardfood: chkcreditcardfood ?? "",
+      reservationfood: reservationfood ?? "",
+      lcnsno: lcnsno ?? ""
     )
   }
 }
