@@ -15,6 +15,8 @@
 		F45C09E729703D530075E1AC /* DetailTouristInfoHeaderStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E629703D530075E1AC /* DetailTouristInfoHeaderStackView.swift */; };
 		F45C09E929703E4D0075E1AC /* DetailTouristInfoIntroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E829703E4D0075E1AC /* DetailTouristInfoIntroCell.swift */; };
 		F45C09EB29703EA40075E1AC /* DetailTouristInfoIntroStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09EA29703EA40075E1AC /* DetailTouristInfoIntroStackView.swift */; };
+		F45C09ED2970EFB50075E1AC /* DetailViewDataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09EC2970EFB50075E1AC /* DetailViewDataSourceManager.swift */; };
+		F45C09EF2970FA2E0075E1AC /* StackingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09EE2970FA2E0075E1AC /* StackingTextView.swift */; };
 		F46BFB73296323DE007EB676 /* YoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB72296323DE007EB676 /* YoutubeRepository.swift */; };
 		F46BFB75296323F5007EB676 /* NaverBlogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */; };
 		F46BFB7729632404007EB676 /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB7629632404007EB676 /* WeatherRepository.swift */; };
@@ -221,6 +223,8 @@
 		F45C09E629703D530075E1AC /* DetailTouristInfoHeaderStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTouristInfoHeaderStackView.swift; sourceTree = "<group>"; };
 		F45C09E829703E4D0075E1AC /* DetailTouristInfoIntroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTouristInfoIntroCell.swift; sourceTree = "<group>"; };
 		F45C09EA29703EA40075E1AC /* DetailTouristInfoIntroStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTouristInfoIntroStackView.swift; sourceTree = "<group>"; };
+		F45C09EC2970EFB50075E1AC /* DetailViewDataSourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewDataSourceManager.swift; sourceTree = "<group>"; };
+		F45C09EE2970FA2E0075E1AC /* StackingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackingTextView.swift; sourceTree = "<group>"; };
 		F46BFB72296323DE007EB676 /* YoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepository.swift; sourceTree = "<group>"; };
 		F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogRepository.swift; sourceTree = "<group>"; };
 		F46BFB7629632404007EB676 /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
@@ -473,6 +477,7 @@
 			children = (
 				F4F0E0BE2967F6320006C9D4 /* DefaultLabel.swift */,
 				F45C09E0296EB8130075E1AC /* StackingLabel.swift */,
+				F45C09EE2970FA2E0075E1AC /* StackingTextView.swift */,
 				F49034A4294AC72700CDE442 /* PaddingLabel.swift */,
 				F4FD50912962857600FA3CB3 /* IndicatorView.swift */,
 				F4F0E0BC2967B31E0006C9D4 /* InfoPlusView.swift */,
@@ -1253,6 +1258,7 @@
 				F4FD50962962C18E00FA3CB3 /* DetailViewController.swift */,
 				F4FD509E2962E0F600FA3CB3 /* DetailViewModel.swift */,
 				F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */,
+				F45C09EC2970EFB50075E1AC /* DetailViewDataSourceManager.swift */,
 				F4FD50A2296303C000FA3CB3 /* Subs */,
 			);
 			path = Detail;
@@ -1640,6 +1646,7 @@
 				F4F0E0922965758A0006C9D4 /* DetailAroundCell.swift in Sources */,
 				F4D10EE029498251000C02E0 /* TabBarCoordinator.swift in Sources */,
 				F4E3E59E29544796009AFCFC /* CampsiteRealmDTO.swift in Sources */,
+				F45C09ED2970EFB50075E1AC /* DetailViewDataSourceManager.swift in Sources */,
 				F4E3E5E4295E9431009AFCFC /* TouristInfoLocationRequestDTO.swift in Sources */,
 				F49034DB295088CB00CDE442 /* TouristInfoTarget.swift in Sources */,
 				F4D10F272949A700000C02E0 /* AppAppearance.swift in Sources */,
@@ -1701,6 +1708,7 @@
 				F4D10EED29498963000C02E0 /* HomeCoordinator.swift in Sources */,
 				F4D10EE82949871D000C02E0 /* CoordinatorStyleCase.swift in Sources */,
 				F4E3E5E2295E8A24009AFCFC /* TouristInfoAreaRequestDTO.swift in Sources */,
+				F45C09EF2970FA2E0075E1AC /* StackingTextView.swift in Sources */,
 				F4E3E5F0295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift in Sources */,
 				F49034AA294C366600CDE442 /* HomeSectionModel.swift in Sources */,
 				F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */,

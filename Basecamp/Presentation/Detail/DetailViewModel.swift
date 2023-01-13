@@ -34,7 +34,8 @@ final class DetailViewModel: ViewModel {
   }
   
   struct Output {
-    let data: Driver<[DetailCampsiteSectionModel]>
+    let campsiteData: Driver<[DetailCampsiteSectionModel]>
+    let touristInfoData: Driver<[DetailTouristInfoSectionModel]>
     let confirmAuthorizedLocation: Signal<Void>
     let updateLocationAction: Signal<Void>
     let unAutorizedLocationAlert: Signal<(String, String)>
@@ -184,6 +185,7 @@ final class DetailViewModel: ViewModel {
       .bind(to: campsiteData)
       .disposed(by: disposeBag)
       
+      // MARK: - Around Tabman Data
       let touristResult = aroundTabmanViewModel.detailAroundTabmanSubViewModel.viewWillAppearWithContentType
         .withUnretained(self)
         .flatMapLatest { (owner, eventWithType) in
@@ -213,6 +215,8 @@ final class DetailViewModel: ViewModel {
         .bind(to: aroundTabmanViewModel.detailAroundTabmanSubViewModel.resultCellData)
         .disposed(by: disposeBag)
       
+      
+      // MARK: - CLLocation Control
       input.isAutorizedLocation
         .emit(onNext: { [weak self] isEnable in
             guard let self = self else { return }
@@ -228,6 +232,7 @@ final class DetailViewModel: ViewModel {
           .emit(to: isAutorizedLocation)
           .disposed(by: disposeBag)
       
+      // MARK: - HeaderAction
       headerAction
         .capture(case: HeaderCellAction.call)
         .bind { _ in
@@ -427,6 +432,7 @@ final class DetailViewModel: ViewModel {
       .bind(to: touristInfoData)
       .disposed(by: disposeBag)
       
+      // MARK: - Around Tabman Data
       let touristResult = aroundTabmanViewModel.detailAroundTabmanSubViewModel.viewWillAppearWithContentType
         .withUnretained(self)
         .flatMapLatest { (owner, eventWithType) in
@@ -456,6 +462,7 @@ final class DetailViewModel: ViewModel {
         .bind(to: aroundTabmanViewModel.detailAroundTabmanSubViewModel.resultCellData)
         .disposed(by: disposeBag)
       
+      // MARK: - CLLocation Control
       input.isAutorizedLocation
         .emit(onNext: { [weak self] isEnable in
             guard let self = self else { return }
@@ -472,8 +479,10 @@ final class DetailViewModel: ViewModel {
           .disposed(by: disposeBag)
       
     }
+    
     return Output(
-      data: campsiteData.asDriver(onErrorJustReturn: []),
+      campsiteData: campsiteData.asDriver(onErrorJustReturn: []),
+      touristInfoData: touristInfoData.asDriver(onErrorJustReturn: []),
       confirmAuthorizedLocation: confirmAuthorizedLocation.asSignal(),
       updateLocationAction: updateLocationAction.asSignal(),
       unAutorizedLocationAlert: unAutorizedLocationAlert.asSignal()

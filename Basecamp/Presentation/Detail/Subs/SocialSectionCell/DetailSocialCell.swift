@@ -84,8 +84,8 @@ extension DetailSocialCell: ViewRepresentable {
   }
   
   func setupData(data: DetailSocialItem) {
-    titleLabel.text = data.socialMediaInfo.title?.changeHtmlTag()
-    descLabel.text = data.socialMediaInfo.description?.changeHtmlTag()
+    titleLabel.text = data.socialMediaInfo.title?.htmlToString
+    descLabel.text = data.socialMediaInfo.description?.htmlToString
     iconImageView.image = UIImage(named: data.socialMediaInfo.type == "naverBlog" ? "blogLogo" : "youtubeLogo")
   }
 }

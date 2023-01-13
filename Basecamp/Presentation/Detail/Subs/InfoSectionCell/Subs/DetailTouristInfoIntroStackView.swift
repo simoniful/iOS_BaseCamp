@@ -11,48 +11,37 @@ import SnapKit
 final class DetailTouristInfoIntroStackView: UIStackView {
   
   private lazy var siteCoStack = makeStack(first: siteCoCategoryLabel, second: siteCoContentLabel, axis: .vertical)
-  
   private lazy var siteCoCategoryLabel = StackingLabel(title: "주요시설", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
   private lazy var siteCoContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
-  private lazy var sbrsEtcStack = makeStack(first: sbrsEtcCategoryLabel, second: sbrsEtcContentLabel, axis: .vertical)
   
+  private lazy var sbrsEtcStack = makeStack(first: sbrsEtcCategoryLabel, second: sbrsEtcContentLabel, axis: .vertical)
   private lazy var sbrsEtcCategoryLabel = StackingLabel(title: "기타 부대시설", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
   private lazy var sbrsEtcContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
-  private lazy var animalCmgClStack = makeStack(first: animalCmgClCategoryLabel, second: animalCmgClContentLabel, axis: .vertical)
   
+  private lazy var animalCmgClStack = makeStack(first: animalCmgClCategoryLabel, second: animalCmgClContentLabel, axis: .vertical)
   private lazy var animalCmgClCategoryLabel = StackingLabel(title: "반려동물 동반 여부", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
   private lazy var animalCmgClContentLabel = StackingLabel(title: "※ 실제 결과는 현장사정 및 계절에 따라 달라질 수 있으니 캠핑장 사업주에 직접 확인 후 이용바랍니다.", font: .body2R16)
   
   
-  
   private lazy var glampInnerFcltyStack = makeStack(first: glampInnerFcltyCategoryLabel, second: glampInnerFcltyContentLabel, axis: .vertical)
-  
   private lazy var glampInnerFcltyCategoryLabel =  StackingLabel(title: "글램핑 내부시설", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  
   private lazy var glampInnerFcltyContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
   
-  
   private lazy var caravInnerFcltyStack = makeStack(first: caravInnerFcltyCategoryLabel, second: caravInnerFcltyContentLabel, axis: .vertical)
-  
   private lazy var caravInnerFcltyCategoryLabel =  StackingLabel(title: "카라반 내부시설", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  
   private lazy var caravInnerFcltyContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
   
-  
   private lazy var brazierClStack = makeStack(first: brazierClCategoryLabel, second: brazierClContentLabel, axis: .vertical)
-  
   private lazy var brazierClCategoryLabel = StackingLabel(title: "화로대", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  
   private lazy var brazierClContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
+  
   private lazy var safetyFcltyStack = makeStack(first: safetyFcltyCategoryLabel, second: safetyFcltyContentLabel, axis: .vertical)
-  
   private lazy var safetyFcltyCategoryLabel =  StackingLabel(title: "안전시설현황", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  
   private lazy var safetyFcltyContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
   override init(frame: CGRect) {
@@ -80,7 +69,26 @@ final class DetailTouristInfoIntroStackView: UIStackView {
     }
   }
   
-  func setData(data: DetailCampsiteInfoItem) {
+  func setData(data: DetailTouristInfoIntroItem) {
+    
+    switch data.intro.contentTypeId {
+      
+    case .touristSpot:
+      <#code#>
+    case .cultureFacilities:
+      <#code#>
+    case .festival:
+      <#code#>
+    case .leisure:
+      <#code#>
+    case .shoppingSpot:
+      <#code#>
+    case .restaurant:
+      <#code#>
+    }
+    
+    
+    
     var siteCoStr = ""
     siteCoStr += data.gnrlSiteCo == "0" ? "" : "일반야영장(\(data.gnrlSiteCo)면) • "
     siteCoStr += data.autoSiteCo == "0" ? "" : "자동차야영장(\(data.autoSiteCo)면) • "

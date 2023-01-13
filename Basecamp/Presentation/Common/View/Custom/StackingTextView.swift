@@ -1,19 +1,18 @@
 //
-//  StackingLabel.swift
+//  StackingTextView.swift
 //  Basecamp
 //
-//  Created by Sang hun Lee on 2023/01/11.
+//  Created by Sang hun Lee on 2023/01/13.
 //
 
-import UIKit.UILabel
+import UIKit
 
-final class StackingLabel: UILabel {
+final class StackingTextView: UITextView {
   
   private var padding = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
   
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    self.setConfiguration()
+  override init(frame: CGRect, textContainer: NSTextContainer?) {
+    super.init(frame: frame, textContainer: textContainer)
   }
   
   convenience init(font: UIFont, padding: UIEdgeInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)) {
@@ -31,7 +30,7 @@ final class StackingLabel: UILabel {
     self.init()
     self.font = font
     self.textColor = textColor
-    self.textAlignment = .center
+    self.textAlignment = .natural
     self.padding = padding
   }
   
@@ -39,7 +38,7 @@ final class StackingLabel: UILabel {
     title text: String,
     font: UIFont,
     textColor: UIColor = .label,
-    textAlignment: NSTextAlignment = .center,
+    textAlignment: NSTextAlignment = .natural,
     backgroundColor: UIColor = .systemBackground,
     padding: UIEdgeInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)) {
     self.init()
@@ -50,9 +49,9 @@ final class StackingLabel: UILabel {
     self.backgroundColor = backgroundColor
     self.padding = padding
   }
-
+  
   required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
+    fatalError("LocationLabel: fatal Error Message")
   }
   
   override var intrinsicContentSize: CGSize {
@@ -63,18 +62,8 @@ final class StackingLabel: UILabel {
     return contentSize
   }
   
-  override func drawText(in rect: CGRect) {
-    super.drawText(in: rect.inset(by: padding))
-  }
-  
-  override var bounds: CGRect {
-    didSet {
-      preferredMaxLayoutWidth = bounds.width - (padding.left + padding.right)
-    }
-  }
-  
-  private func setConfiguration() {
-    numberOfLines = 0
-    // lineBreakMode = NSLineBreakMode.byWordWrapping
+  override func draw(_ rect: CGRect) {
+    super.draw(rect.inset(by: padding))
   }
 }
+  

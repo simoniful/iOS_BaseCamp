@@ -77,6 +77,8 @@ final class DetailUseCase {
         homepage: (touristCommon.first?.homepage)!,
         contentId: touristInfo.contentId!,
         contentTypeId: touristInfo.contentTypeId,
+        eventStartDate: touristInfo.eventStartDate,
+        eventEndDate: touristInfo.eventEndDate,
         overview: (touristCommon.first?.overview)!
       )
     ]
@@ -88,7 +90,7 @@ final class DetailUseCase {
         mapX: campsite.mapX!,
         mapY: campsite.mapY!,
         address: campsite.addr1!,
-        direction: campsite.direction ?? "문의처에 문의 바랍니다",
+        direction: campsite.direction ?? "※ 자세한 위치는 문의처에 문의 바랍니다",
         weatherInfos: weatherData
       )
     ]
@@ -100,7 +102,7 @@ final class DetailUseCase {
         mapX: touristInfo.mapX!,
         mapY: touristInfo.mapY!,
         address: touristInfo.address!,
-        direction: "문의처에 문의 바랍니다",
+        direction: "※ 자세한 위치는 문의처에 문의 바랍니다",
         weatherInfos: weatherData
       )
     ]

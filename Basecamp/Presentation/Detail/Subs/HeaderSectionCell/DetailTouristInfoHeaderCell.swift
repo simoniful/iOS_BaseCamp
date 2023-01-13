@@ -92,13 +92,14 @@ extension DetailTouristInfoHeaderCell: ViewRepresentable {
     }
     
     infoStack.snp.makeConstraints {
+      $0.top.equalTo(placeholderImageView.snp.bottom).offset(16.0)
       $0.leading.equalToSuperview().offset(16.0)
       $0.trailing.equalToSuperview().offset(-16.0)
       $0.bottom.equalToSuperview().offset(-16.0)
     }
   }
   
-  func setupData(data: DetailCampsiteHeaderItem) {
+  func setupData(data: DetailTouristInfoHeaderItem) {
     infoStack.setData(data: data)
     if data.imageDataList.isEmpty {
       self.pagerView.isHidden = true

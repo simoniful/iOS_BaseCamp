@@ -8,7 +8,7 @@
 import UIKit
 
 struct DetailViewSectionLayoutManager {
-  func createCampsiteLayout() -> UICollectionViewCompositionalLayout {
+  static func createCampsiteLayout() -> UICollectionViewCompositionalLayout {
     return UICollectionViewCompositionalLayout{ (sectionNumber, env) -> NSCollectionLayoutSection? in
       switch sectionNumber {
       case 0:
@@ -31,7 +31,28 @@ struct DetailViewSectionLayoutManager {
     }
   }
   
-  func wholeSection(fractionalHeight: Double) -> NSCollectionLayoutSection {
+  static func createTouristInfoLayout() -> UICollectionViewCompositionalLayout {
+    return UICollectionViewCompositionalLayout{ (sectionNumber, env) -> NSCollectionLayoutSection? in
+      switch sectionNumber {
+      case 0:
+        return self.wholeSection(fractionalHeight: 1.0)
+      case 1:
+        return self.insetSectionWithHeader(fractionalHeight: 0.55)
+      case 2:
+        return self.insetSectionWithHeader(fractionalHeight: 0.75)
+      case 3:
+        return self.socialSection()
+      case 4:
+        return self.aroundSection()
+      case 5:
+        return self.imageSection()
+      default:
+        return self.insetSectionWithHeader(fractionalHeight: 0.7)
+      }
+    }
+  }
+  
+  static func wholeSection(fractionalHeight: Double) -> NSCollectionLayoutSection {
     let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight)))
     item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
     let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight)), subitems: [item])
@@ -40,7 +61,7 @@ struct DetailViewSectionLayoutManager {
     return section
   }
   
-  func insetSectionWithHeader(fractionalHeight: Double) -> NSCollectionLayoutSection {
+  static func insetSectionWithHeader(fractionalHeight: Double) -> NSCollectionLayoutSection {
     let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight )))
     item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
     let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight )), subitems: [item])
@@ -57,7 +78,7 @@ struct DetailViewSectionLayoutManager {
     return section
   }
   
-  func insetSection(fractionalHeight: Double) -> NSCollectionLayoutSection {
+  static func insetSection(fractionalHeight: Double) -> NSCollectionLayoutSection {
     let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight )))
     item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
     let group = NSCollectionLayoutGroup.vertical(layoutSize:  .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight )), subitem: item, count: 1)
@@ -66,7 +87,7 @@ struct DetailViewSectionLayoutManager {
     return section
   }
   
-  func facilitySection() -> NSCollectionLayoutSection {
+  static func facilitySection() -> NSCollectionLayoutSection {
     let itemSize = NSCollectionLayoutSize(
       widthDimension: .fractionalWidth(1),
       heightDimension: .fractionalHeight(1)
@@ -95,7 +116,7 @@ struct DetailViewSectionLayoutManager {
     return section
   }
   
-  func socialSection() -> NSCollectionLayoutSection {
+  static func socialSection() -> NSCollectionLayoutSection {
     let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
     
@@ -117,7 +138,7 @@ struct DetailViewSectionLayoutManager {
     return section
   }
   
-  func aroundSection() -> NSCollectionLayoutSection {
+  static func aroundSection() -> NSCollectionLayoutSection {
     let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(364.0)))
     item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
     let group = NSCollectionLayoutGroup.vertical(layoutSize:  .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(364.0)), subitem: item, count: 1)
@@ -134,7 +155,7 @@ struct DetailViewSectionLayoutManager {
     return section
   }
   
-  func imageSection() -> NSCollectionLayoutSection {
+  static func imageSection() -> NSCollectionLayoutSection {
     let mainItem = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(2/3), heightDimension: .fractionalHeight(1.0)))
     mainItem.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
     let pairItem = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.5)))

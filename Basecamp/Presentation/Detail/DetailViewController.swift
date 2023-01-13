@@ -15,7 +15,6 @@ import RxDataSources
 final class DetailViewController: UIViewController {
   private let name: String
   private let locationManager = CLLocationManager()
-  private let layoutManager = DetailViewSectionLayoutManager()
   private let isAutorizedLocation = PublishRelay<Bool>()
   
   private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -35,7 +34,7 @@ final class DetailViewController: UIViewController {
   }()
   
   let viewModel: DetailViewModel
-  private let disposeBag = DisposeBag()
+  let disposeBag = DisposeBag()
   
   private lazy var input = DetailViewModel.Input(
     viewWillAppear: self.rx.viewWillAppear.asObservable(),
@@ -70,9 +69,9 @@ final class DetailViewController: UIViewController {
   func bind() {
     switch viewModel.style {
     case .campsite:
-      collectionView.collectionViewLayout = layoutManager.createCampsiteLayout()
-      let dataSource = campsiteDataSource()
-      output.data
+      collectionView.collectionViewLayout = DetailViewSectionLayoutManager.createCampsiteLayout()
+      let dataSource = DetailViewDataSourceManager.campsiteDataSource(self)
+      output.campsiteData
         .drive(self.collectionView.rx.items(dataSource: dataSource))
         .disposed(by: disposeBag)
       
@@ -101,7 +100,14 @@ final class DetailViewController: UIViewController {
         .disposed(by: disposeBag)
       
     case .touristInfo:
-      print("뷰컨에서 불리는가?")
+      collectionView.collectionViewLayout = DetailViewSectionLayoutManager.createTouristInfoLayout()
+      
+      let dataSource = DetailViewDataSourceManager.touristInfoDataSource(self)
+      
+      output.touristInfoData
+        .drive(self.collectionView.rx.items(dataSource: dataSource))
+        .disposed(by: disposeBag)
+      
       output.confirmAuthorizedLocation
         .emit(onNext: { [weak self] _ in
           let auth = self?.locationManager.authorizationStatus
@@ -128,7 +134,6 @@ final class DetailViewController: UIViewController {
     }
   }
 }
-
 
 extension DetailViewController: ViewRepresentable {
   func setupView() {
@@ -161,97 +166,19 @@ extension DetailViewController: ViewRepresentable {
   
   func register() {
     self.collectionView.register(DetailCampsiteHeaderCell.self, forCellWithReuseIdentifier: DetailCampsiteHeaderCell.identifier)
+    self.collectionView.register(DetailTouristInfoHeaderCell.self, forCellWithReuseIdentifier: DetailTouristInfoHeaderCell.identifier)
     self.collectionView.register(DetailLocationCell.self, forCellWithReuseIdentifier: DetailLocationCell.identifier)
     self.collectionView.register(DetailFacilityCell.self, forCellWithReuseIdentifier: DetailFacilityCell.identifier)
     self.collectionView.register(DetailCampsiteInfoCell.self, forCellWithReuseIdentifier: DetailCampsiteInfoCell.identifier)
+    self.collectionView.register(DetailTouristInfoIntroCell.self, forCellWithReuseIdentifier: DetailTouristInfoIntroCell.identifier)
     self.collectionView.register(DetailSocialCell.self, forCellWithReuseIdentifier: DetailSocialCell.identifier)
     self.collectionView.register(DetailAroundCell.self, forCellWithReuseIdentifier: DetailAroundCell.identifier)
     self.collectionView.register(DetailImageCell.self, forCellWithReuseIdentifier: DetailImageCell.identifier)
     self.collectionView.register(DetailSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailSectionHeader.identifier)
   }
-  
-  func campsiteDataSource() -> RxCollectionViewSectionedReloadDataSource<DetailCampsiteSectionModel> {
-    let dataSource = RxCollectionViewSectionedReloadDataSource<DetailCampsiteSectionModel>(
-      configureCell: { dataSource, collectionView, indexPath, item in
-        switch dataSource[indexPath.section] {
-        case .headerSection(items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCampsiteHeaderCell.identifier, for: indexPath) as? DetailCampsiteHeaderCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          cell.viewModel(item: item)
-            .bind(to: self.viewModel.headerAction)
-            .disposed(by: self.disposeBag)
-          return cell
-        case .locationSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailLocationCell.identifier, for: indexPath) as? DetailLocationCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        case .facilitySection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailFacilityCell.identifier, for: indexPath) as? DetailFacilityCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        case .infoSection(items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCampsiteInfoCell.identifier, for: indexPath) as? DetailCampsiteInfoCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        case .socialSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailSocialCell.identifier, for: indexPath) as? DetailSocialCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        case .aroundSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailAroundCell.identifier, for: indexPath) as? DetailAroundCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.parent = self
-          cell.setupData(data: item)
-          return cell
-        case .imageSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailImageCell.identifier, for: indexPath) as? DetailImageCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(data: item)
-          return cell
-        }
-      },
-      configureSupplementaryView: { dataSource, collectionView, kind, indexPath in
-        switch dataSource[indexPath.section] {
-        case .headerSection,
-            .infoSection:
-          let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailSectionHeader.identifier, for: indexPath)
-          return header
-        case .locationSection(header: let headerStr, _),
-            .facilitySection(header: let headerStr, _),
-            .socialSection(header: let headerStr, _),
-            .aroundSection(header: let headerStr, _),
-            .imageSection(header: let headerStr, _):
-          guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailSectionHeader.identifier, for: indexPath) as? DetailSectionHeader else { return UICollectionReusableView() }
-          header.setData(header: headerStr)
-          return header
-        }
-      }
-    )
-    return dataSource
-  }
 }
 
 extension DetailViewController: CLLocationManagerDelegate {
-  
   func checkUserLocationServicesAuthorization() {
     let authorizationStatus: CLAuthorizationStatus
     if #available(iOS 14.0, *) {

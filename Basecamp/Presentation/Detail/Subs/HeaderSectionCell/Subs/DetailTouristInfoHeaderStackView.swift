@@ -11,53 +11,22 @@ import SnapKit
 final class DetailTouristInfoHeaderStackView: UIStackView {
   
   private lazy var telStack = makeStack(first: telCategoryLabel, second: telContentLabel, axis: .vertical)
-  
-  private lazy var telCategoryLabel = StackingLabel(title: "문의처", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
+  private lazy var telCategoryLabel = StackingLabel(title: "문의처", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .brown1)
   private lazy var telContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
-  
-  private lazy var campsiteTypeHStack = makeStack(first: lctClFacltDivNmStack, second: indutyStack, axis: .horizontal)
-  
-  private lazy var lctClFacltDivNmStack = makeStack(first: lctClFacltDivNmCategoryLabel, second: lctClFacltDivNmContentLabel, axis: .vertical)
-  
-  private lazy var lctClFacltDivNmCategoryLabel = StackingLabel(title: "캠핑장 환경", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  private lazy var lctClFacltDivNmContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
-  
-  private lazy var indutyStack = makeStack(first: indutyCategoryLabel, second: indutyContentLabel, axis: .vertical)
-  
-  private lazy var indutyCategoryLabel = StackingLabel(title: "캠핑장 유형", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  private lazy var indutyContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
-  
-  
-  private lazy var campsiteOperHStack = makeStack(first: operPDClStack, second: operDeClStack, axis: .horizontal)
-  
-  private lazy var operPDClStack = makeStack(first: operPDClCategoryLabel, second: operPDClContentLabel, axis: .vertical)
-
-  private lazy var operPDClCategoryLabel = StackingLabel(title: "운영기간", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  private lazy var operPDClContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
-  
-  private lazy var operDeClStack = makeStack(first: operDeClCategoryLabel, second: operDeClContentLabel, axis: .vertical)
-  
-  private lazy var operDeClCategoryLabel = StackingLabel(title: "운영일", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  private lazy var operDeClContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
-  
-  
   private lazy var homepageStack = makeStack(first: homepageCategoryLabel, second: homepageContentLabel, axis: .vertical)
-  
-  private lazy var homepageCategoryLabel = StackingLabel(title: "홈페이지", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
+  private lazy var homepageCategoryLabel = StackingLabel(title: "홈페이지", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .brown1)
   private lazy var homepageContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
   
-  private lazy var posblFcltyClStack = makeStack(first: homepageCategoryLabel, second: homepageContentLabel, axis: .vertical)
+  private lazy var eventDateStack = makeStack(first: eventDateCategoryLabel, second: eventDateContentLabel, axis: .vertical)
+  private lazy var eventDateCategoryLabel = StackingLabel(title: "행사 일정", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .brown1)
+  private lazy var eventDateContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
-  private lazy var posblFcltyClCategoryLabel = StackingLabel(title: "주변이용가능시설", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  private lazy var posblFcltyClContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
   
-  private lazy var resveClStack = makeStack(first: resveClCategoryLabel, second: resveClContentLabel, axis: .vertical)
-  
-  private lazy var resveClCategoryLabel = StackingLabel(title: "예약방법", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .main)
-  private lazy var resveClContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
-  
+  private lazy var overviewStack = makeStack(first: overviewCategoryLabel, second: overviewContentLabel, axis: .vertical)
+  private lazy var overviewCategoryLabel = StackingLabel(title: "개요", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .brown1)
+  private lazy var overviewContentLabel = StackingLabel(title: "문의요망", font: .body2R16, textAlignment: .left, padding: UIEdgeInsets(top: 8.0, left: 16.0, bottom: 8.0, right: 16.0))
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -76,16 +45,24 @@ final class DetailTouristInfoHeaderStackView: UIStackView {
     self.spacing = 0
     self.layer.cornerRadius = 8.0
     self.clipsToBounds = true
-    self.layer.borderColor = UIColor.main.cgColor
+    self.layer.borderColor = UIColor.brown1.cgColor
     self.layer.borderWidth = 1.0
   
-    [telStack, campsiteTypeHStack, campsiteOperHStack, homepageStack, posblFcltyClStack, resveClStack].forEach {
+    [telStack, homepageStack, eventDateStack, overviewStack].forEach {
       self.addArrangedSubview($0)
     }
   }
   
   func setData(data: DetailTouristInfoHeaderItem) {
-
+    telContentLabel.text = data.tel.isEmpty ? "문의요망" : data.tel
+    homepageContentLabel.text = data.homepage.isEmpty ? "문의요망" : data.homepage.htmlToString
+    if let eventStartDate = data.eventStartDate,
+       let eventEndDate = data.eventEndDate {
+      eventDateContentLabel.text = "\(eventStartDate.toString(format: "yyyy-MM-dd")) ~ \(eventEndDate.toString(format: "yyyy-MM-dd"))"
+    } else {
+      eventDateStack.isHidden = true
+    }
+    overviewContentLabel.text = data.overview.isEmpty ? "문의요망" : data.overview.htmlToString
   }
   
   private func makeStack(first: UIView, second: UIView, axis: NSLayoutConstraint.Axis) -> UIStackView {
