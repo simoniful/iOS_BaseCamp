@@ -10,6 +10,8 @@ import RxSwift
 import RxCocoa
 
 final class HomeUseCase {
+  private let userDefaults = UserDefaults.standard
+  
   private let realmRepository: RealmRepositoryInterface
   private let campsiteRepository: CampsiteRepositoryInterface
   private let touristInfoRepository: TouristInfoRepositoryInterface
@@ -78,6 +80,15 @@ final class HomeUseCase {
         likedCampsiteCount: likedCampsiteCount
       )
     ]
+  }
+  
+  func requestSavefromLocalJson() {
+    if userDefaults.bool(forKey: UserDefaultKeyCase.isNotFirstUser) {
+      print("이미 저장된 상태")
+    } else {
+      realmRepository.saveFromLocalJson()
+      userDefaults.set(true, forKey: UserDefaultKeyCase.isNotFirstUser)
+    }
   }
   
   // MARK: - 지역 정보 매핑

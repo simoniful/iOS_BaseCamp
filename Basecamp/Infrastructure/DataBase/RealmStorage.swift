@@ -12,9 +12,26 @@ final class RealmStorage {
   static let shared = RealmStorage()
   private let realm = try! Realm()
   
+  func writeFromLocalJson(campsites: [Campsite]) {
+    try! realm.write {
+      realm.delete(realm.objects(CampsiteRealmDTO.self))
+    }
+    
+    DispatchQueue.global().async {
+      let realmOnBackground = try! Realm()
+      autoreleasepool {
+        let realmDTOs = campsites.map { CampsiteRealmDTO(campsite: $0) }
+        try! realmOnBackground.write({
+          realmOnBackground.add(realmDTOs)
+        })
+      }
+      print("Realm is located at:", self.realm.configuration.fileURL!)
+    }
+  }
+  
   func readCampsites() -> Results<CampsiteRealmDTO> {
     print("Realm is located at:", realm.configuration.fileURL!)
-    return realm.objects(CampsiteRealmDTO.self).filter("isLiked == true")
+    return realm.objects(CampsiteRealmDTO.self).filter("contentID == '4'")
   }
   
   func hasCampsites(contentID: String) -> Bool {

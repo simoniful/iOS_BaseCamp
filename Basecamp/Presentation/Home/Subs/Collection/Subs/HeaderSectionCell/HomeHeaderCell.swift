@@ -16,6 +16,7 @@ import RxEnumKit
 final class HomeHeaderCell: UICollectionViewCell {
   static let identifier = "HomeHeaderCell"
   private(set) var disposeBag = DisposeBag()
+  private var interactionSetFlag = false
   
   private lazy var myCompView: UIView = {
     let view = UIView()
@@ -146,24 +147,28 @@ extension HomeHeaderCell: ViewRepresentable {
     self.myCompContentLabel.text = "현재까지 \(completedCount)곳을 방문하고, \(likedCount)곳을 후보지로 찜하셨어요!"
   }
   
-  func viewModel(item: HomeHeaderItem) -> Observable<HeaderCellAction> {
-    return Observable.merge(
-      myCompView.rx.tapGesture()
-        .when(.recognized)
-        .map({ _ in
-          HeaderCellAction.myMenu(item)
-        }),
-      mapCompView.rx.tapGesture()
-        .when(.recognized)
-        .map({ _ in
-          HeaderCellAction.map(item)
-        }),
-      searchCompView.rx.tapGesture()
-        .when(.recognized)
-        .map({ _ in
-          HeaderCellAction.search(item)
-        })
-    )
+  func viewModel(item: HomeHeaderItem) -> Observable<HeaderCellAction>? {
+    if interactionSetFlag == false {
+      interactionSetFlag.toggle()
+      return Observable.merge(
+        myCompView.rx.tapGesture()
+          .when(.recognized)
+          .map({ _ in
+            HeaderCellAction.myMenu(item)
+          }),
+        mapCompView.rx.tapGesture()
+          .when(.recognized)
+          .map({ _ in
+            HeaderCellAction.map(item)
+          }),
+        searchCompView.rx.tapGesture()
+          .when(.recognized)
+          .map({ _ in
+            HeaderCellAction.search(item)
+          })
+      )
+    }
+    return nil
   }
 }
 

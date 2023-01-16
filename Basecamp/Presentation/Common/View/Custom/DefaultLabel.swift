@@ -34,12 +34,12 @@ final class DefaultLabel: UILabel {
     self.textAlignment = .center
   }
   
-  convenience init(title text: String, font: UIFont, textColor: UIColor = .label, backgroundColor: UIColor) {
+  convenience init(title text: String, font: UIFont, textColor: UIColor = .label, backgroundColor: UIColor = .systemBackground, textAlignment: NSTextAlignment) {
     self.init()
     self.text = text
     self.font = font
     self.textColor = textColor
-    self.textAlignment = .center
+    self.textAlignment = textAlignment
     self.backgroundColor = backgroundColor
   }
   

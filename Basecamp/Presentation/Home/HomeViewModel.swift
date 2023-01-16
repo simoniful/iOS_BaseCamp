@@ -14,7 +14,7 @@ final class HomeViewModel: ViewModel {
   
   private weak var coordinator: HomeCoordinator?
   private let homeUseCase: HomeUseCase
-   
+  
   init(coordinator: HomeCoordinator?, homeUseCase: HomeUseCase) {
       self.coordinator = coordinator
       self.homeUseCase = homeUseCase
@@ -30,27 +30,29 @@ final class HomeViewModel: ViewModel {
     let data: Driver<[HomeSectionModel]>
   }
   
-  private let viewDidLoad = PublishRelay<Void>()
   private let data = PublishRelay<[HomeSectionModel]>()
   private let headerAction = PublishRelay<HeaderCellAction>()
- 
-  // private let userArea = BehaviorRelay<Area>(value: .서울특별시)
-  // private let userSigungu = BehaviorRelay<Sigungu>(value: Sigungu(rnum: <#T##Int?#>, code: <#T##String?#>, name: <#T##String?#>))
   
   var disposeBag = DisposeBag()
   
   func transform(input: Input) -> Output {
-    let realmValue = input.viewWillAppear
+    input.viewDidLoad
+      .subscribe { [weak self] _ in
+        self?.homeUseCase.requestSavefromLocalJson()
+      }
+      .disposed(by: disposeBag)
+    
+    let realmValue = input.viewDidLoad
       .compactMap{ _ in
         self.homeUseCase.requestRealmData()
       }
 
-    let areaValue = input.viewWillAppear
+    let areaValue = input.viewDidLoad
       .compactMap { _ in
         self.homeUseCase.requestAreaData()
       }
 
-    let campsiteResult = input.viewWillAppear
+    let campsiteResult = input.viewDidLoad
       .flatMapLatest { _ in
         self.homeUseCase.requestCampsiteList(numOfRows: 20, pageNo: 1, keyword: "글램핑")
       }
@@ -69,7 +71,7 @@ final class HomeViewModel: ViewModel {
         self.homeUseCase.getCampsiteError(data)
       }
 
-    let touristInfoResult = input.viewWillAppear
+    let touristInfoResult = input.viewDidLoad
       .flatMapLatest { _ in
         self.homeUseCase.requestTouristInfoList(
           numOfRows: 15, pageNo: 1, areaCode: nil, sigunguCode: nil
@@ -155,7 +157,7 @@ final class HomeViewModel: ViewModel {
           }
           let item = items[indexPath.row]
           cell.setupData(completedCount: item.completedCampsiteCount, likedCount: item.likedCampsiteCount)
-          cell.viewModel(item: item)
+          cell.viewModel(item: item)?
             .bind(to: self.headerAction)
             .disposed(by: cell.disposeBag)
           return cell

@@ -76,6 +76,11 @@ final class TabBarCoordinator: Coordinator {
       homeCoordinator.delegate = self
       self.childCoordinators.append(homeCoordinator)
       homeCoordinator.start()
+    case .search:
+      let searchCoordinator = SearchCoordinator(tabNavigationController)
+      searchCoordinator.delegate = self
+      self.childCoordinators.append(searchCoordinator)
+      searchCoordinator.start()
     default:
       let homeCoordinator = HomeCoordinator(tabNavigationController)
       homeCoordinator.delegate = self
@@ -86,7 +91,6 @@ final class TabBarCoordinator: Coordinator {
 }
 
 extension TabBarCoordinator: CoordinatorDelegate {
-  
   func didFinish(childCoordinator: Coordinator) {
     self.childCoordinators = childCoordinators.filter({ $0.type != childCoordinator.type })
     if childCoordinator.type == .myPage {

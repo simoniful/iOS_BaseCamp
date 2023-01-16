@@ -9,6 +9,8 @@ import Foundation
 import RealmSwift
 
 protocol RealmRepositoryInterface: AnyObject {
+  func saveFromLocalJson()
+  
   func loadCampsite() -> [Campsite]
   func saveCampsite(campsite: Campsite)
   func unsaveCampsite(campsite: Campsite)

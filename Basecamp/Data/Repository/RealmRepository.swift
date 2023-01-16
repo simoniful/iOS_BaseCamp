@@ -15,6 +15,21 @@ final class RealmRepository: RealmRepositoryInterface {
       self.storage = RealmStorage.shared
   }
   
+  func saveFromLocalJson() {
+    if let url = Bundle.main.url(forResource: "goCampingData", withExtension: "json") {
+      do {
+        let data = try Data(contentsOf: url, options: .mappedIfSafe)
+        let decoder = JSONDecoder()
+        if let mappingDTO = try? decoder.decode(CampsiteResponseDTO.self, from: data) {
+          let campsites = mappingDTO.toDomain()
+          storage.writeFromLocalJson(campsites: campsites)
+        }
+      } catch {
+        print("불러오기를 실패했습니다")
+      }
+    }
+  }
+  
   func loadCampsite() -> [Campsite] {
     let realmDTO = storage.readCampsites().toArray()
     return realmDTO.map {

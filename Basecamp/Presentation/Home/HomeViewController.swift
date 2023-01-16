@@ -38,7 +38,7 @@ final class HomeViewController: UIViewController {
   private let disposeBag = DisposeBag()
   
   private lazy var input = HomeViewModel.Input(
-    viewDidLoad: self.rx.viewDidLoad.asObservable(),
+    viewDidLoad: Observable.just(()),
     viewWillAppear: self.rx.viewWillAppear.asObservable(),
     didSelectItemAt: self.collectionView.rx.modelAndIndexSelected(HomeItem.self).asSignal()
   )
@@ -69,6 +69,9 @@ final class HomeViewController: UIViewController {
   }
   
   func bind() {
+    Observable.just(Void())
+      
+    
     collectionView.collectionViewLayout = viewModel.createLayout()
     let dataSource = viewModel.dataSource()
     
