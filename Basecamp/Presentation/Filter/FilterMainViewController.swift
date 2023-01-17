@@ -46,24 +46,45 @@ final class FilterMainViewController: UIViewController {
         let cell = self?.tableView.dequeueReusableCell(withIdentifier: "CellId") ?? UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "CellId")
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell.textLabel?.text = element.title
+        cell.detailTextLabel?.font = .body3R14
+        cell.selectionStyle = .none
+        
         switch element {
         case .area(let area):
           cell.detailTextLabel?.text = area != nil ? area?.abbreviation : "제한없음"
-        case .environment(let env, let theme):
-          if let env = env,
-             let theme = theme {
-            cell.detailTextLabel?.text = env.map { $0.rawValue }.joined(separator: ", ") + theme.map { $0.rawValue }.joined(separator: ", ")
-          } else {
+        case .environment(let env, let exp):
+          if env == nil && exp == nil {
             cell.detailTextLabel?.text = "제한없음"
+          } else {
+            let grouped = (env?.compactMap{ $0.rawValue } ?? []) + (exp?.compactMap{ $0.rawValue } ?? [])
+            cell.detailTextLabel?.text = grouped.count > 2 ? "\(grouped[0...1].joined(separator: ", ")) 외 \(grouped.count - 2)개" : grouped.joined(separator: ", ")
           }
-        default:
-          cell.detailTextLabel?.text = "제한없음"
+          
+        case .rule(let camptype, let resv):
+          if camptype == nil && resv == nil {
+            cell.detailTextLabel?.text = "제한없음"
+          } else {
+            let grouped = (camptype?.compactMap{ $0.rawValue } ?? []) + (resv?.compactMap{ $0.rawValue } ?? [])
+            cell.detailTextLabel?.text = grouped.count > 2 ? "\(grouped[0...1].joined(separator: ", ")) 외 \(grouped.count - 2)개" : grouped.joined(separator: ", ")
+          }
+        case .facility(let basicFctly, let sanitaryFctly, let sportsFctly):
+          if basicFctly == nil && sanitaryFctly == nil && sportsFctly == nil {
+            cell.detailTextLabel?.text = "제한없음"
+          } else {
+            let grouped = (basicFctly?.compactMap{ $0.rawValue } ?? []) + (sanitaryFctly?.compactMap{ $0.rawValue } ?? []) + (sportsFctly?.compactMap{ $0.rawValue } ?? [])
+            cell.detailTextLabel?.text = grouped.count > 2 ? "\(grouped[0...1].joined(separator: ", ")) 외 \(grouped.count - 2)개" : grouped.joined(separator: ", ")
+          }
+        case .pet(let petEntry, let petSize):
+          if petEntry == nil && petSize == nil {
+            cell.detailTextLabel?.text = "제한없음"
+          } else {
+            let grouped = (petEntry?.compactMap{ $0.rawValue } ?? []) + (petSize?.compactMap{ $0.rawValue } ?? [])
+            cell.detailTextLabel?.text = grouped.count > 2 ? "\(grouped[0...1].joined(separator: ", ")) 외 \(grouped.count - 2)개" : grouped.joined(separator: ", ")
+          }
         }
         return cell
       }
       .disposed(by: disposeBag)
-    
-    
   }
 }
 
@@ -74,12 +95,14 @@ extension FilterMainViewController: ViewRepresentable {
   
   func setupConstraints() {
     tableView.snp.makeConstraints {
-      $0.edges.equalToSuperview()
+      $0.edges.equalTo(view.safeAreaLayoutGuide)
     }
   }
   
   func setupAttribute() {
-    
+    tableView.contentInsetAdjustmentBehavior = .never
+    tableView.backgroundColor = .white
+    tableView.separatorStyle = .none
   }
 }
 

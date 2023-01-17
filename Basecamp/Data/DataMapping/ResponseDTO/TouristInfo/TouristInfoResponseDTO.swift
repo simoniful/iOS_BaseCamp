@@ -54,6 +54,33 @@ struct TouristInfoResponseDTO_Item: Codable {
     case eventStartDate = "eventstartdate"
     case eventEndDate = "eventenddate"
   }
+  
+  init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    self.addr1 = try container.decodeIfPresent(String.self, forKey: .addr1)
+    self.addr2 = try container.decodeIfPresent(String.self, forKey: .addr2)
+    self.areaCode = try container.decodeIfPresent(String.self, forKey: .areaCode)
+    self.booktour = try container.decodeIfPresent(String.self, forKey: .booktour)
+    self.cat1 = try container.decodeIfPresent(String.self, forKey: .cat1)
+    self.cat2 = try container.decodeIfPresent(String.self, forKey: .cat2)
+    self.cat3 = try container.decodeIfPresent(String.self, forKey: .cat3)
+    self.contentId = try container.decodeIfPresent(String.self, forKey: .contentId)
+    self.contentTypeId = try container.decodeIfPresent(String.self, forKey: .contentTypeId)
+    self.createdtime = try container.decodeIfPresent(String.self, forKey: .createdtime)
+    self.dist = try container.decodeIfPresent(String.self, forKey: .dist)
+    self.firstimage = try container.decodeIfPresent(String.self, forKey: .firstimage)
+    self.firstimage2 = try container.decodeIfPresent(String.self, forKey: .firstimage2)
+    self.mapX = try container.decodeIfPresent(String.self, forKey: .mapX)
+    self.mapY = try container.decodeIfPresent(String.self, forKey: .mapY)
+    self.mlevel = try container.decodeIfPresent(String.self, forKey: .mlevel)
+    self.modifiedtime = try container.decodeIfPresent(String.self, forKey: .modifiedtime)
+    self.readcount = try container.decodeIfPresent(Int.self, forKey: .readcount)
+    self.sigunguCode = try container.decodeIfPresent(String.self, forKey: .sigunguCode)
+    self.tel = try container.decodeIfPresent(String.self, forKey: .tel)
+    self.title = try container.decodeIfPresent(String.self, forKey: .title)
+    self.eventStartDate = try? container.decodeIfPresent(String.self, forKey: .eventStartDate)
+    self.eventEndDate = try? container.decodeIfPresent(String.self, forKey: .eventEndDate)
+  }
 }
 
 extension TouristInfoResponseDTO {

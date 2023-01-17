@@ -11,10 +11,12 @@ import RxSwift
 import RxCocoa
 import NMapsMap
 
+var globalMapView = NMFMapView()
+
 final class DetailLocationCell: UICollectionViewCell {
   static let identifier = "DetailLocationCell"
   
-  private lazy var mapView = NMFMapView()
+  private lazy var mapView = globalMapView
   private lazy var weatherCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
   private lazy var addressLabel: UILabel = {
     let label = UILabel()
@@ -100,7 +102,7 @@ extension DetailLocationCell: ViewRepresentable {
     }
     
     let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: Double(data.mapY)!, lng: Double(data.mapX)!))
-    cameraUpdate.animation = .easeIn
+    // cameraUpdate.animation = .easeIn
     mapView.moveCamera(cameraUpdate)
     
     let marker = NMFMarker()

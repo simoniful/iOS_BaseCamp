@@ -42,6 +42,12 @@ final class SearchViewModel: ViewModel {
         self.searchUseCase.requestRealmData(filterCase: [])
       }
     
+    filterMainViewModel.environmentFilerState
+      .subscribe { filterCase in
+        print(filterCase)
+      }
+      .disposed(by: disposeBag)
+    
     realmValue
       .bind(to: data)
       .disposed(by: disposeBag)
@@ -52,6 +58,8 @@ final class SearchViewModel: ViewModel {
         owner.coordinator?.showFilterMainModal(owner.filterMainViewModel)
       }
       .disposed(by: disposeBag)
+    
+    
     
     return Output(data: data.asDriver(onErrorJustReturn: []))
   }

@@ -187,6 +187,9 @@ final class DetailViewModel: ViewModel {
       
       // MARK: - Around Tabman Data
       let touristResult = aroundTabmanViewModel.detailAroundTabmanSubViewModel.viewWillAppearWithContentType
+        .do(onNext: { (event, type) in
+          print("탭이 바꼇다. \(type)")
+        })
         .withUnretained(self)
         .flatMapLatest { (owner, eventWithType) in
           let (_, contentType) = eventWithType

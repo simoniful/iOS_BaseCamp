@@ -42,7 +42,6 @@ enum Environment: String, CaseIterable {
   case city = "도심"
 }
 
-
 enum Experience: String, CaseIterable {
   case waterplay = "물놀이"
   case seaBathing = "해수욕"

@@ -69,9 +69,6 @@ final class HomeViewController: UIViewController {
   }
   
   func bind() {
-    Observable.just(Void())
-      
-    
     collectionView.collectionViewLayout = viewModel.createLayout()
     let dataSource = viewModel.dataSource()
     

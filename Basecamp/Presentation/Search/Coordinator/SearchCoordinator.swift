@@ -54,13 +54,6 @@ final class SearchCoordinator: NSObject, Coordinator {
     navigationController.pushViewController(vc, animated: true)
   }
   
-//  func showFilterMainViewController() {
-//    let child = FilterCoordinator(navigationController)
-//    child.parentCoordinator = self
-//    childCoordinators.append(child)
-//    child.start()
-//  }
-  
   func showFilterMainModal(_ viewModel: FilterMainViewModel) {
     let vc = FilterMainViewController(viewModel: viewModel)
     vc.title = "필터"
@@ -83,6 +76,30 @@ final class SearchCoordinator: NSObject, Coordinator {
     vc.view.backgroundColor = .systemBackground
     vc.title = type.title
     modalNavigationController.pushViewController(vc, animated: true)
+  }
+  
+  func popToFilterMainViewController(message: String? = nil, filterCase: FilterCase) {
+    let viewControllerStack = modalNavigationController.viewControllers
+    for viewController in viewControllerStack {
+      if let filterMainViewController = viewController as? FilterMainViewController {
+        switch filterCase {
+        case .area:
+          filterMainViewController.viewModel.areaFilterState.accept(filterCase)
+        case .environment:
+          filterMainViewController.viewModel.environmentFilerState.accept(filterCase)
+        case .rule:
+          filterMainViewController.viewModel.ruleFilterState.accept(filterCase)
+        case .facility:
+          filterMainViewController.viewModel.facilityFilterState.accept(filterCase)
+        case .pet:
+          filterMainViewController.viewModel.petFilterState.accept(filterCase)
+        }
+        modalNavigationController.popToViewController(filterMainViewController, animated: true)
+      }
+    }
+    if let message = message {
+      modalNavigationController.view.makeToast(message, position: .bottom)
+    }
   }
   
   func popToRootViewController(message: String? = nil) {

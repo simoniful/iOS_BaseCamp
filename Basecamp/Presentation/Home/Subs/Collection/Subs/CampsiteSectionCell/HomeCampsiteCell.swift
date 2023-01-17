@@ -46,6 +46,13 @@ class HomeCampsiteCell: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    
+    imageView.kf.cancelDownloadTask()
+    imageView.image = nil
+  }
+  
   private func setConstraint() {
     [imageView, titleLabel, locationLabel].forEach {
       contentView.addSubview($0)

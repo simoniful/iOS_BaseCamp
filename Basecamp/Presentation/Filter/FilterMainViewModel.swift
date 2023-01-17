@@ -37,16 +37,22 @@ class FilterMainViewModel: ViewModel {
     FilterCase.pet(nil, nil)
   ])
   
-  private let areaFilterState = BehaviorRelay<FilterCase>(value: FilterCase.area(nil))
-  private let environmentFilerState = BehaviorRelay<FilterCase>(value: FilterCase.environment(nil, nil))
-  private let facilityFilterState = BehaviorRelay<FilterCase>(value: FilterCase.facility(nil, nil, nil))
-  private let ruleFilterState = BehaviorRelay<FilterCase>(value: FilterCase.rule(nil, nil))
-  private let petFilterState = BehaviorRelay<FilterCase>(value: FilterCase.pet(nil, nil))
+  let areaFilterState = BehaviorRelay<FilterCase>(value: FilterCase.area(nil))
+  let environmentFilerState = BehaviorRelay<FilterCase>(value: FilterCase.environment(nil, nil))
+  let facilityFilterState = BehaviorRelay<FilterCase>(value: FilterCase.facility(nil, nil, nil))
+  let ruleFilterState = BehaviorRelay<FilterCase>(value: FilterCase.rule(nil, nil))
+  let petFilterState = BehaviorRelay<FilterCase>(value: FilterCase.pet(nil, nil))
   
   var disposeBag = DisposeBag()
   
   func transform(input: Input) -> Output {
-  
+    Observable.combineLatest(areaFilterState, environmentFilerState, facilityFilterState, ruleFilterState, petFilterState)
+      .compactMap({ (area, env, fclty, rule, pet) in
+        return [area, env, fclty, rule, pet]
+      })
+      .bind(to: data)
+      .disposed(by: disposeBag)
+
     input.didSelectItemAt
       .withUnretained(self)
       .emit { (owner, item) in

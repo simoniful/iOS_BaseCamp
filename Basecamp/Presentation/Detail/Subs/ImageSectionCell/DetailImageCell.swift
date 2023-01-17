@@ -21,6 +21,13 @@ final class DetailImageCell: UICollectionViewCell {
     setupView()
     setupConstraints()
   }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    
+    imageView.kf.cancelDownloadTask()
+    imageView.image = nil
+  }
 }
 
 extension DetailImageCell: ViewRepresentable {

@@ -23,10 +23,24 @@ final class DetailAroundSubCell: UICollectionViewCell {
   private lazy var addressLabel = DefaultLabel(title: "주소", font: .body4R12, textColor: .darkGray)
   private lazy var distLabel = DefaultLabel(title: "거리", font: .body4R12, textColor: .main)
   
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   override func layoutSubviews() {
     super.layoutSubviews()
     setupView()
     setupConstraints()
+  }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    imageView.kf.cancelDownloadTask()
+    imageView.image = nil
   }
   
   func setupData(data: TouristInfo) {
@@ -38,15 +52,7 @@ final class DetailAroundSubCell: UICollectionViewCell {
         .processor(processor),
         .transition(.fade(1)),
         .cacheOriginalImage
-      ]) {
-        result in
-        switch result {
-        case .success(let value):
-            print("Task done for: \(value.source.url?.absoluteString ?? "")")
-        case .failure(let error):
-            print("Job failed: \(error.localizedDescription)")
-        }
-      }
+      ]) 
     }
     nameLabel.text = data.title
     addressLabel.text = data.address

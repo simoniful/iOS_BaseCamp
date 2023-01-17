@@ -47,16 +47,8 @@ final class SearchCell: UITableViewCell {
             .scaleFactor(UIScreen.main.scale),
             .transition(.fade(1)),
             .cacheOriginalImage
+              
         ])
-    {
-        result in
-        switch result {
-        case .success(let value):
-            print("Task done for: \(value.source.url?.absoluteString ?? "")")
-        case .failure(let error):
-            print("Job failed: \(error.localizedDescription)")
-        }
-    }
     titleLabel.text = campsite.facltNm
     addressLabel.text = campsite.addr1
     introLabel.text = campsite.lineIntro!.isEmpty ? "" : campsite.lineIntro

@@ -37,7 +37,6 @@ class HomeFestivalCell: UICollectionViewCell {
     return label
   }()
   
-  // Image, name, date
   override init(frame: CGRect) {
     super.init(frame: frame)
     setConstraint()
@@ -45,6 +44,13 @@ class HomeFestivalCell: UICollectionViewCell {
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    
+    imageView.kf.cancelDownloadTask()
+    imageView.image = nil
   }
   
   private func setConstraint() {
@@ -87,15 +93,6 @@ class HomeFestivalCell: UICollectionViewCell {
             .transition(.fade(1)),
             .cacheOriginalImage
         ])
-    {
-        result in
-        switch result {
-        case .success(let value):
-            print("Task done for: \(value.source.url?.absoluteString ?? "")")
-        case .failure(let error):
-            print("Job failed: \(error.localizedDescription)")
-        }
-    }
     
     titleLabel.text = touristInfo.title
     

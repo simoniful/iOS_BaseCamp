@@ -9,11 +9,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct QueryItem {
-  let name: String
-  var selected: Bool
-}
-
 final class FilterSubViewModel: ViewModel {
   private weak var coordinator: SearchCoordinator?
   private let searchUseCase: SearchUseCase
@@ -28,6 +23,7 @@ final class FilterSubViewModel: ViewModel {
   struct Input {
     let viewWillAppear: Observable<Void>
     let didSelectItemAt: Signal<(FilterItem, IndexPath)>
+    let didTapConfirmButton: Signal<Void>
   }
   
   struct Output {
@@ -39,15 +35,17 @@ final class FilterSubViewModel: ViewModel {
   var data = BehaviorRelay<[FilterSubSection]>(value: [])
 
   func transform(input: Input) -> Output {
-    let rawData = getSectionModel(type: type!)
+    lazy var rawData = getSectionModel(type: type!)
     data.accept(rawData)
     
-    input.didSelectItemAt
-      .emit { (model, index) in
-        print(model, index)
+    input.didTapConfirmButton
+      .withUnretained(self)
+      .emit { (owner, _) in
+        let filterCase = owner.dataToFilterCase(data: owner.data.value)
+        owner.coordinator?.popToFilterMainViewController(message: "필터가 설정되었어요", filterCase: filterCase)
       }
       .disposed(by: disposeBag)
-    
+
     return Output(
       data: data.asDriver()
     )
@@ -55,67 +53,61 @@ final class FilterSubViewModel: ViewModel {
 }
 
 extension FilterSubViewModel {
+  func dataToFilterCase(data: [FilterSubSection]) -> FilterCase {
+    switch type! {
+    case .environment:
+      let envSelected = data[0].items.filter{ $0.selected }
+      let expSelected = data[1].items.filter{ $0.selected }
+      let env: [Environment]? = envSelected.isEmpty ? nil : envSelected.map({ Environment(rawValue: $0.title!) }) as? [Environment]
+      let exp: [Experience]? = expSelected.isEmpty ? nil : expSelected.map({ Experience(rawValue: $0.title!) }) as? [Experience]
+      return FilterCase.environment(env, exp)
+    case .rule:
+      let camptypeSelected = data[0].items.filter{ $0.selected }
+      let resvSelected = data[1].items.filter{ $0.selected }
+      let camptype: [CampType]? = camptypeSelected.isEmpty ? nil : camptypeSelected.map({ CampType(rawValue: $0.title!) }) as? [CampType]
+      let resv: [ReservationType]? = resvSelected.isEmpty ? nil : resvSelected.map({ ReservationType(rawValue: $0.title!) }) as? [ReservationType]
+      return FilterCase.rule(camptype, resv)
+    case .facility:
+      let basicFctlySelected = data[0].items.filter{ $0.selected }
+      let sanitaryFctlySelected = data[1].items.filter{ $0.selected }
+      let sportsFctlySelected = data[2].items.filter{ $0.selected }
+      let basicFctly: [BasicFacility]? = basicFctlySelected.isEmpty ? nil : basicFctlySelected.map({ BasicFacility(rawValue: $0.title!) }) as? [BasicFacility]
+      let sanitaryFctly: [SanitaryFacility]? = sanitaryFctlySelected.isEmpty ? nil : sanitaryFctlySelected.map({ SanitaryFacility(rawValue: $0.title!) }) as? [SanitaryFacility]
+      let sportsFctly: [SportsFacility]? = sportsFctlySelected.isEmpty ? nil : sportsFctlySelected.map({ SportsFacility(rawValue: $0.title!) }) as? [SportsFacility]
+      return FilterCase.facility(basicFctly, sanitaryFctly, sportsFctly)
+    case .pet:
+      let petEntrySelected = data[0].items.filter{ $0.selected }
+      let petSizeSelected = data[1].items.filter{ $0.selected }
+      let petEntry: [PetEnterType]? = petEntrySelected.isEmpty ? nil : petEntrySelected.map({ PetEnterType(rawValue: $0.title!) }) as? [PetEnterType]
+      let petSize: [PetSize]? = petSizeSelected.isEmpty ? nil : petSizeSelected.map({ PetSize(rawValue: $0.title!) }) as? [PetSize]
+      return FilterCase.pet(petEntry, petSize)
+    default:
+      fatalError()
+    }
+  }
+  
   func getSectionModel(type: FilterCase) -> [FilterSubSection] {
     switch type {
     case .environment(let env, let exp):
-      var firstSectionitems: [FilterItem] = []
-      if let env = env {
-        firstSectionitems = getSectionModelItems(filterCase: env)
-      } else {
-        firstSectionitems = Environment.allCases.map { FilterItem(title: $0.rawValue, selected: false) }
-      }
-      
-      var secondSectionitems: [FilterItem] = []
-      if let exp = exp {
-        secondSectionitems = getSectionModelItems(filterCase: exp)
-      } else {
-        secondSectionitems = Experience.allCases.map { FilterItem(title: $0.rawValue, selected: false) }
-      }
+      let firstSectionitems = getSectionModelItems(filterCase: env)
+      let secondSectionitems = getSectionModelItems(filterCase: exp)
       
       return [
         FilterSubSection(header: "주변환경", items: firstSectionitems),
         FilterSubSection(header: "자연활동", items: secondSectionitems)
       ]
     case .rule(let camptype, let resv):
-      var firstSectionitems: [FilterItem] = []
-      if let camptype = camptype {
-        firstSectionitems = getSectionModelItems(filterCase: camptype)
-      } else {
-        firstSectionitems = CampType.allCases.map { FilterItem(title: $0.rawValue, selected: false) }
-      }
-      
-      var secondSectionitems: [FilterItem] = []
-      if let resv = resv {
-        secondSectionitems = getSectionModelItems(filterCase: resv)
-      } else {
-        secondSectionitems = ReservationType.allCases.map { FilterItem(title: $0.rawValue, selected: false) }
-      }
+      let firstSectionitems = getSectionModelItems(filterCase: camptype)
+      let secondSectionitems = getSectionModelItems(filterCase: resv)
       
       return [
         FilterSubSection(header: "가능한 캠핑 유형", items: firstSectionitems),
         FilterSubSection(header: "예약방식", items: secondSectionitems)
       ]
     case .facility(let basicFctly, let sanitaryFctly, let sportsFctly):
-      var firstSectionitems: [FilterItem] = []
-      if let basicFctly = basicFctly {
-        firstSectionitems = getSectionModelItems(filterCase: basicFctly)
-      } else {
-        firstSectionitems = BasicFacility.allCases.map { FilterItem(title: $0.rawValue, selected: false) }
-      }
-      
-      var secondSectionitems: [FilterItem] = []
-      if let sanitaryFctly = sanitaryFctly {
-        secondSectionitems = getSectionModelItems(filterCase: sanitaryFctly)
-      } else {
-        secondSectionitems = SanitaryFacility.allCases.map { FilterItem(title: $0.rawValue, selected: false) }
-      }
-      
-      var thirdSectionitems: [FilterItem] = []
-      if let sportsFctly = sportsFctly {
-        thirdSectionitems = getSectionModelItems(filterCase: sportsFctly)
-      } else {
-        thirdSectionitems = SportsFacility.allCases.map { FilterItem(title: $0.rawValue, selected: false) }
-      }
+      let firstSectionitems = getSectionModelItems(filterCase: basicFctly)
+      let secondSectionitems = getSectionModelItems(filterCase: sanitaryFctly)
+      let thirdSectionitems = getSectionModelItems(filterCase: sportsFctly)
       
       return [
         FilterSubSection(header: "기본시설", items: firstSectionitems),
@@ -123,19 +115,8 @@ extension FilterSubViewModel {
         FilterSubSection(header: "체육시설", items: thirdSectionitems),
       ]
     case .pet(let petEntry, let petSize):
-      var firstSectionitems: [FilterItem] = []
-      if let petEntry = petEntry {
-        firstSectionitems = getSectionModelItems(filterCase: petEntry)
-      } else {
-        firstSectionitems = PetEnterType.allCases.map { FilterItem(title: $0.rawValue, selected: false) }
-      }
-      
-      var secondSectionitems: [FilterItem] = []
-      if let petSize = petSize {
-        secondSectionitems = getSectionModelItems(filterCase: petSize)
-      } else {
-        secondSectionitems = PetSize.allCases.map { FilterItem(title: $0.rawValue, selected: false) }
-      }
+      let firstSectionitems = getSectionModelItems(filterCase: petEntry)
+      let secondSectionitems = getSectionModelItems(filterCase: petSize)
       
       return [
         FilterSubSection(header: "입장", items: firstSectionitems),
@@ -146,14 +127,17 @@ extension FilterSubViewModel {
     }
   }
   
-  
-  
-  
-  func getSectionModelItems<T: CaseIterable & Hashable & RawRepresentable>(filterCase: [T]) -> [FilterItem] {
-    let oldSet = Set(filterCase)
-    let newSet = Set(T.allCases).subtracting(oldSet)
-    let selected = oldSet.map { FilterItem(title: $0.rawValue as! String, selected: true) }
-    let unselected = newSet.map { FilterItem(title: $0.rawValue as! String, selected: false) }
-    return selected + unselected
+  func getSectionModelItems<T: CaseIterable & Hashable & RawRepresentable>(filterCase: [T]?) -> [FilterItem] {
+    var resultItems: [FilterItem] = []
+    if let filterCase = filterCase {
+      let oldSet = Set(filterCase)
+      let newSet = Set(T.allCases).subtracting(oldSet)
+      let selected = oldSet.map { FilterItem(title: $0.rawValue as? String, selected: true) }
+      let unselected = newSet.map { FilterItem(title: $0.rawValue as? String, selected: false) }
+      resultItems = selected + unselected
+    } else {
+      resultItems = T.allCases.map { FilterItem(title: $0.rawValue as? String, selected: false) }
+    }
+    return resultItems
   }
 }

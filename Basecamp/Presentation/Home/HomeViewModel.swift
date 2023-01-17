@@ -59,9 +59,9 @@ final class HomeViewModel: ViewModel {
       .share()
 
     let campsiteValue = campsiteResult
-//      .do(onNext: { data in
-//        print(data, "홈 캠핑 데이터 패칭 ----")
-//      })
+      .do(onNext: { data in
+        print(data, "홈 캠핑 데이터 패칭 ----")
+      })
       .compactMap { data -> [Campsite]? in
         self.homeUseCase.getCampsiteValue(data)
       }
@@ -80,9 +80,9 @@ final class HomeViewModel: ViewModel {
       .share()
 
     let touristInfoValue = touristInfoResult
-//      .do(onNext: { data in
-//        print(data, "홈 관광정보 데이터 패칭 ----")
-//      })
+      .do(onNext: { data in
+        print(data, "홈 관광정보 데이터 패칭 ----")
+      })
       .compactMap { data -> [TouristInfo]? in
         self.homeUseCase.getTouristInfoValue(data)
       }

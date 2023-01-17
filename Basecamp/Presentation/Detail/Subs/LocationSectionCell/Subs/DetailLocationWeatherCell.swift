@@ -35,6 +35,13 @@ final class DetailLocationWeatherCell: UICollectionViewCell {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    
+    iconImageView.kf.cancelDownloadTask()
+    iconImageView.image = nil
+  }
 }
 
 extension DetailLocationWeatherCell: ViewRepresentable {
@@ -72,27 +79,7 @@ extension DetailLocationWeatherCell: ViewRepresentable {
   func setupData(weatherInfo: WeatherInfo) {
     dateLabel.text = weatherInfo.date?.toString(format: "M.d(E)")
     guard let iconString = weatherInfo.weatherIcon else { return }
-    let urlString = "https://openweathermap.org/img/wn/\(iconString)@2x.png"
-    let url = URL(string: urlString)
-    let processor = DownsamplingImageProcessor(size: CGSize(width: 64, height: 64))
-    iconImageView.kf.indicatorType = .activity
-    iconImageView.kf.setImage(
-        with: url,
-        options: [
-            .processor(processor),
-            .scaleFactor(UIScreen.main.scale),
-            .transition(.fade(1)),
-            .cacheOriginalImage
-        ])
-    {
-        result in
-        switch result {
-        case .success(let value):
-            print("Task done for: \(value.source.url?.absoluteString ?? "")")
-        case .failure(let error):
-            print("Job failed: \(error.localizedDescription)")
-        }
-    }
+    iconImageView.image = UIImage(named: iconString)
     
     let digit: Double = pow(10, 1)
     maxLabel.text = "M: \(round(weatherInfo.maxTemp! * digit) / digit)"

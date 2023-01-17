@@ -82,10 +82,7 @@ final class TabBarCoordinator: Coordinator {
       self.childCoordinators.append(searchCoordinator)
       searchCoordinator.start()
     default:
-      let homeCoordinator = HomeCoordinator(tabNavigationController)
-      homeCoordinator.delegate = self
-      self.childCoordinators.append(homeCoordinator)
-      homeCoordinator.start()
+      break
     }
   }
 }

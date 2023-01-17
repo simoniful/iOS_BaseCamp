@@ -84,7 +84,7 @@ final class HomeUseCase {
   
   func requestSavefromLocalJson() {
     if userDefaults.bool(forKey: UserDefaultKeyCase.isNotFirstUser) {
-      print("이미 저장된 상태")
+      print("realm DB OK")
     } else {
       realmRepository.saveFromLocalJson()
       userDefaults.set(true, forKey: UserDefaultKeyCase.isNotFirstUser)

@@ -12,6 +12,7 @@ import RxCocoa
 import CoreLocation
 import RxDataSources
 
+
 final class DetailViewController: UIViewController {
   private let name: String
   private let locationManager = CLLocationManager()
