@@ -31,11 +31,9 @@
 		F45C0A192973CA000075E1AC /* SearchHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A182973CA000075E1AC /* SearchHeader.swift */; };
 		F45C0A1B2973CA130075E1AC /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A1A2973CA130075E1AC /* SearchCell.swift */; };
 		F45C0A1D297443C20075E1AC /* SearchHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A1C297443C10075E1AC /* SearchHeaderViewModel.swift */; };
-		F45C0A1F297526E70075E1AC /* FilterAreaSubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A1E297526E70075E1AC /* FilterAreaSubViewController.swift */; };
 		F45C0A21297526FE0075E1AC /* FilterSubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A20297526FE0075E1AC /* FilterSubViewModel.swift */; };
 		F45C0A3429755B750075E1AC /* FilterSubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A3329755B750075E1AC /* FilterSubViewController.swift */; };
 		F45C0A3629755C840075E1AC /* FilterSubItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A3529755C840075E1AC /* FilterSubItemCell.swift */; };
-		F45C0A3C297587EC0075E1AC /* FilterAreaSubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A3B297587EB0075E1AC /* FilterAreaSubViewModel.swift */; };
 		F45C0A3E297638280075E1AC /* FilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A3D297638280075E1AC /* FilterItem.swift */; };
 		F45C0A4029763BEF0075E1AC /* FilterSubSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A3F29763BEF0075E1AC /* FilterSubSectionHeader.swift */; };
 		F46BFB73296323DE007EB676 /* YoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB72296323DE007EB676 /* YoutubeRepository.swift */; };
@@ -260,11 +258,9 @@
 		F45C0A182973CA000075E1AC /* SearchHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeader.swift; sourceTree = "<group>"; };
 		F45C0A1A2973CA130075E1AC /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		F45C0A1C297443C10075E1AC /* SearchHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderViewModel.swift; sourceTree = "<group>"; };
-		F45C0A1E297526E70075E1AC /* FilterAreaSubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterAreaSubViewController.swift; sourceTree = "<group>"; };
 		F45C0A20297526FE0075E1AC /* FilterSubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSubViewModel.swift; sourceTree = "<group>"; };
 		F45C0A3329755B750075E1AC /* FilterSubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSubViewController.swift; sourceTree = "<group>"; };
 		F45C0A3529755C840075E1AC /* FilterSubItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSubItemCell.swift; sourceTree = "<group>"; };
-		F45C0A3B297587EB0075E1AC /* FilterAreaSubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterAreaSubViewModel.swift; sourceTree = "<group>"; };
 		F45C0A3D297638280075E1AC /* FilterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterItem.swift; sourceTree = "<group>"; };
 		F45C0A3F29763BEF0075E1AC /* FilterSubSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSubSectionHeader.swift; sourceTree = "<group>"; };
 		F46BFB72296323DE007EB676 /* YoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepository.swift; sourceTree = "<group>"; };
@@ -532,8 +528,6 @@
 		F45C0A122972B9620075E1AC /* Sub */ = {
 			isa = PBXGroup;
 			children = (
-				F45C0A1E297526E70075E1AC /* FilterAreaSubViewController.swift */,
-				F45C0A3B297587EB0075E1AC /* FilterAreaSubViewModel.swift */,
 				F45C0A3329755B750075E1AC /* FilterSubViewController.swift */,
 				F45C0A20297526FE0075E1AC /* FilterSubViewModel.swift */,
 				F45C0A3F29763BEF0075E1AC /* FilterSubSectionHeader.swift */,
@@ -1799,7 +1793,6 @@
 				F49034C12950025200CDE442 /* TouristInfoRepositoryInterface.swift in Sources */,
 				F4F0E0B7296725960006C9D4 /* DetailAroundTabmanViewModel.swift in Sources */,
 				F46BFB7B29632451007EB676 /* NaverBlogRepositoryInterface.swift in Sources */,
-				F45C0A3C297587EC0075E1AC /* FilterAreaSubViewModel.swift in Sources */,
 				F45C09FE2971C1E90075E1AC /* SearchCoordinator.swift in Sources */,
 				F45C09E529703CF80075E1AC /* DetailTouristInfoHeaderCell.swift in Sources */,
 				F4E3E58D295181D1009AFCFC /* CampsiteQuery.swift in Sources */,
@@ -1823,7 +1816,6 @@
 				F49034BF2950007300CDE442 /* CampsiteRepositoryInterface.swift in Sources */,
 				F4FD50AA296305DC00FA3CB3 /* DetailLocationCell.swift in Sources */,
 				F49034BD2950000500CDE442 /* RealmRepositoryInterface.swift in Sources */,
-				F45C0A1F297526E70075E1AC /* FilterAreaSubViewController.swift in Sources */,
 				F45C09FB2971C1560075E1AC /* SearchUseCase.swift in Sources */,
 				F49034D72950628E00CDE442 /* TouristInfoAPIConstant.swift in Sources */,
 				F49034F229515B9E00CDE442 /* YoutubeTarget.swift in Sources */,

@@ -9,7 +9,7 @@ import Foundation
 
 
 enum FilterCase {
-  case area(Area?)
+  case area([Area]?)
   case environment([Environment]?, [Experience]?)
   case rule([CampType]?, [ReservationType]?)
   case facility([BasicFacility]?, [SanitaryFacility]?, [SportsFacility]?)

@@ -35,19 +35,31 @@ final class SearchViewModel: ViewModel {
   lazy var filterMainViewModel = FilterMainViewModel(coordinator: coordinator, searchUseCase: searchUseCase)
   
   var disposeBag = DisposeBag()
-  
+
   func transform(input: Input) -> Output {
     let realmValue = input.viewWillAppear
       .compactMap { _ in
         self.searchUseCase.requestRealmData(filterCase: [])
       }
     
-    filterMainViewModel.environmentFilerState
-      .subscribe { filterCase in
-        print(filterCase)
-      }
-      .disposed(by: disposeBag)
-    
+    Observable.combineLatest(
+      filterMainViewModel.areaFilterState,
+      filterMainViewModel.environmentFilerState,
+      filterMainViewModel.facilityFilterState,
+      filterMainViewModel.ruleFilterState,
+      filterMainViewModel.petFilterState
+    )
+    .withUnretained(self)
+    .compactMap { (owner, filterCases) in
+      let (area, env, fclty, rule, pet) = filterCases
+      return [area, env, fclty, rule, pet]
+    }
+    .do(onNext: { arr in
+      print(arr)
+    })
+    .bind(to: filterCases)
+    .disposed(by: disposeBag)
+
     realmValue
       .bind(to: data)
       .disposed(by: disposeBag)

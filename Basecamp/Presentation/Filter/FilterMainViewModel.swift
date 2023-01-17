@@ -21,6 +21,7 @@ class FilterMainViewModel: ViewModel {
   struct Input {
     let viewWillAppear: Observable<Void>
     let didSelectItemAt: Signal<(FilterCase, IndexPath)>
+    let didTapClearButton: Signal<Void>
   }
   
   struct Output {
@@ -28,7 +29,7 @@ class FilterMainViewModel: ViewModel {
   }
   
   lazy var filterSubViewModel = FilterSubViewModel(coordinator: coordinator, searchUseCase: searchUseCase)
-  
+
   private let data = BehaviorRelay(value: [
     FilterCase.area(nil),
     FilterCase.environment(nil, nil),
@@ -58,6 +59,17 @@ class FilterMainViewModel: ViewModel {
       .emit { (owner, item) in
         let (model, _) = item
         owner.coordinator?.showFilterSubViewController(owner.filterSubViewModel, type: model)
+      }
+      .disposed(by: disposeBag)
+    
+    input.didTapClearButton
+      .withUnretained(self)
+      .emit { (owner, _) in
+        owner.areaFilterState.accept(.area(nil))
+        owner.environmentFilerState.accept(.environment(nil, nil))
+        owner.facilityFilterState.accept(.facility(nil, nil, nil))
+        owner.ruleFilterState.accept(.rule(nil, nil))
+        owner.petFilterState.accept(.pet(nil, nil))
       }
       .disposed(by: disposeBag)
     

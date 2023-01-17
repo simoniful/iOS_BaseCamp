@@ -35,7 +35,7 @@ final class FilterSubViewModel: ViewModel {
   var data = BehaviorRelay<[FilterSubSection]>(value: [])
 
   func transform(input: Input) -> Output {
-    lazy var rawData = getSectionModel(type: type!)
+    let rawData = getSectionModel(type: type!)
     data.accept(rawData)
     
     input.didTapConfirmButton
@@ -55,6 +55,12 @@ final class FilterSubViewModel: ViewModel {
 extension FilterSubViewModel {
   func dataToFilterCase(data: [FilterSubSection]) -> FilterCase {
     switch type! {
+    case .area:
+      let areaSelected = data[0].items.filter{ $0.selected }
+      let area: [Area]? = areaSelected.isEmpty ? nil : areaSelected.map({
+        Area(rawValue: $0.title!)
+      }) as? [Area]
+      return FilterCase.area(area)
     case .environment:
       let envSelected = data[0].items.filter{ $0.selected }
       let expSelected = data[1].items.filter{ $0.selected }
@@ -81,13 +87,18 @@ extension FilterSubViewModel {
       let petEntry: [PetEnterType]? = petEntrySelected.isEmpty ? nil : petEntrySelected.map({ PetEnterType(rawValue: $0.title!) }) as? [PetEnterType]
       let petSize: [PetSize]? = petSizeSelected.isEmpty ? nil : petSizeSelected.map({ PetSize(rawValue: $0.title!) }) as? [PetSize]
       return FilterCase.pet(petEntry, petSize)
-    default:
-      fatalError()
     }
   }
   
   func getSectionModel(type: FilterCase) -> [FilterSubSection] {
     switch type {
+    case .area(let area):
+      let firstSectionitems = getSectionModelItems(filterCase: area)
+      
+      return [
+        FilterSubSection(header: "캠핑장 위치", items: firstSectionitems)
+      ]
+      
     case .environment(let env, let exp):
       let firstSectionitems = getSectionModelItems(filterCase: env)
       let secondSectionitems = getSectionModelItems(filterCase: exp)
@@ -122,8 +133,6 @@ extension FilterSubViewModel {
         FilterSubSection(header: "입장", items: firstSectionitems),
         FilterSubSection(header: "입장 가능 사이즈", items: secondSectionitems)
       ]
-    default:
-      return []
     }
   }
   

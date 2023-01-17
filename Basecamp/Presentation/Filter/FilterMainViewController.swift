@@ -11,6 +11,13 @@ import RxSwift
 import RxCocoa
 
 final class FilterMainViewController: UIViewController {
+  lazy var rightBarClearButton: UIBarButtonItem = {
+    let barButton = UIBarButtonItem()
+    barButton.title = "필터해제"
+    barButton.tintColor = .gray7
+    barButton.style = .plain
+    return barButton
+  }()
   private let tableView = UITableView(frame: .zero, style: .plain)
   
   public var viewModel: FilterMainViewModel
@@ -18,7 +25,8 @@ final class FilterMainViewController: UIViewController {
   
   private lazy var input = FilterMainViewModel.Input(
     viewWillAppear: self.rx.viewWillAppear.asObservable(),
-    didSelectItemAt: self.tableView.rx.modelAndIndexSelected(FilterCase.self).asSignal()
+    didSelectItemAt: self.tableView.rx.modelAndIndexSelected(FilterCase.self).asSignal(),
+    didTapClearButton: self.rightBarClearButton.rx.tap.asSignal()
   )
   
   private lazy var output = viewModel.transform(input: input)
@@ -34,6 +42,7 @@ final class FilterMainViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupNavigation()
     setupView()
     setupConstraints()
     setupAttribute()
@@ -51,7 +60,12 @@ final class FilterMainViewController: UIViewController {
         
         switch element {
         case .area(let area):
-          cell.detailTextLabel?.text = area != nil ? area?.abbreviation : "제한없음"
+          if area == nil {
+            cell.detailTextLabel?.text = "제한없음"
+          } else {
+            let converted = area?.compactMap{ $0.rawValue } ?? []
+            cell.detailTextLabel?.text = converted.count > 2 ? "\(converted[0...1].joined(separator: ", ")) 외 \(converted.count - 2)개" : converted.joined(separator: ", ")
+          }
         case .environment(let env, let exp):
           if env == nil && exp == nil {
             cell.detailTextLabel?.text = "제한없음"
@@ -97,6 +111,12 @@ extension FilterMainViewController: ViewRepresentable {
     tableView.snp.makeConstraints {
       $0.edges.equalTo(view.safeAreaLayoutGuide)
     }
+  }
+  
+  func setupNavigation() {
+    navigationItem.rightBarButtonItems = [
+      rightBarClearButton
+    ]
   }
   
   func setupAttribute() {
