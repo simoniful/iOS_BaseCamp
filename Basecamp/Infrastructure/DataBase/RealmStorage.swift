@@ -34,6 +34,16 @@ final class RealmStorage {
     return realm.objects(CampsiteRealmDTO.self).filter("contentID == '4'")
   }
   
+  func readCampsites(query: [String]) -> Results<CampsiteRealmDTO> {
+    print("Realm is located at:", realm.configuration.fileURL!)
+    if query.isEmpty {
+      return realm.objects(CampsiteRealmDTO.self).filter("contentID == '4'")
+    } else {
+      // 2차원 배열로 받아서 area, pet은 OR, 나머지는 AND
+      return realm.objects(CampsiteRealmDTO.self).filter(query.joined(separator: " AND "))
+    }
+  }
+  
   func hasCampsites(contentID: String) -> Bool {
     return !(realm.objects(CampsiteRealmDTO.self).filter("contentID == '\(contentID)'").isEmpty)
   }

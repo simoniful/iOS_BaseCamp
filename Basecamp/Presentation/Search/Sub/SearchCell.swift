@@ -50,8 +50,8 @@ final class SearchCell: UITableViewCell {
               
         ])
     titleLabel.text = campsite.facltNm
-    addressLabel.text = campsite.addr1
-    introLabel.text = campsite.lineIntro!.isEmpty ? "" : campsite.lineIntro
+    addressLabel.text = campsite.addr1!.isEmpty ? " " : campsite.addr1
+    introLabel.text = campsite.lineIntro!.isEmpty ? " " : campsite.lineIntro
   }
   
 }
