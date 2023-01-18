@@ -37,9 +37,9 @@ final class SearchViewModel: ViewModel {
   var disposeBag = DisposeBag()
 
   func transform(input: Input) -> Output {
-    let realmValue = input.viewWillAppear
-      .compactMap { _ in
-        self.searchUseCase.requestRealmData(filterCase: [])
+    let realmValue = Observable.combineLatest(input.viewWillAppear, filterCases)
+      .compactMap { (_, filterCases) in
+        self.searchUseCase.requestRealmData(filterCases: filterCases)
       }
     
     Observable.combineLatest(
@@ -54,12 +54,9 @@ final class SearchViewModel: ViewModel {
       let (area, env, fclty, rule, pet) = filterCases
       return [area, env, fclty, rule, pet]
     }
-    .do(onNext: { arr in
-      print(arr)
-    })
     .bind(to: filterCases)
     .disposed(by: disposeBag)
-
+    
     realmValue
       .bind(to: data)
       .disposed(by: disposeBag)

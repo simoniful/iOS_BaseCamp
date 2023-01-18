@@ -27,7 +27,29 @@ final class SearchUseCase {
   }
   
   // MARK: - 램 데이터베이스 레포 연결
-  func requestRealmData(min: Int = 0, max: Int = 24, filterCase: [FilterCase]) -> [Campsite] {
+  func requestRealmData(min: Int = 0, max: Int = 24, filterCases: [FilterCase]) -> [Campsite] {
+    let queryStrArr: [[String]] = filterCases.map { filterCase -> [String] in
+      switch filterCase {
+      case .area(let area):
+        return area?.compactMap{ $0.realmQuery } ?? []
+      case .environment(let env, let exp):
+        let envQuery = env?.compactMap{ $0.realmQuery } ?? []
+        let expQuery = exp?.compactMap{ $0.realmQuery } ?? []
+        return envQuery + expQuery
+      case .rule(let campType, let resv):
+        let campTypeQuery = campType?.compactMap{ $0.realmQuery } ?? []
+        let resvQuery = resv?.compactMap{ $0.realmQuery } ?? []
+        return campTypeQuery + resvQuery
+      case .facility(let basicFctly, let sanitaryFctly, let sportsFctly):
+        let basicFctlyQuery = basicFctly?.compactMap{ $0.realmQuery } ?? []
+        let sanitaryFctlyQuery = sanitaryFctly?.compactMap{ $0.realmQuery } ?? []
+        let sportsFctlyQuery = sportsFctly?.compactMap{ $0.realmQuery } ?? []
+        return basicFctlyQuery + sanitaryFctlyQuery + sportsFctlyQuery
+      case .pet(let petEntry, let petSize):
+        return []
+      }
+    }
+    
     let data = realmRepository.loadCampsite()
     return data
   }
