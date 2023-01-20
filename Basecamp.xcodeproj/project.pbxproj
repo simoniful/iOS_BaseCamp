@@ -36,6 +36,10 @@
 		F45C0A3629755C840075E1AC /* FilterSubItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A3529755C840075E1AC /* FilterSubItemCell.swift */; };
 		F45C0A3E297638280075E1AC /* FilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A3D297638280075E1AC /* FilterItem.swift */; };
 		F45C0A4029763BEF0075E1AC /* FilterSubSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A3F29763BEF0075E1AC /* FilterSubSectionHeader.swift */; };
+		F45C0A432978EA490075E1AC /* KeywordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A422978EA490075E1AC /* KeywordViewController.swift */; };
+		F45C0A452979A1DF0075E1AC /* KeywordSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A442979A1DF0075E1AC /* KeywordSearchBar.swift */; };
+		F45C0A472979A20C0075E1AC /* KeywordSearchBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A462979A20C0075E1AC /* KeywordSearchBarViewModel.swift */; };
+		F45C0A492979A73D0075E1AC /* KeywordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A482979A73D0075E1AC /* KeywordViewModel.swift */; };
 		F46BFB73296323DE007EB676 /* YoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB72296323DE007EB676 /* YoutubeRepository.swift */; };
 		F46BFB75296323F5007EB676 /* NaverBlogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */; };
 		F46BFB7729632404007EB676 /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB7629632404007EB676 /* WeatherRepository.swift */; };
@@ -263,6 +267,10 @@
 		F45C0A3529755C840075E1AC /* FilterSubItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSubItemCell.swift; sourceTree = "<group>"; };
 		F45C0A3D297638280075E1AC /* FilterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterItem.swift; sourceTree = "<group>"; };
 		F45C0A3F29763BEF0075E1AC /* FilterSubSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSubSectionHeader.swift; sourceTree = "<group>"; };
+		F45C0A422978EA490075E1AC /* KeywordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordViewController.swift; sourceTree = "<group>"; };
+		F45C0A442979A1DF0075E1AC /* KeywordSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordSearchBar.swift; sourceTree = "<group>"; };
+		F45C0A462979A20C0075E1AC /* KeywordSearchBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordSearchBarViewModel.swift; sourceTree = "<group>"; };
+		F45C0A482979A73D0075E1AC /* KeywordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordViewModel.swift; sourceTree = "<group>"; };
 		F46BFB72296323DE007EB676 /* YoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepository.swift; sourceTree = "<group>"; };
 		F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogRepository.swift; sourceTree = "<group>"; };
 		F46BFB7629632404007EB676 /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
@@ -544,8 +552,21 @@
 				F45C0A182973CA000075E1AC /* SearchHeader.swift */,
 				F45C0A1C297443C10075E1AC /* SearchHeaderViewModel.swift */,
 				F45C0A1A2973CA130075E1AC /* SearchCell.swift */,
+				F45C0A412978EA180075E1AC /* Keyword */,
+				F45C09F929715B000075E1AC /* Filter */,
 			);
 			path = Sub;
+			sourceTree = "<group>";
+		};
+		F45C0A412978EA180075E1AC /* Keyword */ = {
+			isa = PBXGroup;
+			children = (
+				F45C0A422978EA490075E1AC /* KeywordViewController.swift */,
+				F45C0A482979A73D0075E1AC /* KeywordViewModel.swift */,
+				F45C0A442979A1DF0075E1AC /* KeywordSearchBar.swift */,
+				F45C0A462979A20C0075E1AC /* KeywordSearchBarViewModel.swift */,
+			);
+			path = Keyword;
 			sourceTree = "<group>";
 		};
 		F4903497294AB26600CDE442 /* Subs */ = {
@@ -795,7 +816,6 @@
 				F4FD50952962C16500FA3CB3 /* Detail */,
 				F4D10EE52949854B000C02E0 /* Home */,
 				F45C09F3297157BC0075E1AC /* Search */,
-				F45C09F929715B000075E1AC /* Filter */,
 				F45C09F4297157DF0075E1AC /* List */,
 			);
 			path = Presentation;
@@ -1746,6 +1766,7 @@
 				F4F0E081296468A10006C9D4 /* SocialMediaInfo.swift in Sources */,
 				F49034EA29515B5E00CDE442 /* NaverBlogAPIEnvironment.swift in Sources */,
 				F46BFB7D29632465007EB676 /* YoutubeRepositoryInterface.swift in Sources */,
+				F45C0A472979A20C0075E1AC /* KeywordSearchBarViewModel.swift in Sources */,
 				F4E3E5C1295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift in Sources */,
 				F4F0E099296576120006C9D4 /* DetailAroundTabmanViewController.swift in Sources */,
 				F45C0A4029763BEF0075E1AC /* FilterSubSectionHeader.swift in Sources */,
@@ -1792,6 +1813,7 @@
 				F4F0E0CE296C02100006C9D4 /* DetailAroundSubCell.swift in Sources */,
 				F49034C12950025200CDE442 /* TouristInfoRepositoryInterface.swift in Sources */,
 				F4F0E0B7296725960006C9D4 /* DetailAroundTabmanViewModel.swift in Sources */,
+				F45C0A452979A1DF0075E1AC /* KeywordSearchBar.swift in Sources */,
 				F46BFB7B29632451007EB676 /* NaverBlogRepositoryInterface.swift in Sources */,
 				F45C09FE2971C1E90075E1AC /* SearchCoordinator.swift in Sources */,
 				F45C09E529703CF80075E1AC /* DetailTouristInfoHeaderCell.swift in Sources */,
@@ -1827,6 +1849,7 @@
 				F4F0E0B9296726120006C9D4 /* DetailAroundTabmanSubViewModel.swift in Sources */,
 				F4D10F0129499386000C02E0 /* ViewModel.swift in Sources */,
 				F45C0A3629755C840075E1AC /* FilterSubItemCell.swift in Sources */,
+				F45C0A492979A73D0075E1AC /* KeywordViewModel.swift in Sources */,
 				F49034C9295030DC00CDE442 /* CampsiteAPIConstant.swift in Sources */,
 				F4E3E5D8295DD48C009AFCFC /* TouristInfoContentType.swift in Sources */,
 				F4903499294AB2CA00CDE442 /* HomeAreaCell.swift in Sources */,
@@ -1853,6 +1876,7 @@
 				F49034DD2950954900CDE442 /* TouristTargetStub.swift in Sources */,
 				F4E3E5892951657A009AFCFC /* CampsiteRepository.swift in Sources */,
 				F4D10EA729497831000C02E0 /* SceneDelegate.swift in Sources */,
+				F45C0A432978EA490075E1AC /* KeywordViewController.swift in Sources */,
 				F45C0A192973CA000075E1AC /* SearchHeader.swift in Sources */,
 				F4D10F092949A3CA000C02E0 /* HomeUseCase.swift in Sources */,
 				F45C0A08297264E40075E1AC /* FilterUseCase.swift in Sources */,

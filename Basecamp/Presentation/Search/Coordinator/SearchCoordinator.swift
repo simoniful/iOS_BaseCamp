@@ -102,6 +102,12 @@ final class SearchCoordinator: NSObject, Coordinator {
     }
   }
   
+  func pushKeywordViewController(_ viewModel: KeywordViewModel) {
+    let vc = KeywordViewController(viewModel: viewModel)
+    vc.hidesBottomBarWhenPushed = true
+    navigationController.pushViewController(vc, animated: true)
+  }
+  
   func popToRootViewController(message: String? = nil) {
     navigationController.popToRootViewController(animated: true)
     if let message = message {

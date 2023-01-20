@@ -34,13 +34,26 @@ final class RealmStorage {
     return realm.objects(CampsiteRealmDTO.self).filter("contentID == '4'")
   }
   
-  func readCampsites(query: [String]) -> Results<CampsiteRealmDTO> {
+  func readCampsites(query: [[String]]) -> Results<CampsiteRealmDTO> {
     print("Realm is located at:", realm.configuration.fileURL!)
-    if query.isEmpty {
-      return realm.objects(CampsiteRealmDTO.self).filter("contentID == '4'")
+    if query == [[], [], [], [], []] {
+      return realm.objects(CampsiteRealmDTO.self)
     } else {
-      // 2차원 배열로 받아서 area, pet은 OR, 나머지는 AND
-      return realm.objects(CampsiteRealmDTO.self).filter(query.joined(separator: " AND "))
+      let areaQuery = query[0].joined(separator: " OR ")
+      let envQuery = query[1].joined(separator: " AND ")
+      let fcltyQuery = query[2].joined(separator: " AND ")
+      let ruleQuery = query[3].joined(separator: " AND ")
+      let petQuery = query[4].joined(separator: " AND ")
+      
+      let totalData = realm.objects(CampsiteRealmDTO.self)
+      
+      let first = areaQuery.isEmpty ? totalData : totalData.filter(areaQuery)
+      let second = envQuery.isEmpty ? first : first.filter(envQuery)
+      let third = fcltyQuery.isEmpty ? second : second.filter(fcltyQuery)
+      let fourth = ruleQuery.isEmpty ? third : third.filter(ruleQuery)
+      let fifth = petQuery.isEmpty ? fourth : fourth.filter(petQuery)
+      
+      return fifth
     }
   }
   

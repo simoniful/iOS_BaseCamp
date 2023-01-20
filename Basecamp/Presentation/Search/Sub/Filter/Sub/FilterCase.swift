@@ -158,7 +158,12 @@ enum PetEnterType: String, CaseIterable {
   case notAllowed = "불가"
   
   var realmQuery: String {
-    return "animalCmgCl CONTAINS '\(self.rawValue)'"
+    switch self {
+    case .accompanied:
+      return "animalCmgCl == '가능' OR animalCmgCl == '가능(소형견)'"
+    case .notAllowed:
+      return "animalCmgCl == '불가능'"
+    }
   }
 }
 
@@ -169,9 +174,9 @@ enum PetSize: String, CaseIterable {
   var realmQuery: String {
     switch self {
     case .small:
-      return "animalCmgCl CONTAINS '가능(소형견)'"
+      return "animalCmgCl == '가능(소형견)'"
     case .large:
-      return "intro CONTAINS '대형견' OR animalCmgCl == '가능'"
+      return "animalCmgCl == '가능' AND intro CONTAINS '대형견'"
     }
   }
 }

@@ -33,6 +33,7 @@ final class SearchViewModel: ViewModel {
   
   lazy var searchHeaderViewModel = SearchHeaderViewModel()
   lazy var filterMainViewModel = FilterMainViewModel(coordinator: coordinator, searchUseCase: searchUseCase)
+  lazy var keywordViewModel = KeywordViewModel(coordinator: coordinator, searchUseCase: searchUseCase)
   
   var disposeBag = DisposeBag()
 
@@ -68,7 +69,12 @@ final class SearchViewModel: ViewModel {
       }
       .disposed(by: disposeBag)
     
-    
+    input.searchButtonTapped
+      .withUnretained(self)
+      .emit { (owner, _) in
+        owner.coordinator?.pushKeywordViewController(owner.keywordViewModel)
+      }
+      .disposed(by: disposeBag)
     
     return Output(data: data.asDriver(onErrorJustReturn: []))
   }

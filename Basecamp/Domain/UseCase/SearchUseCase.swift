@@ -28,7 +28,7 @@ final class SearchUseCase {
   
   // MARK: - 램 데이터베이스 레포 연결
   func requestRealmData(min: Int = 0, max: Int = 24, filterCases: [FilterCase]) -> [Campsite] {
-    let queryStrArr: [String] = filterCases.flatMap { filterCase -> [String] in
+    let queryStrArr: [[String]] = filterCases.compactMap { filterCase -> [String] in
       switch filterCase {
       case .area(let area):
         return area?.compactMap{ $0.realmQuery } ?? []

@@ -89,6 +89,8 @@ private extension SearchViewController {
     navigationItem.rightBarButtonItems = [
       rightBarSearchButton
     ]
+    let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+    navigationItem.backBarButtonItem = backBarButtonItem
     navigationItem.title = "검색"
   }
   
