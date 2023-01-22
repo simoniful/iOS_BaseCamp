@@ -16,8 +16,8 @@ final class KeywordViewController: UIViewController {
   private lazy var input = KeywordViewModel.Input()
   private lazy var output = viewModel.transform(input: input)
   
-  let searchBar = UISearchBar()
-  let resultList = UITableView(frame: .zero, style: .plain)
+  lazy var searchController = UISearchController()
+  lazy var resultList = UITableView(frame: .zero, style: .plain)
   
   init(viewModel: KeywordViewModel) {
     self.viewModel = viewModel
@@ -53,11 +53,17 @@ extension KeywordViewController: ViewRepresentable {
   }
   
   func setupNavigation() {
-//    self.navigationController?.navigationBar.topItem?.title = ""
-    self.navigationItem.titleView = searchBar
+    self.title = "키워드 검색"
+    self.navigationItem.searchController = searchController
+    searchController.searchBar.setValue("취소", forKey: "cancelButtonText")
+    searchController.searchBar.placeholder = "캠핑장 이름"
+    searchController.searchBar.searchTextField.font = .body3R14
+    
+    
+    
   }
   
   func setupAttribute() {
-    searchBar.sizeToFit()
+    
   }
 }

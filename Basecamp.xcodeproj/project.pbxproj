@@ -40,6 +40,7 @@
 		F45C0A452979A1DF0075E1AC /* KeywordSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A442979A1DF0075E1AC /* KeywordSearchBar.swift */; };
 		F45C0A472979A20C0075E1AC /* KeywordSearchBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A462979A20C0075E1AC /* KeywordSearchBarViewModel.swift */; };
 		F45C0A492979A73D0075E1AC /* KeywordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A482979A73D0075E1AC /* KeywordViewModel.swift */; };
+		F45C0A4B297B0C960075E1AC /* SearchBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A4A297B0C960075E1AC /* SearchBarContainerView.swift */; };
 		F46BFB73296323DE007EB676 /* YoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB72296323DE007EB676 /* YoutubeRepository.swift */; };
 		F46BFB75296323F5007EB676 /* NaverBlogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */; };
 		F46BFB7729632404007EB676 /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB7629632404007EB676 /* WeatherRepository.swift */; };
@@ -271,6 +272,7 @@
 		F45C0A442979A1DF0075E1AC /* KeywordSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordSearchBar.swift; sourceTree = "<group>"; };
 		F45C0A462979A20C0075E1AC /* KeywordSearchBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordSearchBarViewModel.swift; sourceTree = "<group>"; };
 		F45C0A482979A73D0075E1AC /* KeywordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordViewModel.swift; sourceTree = "<group>"; };
+		F45C0A4A297B0C960075E1AC /* SearchBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarContainerView.swift; sourceTree = "<group>"; };
 		F46BFB72296323DE007EB676 /* YoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepository.swift; sourceTree = "<group>"; };
 		F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogRepository.swift; sourceTree = "<group>"; };
 		F46BFB7629632404007EB676 /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
@@ -609,6 +611,7 @@
 				F4F0E0BC2967B31E0006C9D4 /* InfoPlusView.swift */,
 				F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */,
 				F45C09DE296DB6730075E1AC /* AlertView.swift */,
+				F45C0A4A297B0C960075E1AC /* SearchBarContainerView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1837,6 +1840,7 @@
 				F4E3E5D6295DB4F7009AFCFC /* TouristInfoIntroShopping.swift in Sources */,
 				F49034BF2950007300CDE442 /* CampsiteRepositoryInterface.swift in Sources */,
 				F4FD50AA296305DC00FA3CB3 /* DetailLocationCell.swift in Sources */,
+				F45C0A4B297B0C960075E1AC /* SearchBarContainerView.swift in Sources */,
 				F49034BD2950000500CDE442 /* RealmRepositoryInterface.swift in Sources */,
 				F45C09FB2971C1560075E1AC /* SearchUseCase.swift in Sources */,
 				F49034D72950628E00CDE442 /* TouristInfoAPIConstant.swift in Sources */,

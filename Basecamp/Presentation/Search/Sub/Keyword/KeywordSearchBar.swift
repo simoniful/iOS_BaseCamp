@@ -48,11 +48,12 @@ class KeywordSearchBar: UISearchBar {
   }
   
   func attribute() {
-    searchButton.setTitle("검색", for: .normal)
-    searchButton.setTitleColor(.systemBlue, for: .normal)
+    searchButton.setImage(UIImage(named: "magnifying"), for: .normal)
+    searchButton.tintColor = .black
     self.placeholder = "캠핑장 이름"
     self.setPositionAdjustment(UIOffset(horizontal: 10, vertical: 0), for: UISearchBar.Icon.search)
-    
+    self.setImage(UIImage(), for: UISearchBar.Icon.search, state: .normal)
+    self.searchTextField.font = .body3R14
   }
   
   func layout() {
