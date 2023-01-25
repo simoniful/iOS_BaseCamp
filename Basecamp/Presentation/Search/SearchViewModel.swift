@@ -76,6 +76,14 @@ final class SearchViewModel: ViewModel {
       }
       .disposed(by: disposeBag)
     
+    input.didSelectItemAt
+      .withUnretained(self)
+      .emit { (owner, itemAndIndex) in
+        let (campsite, _) = itemAndIndex
+        owner.coordinator?.showDetailViewController(detailStyle: .campsite(campsite: campsite), name: campsite.facltNm!)
+      }
+      .disposed(by: disposeBag)
+    
     return Output(data: data.asDriver(onErrorJustReturn: []))
   }
 }

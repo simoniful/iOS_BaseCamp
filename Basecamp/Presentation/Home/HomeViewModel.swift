@@ -131,7 +131,8 @@ final class HomeViewModel: ViewModel {
         case 0:
           print("여긴 클릭하면 안됨")
         case 1:
-          self.coordinator?.changeTabByIndex(tabCase: .list, message: "지역별로 검색해보세요")
+          guard let areaItem = model as? HomeAreaItem else { return }
+          self.coordinator?.changeTabByIndex(tabCase: .list, message: "지역별로 검색해보세요", area: areaItem.area)
         case 2:
           guard let campsite = model as? Campsite else { return }
           self.coordinator?.showDetailViewController(detailStyle: .campsite(campsite: campsite), name: campsite.facltNm!)

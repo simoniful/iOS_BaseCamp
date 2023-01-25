@@ -31,6 +31,7 @@ final class SearchCoordinator: NSObject, Coordinator {
         )
       )
     )
+    vc.title = "검색"
     navigationController.pushViewController(vc, animated: true)
   }
   
@@ -51,6 +52,7 @@ final class SearchCoordinator: NSObject, Coordinator {
       name: name
     )
     vc.hidesBottomBarWhenPushed = true
+    vc.title = name
     navigationController.pushViewController(vc, animated: true)
   }
   

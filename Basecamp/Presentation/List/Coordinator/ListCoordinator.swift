@@ -1,35 +1,35 @@
 //
-//  HomeCoordinator.swift
+//  ListCoordinator.swift
 //  Basecamp
 //
-//  Created by Sang hun Lee on 2022/12/14.
+//  Created by Sang hun Lee on 2023/01/25.
 //
 
 import UIKit
 import Toast
 
-final class HomeCoordinator: Coordinator {
-  
+final class ListCoordinator: Coordinator {
   weak var delegate: CoordinatorDelegate?
   var childCoordinators = [Coordinator]()
   var navigationController: UINavigationController
-  var type: CoordinatorStyleCase = .home
+  var type: CoordinatorStyleCase = .list
   
   init(_ navigationController: UINavigationController) {
     self.navigationController = navigationController
   }
   
   func start() {
-    let vc = HomeViewController(
-      viewModel: HomeViewModel(
+    let vc = ListViewController(
+      viewModel: ListViewModel(
         coordinator: self,
-        homeUseCase: HomeUseCase(
-          realmRepository: RealmRepository(),
-          campsiteRepository: CampsiteRepository(),
-          touristInfoRepository: TouristInfoRepository()
-        )
+        listUseCase: ListUseCase(
+          touristInfoRepository: TouristInfoRepository(),
+          realmRepository: RealmRepository()
+        ),
+        area: nil
       )
     )
+    vc.title = "지역정보"
     navigationController.pushViewController(vc, animated: true)
   }
   
@@ -49,31 +49,8 @@ final class HomeCoordinator: Coordinator {
       ),
       name: name
     )
-    vc.title = name
     vc.hidesBottomBarWhenPushed = true
     navigationController.pushViewController(vc, animated: true)
-  }
-  
-  func changeTabByIndex(tabCase: TabBarPageCase ,message: String, area: Area? = nil) {
-    switch tabCase {
-    case .list:
-      if let area = area {
-        var listViewController: ListViewController
-        if let arrController = navigationController.tabBarController?.viewControllers {
-          for vc in arrController {
-            if vc is ListViewController {
-              listViewController = vc as! ListViewController
-              listViewController.viewModel.areaState.accept(area)
-            }
-          }
-        }
-      }
-    default:
-      break
-    }
-    
-    navigationController.tabBarController?.selectedIndex = tabCase.pageOrderNumber
-    navigationController.tabBarController?.view.makeToast(message, position: .center)
   }
   
   func popToRootViewController(message: String? = nil) {

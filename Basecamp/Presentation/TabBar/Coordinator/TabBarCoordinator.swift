@@ -81,6 +81,11 @@ final class TabBarCoordinator: Coordinator {
       searchCoordinator.delegate = self
       self.childCoordinators.append(searchCoordinator)
       searchCoordinator.start()
+    case .list:
+      let listCoordinator = ListCoordinator(tabNavigationController)
+      listCoordinator.delegate = self
+      self.childCoordinators.append(listCoordinator)
+      listCoordinator.start()
     default:
       break
     }

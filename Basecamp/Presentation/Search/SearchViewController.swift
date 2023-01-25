@@ -62,6 +62,7 @@ final class SearchViewController: UIViewController {
       .drive(tableView.rx.items) { [weak self] tv, index, element in
         let cell = self?.tableView.dequeueReusableCell(withIdentifier: SearchCell.identifier) as! SearchCell
         cell.setupData(campsite: element)
+        cell.selectionStyle = .none
         return cell
       }
       .disposed(by: disposeBag)
@@ -91,7 +92,6 @@ private extension SearchViewController {
     ]
     let backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
     navigationItem.backBarButtonItem = backBarButtonItem
-    navigationItem.title = "검색"
   }
   
   func setupLogo() {

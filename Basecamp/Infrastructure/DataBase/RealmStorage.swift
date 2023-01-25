@@ -57,6 +57,12 @@ final class RealmStorage {
     }
   }
   
+  func readCampsites(keyword: String) -> Results<CampsiteRealmDTO> {
+    let totalData = realm.objects(CampsiteRealmDTO.self)
+    let result = totalData.filter("addr1 CONTAINS '\(keyword)' OR facltNm CONTAINS '\(keyword)'")
+    return result
+  }
+  
   func hasCampsites(contentID: String) -> Bool {
     return !(realm.objects(CampsiteRealmDTO.self).filter("contentID == '\(contentID)'").isEmpty)
   }

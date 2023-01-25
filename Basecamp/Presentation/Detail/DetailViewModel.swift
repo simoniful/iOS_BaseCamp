@@ -218,6 +218,25 @@ final class DetailViewModel: ViewModel {
         .bind(to: aroundTabmanViewModel.detailAroundTabmanSubViewModel.resultCellData)
         .disposed(by: disposeBag)
       
+      aroundTabmanViewModel.detailAroundTabmanSubViewModel.didSelectItemAt
+        .subscribe { [weak self] (touristInfo, indexPath) in
+          if let coordinator = self?.coordinator as? HomeCoordinator {
+            coordinator.showDetailViewController(
+              detailStyle: .touristInfo(touristInfo: touristInfo),
+              name: touristInfo.title!
+            )
+          }
+          
+          if let coordinator = self?.coordinator as? SearchCoordinator {
+            coordinator.showDetailViewController(
+              detailStyle: .touristInfo(touristInfo: touristInfo),
+              name: touristInfo.title!
+            )
+          }
+          
+          
+        }
+        .disposed(by: disposeBag)
       
       // MARK: - CLLocation Control
       input.isAutorizedLocation
@@ -263,6 +282,8 @@ final class DetailViewModel: ViewModel {
           print("찜")
         }
         .disposed(by: disposeBag)
+      
+      
       
     case .touristInfo(let touristInfo):
       // MARK: - Header Data
@@ -463,6 +484,27 @@ final class DetailViewModel: ViewModel {
       
       touristValue
         .bind(to: aroundTabmanViewModel.detailAroundTabmanSubViewModel.resultCellData)
+        .disposed(by: disposeBag)
+      
+      aroundTabmanViewModel.detailAroundTabmanSubViewModel.didSelectItemAt
+        .subscribe { [weak self] (touristInfo, indexPath) in
+          print(touristInfo, indexPath, "짜잔")
+          if let coordinator = self?.coordinator as? HomeCoordinator {
+            coordinator.showDetailViewController(
+              detailStyle: .touristInfo(touristInfo: touristInfo),
+              name: touristInfo.title!
+            )
+          }
+          
+          if let coordinator = self?.coordinator as? SearchCoordinator {
+            coordinator.showDetailViewController(
+              detailStyle: .touristInfo(touristInfo: touristInfo),
+              name: touristInfo.title!
+            )
+          }
+          
+          
+        }
         .disposed(by: disposeBag)
       
       // MARK: - CLLocation Control

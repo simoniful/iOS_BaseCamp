@@ -8,6 +8,7 @@
 import UIKit
 import UserNotifications
 import NMapsMap
+import DropDown
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       completionHandler: { _, _ in }
     )
     application.registerForRemoteNotifications()
+    DropDown.startListeningToKeyboard()
     return true
   }
 

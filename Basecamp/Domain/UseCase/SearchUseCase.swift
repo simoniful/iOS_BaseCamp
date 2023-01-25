@@ -55,4 +55,9 @@ final class SearchUseCase {
     let data = realmRepository.loadCampsite(query: queryStrArr)
     return data
   }
+  
+  func requestRealmData(keyword: String) -> [Campsite] {
+    let data = realmRepository.loadCampsite(keyword: keyword)
+    return data
+  }
 }

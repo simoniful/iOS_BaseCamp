@@ -12,7 +12,8 @@ protocol RealmRepositoryInterface: AnyObject {
   func saveFromLocalJson()
   
   func loadCampsite() -> [Campsite]
-  func loadCampsite(query: [[String]]) -> [Campsite] 
+  func loadCampsite(query: [[String]]) -> [Campsite]
+  func loadCampsite(keyword: String) -> [Campsite]
   func saveCampsite(campsite: Campsite)
   func unsaveCampsite(campsite: Campsite)
   func checkCampsite(campsite: Campsite) -> Bool

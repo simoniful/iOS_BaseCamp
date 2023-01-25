@@ -151,8 +151,6 @@ extension DetailViewController: ViewRepresentable {
   
   func setupNavigationBar() {
     navigationItem.largeTitleDisplayMode = .never
-    navigationController?.navigationBar.topItem?.title = ""
-    navigationItem.title = name
     navigationItem.rightBarButtonItems = [
       rightBarShareButton,
       rightBarDropDownButton

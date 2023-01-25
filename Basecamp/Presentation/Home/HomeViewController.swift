@@ -63,6 +63,11 @@ final class HomeViewController: UIViewController {
     setConstraints()
   }
   
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(true)
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+  }
+  
   override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
     self.collectionView.performBatchUpdates(nil, completion: nil)

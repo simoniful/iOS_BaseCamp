@@ -175,7 +175,7 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
     let query = touristInfoQueryType.query as! TouristInfoAreaCodeQuery
     let requestDTO = TouristInfoAreaCodeRequestDTO(query: query)
     return provider.rx.request(
-      MultiTarget(TouristInfoTarget.getTouristInfoImage(parameters: requestDTO.toDictionary))
+      MultiTarget(TouristInfoTarget.getAreaCode(parameters: requestDTO.toDictionary))
     )
     .filterSuccessfulStatusCodes()
     .flatMap { response -> Single<Result<[Sigungu], TouristInfoServiceError>> in

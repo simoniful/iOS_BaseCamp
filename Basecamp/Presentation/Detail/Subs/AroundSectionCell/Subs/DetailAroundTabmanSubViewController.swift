@@ -47,6 +47,10 @@ final class DetailAroundTabmanSubViewController: UIViewController {
         cell.setupData(data: item)
       }
       .disposed(by: disposeBag)
+    
+    collectionView.rx.modelAndIndexSelected(TouristInfo.self)
+      .bind(to: viewModel.didSelectItemAt)
+      .disposed(by: disposeBag)
   }
 }
 

@@ -17,6 +17,7 @@ final class SearchCell: UITableViewCell {
     imageView.contentMode = .scaleAspectFill
     imageView.clipsToBounds = true
     imageView.layer.cornerRadius = 12.0
+    imageView.backgroundColor = .gray1
     return imageView
   }()
   
@@ -53,7 +54,6 @@ final class SearchCell: UITableViewCell {
     addressLabel.text = campsite.addr1!.isEmpty ? " " : campsite.addr1
     introLabel.text = campsite.lineIntro!.isEmpty ? " " : campsite.lineIntro
   }
-  
 }
 
 extension SearchCell: ViewRepresentable {
