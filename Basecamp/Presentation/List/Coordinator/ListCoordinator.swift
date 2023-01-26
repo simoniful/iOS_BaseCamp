@@ -29,7 +29,6 @@ final class ListCoordinator: Coordinator {
         area: nil
       )
     )
-    vc.title = "지역정보"
     navigationController.pushViewController(vc, animated: true)
   }
   

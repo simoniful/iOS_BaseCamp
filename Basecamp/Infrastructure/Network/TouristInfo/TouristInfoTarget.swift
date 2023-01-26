@@ -93,6 +93,7 @@ extension TouristInfoTarget: TargetType {
   }
   
   var headers: [String : String]? {
-    return ["Content-Type": "application/json"]
+    // text/html도 가능
+    return ["Content-Type": "text/html"]
   }
 }

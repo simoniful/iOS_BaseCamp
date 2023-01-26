@@ -37,7 +37,7 @@ enum TabBarPageCase: String, CaseIterable {
     case .search:
       return "검색"
     case .list:
-      return "리스트"
+      return "지역정보"
     case .map:
       return "지도"
     case .mypage:

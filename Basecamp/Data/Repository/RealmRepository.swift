@@ -51,6 +51,13 @@ final class RealmRepository: RealmRepositoryInterface {
     }
   }
   
+  func loadCampsite(area: Area?, sigungu: Sigungu?) -> [Campsite] {
+    let realmDTO = storage.readCampsites(area: area, sigungu: sigungu).toArray()
+    return realmDTO.map {
+      $0.toDomain()
+    }
+  }
+  
   func saveCampsite(campsite: Campsite) {
     let campsiteDTO = CampsiteRealmDTO(campsite: campsite)
     storage.createCampsite(campsite: campsiteDTO)

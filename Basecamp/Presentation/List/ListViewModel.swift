@@ -27,27 +27,30 @@ final class ListViewModel: ViewModel {
   }
   
   struct Output {
-    let campData: Driver<[Campsite]>
-    let touristData: Driver<[TouristInfo]>
     let sigunguReloadSignal: Driver<[String]>
   }
   
-  public let areaState = PublishRelay<Area>()
-  public let sigunguState = PublishRelay<Sigungu>()
-  private let campData = PublishRelay<[Campsite]>()
-  private let touristData = PublishRelay<[TouristInfo]>()
+  public let areaState = BehaviorRelay<Area?>(value: nil)
+  public let sigunguState = BehaviorRelay<Sigungu?>(value: nil)
+  public let tabState = PublishRelay<ListTabBarContentType>()
   
-  public var sigunguDataSource = BehaviorRelay<[Sigungu]>(value: [])
+  public let sigunguDataSource = BehaviorRelay<[Sigungu]>(value: [])
   private let sigunguReloadSignal = PublishRelay<[String]>()
+  
+  public let listCampsiteViewModel = ListCampsiteViewModel()
+  public let listTouristViewModel = ListTouristViewModel()
   
   var disposeBag = DisposeBag()
   
   func transform(input: Input) -> Output {
     let sigunguCodeResult = areaState
       .withUnretained(self)
+      .filter({ (owner, area) in
+        area != nil
+      })
       .flatMapLatest { (owner, area) in
-        owner.listUseCase.requestTouristInfoAreaCode(
-          numOfRows: 35, pageNo: 1, areaCode: area
+        return owner.listUseCase.requestTouristInfoAreaCode(
+          numOfRows: 35, pageNo: 1, areaCode: area!
         )
       }
       .share()
@@ -67,12 +70,20 @@ final class ListViewModel: ViewModel {
       })
       .bind(to: sigunguDataSource)
       .disposed(by: disposeBag)
+        
+        
+    Observable.combineLatest(listCampsiteViewModel.viewWillAppear, areaState, sigunguState)
+      .withUnretained(self)
+      .compactMap { (owner, signals) in
+        let (_, area, sigungu) = signals
+        return owner.listUseCase.requestRealmData(area: area, sigungu: sigungu)
+      }
+      .bind(to: listCampsiteViewModel.resultCellData)
+      .disposed(by: disposeBag)
     
-   
+    
     
     return Output(
-      campData: campData.asDriver(onErrorJustReturn: []),
-      touristData: touristData.asDriver(onErrorJustReturn: []),
       sigunguReloadSignal: sigunguReloadSignal.asDriver(onErrorJustReturn: [])
     )
   }

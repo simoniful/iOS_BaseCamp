@@ -63,6 +63,17 @@ final class RealmStorage {
     return result
   }
   
+  func readCampsites(area: Area?, sigungu: Sigungu?) -> Results<CampsiteRealmDTO> {
+    var result = realm.objects(CampsiteRealmDTO.self)
+    if let area = area {
+      result = result.filter("doNm CONTAINS '\(area.doNm)'")
+    }
+    if let sigungu = sigungu {
+      result = result.filter("addr1 CONTAINS '\(sigungu.name!)'")
+    }
+    return result
+  }
+  
   func hasCampsites(contentID: String) -> Bool {
     return !(realm.objects(CampsiteRealmDTO.self).filter("contentID == '\(contentID)'").isEmpty)
   }

@@ -9,14 +9,31 @@ import UIKit
 import RxCocoa
 import RxSwift
 import DropDown
+import Pageboy
+import Tabman
 
-final class ListViewController: UIViewController {
+enum ListTabBarContentType: Int, CaseIterable {
+  case campsite
+  case touristInfo
+  
+  var title: String {
+    switch self {
+    case .campsite:
+      return "캠핑장"
+    case .touristInfo:
+      return "관광정보"
+    }
+  }
+}
+
+final class ListViewController: TabmanViewController {
+  private var tablist = ListTabBarContentType.allCases
+  private var vclist: [UIViewController] = []
   
   private lazy var areaDropDownView = DropDownView()
   private lazy var areaDropDown = DropDown()
   private lazy var sigunguDropDownView = DropDownView()
   private lazy var sigunguDropDown = DropDown()
-  private lazy var tabmanView = UIView()
   
   private lazy var input = ListViewModel.Input(
     viewDidLoad: Observable.just(()).take(1)
@@ -37,16 +54,25 @@ final class ListViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupNavigationBar()
     setupView()
     setupConstraints()
-    bind()
     setupAttribute()
-    initUI()
-    setDropdown()
+    setupNavigationBar()
+    bind()
+    setupDropdownUI()
+    setupDropdown()
+    setupTabbar()
   }
   
   func bind() {
+    let campsiteVC = ListCampsiteViewController()
+    let touristVC = ListTouristViewController()
+    campsiteVC.bind(viewModel.listCampsiteViewModel)
+    touristVC.bind(viewModel.listTouristViewModel)
+    [campsiteVC, touristVC].forEach {
+      vclist.append($0)
+    }
+    
     output.sigunguReloadSignal
       .drive { [weak self] list in
         self?.sigunguDropDownView.isHidden = false
@@ -56,17 +82,85 @@ final class ListViewController: UIViewController {
       }
       .disposed(by: disposeBag)
   }
+}
+
+private extension ListViewController {
+  func setupView() {
+    [].forEach {
+      view.addSubview($0)
+    }
+  }
   
-  func initUI() {
+  func setupConstraints() {
+    areaDropDownView.snp.makeConstraints {
+      $0.height.equalTo(36.0)
+      $0.width.equalTo(130.0)
+    }
+    
+    sigunguDropDownView.snp.makeConstraints {
+      $0.height.equalTo(36.0)
+      $0.width.equalTo(130.0)
+    }
+  }
+  
+  func setupNavigationBar() {
+    setupLogo()
+    let stack = UIStackView(arrangedSubviews: [areaDropDownView, sigunguDropDownView])
+    stack.axis = .horizontal
+    stack.spacing = 20.0
+    stack.isLayoutMarginsRelativeArrangement = true
+    stack.layoutMargins = .init(top: 0, left: 12.0, bottom: 4.0, right: 8.0)
+    navigationItem.titleView = stack
+  }
+  
+  func setupLogo() {
+    let logoImage = UIImage.init(named: "logo")
+    let logoImageView = UIImageView.init(image: logoImage)
+    logoImageView.frame = CGRect(x: 0.0, y: 0.0,  width: 36, height: 36.0)
+    logoImageView.contentMode = .scaleAspectFit
+    let imageItem = UIBarButtonItem.init(customView: logoImageView)
+    logoImageView.snp.makeConstraints {
+      $0.width.height.equalTo(36)
+    }
+    navigationItem.leftBarButtonItem = imageItem
+  }
+  
+  func setupAttribute() {
+    sigunguDropDownView.isHidden = true
+    areaDropDownView.selectButton.addTarget(self, action: #selector(areaDropdownClicked), for: .touchUpInside)
+    sigunguDropDownView.selectButton.addTarget(self, action: #selector(sigunguDropdownClicked), for: .touchUpInside)
+  }
+  
+  func setupTabbar() {
+    self.dataSource = self
+    let bar = TMBar.ButtonBar()
+    bar.layout.transitionStyle = .snap
+    bar.layout.contentInset = UIEdgeInsets(top: 12.0, left: 4.0, bottom: 0.0, right: 4.0)
+    bar.layout.contentMode = .fit
+    bar.heightAnchor.constraint(equalToConstant: 52.0).isActive = true
+    bar.backgroundView.style = .flat(color: .systemBackground)
+    bar.buttons.customize { (button) in
+      button.selectedTintColor = .main
+    }
+
+    bar.indicator.overscrollBehavior = .compress
+    bar.indicator.weight = .medium
+    bar.indicator.tintColor = .main
+    addBar(bar, dataSource: self, at: .top)
+  }
+}
+
+extension ListViewController {
+  func setupDropdownUI() {
     areaDropDownView.backgroundColor = .white
     areaDropDownView.layer.cornerRadius = 8
     sigunguDropDownView.backgroundColor = .white
     sigunguDropDownView.layer.cornerRadius = 8
     
-    DropDown.appearance().textColor = UIColor.black 
-    DropDown.appearance().selectedTextColor = UIColor.red
+    DropDown.appearance().textColor = UIColor.black
+    DropDown.appearance().selectedTextColor = UIColor.main
     DropDown.appearance().backgroundColor = UIColor.white
-    DropDown.appearance().selectionBackgroundColor = UIColor.lightGray
+    DropDown.appearance().selectionBackgroundColor = UIColor.gray1
     DropDown.appearance().setupCornerRadius(8)
     DropDown.appearance().cellHeight = 36.0
     areaDropDown.dismissMode = .automatic
@@ -78,12 +172,12 @@ final class ListViewController: UIViewController {
     sigunguDropDownView.iconImageView.tintColor = UIColor.gray
   }
   
-  func setDropdown() {
+  func setupDropdown() {
     areaDropDown.dataSource = Area.allCases.map { $0.rawValue }
     areaDropDown.anchorView = self.areaDropDownView
-    areaDropDown.bottomOffset = CGPoint(x: 0, y: 44.0)
+    areaDropDown.bottomOffset = CGPoint(x: 0, y: 36.0)
     sigunguDropDown.anchorView = self.sigunguDropDownView
-    sigunguDropDown.bottomOffset = CGPoint(x: 0, y: 44.0)
+    sigunguDropDown.bottomOffset = CGPoint(x: 0, y: 36.0)
     
     areaDropDown.selectionAction = { [weak self] (index, item) in
       self?.viewModel.areaState.accept(Area(rawValue: item)!)
@@ -91,6 +185,7 @@ final class ListViewController: UIViewController {
       self!.areaDropDownView.iconImageView.image = UIImage.init(systemName: "chevron.down")
       self!.sigunguDropDownView.isHidden = true
       self!.sigunguDropDownView.textField.text = "전체"
+      self?.viewModel.sigunguState.accept(nil)
       IndicatorView.shared.show(backgoundColor: .black.withAlphaComponent(0.1))
     }
     
@@ -121,48 +216,23 @@ final class ListViewController: UIViewController {
   }
 }
 
-private extension ListViewController {
-  func setupView() {
-    [tabmanView, areaDropDownView, sigunguDropDownView].forEach {
-      view.addSubview($0)
-    }
-    
-  }
-  func setupConstraints() {
-    areaDropDownView.snp.makeConstraints {
-      $0.top.equalTo(view.safeAreaLayoutGuide).offset(8.0)
-      $0.leading.equalTo(view.safeAreaLayoutGuide).offset(16.0)
-      $0.height.equalTo(44.0)
-      $0.width.equalTo(140.0)
-    }
-    
-    sigunguDropDownView.snp.makeConstraints {
-      $0.top.equalTo(view.safeAreaLayoutGuide).offset(8.0)
-      $0.leading.equalTo(areaDropDownView.snp.trailing).offset(16.0)
-      $0.height.equalTo(44.0)
-      $0.width.equalTo(140.0)
-    }
+extension ListViewController: TMBarDataSource, PageboyViewControllerDataSource {
+  func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
+    let item = TMBarItem(title: tablist[index].title)
+    return item
   }
   
-  func setupNavigationBar() {
-    setupLogo()
+  func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+    return vclist.count
   }
   
-  func setupLogo() {
-    let logoImage = UIImage.init(named: "logo")
-    let logoImageView = UIImageView.init(image: logoImage)
-    logoImageView.frame = CGRect(x: 0.0, y: 0.0,  width: 36, height: 36.0)
-    logoImageView.contentMode = .scaleAspectFit
-    let imageItem = UIBarButtonItem.init(customView: logoImageView)
-    logoImageView.snp.makeConstraints {
-      $0.width.height.equalTo(36)
-    }
-    navigationItem.leftBarButtonItem = imageItem
+  func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
+    viewModel.tabState.accept(ListTabBarContentType.init(rawValue: index)!)
+    return vclist[index]
   }
-  func setupAttribute() {
-    tabmanView.backgroundColor = .main
-    sigunguDropDownView.isHidden = true
-    areaDropDownView.selectButton.addTarget(self, action: #selector(areaDropdownClicked), for: .touchUpInside)
-    sigunguDropDownView.selectButton.addTarget(self, action: #selector(sigunguDropdownClicked), for: .touchUpInside)
+  
+  func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
+    return nil
   }
 }
+

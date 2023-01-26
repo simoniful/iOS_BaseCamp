@@ -11,15 +11,17 @@ import SnapKit
 final class DropDownView: UIView {
   public let textField: UITextField = {
     let textField = UITextField()
-    textField.font = .body2R16
+    textField.font = .systemFont(ofSize: 18.0, weight: .medium)
     return textField
   }()
+  
   public let iconImageView: UIImageView = {
     let imageView = UIImageView(image: UIImage(systemName: "chevron.down"))
     imageView.contentMode = .scaleAspectFit
     imageView.clipsToBounds = true
     return imageView
   }()
+  
   public let selectButton = UIButton()
  
   override init(frame: CGRect) {
