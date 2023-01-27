@@ -40,8 +40,8 @@ struct TouristInfoAreaRequestDTO: Codable, TouristInfoRequestDTO {
     self.moblieOS = query.mobileOS
     self.mobileApp = query.moblieApp
     self.serviceKey = query.serviceKey
-    self.contentTypeId = query.contentTypeId.rawValue.string
-    self.areaCode = query.areaCode.areaCode.string
-    self.sigunguCode = query.sigunguCode.code ?? ""
+    self.contentTypeId = query.contentTypeId?.rawValue.string ?? ""
+    self.areaCode = query.areaCode?.areaCode.string ?? ""
+    self.sigunguCode = query.sigunguCode?.code ?? ""
   }
 }

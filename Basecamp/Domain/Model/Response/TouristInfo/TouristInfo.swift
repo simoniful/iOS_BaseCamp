@@ -7,6 +7,13 @@
 
 import Foundation
 
+struct TouristInfoData {
+  let item: [TouristInfo]
+  let totalCount: Int
+  let pageNo: Int
+  let numOfRows: Int
+}
+
 struct TouristInfo: HomeItem {
   let address, areaCode: String?
   let contentId: Int?

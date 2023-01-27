@@ -83,7 +83,7 @@ final class HomeViewModel: ViewModel {
       .do(onNext: { data in
         print(data, "홈 관광정보 데이터 패칭 ----")
       })
-      .compactMap { data -> [TouristInfo]? in
+      .compactMap { data -> TouristInfoData? in
         self.homeUseCase.getTouristInfoValue(data)
       }
 
@@ -99,7 +99,7 @@ final class HomeViewModel: ViewModel {
       .withUnretained(self)
       .compactMap { (owner, values) -> [HomeSectionModel] in
         let (realmData, areaData, campsiteList, touristList) = values
-        return owner.homeUseCase.getHomeSectionModel( realmData, areaData, campsiteList, touristList)
+        return owner.homeUseCase.getHomeSectionModel( realmData, areaData, campsiteList, touristList.item)
       }
       .bind(to: data)
       .disposed(by: disposeBag)

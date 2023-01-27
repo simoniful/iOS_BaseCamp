@@ -13,11 +13,10 @@ struct DetailAroundTabmanSubViewModel {
   let viewWillAppearWithContentType = PublishRelay<(Void, TouristInfoContentType)>()
   let didSelectItemAt = PublishRelay<(TouristInfo, IndexPath)>()
   
-  let resultCellData = PublishSubject<[TouristInfo]>()
+  let resultCellData = PublishSubject<TouristInfoData>()
   let cellData: Driver<[TouristInfo]>
   
   init() {
-      self.cellData = resultCellData
-          .asDriver(onErrorJustReturn: [])
+    self.cellData = resultCellData.map { $0.item }.asDriver(onErrorJustReturn: [])
   }
 }

@@ -2,19 +2,23 @@ PODS:
   - NMapsGeometry (1.0.1)
   - NMapsMap (3.16.1):
     - NMapsGeometry
+  - TTGTagCollectionView (2.3.0)
 
 DEPENDENCIES:
   - NMapsMap
+  - TTGTagCollectionView
 
 SPEC REPOS:
   trunk:
     - NMapsGeometry
     - NMapsMap
+    - TTGTagCollectionView
 
 SPEC CHECKSUMS:
   NMapsGeometry: 53c573ead66466681cf123f99f698dc8071a4b83
   NMapsMap: 926c3a303d381a24bec8da3cd6e198f50af93ae9
+  TTGTagCollectionView: 4104f93281097eae5adbf4444811e32f5e52dc95
 
-PODFILE CHECKSUM: 8f1549e798678512d9d5b8f3196092ad16383b41
+PODFILE CHECKSUM: 0a0e51073233a594419e2ad718b3cf6dec9d94d5
 
 COCOAPODS: 1.11.3

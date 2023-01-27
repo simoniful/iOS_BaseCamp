@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol TouristInfoRepositoryInterface: AnyObject {
-  func requestTouristInfoList(touristInfoQueryType: TouristInfoQueryType) -> Single<Result<[TouristInfo], TouristInfoServiceError>>
+  func requestTouristInfoList(touristInfoQueryType: TouristInfoQueryType) -> Single<Result<TouristInfoData, TouristInfoServiceError>>
   
   func requestTouristInfoCommon(touristInfoQueryType: TouristInfoQueryType) -> Single<Result<[TouristInfoCommon], TouristInfoServiceError>>
   

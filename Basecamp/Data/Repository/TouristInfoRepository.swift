@@ -71,7 +71,7 @@ extension TouristInfoServiceError {
 }
 
 final class TouristInfoRepository: TouristInfoRepositoryInterface {
-  func requestTouristInfoList(touristInfoQueryType: TouristInfoQueryType) -> Single<Result<[TouristInfo], TouristInfoServiceError>> {
+  func requestTouristInfoList(touristInfoQueryType: TouristInfoQueryType) -> Single<Result<TouristInfoData, TouristInfoServiceError>> {
     var target: MultiTarget
     switch touristInfoQueryType {
     case .area:
@@ -95,7 +95,7 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
     }
     return provider.rx.request(target)
       .filterSuccessfulStatusCodes()
-      .flatMap { response -> Single<Result<[TouristInfo], TouristInfoServiceError>> in
+      .flatMap { response -> Single<Result<TouristInfoData, TouristInfoServiceError>> in
         let responseDTO = try response.map(TouristInfoResponseDTO.self)
         return Single.just(Result.success(responseDTO.toDomain()))
       }

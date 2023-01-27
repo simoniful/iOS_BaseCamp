@@ -47,6 +47,20 @@ final class DetailUseCase {
     return error.localizedDescription
   }
   
+  func getTouristInfoValue(_ result: Result<TouristInfoData, TouristInfoServiceError>) -> TouristInfoData? {
+    guard case .success(let value) = result else {
+      return nil
+    }
+    return value
+  }
+  
+  func getTouristInfoError(_ result: Result<TouristInfoData, TouristInfoServiceError>) -> String? {
+    guard case .failure(let error) = result else {
+      return nil
+    }
+    return error.localizedDescription
+  }
+  
   func requestHeaderData(campsite: Campsite, images: [String]) -> [DetailCampsiteHeaderItem] {
     return [
       DetailCampsiteHeaderItem(
@@ -257,7 +271,7 @@ final class DetailUseCase {
   }
   
   // MARK: - 관광정보 레포 연결
-  func requestTouristInfoList(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, coordinate: Coordinate, radius: Int) -> Single<Result<[TouristInfo], TouristInfoServiceError>> {
+  func requestTouristInfoList(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, coordinate: Coordinate, radius: Int) -> Single<Result<TouristInfoData, TouristInfoServiceError>> {
     touristInfoRepository.requestTouristInfoList(touristInfoQueryType: .location(numOfRows: numOfRows, pageNo: pageNo, contentTypeId: contentTypeId, coordinate: coordinate, radius: radius))
   }
   

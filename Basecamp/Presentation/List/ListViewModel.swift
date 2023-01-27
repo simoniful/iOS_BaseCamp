@@ -40,6 +40,10 @@ final class ListViewModel: ViewModel {
   public let listCampsiteViewModel = ListCampsiteViewModel()
   public let listTouristViewModel = ListTouristViewModel()
   
+  private var currentPage: Int = 0
+  var totalCount = 0
+  private let numOfRows: Int = 20
+  
   var disposeBag = DisposeBag()
   
   func transform(input: Input) -> Output {
@@ -71,8 +75,11 @@ final class ListViewModel: ViewModel {
       .bind(to: sigunguDataSource)
       .disposed(by: disposeBag)
         
-        
-    Observable.combineLatest(listCampsiteViewModel.viewWillAppear, areaState, sigunguState)
+    Observable.combineLatest(
+      listCampsiteViewModel.viewWillAppear,
+      areaState,
+      sigunguState
+    )
       .withUnretained(self)
       .compactMap { (owner, signals) in
         let (_, area, sigungu) = signals
@@ -81,7 +88,35 @@ final class ListViewModel: ViewModel {
       .bind(to: listCampsiteViewModel.resultCellData)
       .disposed(by: disposeBag)
     
+    let touristInfoResult = Observable.combineLatest(
+      listTouristViewModel.viewWillAppear,
+      areaState,
+      sigunguState,
+      listTouristViewModel.currentContentType
+    )
+    .withUnretained(self)
+    .flatMapLatest { (owner, signals) in
+      let (_, area, sigungu, type) = signals
+      return owner.listUseCase.requestTouristInfoList(
+        numOfRows: owner.numOfRows,
+        pageNo: owner.currentPage,
+        areaCode: area,
+        sigunguCode: sigungu,
+        type: type
+      )
+    }
+    .share()
     
+    let touristInfoValue = touristInfoResult
+      .withUnretained(self)
+      .compactMap { (owner, data) -> TouristInfoData? in
+        owner.listUseCase.getTouristInfoValue(data)
+      }
+    
+    touristInfoValue
+      .bind(to: listTouristViewModel.resultCellData)
+      .disposed(by: disposeBag)
+ 
     
     return Output(
       sigunguReloadSignal: sigunguReloadSignal.asDriver(onErrorJustReturn: [])
@@ -90,5 +125,33 @@ final class ListViewModel: ViewModel {
 }
 
 extension ListViewModel {
-  
+//  func requestNewsList(isNeededToReset: Bool) {
+//      if isNeededToReset {
+//          currentPage = 0
+//          totalCount = 0
+//          newsList.accept([])
+//      }
+//
+//      searchUseCase.request(
+//          from: currentKeyword,
+//          display: display,
+//          start: (currentPage * display) + 1,
+//          completionHandler: {[weak self] result in
+//              guard let self = self else { return }
+//              switch result {
+//              case .success(let data):
+//                  let newValue = data.item
+//                  let oldValue = self.newsList.value
+//                  self.newsList.accept(oldValue + newValue)
+//                  self.currentPage += 1
+//                  self.totalCount = data.total
+//                  self.endRefreshing.accept(())
+//                  if isNeededToReset {
+//                      self.scrollToTop.accept(())
+//                  }
+//              case .failure(let error):
+//                  self.showToastAction.accept(error.errorDescription)
+//              }
+//          })
+//  }
 }

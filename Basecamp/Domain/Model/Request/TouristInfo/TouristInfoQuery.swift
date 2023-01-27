@@ -8,7 +8,7 @@
 import Foundation
 
 enum TouristInfoQueryType {
-  case area(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, areaCode: Area, sigunguCode: Sigungu)
+  case area(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType?, areaCode: Area?, sigunguCode: Sigungu?)
   case location(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, coordinate: Coordinate, radius: Int)
   case keyword(numOfRows: Int, pageNo: Int, contentTypeId: TouristInfoContentType, areaCode: Area, sigunguCode: Sigungu, keyword: String)
   case festival(numOfRows: Int, pageNo: Int, areaCode: Area?, sigunguCode: Sigungu?, eventStartDate: Date)
@@ -112,9 +112,9 @@ struct TouristInfoAreaQuery: TouristInfoQuery {
   let mobileOS: String
   let moblieApp: String
   let serviceKey: String
-  let contentTypeId: TouristInfoContentType
-  let areaCode: Area
-  let sigunguCode: Sigungu
+  let contentTypeId: TouristInfoContentType?
+  let areaCode: Area?
+  let sigunguCode: Sigungu?
 }
 
 struct TouristInfoLocationQuery: TouristInfoQuery {

@@ -44,11 +44,10 @@
 		F45C0A5729810EC00075E1AC /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = F45C0A5629810EC00075E1AC /* DropDown */; };
 		F45C0A5E298137DA0075E1AC /* ListCampsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A5D298137DA0075E1AC /* ListCampsiteViewController.swift */; };
 		F45C0A63298144360075E1AC /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A62298144360075E1AC /* DropDownView.swift */; };
-		F45C0A66298220010075E1AC /* TTGTags in Frameworks */ = {isa = PBXBuildFile; productRef = F45C0A65298220010075E1AC /* TTGTags */; };
 		F45C0A68298223090075E1AC /* ListCampsiteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A67298223090075E1AC /* ListCampsiteViewModel.swift */; };
 		F45C0A6A298224AB0075E1AC /* ListTouristViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A69298224AB0075E1AC /* ListTouristViewModel.swift */; };
 		F45C0A6C298224B90075E1AC /* ListTouristViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A6B298224B90075E1AC /* ListTouristViewController.swift */; };
-		F45C0A6E298226BD0075E1AC /* ListTabmanTouristViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A6D298226BD0075E1AC /* ListTabmanTouristViewHeader.swift */; };
+		F45C0A6E298226BD0075E1AC /* ListTouristViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A6D298226BD0075E1AC /* ListTouristViewHeader.swift */; };
 		F46BFB73296323DE007EB676 /* YoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB72296323DE007EB676 /* YoutubeRepository.swift */; };
 		F46BFB75296323F5007EB676 /* NaverBlogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */; };
 		F46BFB7729632404007EB676 /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB7629632404007EB676 /* WeatherRepository.swift */; };
@@ -286,7 +285,7 @@
 		F45C0A67298223090075E1AC /* ListCampsiteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCampsiteViewModel.swift; sourceTree = "<group>"; };
 		F45C0A69298224AB0075E1AC /* ListTouristViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTouristViewModel.swift; sourceTree = "<group>"; };
 		F45C0A6B298224B90075E1AC /* ListTouristViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTouristViewController.swift; sourceTree = "<group>"; };
-		F45C0A6D298226BD0075E1AC /* ListTabmanTouristViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTabmanTouristViewHeader.swift; sourceTree = "<group>"; };
+		F45C0A6D298226BD0075E1AC /* ListTouristViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTouristViewHeader.swift; sourceTree = "<group>"; };
 		F46BFB72296323DE007EB676 /* YoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepository.swift; sourceTree = "<group>"; };
 		F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogRepository.swift; sourceTree = "<group>"; };
 		F46BFB7629632404007EB676 /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
@@ -463,7 +462,6 @@
 				F4F0E08A296473D30006C9D4 /* Tabman in Frameworks */,
 				F49034822949B9B300CDE442 /* RxKeyboard in Frameworks */,
 				F49034852949BA3300CDE442 /* Realm in Frameworks */,
-				F45C0A66298220010075E1AC /* TTGTags in Frameworks */,
 				F4E3E5A4295460A5009AFCFC /* EnumKit in Frameworks */,
 				F49034612949B63600CDE442 /* Toast in Frameworks */,
 				F490348C2949BA5B00CDE442 /* RxDataSources in Frameworks */,
@@ -604,7 +602,7 @@
 				F45C0A67298223090075E1AC /* ListCampsiteViewModel.swift */,
 				F45C0A6B298224B90075E1AC /* ListTouristViewController.swift */,
 				F45C0A69298224AB0075E1AC /* ListTouristViewModel.swift */,
-				F45C0A6D298226BD0075E1AC /* ListTabmanTouristViewHeader.swift */,
+				F45C0A6D298226BD0075E1AC /* ListTouristViewHeader.swift */,
 			);
 			path = Subs;
 			sourceTree = "<group>";
@@ -1535,7 +1533,6 @@
 				F4F0E089296473D30006C9D4 /* Tabman */,
 				F4F0E0E6296D98980006C9D4 /* FSPagerView */,
 				F45C0A5629810EC00075E1AC /* DropDown */,
-				F45C0A65298220010075E1AC /* TTGTags */,
 			);
 			productName = Basecamp;
 			productReference = F4D10EA129497831000C02E0 /* Basecamp.app */;
@@ -1626,7 +1623,6 @@
 				F4F0E088296473D30006C9D4 /* XCRemoteSwiftPackageReference "Tabman" */,
 				F4F0E0E5296D98970006C9D4 /* XCRemoteSwiftPackageReference "FSPagerView" */,
 				F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */,
-				F45C0A64298220010075E1AC /* XCRemoteSwiftPackageReference "TTGTagCollectionView" */,
 			);
 			productRefGroup = F4D10EA229497831000C02E0 /* Products */;
 			projectDirPath = "";
@@ -1783,7 +1779,7 @@
 				F4E3E5DC295E8422009AFCFC /* CampsiteLocationRequestDTO.swift in Sources */,
 				F4FD50AC296305EC00FA3CB3 /* DetailFacilityCell.swift in Sources */,
 				F4D10EE4294982B5000C02E0 /* TabBarPageCase.swift in Sources */,
-				F45C0A6E298226BD0075E1AC /* ListTabmanTouristViewHeader.swift in Sources */,
+				F45C0A6E298226BD0075E1AC /* ListTouristViewHeader.swift in Sources */,
 				F49034B5294C5C6600CDE442 /* HomeCampsiteCell.swift in Sources */,
 				F45C0A21297526FE0075E1AC /* FilterSubViewModel.swift in Sources */,
 				F4F0E0A92965CD620006C9D4 /* NaverBlogRequestDTO.swift in Sources */,
@@ -2324,14 +2320,6 @@
 				kind = branch;
 			};
 		};
-		F45C0A64298220010075E1AC /* XCRemoteSwiftPackageReference "TTGTagCollectionView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/zekunyan/TTGTagCollectionView";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		F490345F2949B63600CDE442 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
@@ -2435,11 +2423,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */;
 			productName = DropDown;
-		};
-		F45C0A65298220010075E1AC /* TTGTags */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F45C0A64298220010075E1AC /* XCRemoteSwiftPackageReference "TTGTagCollectionView" */;
-			productName = TTGTags;
 		};
 		F49034602949B63600CDE442 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;

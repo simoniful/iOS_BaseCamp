@@ -205,13 +205,13 @@ final class DetailViewModel: ViewModel {
         }
         
       let touristValue = touristResult
-        .compactMap { [weak self] data -> [TouristInfo]? in
-          self?.detailUseCase.getValue(data)
+        .compactMap { [weak self] data -> TouristInfoData? in
+          self?.detailUseCase.getTouristInfoValue(data)
         }
       
       let touristError = touristResult
         .compactMap { [weak self] data -> String? in
-          self?.detailUseCase.getError(data)
+          self?.detailUseCase.getTouristInfoError(data)
         }
       
       touristValue
@@ -473,13 +473,13 @@ final class DetailViewModel: ViewModel {
         }
         
       let touristValue = touristResult
-        .compactMap { [weak self] data -> [TouristInfo]? in
-          self?.detailUseCase.getValue(data)
+        .compactMap { [weak self] data -> TouristInfoData? in
+          self?.detailUseCase.getTouristInfoValue(data)
         }
       
       let touristError = touristResult
         .compactMap { [weak self] data -> String? in
-          self?.detailUseCase.getError(data)
+          self?.detailUseCase.getTouristInfoError(data)
         }
       
       touristValue

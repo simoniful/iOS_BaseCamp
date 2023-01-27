@@ -40,14 +40,14 @@ final class HomeUseCase {
     return error.localizedDescription
   }
   
-  func getTouristInfoValue(_ result: Result<[TouristInfo], TouristInfoServiceError>) -> [TouristInfo]? {
+  func getTouristInfoValue(_ result: Result<TouristInfoData, TouristInfoServiceError>) -> TouristInfoData? {
     guard case .success(let value) = result else {
       return nil
     }
     return value
   }
   
-  func getTouristInfoError(_ result: Result<[TouristInfo], TouristInfoServiceError>) -> String? {
+  func getTouristInfoError(_ result: Result<TouristInfoData, TouristInfoServiceError>) -> String? {
     guard case .failure(let error) = result else {
       return nil
     }
@@ -121,7 +121,7 @@ final class HomeUseCase {
   }
   
   // MARK: - 관광정보 레포 연결
-  func requestTouristInfoList(numOfRows: Int, pageNo: Int, areaCode: Area?, sigunguCode: Sigungu?, eventStartDate: Date = Date()) -> Single<Result<[TouristInfo], TouristInfoServiceError>> {
+  func requestTouristInfoList(numOfRows: Int, pageNo: Int, areaCode: Area?, sigunguCode: Sigungu?, eventStartDate: Date = Date()) -> Single<Result<TouristInfoData, TouristInfoServiceError>> {
     touristInfoRepository.requestTouristInfoList(
       touristInfoQueryType: .festival(
         numOfRows: numOfRows, pageNo: pageNo, areaCode: areaCode, sigunguCode: sigunguCode, eventStartDate: eventStartDate)

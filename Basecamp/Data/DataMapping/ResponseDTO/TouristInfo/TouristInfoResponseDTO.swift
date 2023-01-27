@@ -17,7 +17,7 @@ struct TouristInfoResponseDTO_Response: Codable {
 }
 
 struct TouristInfoResponseDTO_Header: Codable {
-    let resultCode, resultMsg: String?
+  let resultCode, resultMsg: String?
 }
 
 struct TouristInfoResponseDTO_Body: Codable {
@@ -84,10 +84,13 @@ struct TouristInfoResponseDTO_Item: Codable {
 }
 
 extension TouristInfoResponseDTO {
-  func toDomain() -> [TouristInfo] {
-    return response.body.items.item.map {
-      $0.toDomain()
-    }
+  func toDomain() -> TouristInfoData {
+    return .init(
+      item: response.body.items.item.map { $0.toDomain() },
+      totalCount: response.body.totalCount,
+      pageNo: response.body.pageNo,
+      numOfRows: response.body.numOfRows
+    )
   }
 }
 

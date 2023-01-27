@@ -7,6 +7,7 @@ target 'Basecamp' do
 
   # Pods for Basecamp
   pod 'NMapsMap'
+  pod 'TTGTagCollectionView'
 
   target 'BasecampTests' do
     inherit! :search_paths

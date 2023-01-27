@@ -11,16 +11,27 @@ import RxSwift
 import RxCocoa
 
 final class ListCampsiteViewController: UIViewController {
+  private var viewModel: ListCampsiteViewModel
   private var disposeBag = DisposeBag()
   private lazy var tableView = UITableView(frame: .zero, style: .plain)
+  
+  init(viewModel: ListCampsiteViewModel) {
+    self.viewModel = viewModel
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setupView()
     setupConstraints()
+    bind()
   }
   
-  func bind(_ viewModel: ListCampsiteViewModel) {
+  func bind() {
     self.rx.viewWillAppear
       .bind(to: viewModel.viewWillAppear)
       .disposed(by: disposeBag)

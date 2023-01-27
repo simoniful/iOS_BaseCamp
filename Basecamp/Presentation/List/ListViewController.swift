@@ -65,10 +65,8 @@ final class ListViewController: TabmanViewController {
   }
   
   func bind() {
-    let campsiteVC = ListCampsiteViewController()
-    let touristVC = ListTouristViewController()
-    campsiteVC.bind(viewModel.listCampsiteViewModel)
-    touristVC.bind(viewModel.listTouristViewModel)
+    let campsiteVC = ListCampsiteViewController(viewModel: viewModel.listCampsiteViewModel)
+    let touristVC = ListTouristViewController(viewModel: viewModel.listTouristViewModel)
     [campsiteVC, touristVC].forEach {
       vclist.append($0)
     }

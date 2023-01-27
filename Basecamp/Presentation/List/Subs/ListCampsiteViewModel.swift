@@ -11,13 +11,13 @@ import RxCocoa
 
 struct ListCampsiteViewModel {
   let viewWillAppear = PublishRelay<Void>()
-  let didSelectItemAtCampsite = PublishRelay<(Campsite, IndexPath)>()
+  let didSelectItemAt = PublishRelay<(Campsite, IndexPath)>()
   
   let resultCellData = PublishSubject<[Campsite]>()
   let cellData: Driver<[Campsite]>
   
   init() {
-      self.cellData = resultCellData
-          .asDriver(onErrorJustReturn: [])
+    self.cellData = resultCellData
+      .asDriver(onErrorJustReturn: [])
   }
 }

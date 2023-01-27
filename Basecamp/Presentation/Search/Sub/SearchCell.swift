@@ -54,6 +54,25 @@ final class SearchCell: UITableViewCell {
     addressLabel.text = campsite.addr1!.isEmpty ? " " : campsite.addr1
     introLabel.text = campsite.lineIntro!.isEmpty ? " " : campsite.lineIntro
   }
+  
+  func setupData(touristInfo: TouristInfo) {
+    guard let urlString = touristInfo.mainImage else { return }
+    let url = URL(string: urlString)
+    let processor = DownsamplingImageProcessor(size: CGSize(width: 400, height: 300))
+    thumbnailImageView.kf.indicatorType = .activity
+    thumbnailImageView.kf.setImage(
+        with: url,
+        options: [
+            .processor(processor),
+            .scaleFactor(UIScreen.main.scale),
+            .transition(.fade(1)),
+            .cacheOriginalImage
+              
+        ])
+    titleLabel.text = touristInfo.title
+    addressLabel.text = touristInfo.address!.isEmpty ? " " : touristInfo.address
+    introLabel.text = " "
+  }
 }
 
 extension SearchCell: ViewRepresentable {
