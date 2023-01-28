@@ -21,11 +21,11 @@ struct ListTouristViewModel {
   let endRefreshing = PublishRelay<Void>()
   let scrollToTop = PublishRelay<Void>()
   
-  let resultCellData = PublishSubject<TouristInfoData>()
+  let resultCellData = PublishSubject<[TouristInfo]>()
   let currentContentType = BehaviorRelay<TouristInfoContentType?>(value: nil)
   
   init() {
-    self.cellData = resultCellData.compactMap{ $0.item }.asDriver(onErrorJustReturn: [])
+    self.cellData = resultCellData.asDriver(onErrorJustReturn: [])
   }
 }
 

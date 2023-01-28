@@ -186,6 +186,43 @@ struct TouristInfoIntroResponseDTO_LeisureItem: Codable, TouristInfoIntroRespons
   }
 }
 
+// 실제 json과 비교하여 구조체 구성
+struct TouristInfoIntroResponseDTO_AccommodationItem: Codable, TouristInfoIntroResponseDTO_Item {
+  let contentId, contentTypeId, goodstay, benikia: String?
+  let hanok, roomcount, roomtype, refundregulation: String?
+  let checkintime, checkouttime, chkcooking, seminar: String?
+  let sports, sauna, beauty, beverage: String?
+  let karaoke, barbecue, campfire, bicycle: String?
+  let fitness, publicpc, publicbath, subfacility: String?
+  let foodplace, reservationurl, pickup, infocenterlodging: String?
+  let parkinglodging, reservationlodging, scalelodging, accomcountlodging: String?
+  
+  enum CodingKeys: String, CodingKey {
+    case contentId = "contentid"
+    case contentTypeId = "contenttypeid"
+    case goodstay, benikia, hanok, roomcount, roomtype, refundregulation, checkintime, checkouttime, chkcooking, seminar, sports, sauna, beauty, beverage, karaoke, barbecue, campfire, bicycle, fitness, publicpc, publicbath, subfacility, foodplace, reservationurl, pickup, infocenterlodging, parkinglodging, reservationlodging, scalelodging, accomcountlodging
+  }
+  
+  func toDomain() -> TouristInfoIntro {
+    return TouristInfoIntroAccommodation(
+      contentId: Int(contentId!),
+      contentTypeId: TouristInfoContentType(rawValue: Int(contentTypeId!)!)!,
+      roomcount: roomcount ?? "",
+      refundregulation: refundregulation ?? "",
+      checkintime: checkintime ?? "",
+      checkouttime: checkouttime ?? "",
+      chkcooking: chkcooking ?? "",
+      subfacility: subfacility ?? "",
+      foodplace: foodplace ?? "",
+      reservationurl: reservationurl ?? "",
+      pickup: pickup ?? "",
+      infocenterlodging: infocenterlodging ?? "",
+      parkinglodging: parkinglodging ?? "",
+      reservationlodging: reservationlodging ?? ""
+    )
+  }
+}
+
 struct TouristInfoIntroResponseDTO_ShoppingItem: Codable, TouristInfoIntroResponseDTO_Item {
   let contentId, contentTypeId: String?
   let saleitem, saleitemcost: String?
@@ -215,7 +252,6 @@ struct TouristInfoIntroResponseDTO_ShoppingItem: Codable, TouristInfoIntroRespon
       scaleshopping: scaleshopping ?? "",
       restdateshopping: restdateshopping ?? "",
       parkingshopping: parkingshopping ?? "",
-      chkbabycarriageshopping: chkcreditcardshopping ?? "",
       chkpetshopping: chkpetshopping ?? "",
       chkcreditcardshopping: chkcreditcardshopping ?? "",
       opentime: opentime ?? ""

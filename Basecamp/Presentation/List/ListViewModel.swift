@@ -37,6 +37,8 @@ final class ListViewModel: ViewModel {
   public let sigunguDataSource = BehaviorRelay<[Sigungu]>(value: [])
   private let sigunguReloadSignal = PublishRelay<[String]>()
   
+  private let touristInfoList = BehaviorRelay<[TouristInfo]>(value: [])
+  
   public let listCampsiteViewModel = ListCampsiteViewModel()
   public let listTouristViewModel = ListTouristViewModel()
   
@@ -97,6 +99,9 @@ final class ListViewModel: ViewModel {
     .withUnretained(self)
     .flatMapLatest { (owner, signals) in
       let (_, area, sigungu, type) = signals
+      owner.currentPage = 1
+      owner.totalCount = 0
+      owner.touristInfoList.accept([])
       return owner.listUseCase.requestTouristInfoList(
         numOfRows: owner.numOfRows,
         pageNo: owner.currentPage,
@@ -114,44 +119,75 @@ final class ListViewModel: ViewModel {
       }
     
     touristInfoValue
+      .do(onNext: { data in
+        print(data, "리스트 관광정보 데이터 패칭 ----")
+      })
+      .withUnretained(self)
+      .compactMap { (owner, data) in
+        owner.currentPage += 1
+        owner.totalCount = data.totalCount
+        owner.listTouristViewModel.endRefreshing.accept(())
+        owner.listTouristViewModel.scrollToTop.accept(())
+        return data.item
+      }
+      .bind(to: touristInfoList)
+      .disposed(by: disposeBag)
+    
+    let touristInfoPrefetchResult = listTouristViewModel.prefetchRowsAt
+      .withUnretained(self)
+      .filter({ (owner, indexPaths) in
+        indexPaths.contains { indexPath in
+          let limitIndex = owner.touristInfoList.value.count - 1
+          return limitIndex == indexPath.row && owner.touristInfoList.value.count < owner.totalCount
+        }
+      })
+      .flatMapLatest({ (owner, indexPaths) in
+        owner.listUseCase.requestTouristInfoList(
+          numOfRows: owner.numOfRows,
+          pageNo: owner.currentPage,
+          areaCode: owner.areaState.value,
+          sigunguCode: owner.sigunguState.value,
+          type: owner.listTouristViewModel.currentContentType.value
+        )
+      })
+      .share()
+    
+    let touristInfoPrefetchValue = touristInfoPrefetchResult
+      .withUnretained(self)
+      .compactMap { (owner, data) -> TouristInfoData? in
+        owner.listUseCase.getTouristInfoValue(data)
+      }
+    
+    
+    touristInfoPrefetchValue
+      .do(onNext: { data in
+        print(data, "리스트 관광정보 데이터 패칭 ----")
+      })
+      .withUnretained(self)
+      .compactMap { (owner, data) in
+        let newValue = data.item
+        let oldValue = owner.touristInfoList.value
+        owner.currentPage += 1
+        owner.totalCount = data.totalCount
+        owner.listTouristViewModel.endRefreshing.accept(())
+        return oldValue + newValue
+      }
+      .bind(to: touristInfoList)
+      .disposed(by: disposeBag)
+    
+    
+    
+    
+     
+  
+    touristInfoList
       .bind(to: listTouristViewModel.resultCellData)
       .disposed(by: disposeBag)
  
-    
+
     return Output(
       sigunguReloadSignal: sigunguReloadSignal.asDriver(onErrorJustReturn: [])
     )
   }
 }
 
-extension ListViewModel {
-//  func requestNewsList(isNeededToReset: Bool) {
-//      if isNeededToReset {
-//          currentPage = 0
-//          totalCount = 0
-//          newsList.accept([])
-//      }
-//
-//      searchUseCase.request(
-//          from: currentKeyword,
-//          display: display,
-//          start: (currentPage * display) + 1,
-//          completionHandler: {[weak self] result in
-//              guard let self = self else { return }
-//              switch result {
-//              case .success(let data):
-//                  let newValue = data.item
-//                  let oldValue = self.newsList.value
-//                  self.newsList.accept(oldValue + newValue)
-//                  self.currentPage += 1
-//                  self.totalCount = data.total
-//                  self.endRefreshing.accept(())
-//                  if isNeededToReset {
-//                      self.scrollToTop.accept(())
-//                  }
-//              case .failure(let error):
-//                  self.showToastAction.accept(error.errorDescription)
-//              }
-//          })
-//  }
-}

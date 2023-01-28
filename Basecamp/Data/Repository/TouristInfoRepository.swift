@@ -141,12 +141,16 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
       case .leisure:
         let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_LeisureItem>.self)
         return Single.just(Result.success(responseDTO.toDomain()))
+      case .accommodation:
+        let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_AccommodationItem>.self)
+        return Single.just(Result.success(responseDTO.toDomain()))
       case .shoppingSpot:
         let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_ShoppingItem>.self)
         return Single.just(Result.success(responseDTO.toDomain()))
       case .restaurant:
         let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_RestaurantItem>.self)
         return Single.just(Result.success(responseDTO.toDomain()))
+   
       }
     }
     .catch { error in

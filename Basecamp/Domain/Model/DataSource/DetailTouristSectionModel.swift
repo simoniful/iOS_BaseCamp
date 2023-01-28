@@ -51,6 +51,10 @@ struct DetailTouristInfoLeisureIntroItem:  DetailTouristInfoIntroItem {
   var intro: TouristInfoIntroLeisure
 }
 
+struct DetailTouristInfoAccommodationIntroItem: DetailTouristInfoIntroItem {
+  var intro: TouristInfoIntroAccommodation
+}
+
 struct DetailTouristInfoShoppingIntroItem:  DetailTouristInfoIntroItem {
   var intro: TouristInfoIntroShopping
 }

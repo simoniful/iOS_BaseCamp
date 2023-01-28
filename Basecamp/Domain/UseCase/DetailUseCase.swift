@@ -169,6 +169,8 @@ final class DetailUseCase {
       return [DetailTouristInfoFestivalIntroItem(intro: intro.first as! TouristInfoIntroFestival)]
     case .leisure:
       return [DetailTouristInfoLeisureIntroItem(intro: intro.first as! TouristInfoIntroLeisure)]
+    case .accommodation:
+      return [DetailTouristInfoAccommodationIntroItem(intro: intro.first as! TouristInfoIntroAccommodation)]
     case .shoppingSpot:
       return [DetailTouristInfoShoppingIntroItem(intro: intro.first as! TouristInfoIntroShopping)]
     case .restaurant:

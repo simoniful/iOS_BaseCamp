@@ -13,6 +13,6 @@ struct TouristInfoIntroShopping: TouristInfoIntro, PropertyIterable {
   let saleitem, saleitemcost: String
   let fairday, opendateshopping, shopguide, culturecenter: String
   let restroom, infocentershopping, scaleshopping, restdateshopping: String
-  let parkingshopping, chkbabycarriageshopping, chkpetshopping, chkcreditcardshopping: String
+  let parkingshopping, chkpetshopping, chkcreditcardshopping: String
   let opentime: String
 }

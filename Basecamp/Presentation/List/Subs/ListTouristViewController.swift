@@ -48,6 +48,10 @@ final class ListTouristViewController: UIViewController {
         return cell
       }
       .disposed(by: disposeBag)
+    
+    tableView.rx.prefetchRows
+      .bind(to: viewModel.prefetchRowsAt)
+      .disposed(by: disposeBag)
   }
 }
 
@@ -59,7 +63,6 @@ extension ListTouristViewController: ViewRepresentable {
     tableView.sectionHeaderHeight = UITableView.automaticDimension
     tableView.rowHeight = UITableView.automaticDimension
     tableView.estimatedRowHeight = 76
-    tableView.backgroundColor = .brown1
     tableView.sectionHeaderTopPadding = 0
   }
   

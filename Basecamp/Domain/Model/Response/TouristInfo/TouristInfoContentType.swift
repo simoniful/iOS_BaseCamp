@@ -12,6 +12,7 @@ enum TouristInfoContentType: Int, CaseIterable, Codable {
   case cultureFacilities = 14
   case festival = 15
   case leisure = 28
+  case accommodation = 32
   case shoppingSpot = 38
   case restaurant = 39
   
@@ -25,6 +26,8 @@ enum TouristInfoContentType: Int, CaseIterable, Codable {
       return "축제/행사"
     case .leisure:
       return "레저"
+    case .accommodation:
+      return "숙박"
     case .shoppingSpot:
       return "쇼핑"
     case .restaurant:
@@ -96,6 +99,21 @@ enum TouristInfoContentType: Int, CaseIterable, Codable {
         "restdateleports": "쉬는날",
         "usefeeleports": "입장료",
         "usetimeleports": "이용시간"
+      ]
+    case .accommodation:
+      return [
+        "checkintime": "입실 시간",
+        "checkouttime": "퇴실 시간",
+        "chkcooking": "객실내 취사",
+        "foodplace": "식음료장",
+        "infocenterlodging": "문의 및 안내",
+        "parkinglodging": "주차시설",
+        "pickup": "픽업 서비스",
+        "roomcount": "객실수",
+        "reservationlodging": "예약안내",
+        "reservationurl": "예약안내 홈페이지",
+        "subfacility": "부대시설",
+        "refundregulation": "환불규정"
       ]
     case .shoppingSpot:
       return [
