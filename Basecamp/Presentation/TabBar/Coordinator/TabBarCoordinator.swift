@@ -86,6 +86,11 @@ final class TabBarCoordinator: Coordinator {
       listCoordinator.delegate = self
       self.childCoordinators.append(listCoordinator)
       listCoordinator.start()
+    case .map:
+      let mapCoordinator = MapCoordinator(tabNavigationController)
+      mapCoordinator.delegate = self
+      self.childCoordinators.append(mapCoordinator)
+      mapCoordinator.start()
     default:
       break
     }

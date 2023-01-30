@@ -49,6 +49,16 @@
 		F45C0A6C298224B90075E1AC /* ListTouristViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A6B298224B90075E1AC /* ListTouristViewController.swift */; };
 		F45C0A6E298226BD0075E1AC /* ListTouristViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A6D298226BD0075E1AC /* ListTouristViewHeader.swift */; };
 		F45C0A70298425500075E1AC /* TouristInfoIntroAccommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A6F298425500075E1AC /* TouristInfoIntroAccommodation.swift */; };
+		F45C0A7229862B840075E1AC /* MapUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A7129862B840075E1AC /* MapUseCase.swift */; };
+		F45C0A75298631980075E1AC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A74298631980075E1AC /* MapViewController.swift */; };
+		F45C0A77298631A90075E1AC /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A76298631A90075E1AC /* MapViewModel.swift */; };
+		F45C0A7A298631C40075E1AC /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A79298631C40075E1AC /* MapCoordinator.swift */; };
+		F45C0A7C29876E2E0075E1AC /* NMFMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A7B29876E2E0075E1AC /* NMFMap.swift */; };
+		F45C0A7F29877F010075E1AC /* NMFMapView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A7E29877F010075E1AC /* NMFMapView+Rx.swift */; };
+		F45C0A81298788530075E1AC /* RxNMFMapViewCameraDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A80298788530075E1AC /* RxNMFMapViewCameraDelegateProxy.swift */; };
+		F45C0A83298788C00075E1AC /* RxNMFMapViewTouchDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A82298788C00075E1AC /* RxNMFMapViewTouchDelegateProxy.swift */; };
+		F45C0A85298789D00075E1AC /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A84298789D00075E1AC /* CLLocationManager+Rx.swift */; };
+		F45C0A8729878A540075E1AC /* RxCLLocationManagerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A8629878A540075E1AC /* RxCLLocationManagerDelegateProxy.swift */; };
 		F46BFB73296323DE007EB676 /* YoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB72296323DE007EB676 /* YoutubeRepository.swift */; };
 		F46BFB75296323F5007EB676 /* NaverBlogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */; };
 		F46BFB7729632404007EB676 /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB7629632404007EB676 /* WeatherRepository.swift */; };
@@ -98,6 +108,10 @@
 		F49034EE29515B8300CDE442 /* WeatherTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034ED29515B8300CDE442 /* WeatherTarget.swift */; };
 		F49034F029515B9200CDE442 /* NaverBlogTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034EF29515B9200CDE442 /* NaverBlogTarget.swift */; };
 		F49034F229515B9E00CDE442 /* YoutubeTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034F129515B9E00CDE442 /* YoutubeTarget.swift */; };
+		F4C6B94B29880D3600A317D2 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6B94A29880D3600A317D2 /* Vector.swift */; };
+		F4C6B94D29880D3F00A317D2 /* KMeans.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6B94C29880D3F00A317D2 /* KMeans.swift */; };
+		F4C6B94F29880D4B00A317D2 /* Clustering.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6B94E29880D4B00A317D2 /* Clustering.swift */; };
+		F4C6B95129880D5800A317D2 /* Centroid.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6B95029880D5800A317D2 /* Centroid.swift */; };
 		F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EA429497831000C02E0 /* AppDelegate.swift */; };
 		F4D10EA729497831000C02E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EA629497831000C02E0 /* SceneDelegate.swift */; };
 		F4D10EAE29497833000C02E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4D10EAD29497833000C02E0 /* Assets.xcassets */; };
@@ -288,6 +302,16 @@
 		F45C0A6B298224B90075E1AC /* ListTouristViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTouristViewController.swift; sourceTree = "<group>"; };
 		F45C0A6D298226BD0075E1AC /* ListTouristViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTouristViewHeader.swift; sourceTree = "<group>"; };
 		F45C0A6F298425500075E1AC /* TouristInfoIntroAccommodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroAccommodation.swift; sourceTree = "<group>"; };
+		F45C0A7129862B840075E1AC /* MapUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUseCase.swift; sourceTree = "<group>"; };
+		F45C0A74298631980075E1AC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F45C0A76298631A90075E1AC /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		F45C0A79298631C40075E1AC /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
+		F45C0A7B29876E2E0075E1AC /* NMFMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMFMap.swift; sourceTree = "<group>"; };
+		F45C0A7E29877F010075E1AC /* NMFMapView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NMFMapView+Rx.swift"; sourceTree = "<group>"; };
+		F45C0A80298788530075E1AC /* RxNMFMapViewCameraDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNMFMapViewCameraDelegateProxy.swift; sourceTree = "<group>"; };
+		F45C0A82298788C00075E1AC /* RxNMFMapViewTouchDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNMFMapViewTouchDelegateProxy.swift; sourceTree = "<group>"; };
+		F45C0A84298789D00075E1AC /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
+		F45C0A8629878A540075E1AC /* RxCLLocationManagerDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCLLocationManagerDelegateProxy.swift; sourceTree = "<group>"; };
 		F46BFB72296323DE007EB676 /* YoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepository.swift; sourceTree = "<group>"; };
 		F46BFB74296323F5007EB676 /* NaverBlogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogRepository.swift; sourceTree = "<group>"; };
 		F46BFB7629632404007EB676 /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
@@ -327,6 +351,10 @@
 		F49034ED29515B8300CDE442 /* WeatherTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTarget.swift; sourceTree = "<group>"; };
 		F49034EF29515B9200CDE442 /* NaverBlogTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogTarget.swift; sourceTree = "<group>"; };
 		F49034F129515B9E00CDE442 /* YoutubeTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTarget.swift; sourceTree = "<group>"; };
+		F4C6B94A29880D3600A317D2 /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		F4C6B94C29880D3F00A317D2 /* KMeans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMeans.swift; sourceTree = "<group>"; };
+		F4C6B94E29880D4B00A317D2 /* Clustering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clustering.swift; sourceTree = "<group>"; };
+		F4C6B95029880D5800A317D2 /* Centroid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Centroid.swift; sourceTree = "<group>"; };
 		F4D10EA129497831000C02E0 /* Basecamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Basecamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D10EA429497831000C02E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4D10EA629497831000C02E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -609,6 +637,32 @@
 			path = Subs;
 			sourceTree = "<group>";
 		};
+		F45C0A73298630E70075E1AC /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				F45C0A74298631980075E1AC /* MapViewController.swift */,
+				F45C0A76298631A90075E1AC /* MapViewModel.swift */,
+				F45C0A78298631AD0075E1AC /* Coordinator */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		F45C0A78298631AD0075E1AC /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F45C0A79298631C40075E1AC /* MapCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F45C0A7D29876E320075E1AC /* NaverMap */ = {
+			isa = PBXGroup;
+			children = (
+				F45C0A7B29876E2E0075E1AC /* NMFMap.swift */,
+			);
+			path = NaverMap;
+			sourceTree = "<group>";
+		};
 		F4903497294AB26600CDE442 /* Subs */ = {
 			isa = PBXGroup;
 			children = (
@@ -683,6 +737,7 @@
 			children = (
 				F49034C5295030A600CDE442 /* Network */,
 				F49034C6295030AE00CDE442 /* DataBase */,
+				F45C0A7D29876E320075E1AC /* NaverMap */,
 				F49034C7295030B800CDE442 /* Mocks */,
 			);
 			path = Infrastructure;
@@ -772,6 +827,17 @@
 			path = Youtube;
 			sourceTree = "<group>";
 		};
+		F4C6B94929880D2500A317D2 /* Clustering */ = {
+			isa = PBXGroup;
+			children = (
+				F4C6B94E29880D4B00A317D2 /* Clustering.swift */,
+				F4C6B94A29880D3600A317D2 /* Vector.swift */,
+				F4C6B94C29880D3F00A317D2 /* KMeans.swift */,
+				F4C6B95029880D5800A317D2 /* Centroid.swift */,
+			);
+			path = Clustering;
+			sourceTree = "<group>";
+		};
 		F4D10E9829497831000C02E0 = {
 			isa = PBXGroup;
 			children = (
@@ -858,6 +924,7 @@
 				F4D10EE52949854B000C02E0 /* Home */,
 				F45C09F3297157BC0075E1AC /* Search */,
 				F45C09F4297157DF0075E1AC /* List */,
+				F45C0A73298630E70075E1AC /* Map */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -958,6 +1025,7 @@
 		F4D10EF229498F50000C02E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F4C6B94929880D2500A317D2 /* Clustering */,
 				F4E3E5B1295AC30D009AFCFC /* DataSource */,
 				F4D10EF829499016000C02E0 /* Request */,
 				F4D10EF329498F5C000C02E0 /* Response */,
@@ -988,6 +1056,7 @@
 				F4FD50B229630C9000FA3CB3 /* DetailUseCase.swift */,
 				F45C09FA2971C1560075E1AC /* SearchUseCase.swift */,
 				F45C0A53298104690075E1AC /* ListUseCase.swift */,
+				F45C0A7129862B840075E1AC /* MapUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1157,6 +1226,11 @@
 		F4E3E5AA2954C3C5009AFCFC /* Rx */ = {
 			isa = PBXGroup;
 			children = (
+				F45C0A7E29877F010075E1AC /* NMFMapView+Rx.swift */,
+				F45C0A80298788530075E1AC /* RxNMFMapViewCameraDelegateProxy.swift */,
+				F45C0A82298788C00075E1AC /* RxNMFMapViewTouchDelegateProxy.swift */,
+				F45C0A84298789D00075E1AC /* CLLocationManager+Rx.swift */,
+				F45C0A8629878A540075E1AC /* RxCLLocationManagerDelegateProxy.swift */,
 				F4E3E5A82954C392009AFCFC /* UIViewController+Rx.swift */,
 				F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */,
 				F45C0A0F2972A8140075E1AC /* UITableView+Rx.swift */,
@@ -1776,6 +1850,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4FD50972962C18E00FA3CB3 /* DetailViewController.swift in Sources */,
+				F45C0A83298788C00075E1AC /* RxNMFMapViewTouchDelegateProxy.swift in Sources */,
 				F45C0A1D297443C20075E1AC /* SearchHeaderViewModel.swift in Sources */,
 				F45C0A3E297638280075E1AC /* FilterItem.swift in Sources */,
 				F4D10ED629497C6E000C02E0 /* AppCoordinator.swift in Sources */,
@@ -1783,9 +1858,11 @@
 				F4FD50AC296305EC00FA3CB3 /* DetailFacilityCell.swift in Sources */,
 				F45C0A70298425500075E1AC /* TouristInfoIntroAccommodation.swift in Sources */,
 				F4D10EE4294982B5000C02E0 /* TabBarPageCase.swift in Sources */,
+				F45C0A81298788530075E1AC /* RxNMFMapViewCameraDelegateProxy.swift in Sources */,
 				F45C0A6E298226BD0075E1AC /* ListTouristViewHeader.swift in Sources */,
 				F49034B5294C5C6600CDE442 /* HomeCampsiteCell.swift in Sources */,
 				F45C0A21297526FE0075E1AC /* FilterSubViewModel.swift in Sources */,
+				F45C0A7C29876E2E0075E1AC /* NMFMap.swift in Sources */,
 				F4F0E0A92965CD620006C9D4 /* NaverBlogRequestDTO.swift in Sources */,
 				F49034E829515B4E00CDE442 /* WeatherAPIEnvironment.swift in Sources */,
 				F4F0E083296469210006C9D4 /* WeatherInfo.swift in Sources */,
@@ -1811,6 +1888,7 @@
 				F4F0E0AD29666B8F0006C9D4 /* WeatherResponseDTO.swift in Sources */,
 				F4F0E081296468A10006C9D4 /* SocialMediaInfo.swift in Sources */,
 				F49034EA29515B5E00CDE442 /* NaverBlogAPIEnvironment.swift in Sources */,
+				F45C0A8729878A540075E1AC /* RxCLLocationManagerDelegateProxy.swift in Sources */,
 				F46BFB7D29632465007EB676 /* YoutubeRepositoryInterface.swift in Sources */,
 				F4E3E5C1295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift in Sources */,
 				F4F0E099296576120006C9D4 /* DetailAroundTabmanViewController.swift in Sources */,
@@ -1826,8 +1904,10 @@
 				F4E3E5E8295E948C009AFCFC /* TouristInfoFestivalRequestDTO.swift in Sources */,
 				F45C09E3296F03070075E1AC /* DetailViewSectionLayoutManager.swift in Sources */,
 				F4E3E5B0295AC26C009AFCFC /* TouristInfoRepository.swift in Sources */,
+				F4C6B94B29880D3600A317D2 /* Vector.swift in Sources */,
 				F49034E229515B0C00CDE442 /* WeatherAPIConstant.swift in Sources */,
 				F4D10EEA29498738000C02E0 /* CoordinatorDelegate.swift in Sources */,
+				F45C0A77298631A90075E1AC /* MapViewModel.swift in Sources */,
 				F4F0E09F2965A9920006C9D4 /* DetailSocialCell.swift in Sources */,
 				F4E3E5EC295E9511009AFCFC /* TouristInfoIntroRequestDTO.swift in Sources */,
 				F4F0E0922965758A0006C9D4 /* DetailAroundCell.swift in Sources */,
@@ -1858,6 +1938,7 @@
 				F4E3E5D1295DB1A9009AFCFC /* TouristInfoIntroLeisure.swift in Sources */,
 				F4F0E097296575BD0006C9D4 /* DetailSectionHeader.swift in Sources */,
 				F46BFB75296323F5007EB676 /* NaverBlogRepository.swift in Sources */,
+				F4C6B95129880D5800A317D2 /* Centroid.swift in Sources */,
 				F4F0E0CE296C02100006C9D4 /* DetailAroundSubCell.swift in Sources */,
 				F49034C12950025200CDE442 /* TouristInfoRepositoryInterface.swift in Sources */,
 				F4F0E0B7296725960006C9D4 /* DetailAroundTabmanViewModel.swift in Sources */,
@@ -1866,16 +1947,19 @@
 				F45C09E529703CF80075E1AC /* DetailTouristInfoHeaderCell.swift in Sources */,
 				F4E3E58D295181D1009AFCFC /* CampsiteQuery.swift in Sources */,
 				F4F0E0B129666BAF0006C9D4 /* YoutubeResponseDTO.swift in Sources */,
+				F45C0A75298631980075E1AC /* MapViewController.swift in Sources */,
 				F4E3E5E0295E8687009AFCFC /* CampsiteImageRequestDTO.swift in Sources */,
 				F4F0E0BB2967A7A30006C9D4 /* Facility.swift in Sources */,
 				F45C09E729703D530075E1AC /* DetailTouristInfoHeaderStackView.swift in Sources */,
 				F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */,
 				F4F0E0852964694F0006C9D4 /* YoutubeInfo.swift in Sources */,
 				F49034A8294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift in Sources */,
+				F45C0A85298789D00075E1AC /* CLLocationManager+Rx.swift in Sources */,
 				F4E3E59C2954466C009AFCFC /* RealmStorage.swift in Sources */,
 				F4E3E58F295181EF009AFCFC /* TouristInfoQuery.swift in Sources */,
 				F46BFB792963243A007EB676 /* WeatherRepositoryInterface.swift in Sources */,
 				F4D10F0429499427000C02E0 /* ViewRepresentable.swift in Sources */,
+				F45C0A7A298631C40075E1AC /* MapCoordinator.swift in Sources */,
 				F4E3E5F2295EA028009AFCFC /* Date.swift in Sources */,
 				F49034AC294C421300CDE442 /* Area.swift in Sources */,
 				F49034EC29515B7200CDE442 /* YoutubeAPIEnvironment.swift in Sources */,
@@ -1888,6 +1972,7 @@
 				F49034BD2950000500CDE442 /* RealmRepositoryInterface.swift in Sources */,
 				F45C09FB2971C1560075E1AC /* SearchUseCase.swift in Sources */,
 				F49034D72950628E00CDE442 /* TouristInfoAPIConstant.swift in Sources */,
+				F4C6B94D29880D3F00A317D2 /* KMeans.swift in Sources */,
 				F49034F229515B9E00CDE442 /* YoutubeTarget.swift in Sources */,
 				F4F0E0BF2967F6320006C9D4 /* DefaultLabel.swift in Sources */,
 				F4E3E5DE295E85DA009AFCFC /* CampsiteKeywordRequestDTO.swift in Sources */,
@@ -1896,6 +1981,7 @@
 				F4E3E5BF295D77B1009AFCFC /* TouristInfoIntroSpot.swift in Sources */,
 				F45C0A6A298224AB0075E1AC /* ListTouristViewModel.swift in Sources */,
 				F4F0E0B9296726120006C9D4 /* DetailAroundTabmanSubViewModel.swift in Sources */,
+				F45C0A7F29877F010075E1AC /* NMFMapView+Rx.swift in Sources */,
 				F4D10F0129499386000C02E0 /* ViewModel.swift in Sources */,
 				F45C0A3629755C840075E1AC /* FilterSubItemCell.swift in Sources */,
 				F45C0A492979A73D0075E1AC /* KeywordViewModel.swift in Sources */,
@@ -1915,6 +2001,7 @@
 				F49034B8294C5E7600CDE442 /* HomeSectionHeader.swift in Sources */,
 				F49034D9295075F800CDE442 /* TouristInfoAPIEnvironment.swift in Sources */,
 				F4F0E07B29645BBB0006C9D4 /* NaverBlogQuery.swift in Sources */,
+				F4C6B94F29880D4B00A317D2 /* Clustering.swift in Sources */,
 				F4E3E5BB295D779B009AFCFC /* TouristInfoCommon.swift in Sources */,
 				F4E3E5E6295E946F009AFCFC /* TouristInfoKeywordRequestDTO.swift in Sources */,
 				F4903495294A172D00CDE442 /* HomeHeaderCell.swift in Sources */,
@@ -1961,6 +2048,7 @@
 				F49034AE294C42B200CDE442 /* Campsite.swift in Sources */,
 				F4E3E5EA295E9507009AFCFC /* TouristInfoCommonRequestDTO.swift in Sources */,
 				F4FD50A5296303E600FA3CB3 /* DetailCampsiteHeaderCell.swift in Sources */,
+				F45C0A7229862B840075E1AC /* MapUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,8 +11,6 @@ import RxSwift
 import RxCocoa
 import NMapsMap
 
-var globalMapView = NMFMapView()
-
 final class DetailLocationCell: UICollectionViewCell {
   static let identifier = "DetailLocationCell"
   
@@ -102,7 +100,6 @@ extension DetailLocationCell: ViewRepresentable {
     }
     
     let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: Double(data.mapY)!, lng: Double(data.mapX)!))
-    // cameraUpdate.animation = .easeIn
     mapView.moveCamera(cameraUpdate)
     
     let marker = NMFMarker()
