@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+
 final class MapViewModel: ViewModel {
   weak var coordinator: MapCoordinator?
   private let mapUseCase: MapUseCase
@@ -22,7 +23,7 @@ final class MapViewModel: ViewModel {
     let viewDidLoad: Observable<Void>
   }
   struct Output {
-    let data: Driver<[Campsite]>
+    let data: Observable<[Campsite]>
   }
   
   private let data = PublishRelay<[Campsite]>()
@@ -40,7 +41,7 @@ final class MapViewModel: ViewModel {
       .disposed(by: disposeBag)
     
     return Output(
-      data: data.asDriver(onErrorJustReturn: [])
+      data: data.asObservable()
     )
   }
 }

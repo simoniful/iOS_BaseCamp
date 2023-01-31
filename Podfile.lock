@@ -1,24 +1,54 @@
 PODS:
-  - NMapsGeometry (1.0.1)
-  - NMapsMap (3.16.1):
-    - NMapsGeometry
+  - NaverMapCluster (0.1.5):
+    - NMapsMap
+    - RxBlocking
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+  - NMapsMap (3.16.0)
+  - RxBlocking (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
   - TTGTagCollectionView (2.3.0)
 
 DEPENDENCIES:
-  - NMapsMap
+  - NaverMapCluster (from `https://github.com/manunite/NaverMapCluster.git`, tag `0.1.5`)
+  - NMapsMap (= 3.16.0)
   - TTGTagCollectionView
 
 SPEC REPOS:
   trunk:
-    - NMapsGeometry
     - NMapsMap
+    - RxBlocking
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - TTGTagCollectionView
 
+EXTERNAL SOURCES:
+  NaverMapCluster:
+    :git: https://github.com/manunite/NaverMapCluster.git
+    :tag: 0.1.5
+
+CHECKOUT OPTIONS:
+  NaverMapCluster:
+    :git: https://github.com/manunite/NaverMapCluster.git
+    :tag: 0.1.5
+
 SPEC CHECKSUMS:
-  NMapsGeometry: 53c573ead66466681cf123f99f698dc8071a4b83
-  NMapsMap: 926c3a303d381a24bec8da3cd6e198f50af93ae9
+  NaverMapCluster: 91b3c4010eb0808c4bcbcb385c84edd178194ea8
+  NMapsMap: a2593320fca2bb09e521c05b4dffee4da42e96ed
+  RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   TTGTagCollectionView: 4104f93281097eae5adbf4444811e32f5e52dc95
 
-PODFILE CHECKSUM: 0a0e51073233a594419e2ad718b3cf6dec9d94d5
+PODFILE CHECKSUM: 4b2a8606927041b8c0dcdf4d26fa27934e9627e2
 
 COCOAPODS: 1.11.3
