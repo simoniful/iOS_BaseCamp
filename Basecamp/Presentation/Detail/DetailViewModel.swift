@@ -21,6 +21,7 @@ final class DetailViewModel: ViewModel {
   private weak var coordinator: DetailCoordinator?
   private let detailUseCase: DetailUseCase
   public let style: DetailStyle
+  public var didTapBack: (() -> ())?
   
   init(coordinator: DetailCoordinator?, detailUseCase: DetailUseCase, style: DetailStyle) {
     self.coordinator = coordinator
@@ -126,7 +127,7 @@ final class DetailViewModel: ViewModel {
         .flatMapLatest { (owner, _) in
           owner.detailUseCase.requestNaverBlogInfoList(keyword: campsite.facltNm! ,display: 3)
         }
-
+      
       let youtubeResult = input.viewWillAppear
         .withUnretained(self)
         .flatMapLatest { (owner, _) in
@@ -204,7 +205,7 @@ final class DetailViewModel: ViewModel {
             radius: 10000
           )
         }
-        
+      
       let touristValue = touristResult
         .compactMap { [weak self] data -> TouristInfoData? in
           self?.detailUseCase.getTouristInfoValue(data)
@@ -221,39 +222,26 @@ final class DetailViewModel: ViewModel {
       
       aroundTabmanViewModel.detailAroundTabmanSubViewModel.didSelectItemAt
         .subscribe { [weak self] (touristInfo, indexPath) in
-//          if let coordinator = self?.coordinator as? HomeCoordinator {
-//            coordinator.showDetailViewController(
-//              detailStyle: .touristInfo(touristInfo: touristInfo),
-//              name: touristInfo.title!
-//            )
-//          }
-//
-//          if let coordinator = self?.coordinator as? SearchCoordinator {
-//            coordinator.showDetailViewController(
-//              detailStyle: .touristInfo(touristInfo: touristInfo),
-//              name: touristInfo.title!
-//            )
-//          }
-          
-          
+          guard let self = self else { return }
+          self.coordinator?.navigateToFlowDetail(with: .touristInfo(data: touristInfo))
         }
         .disposed(by: disposeBag)
       
       // MARK: - CLLocation Control
       input.isAutorizedLocation
         .emit(onNext: { [weak self] isEnable in
-            guard let self = self else { return }
-            if isEnable {
-                self.updateLocationAction.accept(())
-            } else {
-                self.unAutorizedLocationAlert.accept(("위치 서비스 사용 불가", "아이폰 설정으로 이동합니다."))
-            }
+          guard let self = self else { return }
+          if isEnable {
+            self.updateLocationAction.accept(())
+          } else {
+            self.unAutorizedLocationAlert.accept(("위치 서비스 사용 불가", "아이폰 설정으로 이동합니다."))
+          }
         })
         .disposed(by: disposeBag)
       
       input.isAutorizedLocation
-          .emit(to: isAutorizedLocation)
-          .disposed(by: disposeBag)
+        .emit(to: isAutorizedLocation)
+        .disposed(by: disposeBag)
       
       // MARK: - HeaderAction
       headerAction
@@ -305,7 +293,7 @@ final class DetailViewModel: ViewModel {
       let touristImageResult = input.viewWillAppear
         .withUnretained(self)
         .flatMapLatest { (owner, _) in
-           owner.detailUseCase.requestTouristInfoImageList(contentId: touristInfo.contentId!)
+          owner.detailUseCase.requestTouristInfoImageList(contentId: touristInfo.contentId!)
         }
       
       let touristImageValue = touristImageResult
@@ -412,7 +400,7 @@ final class DetailViewModel: ViewModel {
         .flatMapLatest { (owner, _) in
           owner.detailUseCase.requestNaverBlogInfoList(keyword: touristInfo.title! ,display: 3)
         }
-
+      
       let youtubeResult = input.viewWillAppear
         .withUnretained(self)
         .flatMapLatest { (owner, _) in
@@ -486,7 +474,7 @@ final class DetailViewModel: ViewModel {
             radius: 20000
           )
         }
-        
+      
       let touristValue = touristResult
         .compactMap { [weak self] data -> TouristInfoData? in
           self?.detailUseCase.getTouristInfoValue(data)
@@ -503,40 +491,26 @@ final class DetailViewModel: ViewModel {
       
       aroundTabmanViewModel.detailAroundTabmanSubViewModel.didSelectItemAt
         .subscribe { [weak self] (touristInfo, indexPath) in
-          print(touristInfo, indexPath, "짜잔")
-//          if let coordinator = self?.coordinator as? HomeCoordinator {
-//            coordinator.showDetailViewController(
-//              detailStyle: .touristInfo(touristInfo: touristInfo),
-//              name: touristInfo.title!
-//            )
-//          }
-//          
-//          if let coordinator = self?.coordinator as? SearchCoordinator {
-//            coordinator.showDetailViewController(
-//              detailStyle: .touristInfo(touristInfo: touristInfo),
-//              name: touristInfo.title!
-//            )
-//          }
-          
-          
+          guard let self = self else { return }
+          self.coordinator?.navigateToFlowDetail(with: .touristInfo(data: touristInfo))
         }
         .disposed(by: disposeBag)
       
       // MARK: - CLLocation Control
       input.isAutorizedLocation
         .emit(onNext: { [weak self] isEnable in
-            guard let self = self else { return }
-            if isEnable {
-                self.updateLocationAction.accept(())
-            } else {
-                self.unAutorizedLocationAlert.accept(("위치 서비스 사용 불가", "아이폰 설정으로 이동합니다."))
-            }
+          guard let self = self else { return }
+          if isEnable {
+            self.updateLocationAction.accept(())
+          } else {
+            self.unAutorizedLocationAlert.accept(("위치 서비스 사용 불가", "아이폰 설정으로 이동합니다."))
+          }
         })
         .disposed(by: disposeBag)
       
       input.isAutorizedLocation
-          .emit(to: isAutorizedLocation)
-          .disposed(by: disposeBag)
+        .emit(to: isAutorizedLocation)
+        .disposed(by: disposeBag)
       
     }
     

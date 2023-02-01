@@ -30,9 +30,11 @@ final class HomeViewModel: ViewModel {
   
   struct Output {
     let data: Driver<[HomeSectionModel]>
+    let indicatorHide: Driver<Void>
   }
   
   private let data = PublishRelay<[HomeSectionModel]>()
+  private let indicatorHide = PublishRelay<Void>()
   private let headerAction = PublishRelay<HeaderCellAction>()
   
   var disposeBag = DisposeBag()
@@ -95,8 +97,9 @@ final class HomeViewModel: ViewModel {
       }
 
     Observable.combineLatest(realmValue, areaValue, campsiteValue, touristInfoValue)
-      .do(onNext: { _ in
+      .do(onNext: { [weak self] _ in
         print("home 데이터 패칭 완료")
+        self?.indicatorHide.accept(())
       })
       .withUnretained(self)
       .compactMap { (owner, values) -> [HomeSectionModel] in
@@ -108,22 +111,22 @@ final class HomeViewModel: ViewModel {
     
     headerAction
       .capture(case: HeaderCellAction.map)
-      .bind { _ in
-        print("지도화면 전환")
+      .bind { [weak self] _ in
+        self?.coordinator?.changeTabByIndex(tabCase: .map, message: "지도에서 검색해보세요")
       }
       .disposed(by: disposeBag)
     
     headerAction
       .capture(case: HeaderCellAction.myMenu)
-      .bind { _ in
-        print("마이메뉴 전환")
+      .bind { [weak self] _ in
+        self?.coordinator?.changeTabByIndex(tabCase: .mypage, message: "캠핑로그를 확인해보세요")
       }
       .disposed(by: disposeBag)
     
     headerAction
       .capture(case: HeaderCellAction.search)
-      .bind { _ in
-        print("검색 전환")
+      .bind { [weak self] _ in
+        self?.coordinator?.changeTabByIndex(tabCase: .search, message: "조건별로 검색해보세요")
       }
       .disposed(by: disposeBag)
       
@@ -134,7 +137,7 @@ final class HomeViewModel: ViewModel {
           print("여긴 클릭하면 안됨")
         case 1:
           guard let areaItem = model as? HomeAreaItem else { return }
-          self.coordinator?.changeTabByIndex(tabCase: .list, message: "지역별로 검색해보세요", area: areaItem.area)
+          self.coordinator?.changeTabByIndex(tabCase: .list, message: "지역별로 검색해보세요", area: areaItem.area, index: index.row + 1)
         case 2:
           guard let campsite = model as? Campsite else { return }
           guard let didSubmitAction = self.didSubmitAction else { return }
@@ -149,7 +152,10 @@ final class HomeViewModel: ViewModel {
       }
       .disposed(by: disposeBag)
     
-    return Output(data: data.asDriver(onErrorJustReturn: []))
+    return Output(
+      data: data.asDriver(onErrorJustReturn: []),
+      indicatorHide: indicatorHide.asDriver(onErrorJustReturn: ())
+    )
   }
   
   func dataSource() -> RxCollectionViewSectionedReloadDataSource<HomeSectionModel> {

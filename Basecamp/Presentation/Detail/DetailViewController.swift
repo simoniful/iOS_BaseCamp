@@ -62,6 +62,7 @@ final class DetailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    IndicatorView.shared.show(backgoundColor: .gray1.withAlphaComponent(0.4))
     setupView()
     setupConstraints()
     locationManager.delegate = self
@@ -78,7 +79,11 @@ final class DetailViewController: UIViewController {
     case .campsite:
       collectionView.collectionViewLayout = DetailViewSectionLayoutManager.createCampsiteLayout()
       let dataSource = DetailViewDataSourceManager.campsiteDataSource(self)
+      
       output.campsiteData
+        .do(onNext: { _ in
+          IndicatorView.shared.hide()
+        })
         .drive(self.collectionView.rx.items(dataSource: dataSource))
         .disposed(by: disposeBag)
       

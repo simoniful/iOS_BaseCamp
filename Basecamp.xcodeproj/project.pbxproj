@@ -14,6 +14,8 @@
 		F40DDFB1298A517900D05C2A /* DetailZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB0298A517900D05C2A /* DetailZoomViewController.swift */; };
 		F40DDFB4298A549E00D05C2A /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB3298A549E00D05C2A /* DetailCoordinator.swift */; };
 		F40DDFB6298A57D300D05C2A /* NavigationPerformActionDelegate .swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB5298A57D300D05C2A /* NavigationPerformActionDelegate .swift */; };
+		F40DDFB9298A744C00D05C2A /* DetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB8298A744C00D05C2A /* DetailWebViewController.swift */; };
+		F40DDFBC298A9FF200D05C2A /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFBB298A9FF200D05C2A /* SkeletonView */; };
 		F45C09DF296DB6730075E1AC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DE296DB6730075E1AC /* AlertView.swift */; };
 		F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E0296EB8130075E1AC /* StackingLabel.swift */; };
 		F45C09E3296F03070075E1AC /* DetailViewSectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */; };
@@ -267,6 +269,7 @@
 		F40DDFB0298A517900D05C2A /* DetailZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailZoomViewController.swift; sourceTree = "<group>"; };
 		F40DDFB3298A549E00D05C2A /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		F40DDFB5298A57D300D05C2A /* NavigationPerformActionDelegate .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationPerformActionDelegate .swift"; sourceTree = "<group>"; };
+		F40DDFB8298A744C00D05C2A /* DetailWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWebViewController.swift; sourceTree = "<group>"; };
 		F45C09DE296DB6730075E1AC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		F45C09E0296EB8130075E1AC /* StackingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackingLabel.swift; sourceTree = "<group>"; };
 		F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewSectionLayoutManager.swift; sourceTree = "<group>"; };
@@ -499,6 +502,7 @@
 				F4E3E5F82961CD41009AFCFC /* Kingfisher in Frameworks */,
 				F49034762949B88C00CDE442 /* SnapKit in Frameworks */,
 				F4F0E0E7296D98980006C9D4 /* FSPagerView in Frameworks */,
+				F40DDFBC298A9FF200D05C2A /* SkeletonView in Frameworks */,
 				49BE202A0CBF2B71DE84E141 /* Pods_Basecamp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -559,6 +563,14 @@
 				F40DDFB3298A549E00D05C2A /* DetailCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F40DDFB7298A743800D05C2A /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				F40DDFB8298A744C00D05C2A /* DetailWebViewController.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 		F45C09F029713FCE0075E1AC /* Protocol */ = {
@@ -1549,6 +1561,7 @@
 				F4F0E090296571EA0006C9D4 /* AroundSectionCell */,
 				F4F0E08D296571C60006C9D4 /* ImageSectionCell */,
 				F4F0E095296575AA0006C9D4 /* SectionHeader */,
+				F40DDFB7298A743800D05C2A /* WebView */,
 				F40DDFAF298A513C00D05C2A /* ZoomView */,
 			);
 			path = Subs;
@@ -1626,6 +1639,7 @@
 				F4F0E089296473D30006C9D4 /* Tabman */,
 				F4F0E0E6296D98980006C9D4 /* FSPagerView */,
 				F45C0A5629810EC00075E1AC /* DropDown */,
+				F40DDFBB298A9FF200D05C2A /* SkeletonView */,
 			);
 			productName = Basecamp;
 			productReference = F4D10EA129497831000C02E0 /* Basecamp.app */;
@@ -1716,6 +1730,7 @@
 				F4F0E088296473D30006C9D4 /* XCRemoteSwiftPackageReference "Tabman" */,
 				F4F0E0E5296D98970006C9D4 /* XCRemoteSwiftPackageReference "FSPagerView" */,
 				F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */,
+				F40DDFBA298A9FF200D05C2A /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = F4D10EA229497831000C02E0 /* Products */;
 			projectDirPath = "";
@@ -1994,6 +2009,7 @@
 				F4F0E0BF2967F6320006C9D4 /* DefaultLabel.swift in Sources */,
 				F4E3E5DE295E85DA009AFCFC /* CampsiteKeywordRequestDTO.swift in Sources */,
 				F4E3E5B3295D303E009AFCFC /* TouristInfoRequestDTO.swift in Sources */,
+				F40DDFB9298A744C00D05C2A /* DetailWebViewController.swift in Sources */,
 				F4FD509F2962E0F600FA3CB3 /* DetailViewModel.swift in Sources */,
 				F4E3E5BF295D77B1009AFCFC /* TouristInfoIntroSpot.swift in Sources */,
 				F45C0A6A298224AB0075E1AC /* ListTouristViewModel.swift in Sources */,
@@ -2420,6 +2436,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F40DDFBA298A9FF200D05C2A /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.9.0;
+			};
+		};
 		F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AssistoLab/DropDown";
@@ -2527,6 +2551,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F40DDFBB298A9FF200D05C2A /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F40DDFBA298A9FF200D05C2A /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
 		F45C0A5629810EC00075E1AC /* DropDown */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */;

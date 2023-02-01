@@ -8,7 +8,10 @@
 import UIKit
 import Kingfisher
 
-class ZoomPictureViewController: UIViewController {
+class DetailZoomViewController: UIViewController {
+  weak var coordinator: DetailCoordinator?
+  public var data: String?
+  
 //    var pictureURL: URL?
 //    var isZooming = false
 //    var originalImageCenter:CGPoint?
@@ -98,8 +101,8 @@ class ZoomPictureViewController: UIViewController {
 
 }
 
-extension ZoomPictureViewController:UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-}
+//extension ZoomPictureViewController:UIGestureRecognizerDelegate {
+//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        return true
+//    }
+//}

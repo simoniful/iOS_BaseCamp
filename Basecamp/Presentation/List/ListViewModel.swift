@@ -28,6 +28,7 @@ final class ListViewModel: ViewModel {
   
   struct Output {
     let sigunguReloadSignal: Driver<[String]>
+    let dropdownSetSignal: Driver<(Int?, String?)>
   }
   
   public let areaState = BehaviorRelay<Area?>(value: nil)
@@ -36,6 +37,7 @@ final class ListViewModel: ViewModel {
   
   public let sigunguDataSource = BehaviorRelay<[Sigungu]>(value: [])
   private let sigunguReloadSignal = PublishRelay<[String]>()
+  public let dropdownSetSignal = BehaviorRelay<(Int?, String?)>(value: (nil, nil))
   
   private let touristInfoList = BehaviorRelay<[TouristInfo]>(value: [])
   
@@ -158,7 +160,6 @@ final class ListViewModel: ViewModel {
         owner.listUseCase.getTouristInfoValue(data)
       }
     
-    
     touristInfoPrefetchValue
       .do(onNext: { data in
         print(data, "리스트 관광정보 데이터 패칭 ----")
@@ -175,18 +176,14 @@ final class ListViewModel: ViewModel {
       .bind(to: touristInfoList)
       .disposed(by: disposeBag)
     
-    
-    
-    
-     
-  
     touristInfoList
       .bind(to: listTouristViewModel.resultCellData)
       .disposed(by: disposeBag)
  
 
     return Output(
-      sigunguReloadSignal: sigunguReloadSignal.asDriver(onErrorJustReturn: [])
+      sigunguReloadSignal: sigunguReloadSignal.asDriver(onErrorJustReturn: []),
+      dropdownSetSignal: dropdownSetSignal.asDriver(onErrorJustReturn: (nil, nil))
     )
   }
 }

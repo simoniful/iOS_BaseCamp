@@ -56,6 +56,7 @@ final class HomeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    IndicatorView.shared.show(backgoundColor: .gray1.withAlphaComponent(0.4))
     bind()
     register()
     setupNavigationBar()
@@ -79,6 +80,12 @@ final class HomeViewController: UIViewController {
     
     output.data
       .drive(self.collectionView.rx.items(dataSource: dataSource))
+      .disposed(by: disposeBag)
+    
+    output.indicatorHide
+      .drive {  _ in
+        IndicatorView.shared.hide()
+      }
       .disposed(by: disposeBag)
   }
 }

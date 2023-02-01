@@ -16,6 +16,7 @@ final class DetailCoordinator: Coordinator {
   var navigationController: UINavigationController
   var type: CoordinatorStyleCase = .detail
   let data: DetailStyle
+  var isCompleted: (() -> ())?
   
   init(_ navigationController: UINavigationController, data: DetailStyle) {
     self.navigationController = navigationController
@@ -23,48 +24,54 @@ final class DetailCoordinator: Coordinator {
   }
   
   func start() {
-    let vc = DetailViewController(
-      viewModel: DetailViewModel(
-        coordinator: self,
-        detailUseCase: DetailUseCase(
-          campsiteRepository: CampsiteRepository(),
-          realmRepository: RealmRepository(),
-          touristInfoRepository: TouristInfoRepository(),
-          weatherRepository: WeatherRepository(),
-          naverBlogRepository: NaverBlogRepository(),
-          youtubeRepository: YoutubeRepository()
-        ),
-        style: data
-      )
+    let viewModel = DetailViewModel(
+      coordinator: self,
+      detailUseCase: DetailUseCase(
+        campsiteRepository: CampsiteRepository(),
+        realmRepository: RealmRepository(),
+        touristInfoRepository: TouristInfoRepository(),
+        weatherRepository: WeatherRepository(),
+        naverBlogRepository: NaverBlogRepository(),
+        youtubeRepository: YoutubeRepository()
+      ),
+      style: data
     )
+    
+    let viewController = DetailViewController(viewModel: viewModel)
     switch data {
     case .campsite(let data):
-      vc.title = data.facltNm!
+      viewController.title = data.facltNm!
     case .touristInfo(let data):
-      vc.title = data.title!
+      viewController.title = data.title!
     }
-    navigationController.pushViewController(vc, animated: true)
+    
+    viewModel.didTapBack = { [weak self] in
+      self?.isCompleted?()
+    }
+    
+    navigationController.pushViewController(viewController, animated: true)
   }
   
-  func showDetailViewController(detailStyle: DetailStyle, name: String) {
-//    let vc = DetailViewController(
-//      viewModel: DetailViewModel(
-//        coordinator: self,
-//        detailUseCase: DetailUseCase(
-//          campsiteRepository: CampsiteRepository(),
-//          realmRepository: RealmRepository(),
-//          touristInfoRepository: TouristInfoRepository(),
-//          weatherRepository: WeatherRepository(),
-//          naverBlogRepository: NaverBlogRepository(),
-//          youtubeRepository: YoutubeRepository()
-//        ),
-//        style: detailStyle
-//      ),
-//      name: name
-//    )
-//    vc.title = name
-//    vc.hidesBottomBarWhenPushed = true
-//    navigationController.pushViewController(vc, animated: true)
+  func navigateToFlowDetail(with data: DetailStyle) {
+    let detailCoordinator = DetailCoordinator(self.navigationController, data: data)
+    detailCoordinator.parentCoordinator = self
+    detailCoordinator.isCompleted = { [weak self] in
+      self?.free(coordinator: detailCoordinator)
+    }
+    self.store(coordinator: detailCoordinator)
+    detailCoordinator.start()
+  }
+  
+  func navigateToFlowWeb(with data: SocialMediaInfo) {
+    let viewController = DetailWebViewController()
+    viewController.data = data
+    navigationController.pushViewController(viewController, animated: true)
+  }
+  
+  func navigateToFlowZoom(with data: String) {
+    let viewController = DetailZoomViewController()
+    viewController.data = data
+    navigationController.pushViewController(viewController, animated: true)
   }
   
   func changeTabByIndex(tabCase: TabBarPageCase ,message: String, area: Area? = nil) {

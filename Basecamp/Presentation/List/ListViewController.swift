@@ -79,6 +79,15 @@ final class ListViewController: TabmanViewController {
         IndicatorView.shared.hide()
       }
       .disposed(by: disposeBag)
+    
+    output.dropdownSetSignal
+      .drive { [weak self] (index, value) in
+        guard let index = index,
+              let value = value else { return }
+        self?.areaDropDown.selectRow(index)
+        self?.areaDropDown.selectionAction?(index, value)
+      }
+      .disposed(by: disposeBag)
   }
 }
 

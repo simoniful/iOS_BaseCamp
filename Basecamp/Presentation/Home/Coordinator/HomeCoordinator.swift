@@ -35,46 +35,35 @@ final class HomeCoordinator: Coordinator {
       self.navigateToFlowDetail(with: detailType)
     }
     viewModel.didTapBack = { [weak self] in
-      self?.isCompleted?()
+      guard let self = self else { return }
+      self.isCompleted?()
     }
     navigationController.pushViewController(viewController, animated: true)
   }
   
-//  func showDetailViewController(with data: DetailStyle) {
-//    let vc = DetailViewController(
-//      viewModel: DetailViewModel(
-//        coordinator: self,
-//        detailUseCase: DetailUseCase(
-//          campsiteRepository: CampsiteRepository(),
-//          realmRepository: RealmRepository(),
-//          touristInfoRepository: TouristInfoRepository(),
-//          weatherRepository: WeatherRepository(),
-//          naverBlogRepository: NaverBlogRepository(),
-//          youtubeRepository: YoutubeRepository()
-//        )
-//      )
-//    )
-//    vc.hidesBottomBarWhenPushed = true
-//    navigationController.pushViewController(vc, animated: true)
-//  }
-  
   func navigateToFlowDetail(with data: DetailStyle) {
     let detailCoordinator = DetailCoordinator(self.navigationController, data: data)
     detailCoordinator.parentCoordinator = self
+    detailCoordinator.isCompleted = { [weak self] in
+      self?.free(coordinator: detailCoordinator)
+    }
     self.store(coordinator: detailCoordinator)
     detailCoordinator.start()
   }
   
-  func changeTabByIndex(tabCase: TabBarPageCase ,message: String, area: Area? = nil) {
+  func changeTabByIndex(tabCase: TabBarPageCase ,message: String, area: Area? = nil, index: Int = 0) {
+    navigationController.tabBarController?.selectedIndex = tabCase.pageOrderNumber
+    navigationController.tabBarController?.view.makeToast(message, position: .center)
+    
     switch tabCase {
     case .list:
       if let area = area {
         var listViewController: ListViewController
         if let arrController = navigationController.tabBarController?.viewControllers {
-          for vc in arrController {
-            if vc is ListViewController {
-              listViewController = vc as! ListViewController
-              listViewController.viewModel.areaState.accept(area)
+          for nav in arrController {
+            if nav.children.contains(where: { $0 is ListViewController }) {
+              listViewController = (nav.children.first as? ListViewController)!
+              listViewController.viewModel.dropdownSetSignal.accept((index, area.rawValue))
             }
           }
         }
@@ -82,9 +71,6 @@ final class HomeCoordinator: Coordinator {
     default:
       break
     }
-    
-    navigationController.tabBarController?.selectedIndex = tabCase.pageOrderNumber
-    navigationController.tabBarController?.view.makeToast(message, position: .center)
   }
   
   func popToRootViewController(message: String? = nil) {

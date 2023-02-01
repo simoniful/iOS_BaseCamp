@@ -34,12 +34,20 @@ final class DetailAroundTabmanSubViewController: UIViewController {
     setupConstraints()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    IndicatorView.shared.show(backgoundColor: .gray1.withAlphaComponent(0.4))
+  }
+  
   func bind(_ viewModel: DetailAroundTabmanSubViewModel) {
     Observable.combineLatest(self.rx.viewWillAppear, Observable.just(type))
       .bind(to: viewModel.viewWillAppearWithContentType)
       .disposed(by: disposeBag)
     
     viewModel.cellData
+      .do(onNext: { _ in
+        IndicatorView.shared.hide()
+      })
       .drive(collectionView.rx.items(
         cellIdentifier: DetailAroundSubCell.identifier,
         cellType: DetailAroundSubCell.self
