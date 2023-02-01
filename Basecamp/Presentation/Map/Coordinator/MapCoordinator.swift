@@ -32,23 +32,23 @@ final class MapCoordinator: Coordinator {
   }
   
   func showDetailViewController(detailStyle: DetailStyle, name: String) {
-    let vc = DetailViewController(
-      viewModel: DetailViewModel(
-        coordinator: self,
-        detailUseCase: DetailUseCase(
-          campsiteRepository: CampsiteRepository(),
-          realmRepository: RealmRepository(),
-          touristInfoRepository: TouristInfoRepository(),
-          weatherRepository: WeatherRepository(),
-          naverBlogRepository: NaverBlogRepository(),
-          youtubeRepository: YoutubeRepository()
-        ),
-        style: detailStyle
-      ),
-      name: name
-    )
-    vc.hidesBottomBarWhenPushed = true
-    navigationController.pushViewController(vc, animated: true)
+//    let vc = DetailViewController(
+//      viewModel: DetailViewModel(
+//        coordinator: self,
+//        detailUseCase: DetailUseCase(
+//          campsiteRepository: CampsiteRepository(),
+//          realmRepository: RealmRepository(),
+//          touristInfoRepository: TouristInfoRepository(),
+//          weatherRepository: WeatherRepository(),
+//          naverBlogRepository: NaverBlogRepository(),
+//          youtubeRepository: YoutubeRepository()
+//        ),
+//        style: detailStyle
+//      ),
+//      name: name
+//    )
+//    vc.hidesBottomBarWhenPushed = true
+//    navigationController.pushViewController(vc, animated: true)
   }
   
   func popToRootViewController(message: String? = nil) {

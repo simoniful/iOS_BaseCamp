@@ -10,6 +10,10 @@
 		49BE202A0CBF2B71DE84E141 /* Pods_Basecamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A104479E3D8BBBAFA976694 /* Pods_Basecamp.framework */; };
 		53507BE8BC0AB0C83F21E834 /* Pods_Basecamp_BasecampUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60474E8179EDD7D45C034045 /* Pods_Basecamp_BasecampUITests.framework */; };
 		E962BE98BE9DCA8C96A1F154 /* Pods_BasecampTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588F38723AF90D0CF6446D5A /* Pods_BasecampTests.framework */; };
+		F40DDFAC2989FF2D00D05C2A /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFAB2989FF2D00D05C2A /* NSMutableAttributedString.swift */; };
+		F40DDFB1298A517900D05C2A /* DetailZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB0298A517900D05C2A /* DetailZoomViewController.swift */; };
+		F40DDFB4298A549E00D05C2A /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB3298A549E00D05C2A /* DetailCoordinator.swift */; };
+		F40DDFB6298A57D300D05C2A /* NavigationPerformActionDelegate .swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB5298A57D300D05C2A /* NavigationPerformActionDelegate .swift */; };
 		F45C09DF296DB6730075E1AC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DE296DB6730075E1AC /* AlertView.swift */; };
 		F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E0296EB8130075E1AC /* StackingLabel.swift */; };
 		F45C09E3296F03070075E1AC /* DetailViewSectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */; };
@@ -259,6 +263,10 @@
 		A2EA8885FF5D31274F60587C /* Pods-BasecampTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasecampTests.release.xcconfig"; path = "Target Support Files/Pods-BasecampTests/Pods-BasecampTests.release.xcconfig"; sourceTree = "<group>"; };
 		A548821C6400CFFFFA759EAC /* Pods-Basecamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basecamp.debug.xcconfig"; path = "Target Support Files/Pods-Basecamp/Pods-Basecamp.debug.xcconfig"; sourceTree = "<group>"; };
 		B1C186C70D722E114EC5579A /* Pods-Basecamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basecamp.release.xcconfig"; path = "Target Support Files/Pods-Basecamp/Pods-Basecamp.release.xcconfig"; sourceTree = "<group>"; };
+		F40DDFAB2989FF2D00D05C2A /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
+		F40DDFB0298A517900D05C2A /* DetailZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailZoomViewController.swift; sourceTree = "<group>"; };
+		F40DDFB3298A549E00D05C2A /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
+		F40DDFB5298A57D300D05C2A /* NavigationPerformActionDelegate .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationPerformActionDelegate .swift"; sourceTree = "<group>"; };
 		F45C09DE296DB6730075E1AC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		F45C09E0296EB8130075E1AC /* StackingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackingLabel.swift; sourceTree = "<group>"; };
 		F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewSectionLayoutManager.swift; sourceTree = "<group>"; };
@@ -535,6 +543,22 @@
 				A2EA8885FF5D31274F60587C /* Pods-BasecampTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F40DDFAF298A513C00D05C2A /* ZoomView */ = {
+			isa = PBXGroup;
+			children = (
+				F40DDFB0298A517900D05C2A /* DetailZoomViewController.swift */,
+			);
+			path = ZoomView;
+			sourceTree = "<group>";
+		};
+		F40DDFB2298A545D00D05C2A /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F40DDFB3298A549E00D05C2A /* DetailCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		F45C09F029713FCE0075E1AC /* Protocol */ = {
@@ -933,6 +957,7 @@
 			children = (
 				F4D10ED829497EA9000C02E0 /* Coordinator.swift */,
 				F4D10EE929498738000C02E0 /* CoordinatorDelegate.swift */,
+				F40DDFB5298A57D300D05C2A /* NavigationPerformActionDelegate .swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1175,6 +1200,7 @@
 				F4D10F4B2949ADBE000C02E0 /* UIFont.swift */,
 				F4F0E0752963FE870006C9D4 /* UIButton.swift */,
 				F4F0E0C5296919CC0006C9D4 /* UIColor.swift */,
+				F40DDFAB2989FF2D00D05C2A /* NSMutableAttributedString.swift */,
 				F4E3E5AA2954C3C5009AFCFC /* Rx */,
 			);
 			path = Extension;
@@ -1507,6 +1533,7 @@
 				F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */,
 				F45C09EC2970EFB50075E1AC /* DetailViewDataSourceManager.swift */,
 				F4FD50A2296303C000FA3CB3 /* Subs */,
+				F40DDFB2298A545D00D05C2A /* Coordinator */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -1522,6 +1549,7 @@
 				F4F0E090296571EA0006C9D4 /* AroundSectionCell */,
 				F4F0E08D296571C60006C9D4 /* ImageSectionCell */,
 				F4F0E095296575AA0006C9D4 /* SectionHeader */,
+				F40DDFAF298A513C00D05C2A /* ZoomView */,
 			);
 			path = Subs;
 			sourceTree = "<group>";
@@ -1869,6 +1897,7 @@
 				F4D10F4E2949ADF2000C02E0 /* AppFont.swift in Sources */,
 				F4E3E5A129544823009AFCFC /* ReviewRealmDTO.swift in Sources */,
 				F4F0E0A72965CAC00006C9D4 /* WeatherRequestDTO.swift in Sources */,
+				F40DDFB4298A549E00D05C2A /* DetailCoordinator.swift in Sources */,
 				F4F0E0AB2965CD770006C9D4 /* YoutubeRequestDTO.swift in Sources */,
 				F4F0E0AF29666BA20006C9D4 /* NaverBlogResponseDTO.swift in Sources */,
 				F4E3E58329515FDA009AFCFC /* WeatherTargetStub.swift in Sources */,
@@ -1887,6 +1916,7 @@
 				F45C09F629715AE60075E1AC /* SearchViewController.swift in Sources */,
 				F45C0A4F2980FA4A0075E1AC /* ListViewModel.swift in Sources */,
 				F4E3E5DA295E81A5009AFCFC /* CampsiteBasicRequestDTO.swift in Sources */,
+				F40DDFB1298A517900D05C2A /* DetailZoomViewController.swift in Sources */,
 				F4F0E0C2296826180006C9D4 /* DetailLocationWeatherCell.swift in Sources */,
 				F4E3E5F529604B43009AFCFC /* String.swift in Sources */,
 				F4E3E5E8295E948C009AFCFC /* TouristInfoFestivalRequestDTO.swift in Sources */,
@@ -1918,7 +1948,9 @@
 				F4F0E09C29657AEA0006C9D4 /* DetailAroundTabmanSubViewController.swift in Sources */,
 				F4D10ED929497EAA000C02E0 /* Coordinator.swift in Sources */,
 				F4D10F4C2949ADBE000C02E0 /* UIFont.swift in Sources */,
+				F40DDFAC2989FF2D00D05C2A /* NSMutableAttributedString.swift in Sources */,
 				F45C0A54298104690075E1AC /* ListUseCase.swift in Sources */,
+				F40DDFB6298A57D300D05C2A /* NavigationPerformActionDelegate .swift in Sources */,
 				F45C09F829715AF70075E1AC /* SearchViewModel.swift in Sources */,
 				F4E3E5AC29555961009AFCFC /* RealmRepository.swift in Sources */,
 				F49034BB294F5C3C00CDE442 /* HomeFestivalCell.swift in Sources */,

@@ -39,14 +39,20 @@ final class DetailViewController: UIViewController {
   
   private lazy var input = DetailViewModel.Input(
     viewWillAppear: self.rx.viewWillAppear.asObservable(),
-    isAutorizedLocation: isAutorizedLocation.asSignal()
+    isAutorizedLocation: isAutorizedLocation.asSignal(),
+    didSelectItemAt: self.collectionView.rx.modelAndIndexSelected(DetailItem.self).asSignal()
   )
   
   private lazy var output = viewModel.transform(input: input)
   
-  init(viewModel: DetailViewModel, name: String) {
+  init(viewModel: DetailViewModel) {
     self.viewModel = viewModel
-    self.name = name
+    switch viewModel.style {
+    case .campsite(data: let campsite):
+      self.name = campsite.facltNm!
+    case .touristInfo(data: let touristInfo):
+      self.name = touristInfo.title!
+    }
     super.init(nibName: nil, bundle: nil)
   }
   

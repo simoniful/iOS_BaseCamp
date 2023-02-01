@@ -40,7 +40,7 @@ final class DetailTouristInfoIntroStackView: UIStackView {
         return !(value.isEmpty)
       }
       let categories = filetred.map { (key, value) in
-        makeCategory(category: data.intro.contentTypeId.introDic[key]!, content: value as! String)
+        makeCategory(category: data.intro.contentTypeId.introDic[key]!, content: (value as! String).htmlToString)
       }
       categories.forEach {
         self.addArrangedSubview($0)
@@ -97,8 +97,6 @@ final class DetailTouristInfoIntroStackView: UIStackView {
         let value = value as! String
         return makeCategory(category: data.intro.contentTypeId.introDic[key]!, content: value.htmlToString)
       }
-      
-      print(categories)
       categories.forEach {
         self.addArrangedSubview($0)
       }
@@ -139,6 +137,7 @@ final class DetailTouristInfoIntroStackView: UIStackView {
     stackView.alignment = .fill
     stackView.distribution = .fill
     stackView.spacing = 0
+    stackView.translatesAutoresizingMaskIntoConstraints = false
     
     [first, second].forEach {
       stackView.addArrangedSubview($0)

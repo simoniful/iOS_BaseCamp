@@ -47,7 +47,7 @@ final class TabBarCoordinator: Coordinator {
     self.tabBarController.selectedIndex = TabBarPageCase.home.pageOrderNumber
     self.tabBarController.view.backgroundColor = .systemBackground
     self.tabBarController.tabBar.backgroundColor = .systemBackground
-    self.tabBarController.tabBar.tintColor = .orange
+    self.tabBarController.tabBar.tintColor = .main
     self.tabBarController.tabBar.unselectedItemTintColor = .systemGray
     self.changeAnimation()
     self.navigationController.pushViewController(tabBarController, animated: true)
@@ -75,6 +75,9 @@ final class TabBarCoordinator: Coordinator {
       let homeCoordinator = HomeCoordinator(tabNavigationController)
       homeCoordinator.delegate = self
       self.childCoordinators.append(homeCoordinator)
+      homeCoordinator.isCompleted = { [weak self] in
+        self?.free(coordinator: homeCoordinator)
+      }
       homeCoordinator.start()
     case .search:
       let searchCoordinator = SearchCoordinator(tabNavigationController)

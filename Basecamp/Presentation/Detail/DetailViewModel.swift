@@ -13,16 +13,16 @@ import Kingfisher
 
 // 스타일에 따른 다른 데이터 소스/레이아웃 구성
 enum DetailStyle {
-  case campsite(campsite: Campsite)
-  case touristInfo(touristInfo :TouristInfo)
+  case campsite(data: Campsite)
+  case touristInfo(data: TouristInfo)
 }
 
 final class DetailViewModel: ViewModel {
-  private weak var coordinator: Coordinator?
+  private weak var coordinator: DetailCoordinator?
   private let detailUseCase: DetailUseCase
-  let style: DetailStyle
+  public let style: DetailStyle
   
-  init(coordinator: Coordinator?, detailUseCase: DetailUseCase, style: DetailStyle) {
+  init(coordinator: DetailCoordinator?, detailUseCase: DetailUseCase, style: DetailStyle) {
     self.coordinator = coordinator
     self.detailUseCase = detailUseCase
     self.style = style
@@ -31,6 +31,7 @@ final class DetailViewModel: ViewModel {
   struct Input {
     let viewWillAppear: Observable<Void>
     let isAutorizedLocation: Signal<Bool>
+    let didSelectItemAt: Signal<(DetailItem, IndexPath)>
   }
   
   struct Output {
@@ -220,19 +221,19 @@ final class DetailViewModel: ViewModel {
       
       aroundTabmanViewModel.detailAroundTabmanSubViewModel.didSelectItemAt
         .subscribe { [weak self] (touristInfo, indexPath) in
-          if let coordinator = self?.coordinator as? HomeCoordinator {
-            coordinator.showDetailViewController(
-              detailStyle: .touristInfo(touristInfo: touristInfo),
-              name: touristInfo.title!
-            )
-          }
-          
-          if let coordinator = self?.coordinator as? SearchCoordinator {
-            coordinator.showDetailViewController(
-              detailStyle: .touristInfo(touristInfo: touristInfo),
-              name: touristInfo.title!
-            )
-          }
+//          if let coordinator = self?.coordinator as? HomeCoordinator {
+//            coordinator.showDetailViewController(
+//              detailStyle: .touristInfo(touristInfo: touristInfo),
+//              name: touristInfo.title!
+//            )
+//          }
+//
+//          if let coordinator = self?.coordinator as? SearchCoordinator {
+//            coordinator.showDetailViewController(
+//              detailStyle: .touristInfo(touristInfo: touristInfo),
+//              name: touristInfo.title!
+//            )
+//          }
           
           
         }
@@ -283,6 +284,20 @@ final class DetailViewModel: ViewModel {
         }
         .disposed(by: disposeBag)
       
+      input.didSelectItemAt
+        .withUnretained(self)
+        .emit { (owner, itemWithIndex) in
+          let (item, indexPath) = itemWithIndex
+          switch indexPath.section {
+          case 4:
+            print(item)
+          case 6:
+            print(item)
+          default:
+            break
+          }
+        }
+        .disposed(by: disposeBag)
       
       
     case .touristInfo(let touristInfo):
@@ -489,19 +504,19 @@ final class DetailViewModel: ViewModel {
       aroundTabmanViewModel.detailAroundTabmanSubViewModel.didSelectItemAt
         .subscribe { [weak self] (touristInfo, indexPath) in
           print(touristInfo, indexPath, "짜잔")
-          if let coordinator = self?.coordinator as? HomeCoordinator {
-            coordinator.showDetailViewController(
-              detailStyle: .touristInfo(touristInfo: touristInfo),
-              name: touristInfo.title!
-            )
-          }
-          
-          if let coordinator = self?.coordinator as? SearchCoordinator {
-            coordinator.showDetailViewController(
-              detailStyle: .touristInfo(touristInfo: touristInfo),
-              name: touristInfo.title!
-            )
-          }
+//          if let coordinator = self?.coordinator as? HomeCoordinator {
+//            coordinator.showDetailViewController(
+//              detailStyle: .touristInfo(touristInfo: touristInfo),
+//              name: touristInfo.title!
+//            )
+//          }
+//          
+//          if let coordinator = self?.coordinator as? SearchCoordinator {
+//            coordinator.showDetailViewController(
+//              detailStyle: .touristInfo(touristInfo: touristInfo),
+//              name: touristInfo.title!
+//            )
+//          }
           
           
         }

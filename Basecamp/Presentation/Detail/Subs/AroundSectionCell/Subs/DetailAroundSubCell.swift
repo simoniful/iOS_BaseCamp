@@ -21,7 +21,7 @@ final class DetailAroundSubCell: UICollectionViewCell {
   
   private lazy var nameLabel = DefaultLabel(title: "이름", font: .title1M16)
   private lazy var addressLabel = DefaultLabel(title: "주소", font: .body4R12, textColor: .darkGray)
-  private lazy var distLabel = DefaultLabel(title: "거리", font: .body4R12, textColor: .main)
+  private lazy var distLabel = DefaultLabel(title: "거리", font: .body4R12, textColor: .main.withAlphaComponent(0.85))
   
   override init(frame: CGRect) {
     super.init(frame: frame)

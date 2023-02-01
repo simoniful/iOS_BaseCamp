@@ -7,12 +7,13 @@
 
 import Foundation
 import UIKit
-import Realm
+
 
 final class AppCoordinator: Coordinator {
   weak var delegate: CoordinatorDelegate?
   var childCoordinators = [Coordinator]()
   var navigationController: UINavigationController
+  var isCompleted: (() -> ())?
   var type: CoordinatorStyleCase = .app
   
   init(_ navigationController: UINavigationController) {

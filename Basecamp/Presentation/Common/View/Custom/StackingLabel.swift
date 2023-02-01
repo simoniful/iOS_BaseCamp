@@ -39,9 +39,9 @@ final class StackingLabel: UILabel {
     title text: String,
     font: UIFont,
     textColor: UIColor = .label,
-    textAlignment: NSTextAlignment = .center,
+    textAlignment: NSTextAlignment = .left,
     backgroundColor: UIColor = .systemBackground,
-    padding: UIEdgeInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)) {
+    padding: UIEdgeInsets = UIEdgeInsets(top: 6.0, left: 8.0, bottom: 6.0, right: 8.0)) {
     self.init()
     self.text = text
     self.font = font
@@ -49,6 +49,7 @@ final class StackingLabel: UILabel {
     self.textAlignment = textAlignment
     self.backgroundColor = backgroundColor
     self.padding = padding
+    self.sizeToFit()
   }
 
   required init?(coder: NSCoder) {
@@ -59,7 +60,6 @@ final class StackingLabel: UILabel {
     var contentSize = super.intrinsicContentSize
     contentSize.height += padding.top + padding.bottom
     contentSize.width += padding.left + padding.right
-    
     return contentSize
   }
   
@@ -75,6 +75,7 @@ final class StackingLabel: UILabel {
   
   private func setConfiguration() {
     numberOfLines = 0
-    // lineBreakMode = NSLineBreakMode.byWordWrapping
+    // lineBreakMode = .byWordWrapping
+    translatesAutoresizingMaskIntoConstraints = false
   }
 }

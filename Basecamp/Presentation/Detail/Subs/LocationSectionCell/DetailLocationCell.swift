@@ -25,8 +25,9 @@ final class DetailLocationCell: UICollectionViewCell {
   }()
   private let directionLabel: UILabel = {
     let label = UILabel()
-    label.text = "찾아오는 길: 문의처에 문의 바랍니다."
+    label.text = "찾아오는 길: 문의처에 문의 바랍니다"
     label.font = .body3R14
+    label.textColor = .gray7
     label.numberOfLines = 0
     return label
   }()
@@ -87,7 +88,7 @@ extension DetailLocationCell: ViewRepresentable {
     weatherCollectionView.snp.makeConstraints {
       $0.top.equalTo(directionLabel.snp.bottom).offset(8.0)
       $0.leading.trailing.equalToSuperview()
-      $0.height.equalTo(100)
+      $0.height.equalTo(90)
       $0.bottom.equalToSuperview().offset(-16.0)
     }
   }
@@ -95,7 +96,7 @@ extension DetailLocationCell: ViewRepresentable {
   func setupData(data: DetailLocationItem) {
     weatherCollectionView.performBatchUpdates {
       addressLabel.text = data.address
-      directionLabel.text = data.direction == "" ? "찾아오는 길: 문의처에 문의 바랍니다." : data.direction
+      directionLabel.text = data.direction == "" ? "찾아오는 길: 문의처에 문의 바랍니다" :  data.direction
       weatherData = data.weatherInfos
     }
     
@@ -112,8 +113,8 @@ extension DetailLocationCell: ViewRepresentable {
     let layout = UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection? in
       let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
       let item = NSCollectionLayoutItem(layoutSize: itemSize)
-      item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
-      let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.18), heightDimension:.estimated(100.0))
+      item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10)
+      let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.18), heightDimension:.estimated(90.0))
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
       let section = NSCollectionLayoutSection(group: group)
       section.orthogonalScrollingBehavior = .continuous

@@ -45,12 +45,12 @@ final class DetailAroundTabmanViewController: TabmanViewController {
     bar.heightAnchor.constraint(equalToConstant: 32).isActive = true
     bar.backgroundView.style = .clear
     bar.buttons.customize { (button) in
-      button.selectedTintColor = .main
+      button.selectedTintColor = .brown1
       button.contentInset = UIEdgeInsets(top: 0.0, left: 4, bottom: 0.0, right: 4)
     }
     bar.indicator.overscrollBehavior = .compress
     bar.indicator.weight = .medium
-    bar.indicator.tintColor = .main
+    bar.indicator.tintColor = .brown1
     addBar(bar, dataSource: self, at: .top)
   }
 }

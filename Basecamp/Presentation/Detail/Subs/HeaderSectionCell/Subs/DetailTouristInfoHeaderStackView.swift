@@ -25,7 +25,7 @@ final class DetailTouristInfoHeaderStackView: UIStackView {
   
   
   private lazy var overviewStack = makeStack(first: overviewCategoryLabel, second: overviewContentLabel, axis: .vertical)
-  private lazy var overviewCategoryLabel = StackingLabel(title: "개요", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .brown1)
+  private lazy var overviewCategoryLabel = StackingLabel(title: "소개말", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .brown1)
   private lazy var overviewContentLabel = StackingLabel(title: "문의요망", font: .body2R16, textAlignment: .left, padding: UIEdgeInsets(top: 8.0, left: 16.0, bottom: 8.0, right: 16.0))
   
   override init(frame: CGRect) {

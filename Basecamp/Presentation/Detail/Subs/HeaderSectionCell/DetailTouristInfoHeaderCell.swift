@@ -114,11 +114,6 @@ extension DetailTouristInfoHeaderCell: ViewRepresentable {
       imageDataList = Array(data.imageDataList[0..<7])
     }
   }
-  
-//  func viewModel(item: DetailCampsiteHeaderItem) -> Observable<HeaderCellAction> {
-//    
-//    
-//  }
 }
 
 extension DetailTouristInfoHeaderCell: FSPagerViewDelegate, FSPagerViewDataSource {

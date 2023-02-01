@@ -93,7 +93,7 @@ struct DetailViewDataSourceManager {
           }
           let item = items[indexPath.row]
           cell.setupData(data: item)
-          cell.viewModel(item: item)
+          cell.viewModel(item: item)?
             .bind(to: parent.viewModel.headerAction)
             .disposed(by: parent.disposeBag)
           return cell

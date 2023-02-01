@@ -22,7 +22,8 @@ final class DetailSocialCell: UICollectionViewCell {
     let stackView = UIStackView()
     stackView.axis = .vertical
     stackView.distribution = .fill
-    stackView.translatesAutoresizingMaskIntoConstraints = true
+    stackView.alignment = .fill
+    stackView.translatesAutoresizingMaskIntoConstraints = false
     return stackView
   }()
   
@@ -37,7 +38,7 @@ final class DetailSocialCell: UICollectionViewCell {
   private lazy var descLabel: UILabel = {
     let label = UILabel()
     label.font = .body4R12
-    label.numberOfLines = 1
+    label.numberOfLines = 3
     label.text = "설명"
     label.textColor = .darkGray
     return label
@@ -65,21 +66,26 @@ extension DetailSocialCell: ViewRepresentable {
     [iconImageView, infoStack].forEach {
       contentView.addSubview($0)
     }
+    
+    contentView.layer.borderWidth = 1
+    contentView.layer.borderColor = UIColor.gray4.cgColor
+    contentView.clipsToBounds = true
+    contentView.layer.cornerRadius = 8.0
   }
   
   func setupConstraints() {
     iconImageView.snp.makeConstraints {
-      $0.top.equalToSuperview()
-      $0.leading.equalToSuperview()
+      $0.centerY.equalToSuperview()
+      $0.leading.equalToSuperview().offset(8.0)
       $0.width.equalTo(36.0)
-      $0.bottom.equalToSuperview().offset(-8.0)
+      $0.height.equalTo(36.0)
     }
     
     infoStack.snp.makeConstraints {
-      $0.centerY.equalTo(iconImageView.snp.centerY)
-      $0.leading.equalTo(iconImageView.snp.trailing).offset(8.0)
-      $0.trailing.equalToSuperview()
-      $0.height.equalTo(36.0)
+      $0.top.equalToSuperview().offset(8.0)
+      $0.leading.equalTo(iconImageView.snp.trailing).offset(12.0)
+      $0.trailing.equalToSuperview().offset(-8.0)
+      $0.bottom.equalToSuperview().offset(-8.0)
     }
   }
   

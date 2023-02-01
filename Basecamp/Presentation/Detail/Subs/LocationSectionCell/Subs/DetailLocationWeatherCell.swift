@@ -13,19 +13,20 @@ final class DetailLocationWeatherCell: UICollectionViewCell {
   static let identifier = "DetailLocationWeatherCell"
   
   lazy var iconImageView: UIImageView = {
-      let imageView = UIImageView()
-      imageView.contentMode = .scaleAspectFit
-      return imageView
+    let imageView = UIImageView()
+    imageView.contentMode = .scaleAspectFit
+    return imageView
   }()
   
-  lazy var dateLabel = DefaultLabel(font: .body3R14)
-  lazy var maxLabel = DefaultLabel(font: .body4R12, textColor: .systemRed)
-  lazy var minLabel = DefaultLabel(font: .body4R12, textColor: .systemBlue)
+  lazy var dateLabel = DefaultLabel(font: .captionR10)
+  lazy var maxLabel = DefaultLabel(font: .captionR10, textColor: .systemRed)
+  lazy var minLabel = DefaultLabel(font: .captionR10, textColor: .systemBlue)
   
   override func layoutSubviews() {
-      super.layoutSubviews()
-      setupView()
-      setupConstraints()
+    super.layoutSubviews()
+    setupView()
+    setupConstraints()
+    setupAttribute()
   }
   
   override init(frame: CGRect) {
@@ -38,7 +39,6 @@ final class DetailLocationWeatherCell: UICollectionViewCell {
   
   override func prepareForReuse() {
     super.prepareForReuse()
-    
     iconImageView.kf.cancelDownloadTask()
     iconImageView.image = nil
   }
@@ -54,9 +54,9 @@ extension DetailLocationWeatherCell: ViewRepresentable {
   func setupConstraints() {
     iconImageView.snp.makeConstraints {
       $0.centerX.equalToSuperview()
-      $0.top.equalToSuperview()
-      $0.width.equalTo(45.0)
-      $0.height.equalTo(45.0)
+      $0.top.equalTo(dateLabel.snp.bottom)
+      $0.width.equalTo(36.0)
+      $0.height.equalTo(36.0)
     }
     
     maxLabel.snp.makeConstraints {
@@ -67,13 +67,19 @@ extension DetailLocationWeatherCell: ViewRepresentable {
     minLabel.snp.makeConstraints {
       $0.centerX.equalToSuperview()
       $0.top.equalTo(maxLabel.snp.bottom)
+      $0.bottom.equalToSuperview().offset(-4.0)
     }
     
     dateLabel.snp.makeConstraints {
-      $0.top.equalTo(minLabel.snp.bottom)
+      $0.top.equalToSuperview()
       $0.centerX.equalToSuperview()
-      $0.bottom.equalToSuperview()
     }
+  }
+  
+  func setupAttribute() {
+    //    contentView.layer.cornerRadius = 8.0
+    //    contentView.layer.borderColor = UIColor.brown1.withAlphaComponent(0.6).cgColor
+    //    contentView.layer.borderWidth = 1.0
   }
   
   func setupData(weatherInfo: WeatherInfo) {
@@ -82,7 +88,7 @@ extension DetailLocationWeatherCell: ViewRepresentable {
     iconImageView.image = UIImage(named: iconString)
     
     let digit: Double = pow(10, 1)
-    maxLabel.text = "M: \(round(weatherInfo.maxTemp! * digit) / digit)"
-    minLabel.text = "m: \(round(weatherInfo.minTemp! * digit) / digit)"
+    maxLabel.text = "M: \(round(weatherInfo.maxTemp! * digit) / digit) ℃"
+    minLabel.text = "m: \(round(weatherInfo.minTemp! * digit) / digit) ℃"
   }
 }

@@ -18,7 +18,7 @@ struct DetailViewSectionLayoutManager {
       case 2:
         return self.facilitySection()
       case 3:
-        return self.insetSection(fractionalHeight: 0.75)
+        return self.insetSection(fractionalHeight: 1.0)
       case 4:
         return self.socialSection()
       case 5:
@@ -39,7 +39,7 @@ struct DetailViewSectionLayoutManager {
       case 1:
         return self.insetSectionWithHeader(fractionalHeight: 0.55)
       case 2:
-        return self.insetSectionWithHeader(fractionalHeight: 0.75)
+        return self.insetSectionWithHeader(fractionalHeight: 1.0)
       case 3:
         return self.socialSection()
       case 4:
@@ -64,7 +64,7 @@ struct DetailViewSectionLayoutManager {
   static func insetSectionWithHeader(fractionalHeight: Double) -> NSCollectionLayoutSection {
     let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight )))
     item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-    let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight )), subitems: [item])
+    let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight)), subitems: [item])
     let section = NSCollectionLayoutSection(group: group)
     section.contentInsets = NSDirectionalEdgeInsets(top: 16.0, leading: 16.0, bottom: 16.0, trailing: 16.0)
     let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
@@ -75,15 +75,17 @@ struct DetailViewSectionLayoutManager {
       alignment: .top
     )
     section.boundarySupplementaryItems = [header]
+
     return section
   }
   
   static func insetSection(fractionalHeight: Double) -> NSCollectionLayoutSection {
     let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight )))
     item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-    let group = NSCollectionLayoutGroup.vertical(layoutSize:  .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight )), subitem: item, count: 1)
+    let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height * fractionalHeight)), subitems: [item])
     let section = NSCollectionLayoutSection(group: group)
     section.contentInsets = NSDirectionalEdgeInsets(top: 8.0, leading: 16.0, bottom: 8.0, trailing: 16.0)
+  
     return section
   }
   
@@ -117,15 +119,18 @@ struct DetailViewSectionLayoutManager {
   }
   
   static func socialSection() -> NSCollectionLayoutSection {
-    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100.0))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
     
-    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
+    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(.greatestFiniteMagnitude))
     let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-    group.interItemSpacing = .fixed(4.0)
+    
+    group.interItemSpacing = .fixed(8.0)
     
     let section = NSCollectionLayoutSection(group: group)
     section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 24, trailing: 15)
+    
+    section.interGroupSpacing = 8.0
     
     let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
     

@@ -8,7 +8,7 @@
 import Foundation
 
 enum CoordinatorStyleCase {
-  case app, tab
+  case basic ,app, tab
   case home, search, list, map, myPage
-  case filter
+  case detail
 }

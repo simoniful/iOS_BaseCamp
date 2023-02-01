@@ -24,7 +24,6 @@ final class DetailImageCell: UICollectionViewCell {
   
   override func prepareForReuse() {
     super.prepareForReuse()
-    
     imageView.kf.cancelDownloadTask()
     imageView.image = nil
   }
@@ -33,6 +32,8 @@ final class DetailImageCell: UICollectionViewCell {
 extension DetailImageCell: ViewRepresentable {
   func setupView() {
     contentView.addSubview(imageView)
+    contentView.layer.cornerRadius = 12.0
+    contentView.clipsToBounds = true
   }
   
   func setupConstraints() {

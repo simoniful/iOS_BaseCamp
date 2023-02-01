@@ -17,6 +17,7 @@ import Kingfisher
 
 final class DetailCampsiteHeaderCell: UICollectionViewCell {
   static let identifier = "DetailCampsiteHeaderCell"
+  private var interactionSetFlag = false
   
   private var imageDataList = [String]()
   
@@ -54,9 +55,14 @@ final class DetailCampsiteHeaderCell: UICollectionViewCell {
     stackView.distribution = .fillEqually
     stackView.spacing = 8.0
     stackView.layer.cornerRadius = 12.0
-    stackView.clipsToBounds = true
-    stackView.layer.borderColor = UIColor.systemGray2.cgColor
+    // stackView.clipsToBounds = true
+    // stackView.layer.borderColor = UIColor.systemGray2.cgColor
     stackView.backgroundColor = .systemGray6
+ 
+    stackView.layer.shadowColor = UIColor.gray5.cgColor
+    stackView.layer.shadowOpacity = 1.0
+    stackView.layer.shadowOffset = CGSize.zero
+    stackView.layer.shadowRadius = 1.0
     return stackView
   }()
   
@@ -128,7 +134,6 @@ extension DetailCampsiteHeaderCell: ViewRepresentable {
   func setupData(data: DetailCampsiteHeaderItem) {
     infoStack.setData(data: data)
     
-    
     if data.imageDataList.isEmpty {
       self.pagerView.isHidden = true
       self.pagerControl.isHidden = true
@@ -143,25 +148,29 @@ extension DetailCampsiteHeaderCell: ViewRepresentable {
     }
   }
   
-  func viewModel(item: DetailCampsiteHeaderItem) -> Observable<HeaderCellAction> {
-    return Observable.merge(
-      callButton.rx.tap
-        .map({ _ in
-          HeaderCellAction.call(item)
-        }),
-      reservationButton.rx.tap
-        .map({ _ in
-          HeaderCellAction.reserve(item)
-        }),
-      visitButton.rx.tap
-        .map({ _ in
-          HeaderCellAction.visit(item)
-        }),
-      likeButton.rx.tap
-        .map({ _ in
-          HeaderCellAction.like(item)
-        })
-    )
+  func viewModel(item: DetailCampsiteHeaderItem) -> Observable<HeaderCellAction>? {
+    if interactionSetFlag == false {
+      interactionSetFlag.toggle()
+      return Observable.merge(
+        callButton.rx.tap
+          .map({ _ in
+            HeaderCellAction.call(item)
+          }),
+        reservationButton.rx.tap
+          .map({ _ in
+            HeaderCellAction.reserve(item)
+          }),
+        visitButton.rx.tap
+          .map({ _ in
+            HeaderCellAction.visit(item)
+          }),
+        likeButton.rx.tap
+          .map({ _ in
+            HeaderCellAction.like(item)
+          })
+      )
+    }
+    return nil
   }
   
   func makeButton(iconName: String, title: String) -> UIButton {

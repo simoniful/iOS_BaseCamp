@@ -14,6 +14,8 @@ final class HomeViewModel: ViewModel {
   
   private weak var coordinator: HomeCoordinator?
   private let homeUseCase: HomeUseCase
+  public var didSubmitAction: ((DetailStyle) -> ())?
+  public var didTapBack: (() -> ())?
   
   init(coordinator: HomeCoordinator?, homeUseCase: HomeUseCase) {
       self.coordinator = coordinator
@@ -135,10 +137,12 @@ final class HomeViewModel: ViewModel {
           self.coordinator?.changeTabByIndex(tabCase: .list, message: "지역별로 검색해보세요", area: areaItem.area)
         case 2:
           guard let campsite = model as? Campsite else { return }
-          self.coordinator?.showDetailViewController(detailStyle: .campsite(campsite: campsite), name: campsite.facltNm!)
+          guard let didSubmitAction = self.didSubmitAction else { return }
+          didSubmitAction(.campsite(data: campsite))
         case 3:
           guard let touristInfo = model as? TouristInfo else { return }
-          self.coordinator?.showDetailViewController(detailStyle: .touristInfo(touristInfo: touristInfo), name: touristInfo.title!)
+          guard let didSubmitAction = self.didSubmitAction else { return }
+          didSubmitAction(.touristInfo(data: touristInfo))
         default:
           print("여긴 클릭하면 안됨")
         }
@@ -281,7 +285,6 @@ private extension HomeViewModel {
       heightDimension: .fractionalHeight(1.0)
     )
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    // item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 8)
     let groupSize = NSCollectionLayoutSize(
       widthDimension: .fractionalWidth(0.45),
       heightDimension: .fractionalWidth(0.6)

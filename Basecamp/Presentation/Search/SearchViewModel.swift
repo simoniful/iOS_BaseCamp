@@ -80,7 +80,7 @@ final class SearchViewModel: ViewModel {
       .withUnretained(self)
       .emit { (owner, itemAndIndex) in
         let (campsite, _) = itemAndIndex
-        owner.coordinator?.showDetailViewController(detailStyle: .campsite(campsite: campsite), name: campsite.facltNm!)
+        owner.coordinator?.showDetailViewController(detailStyle: .campsite(data: campsite), name: campsite.facltNm!)
       }
       .disposed(by: disposeBag)
     

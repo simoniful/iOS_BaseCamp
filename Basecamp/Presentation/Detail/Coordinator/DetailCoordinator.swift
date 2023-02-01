@@ -1,46 +1,52 @@
 //
-//  HomeCoordinator.swift
+//  DetailCoordinator.swift
 //  Basecamp
 //
-//  Created by Sang hun Lee on 2022/12/14.
+//  Created by Sang hun Lee on 2023/02/01.
 //
 
 import UIKit
 import Toast
 
-final class HomeCoordinator: Coordinator {
-  
+final class DetailCoordinator: Coordinator {
+
+  weak var parentCoordinator: Coordinator?
   weak var delegate: CoordinatorDelegate?
   var childCoordinators = [Coordinator]()
   var navigationController: UINavigationController
-  var type: CoordinatorStyleCase = .home
-  var isCompleted: (() -> ())?
+  var type: CoordinatorStyleCase = .detail
+  let data: DetailStyle
   
-  init(_ navigationController: UINavigationController) {
+  init(_ navigationController: UINavigationController, data: DetailStyle) {
     self.navigationController = navigationController
+    self.data = data
   }
   
   func start() {
-    let viewModel = HomeViewModel(
-      coordinator: self,
-      homeUseCase: HomeUseCase(
-        realmRepository: RealmRepository(),
-        campsiteRepository: CampsiteRepository(),
-        touristInfoRepository: TouristInfoRepository()
+    let vc = DetailViewController(
+      viewModel: DetailViewModel(
+        coordinator: self,
+        detailUseCase: DetailUseCase(
+          campsiteRepository: CampsiteRepository(),
+          realmRepository: RealmRepository(),
+          touristInfoRepository: TouristInfoRepository(),
+          weatherRepository: WeatherRepository(),
+          naverBlogRepository: NaverBlogRepository(),
+          youtubeRepository: YoutubeRepository()
+        ),
+        style: data
       )
     )
-    let viewController = HomeViewController(viewModel: viewModel)
-    viewModel.didSubmitAction = { [weak self] detailType in
-      guard let self = self else { return }
-      self.navigateToFlowDetail(with: detailType)
+    switch data {
+    case .campsite(let data):
+      vc.title = data.facltNm!
+    case .touristInfo(let data):
+      vc.title = data.title!
     }
-    viewModel.didTapBack = { [weak self] in
-      self?.isCompleted?()
-    }
-    navigationController.pushViewController(viewController, animated: true)
+    navigationController.pushViewController(vc, animated: true)
   }
   
-//  func showDetailViewController(with data: DetailStyle) {
+  func showDetailViewController(detailStyle: DetailStyle, name: String) {
 //    let vc = DetailViewController(
 //      viewModel: DetailViewModel(
 //        coordinator: self,
@@ -51,18 +57,14 @@ final class HomeCoordinator: Coordinator {
 //          weatherRepository: WeatherRepository(),
 //          naverBlogRepository: NaverBlogRepository(),
 //          youtubeRepository: YoutubeRepository()
-//        )
-//      )
+//        ),
+//        style: detailStyle
+//      ),
+//      name: name
 //    )
+//    vc.title = name
 //    vc.hidesBottomBarWhenPushed = true
 //    navigationController.pushViewController(vc, animated: true)
-//  }
-  
-  func navigateToFlowDetail(with data: DetailStyle) {
-    let detailCoordinator = DetailCoordinator(self.navigationController, data: data)
-    detailCoordinator.parentCoordinator = self
-    self.store(coordinator: detailCoordinator)
-    detailCoordinator.start()
   }
   
   func changeTabByIndex(tabCase: TabBarPageCase ,message: String, area: Area? = nil) {
