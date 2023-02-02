@@ -37,7 +37,7 @@ final class IndicatorView: UIView {
   
   private func showIndicatorView() {
     self.viewForActivityIndicator.layer.cornerRadius = 10
-    self.viewForActivityIndicator.backgroundColor = .systemGray4
+    self.viewForActivityIndicator.backgroundColor = .gray4.withAlphaComponent(0.75)
     self.activityIndicator.style = .medium
     self.activityIndicator.color = .main
     

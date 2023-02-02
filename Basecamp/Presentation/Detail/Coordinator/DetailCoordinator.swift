@@ -71,7 +71,9 @@ final class DetailCoordinator: Coordinator {
   func navigateToFlowZoom(with data: String) {
     let viewController = DetailZoomViewController()
     viewController.data = data
-    navigationController.pushViewController(viewController, animated: true)
+    viewController.hidesBottomBarWhenPushed = true
+    viewController.modalPresentationStyle = .fullScreen
+    navigationController.present(viewController, animated: true)
   }
   
   func changeTabByIndex(tabCase: TabBarPageCase ,message: String, area: Area? = nil) {

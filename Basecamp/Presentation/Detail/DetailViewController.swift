@@ -145,6 +145,10 @@ final class DetailViewController: UIViewController {
         .disposed(by: disposeBag)
     }
   }
+  
+  override var prefersStatusBarHidden: Bool {
+    return false
+  }
 }
 
 extension DetailViewController: ViewRepresentable {

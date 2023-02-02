@@ -6,103 +6,82 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import Kingfisher
 
 class DetailZoomViewController: UIViewController {
   weak var coordinator: DetailCoordinator?
   public var data: String?
-  
-//    var pictureURL: URL?
-//    var isZooming = false
-//    var originalImageCenter:CGPoint?
-//    var imageView: UIImageView
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        guard let pictureURL = pictureURL else {
-//            return
-//        }
-//        imageView.kf.setImage(with: pictureURL)
-//        imageView.isUserInteractionEnabled = true
-//        
-//        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(self.pinch(sender:)))
-//        pinch.delegate = self
-//        self.imageView.addGestureRecognizer(pinch)
-//
-//        let pan = UIPanGestureRecognizer(target: self, action: #selector(self.pan(sender:)))
-//        pan.delegate = self
-//        self.imageView.addGestureRecognizer(pan)
-//    }
-//    
-//    @objc func pinch(sender:UIPinchGestureRecognizer) {
-//        if sender.state == .began {
-//        
-//            let currentScale = self.imageView.frame.size.width / self.imageView.bounds.size.width
-//            let newScale = currentScale*sender.scale
-//        
-//            if newScale > 1 {
-//                self.isZooming = true
-//            }
-//        } else if sender.state == .changed {
-//            guard let view = sender.view else { return }
-//        
-//            let pinchCenter = CGPoint(x: sender.location(in: view).x - view.bounds.midX, y: sender.location(in: view).y - view.bounds.midY)
-//
-//            let transform = view.transform.translatedBy(x: pinchCenter.x, y: pinchCenter.y)
-//                .scaledBy(x: sender.scale, y: sender.scale)
-//                .translatedBy(x: -pinchCenter.x, y: -pinchCenter.y)
-//        
-//            let currentScale = self.imageView.frame.size.width / self.imageView.bounds.size.width
-//        
-//            var newScale = currentScale*sender.scale
-//            if newScale < 1 {
-//                newScale = 1
-//                let transform = CGAffineTransform(scaleX: newScale, y: newScale)
-//                self.imageView.transform = transform
-//                sender.scale = 1
-//            } else {
-//                view.transform = transform
-//                sender.scale = 1
-//            }
-//        } else if sender.state == .ended || sender.state == .failed || sender.state == .cancelled {
-//            guard let center = self.originalImageCenter else { return }
-//
-//            UIView.animate(withDuration: 0.3, animations: {
-//                self.imageView.center = center
-//            }, completion: { _ in
-//                self.isZooming = false
-//            })
-//        }
-//    }
-//    
-//    @objc func pan(sender: UIPanGestureRecognizer) {
-//        if self.isZooming && sender.state == .began {
-//            self.originalImageCenter = sender.view?.center
-//        } else if self.isZooming && sender.state == .changed {
-//            let translation = sender.translation(in: self.view)
-//            if let view = sender.view {
-//                view.center = CGPoint(x:view.center.x + translation.x, y:view.center.y + translation.y)
-//            }
-//            sender.setTranslation(CGPoint.zero, in: self.imageView.superview)
-//        }
-//    }
-//    
-//    override func viewWillAppear(_ animated: Bool) {
-//        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-//    }
-//        
-//    override func viewWillDisappear(_ animated: Bool) {
-//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-//    }
-//    
-//    @IBAction func closeBtnClicked(_ sender: UIButton) {
-//        self.navigationController?.popViewController(animated: true)
-//    }
 
+  var disposeBag = DisposeBag()
+  
+  private lazy var imageView: UIImageView = {
+    let imageView = UIImageView()
+    imageView.contentMode = .scaleAspectFit
+    imageView.clipsToBounds = true
+    imageView.isUserInteractionEnabled = true
+    imageView.bindPinchZoomGesture(maxScale: 4.0 ,disposedBy: disposeBag)
+    return imageView
+  }()
+  
+  private lazy var closeButton: UIButton = {
+    let button = UIButton()
+    button.setImage(UIImage(systemName: "xmark"), for: .normal)
+    button.tintColor = .white
+    button.addTarget(self, action: #selector(closeDetailZoom), for: .touchUpInside)
+    return button
+  }()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setupView()
+    setupConstraints()
+    
+    guard let data = data else { return }
+    let processor = DownsamplingImageProcessor(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / 4 * 3))
+    imageView.kf.indicatorType = .activity
+    imageView.kf.setImage(
+      with: URL(string: data),
+      options: [
+        .processor(processor),
+        .scaleFactor(UIScreen.main.scale),
+        .transition(.fade(1)),
+        .cacheOriginalImage
+      ])
+  }
+  
+  @objc func closeDetailZoom(_ sender: UIButton) {
+    self.dismiss(animated: true)
+  }
+  
+  override var prefersStatusBarHidden: Bool {
+    return true
+  }
 }
 
-//extension ZoomPictureViewController:UIGestureRecognizerDelegate {
-//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-//        return true
-//    }
-//}
+extension DetailZoomViewController: ViewRepresentable {
+  func setupView() {
+    view.addSubview(imageView)
+    view.addSubview(closeButton)
+    view.backgroundColor = .focus
+  }
+  
+  func setupConstraints() {
+    imageView.snp.makeConstraints {
+      $0.centerX.equalToSuperview()
+      $0.centerY.equalToSuperview()
+      $0.width.equalTo(UIScreen.main.bounds.width)
+      $0.height.equalTo(imageView.snp.width).multipliedBy(0.75)
+    }
+    
+    closeButton.snp.makeConstraints {
+      $0.top.equalTo(view.safeAreaLayoutGuide)
+      $0.leading.equalTo(view.safeAreaLayoutGuide)
+      $0.width.equalTo(44.0)
+      $0.height.equalTo(44.0)
+    }
+  }
+}
+
+

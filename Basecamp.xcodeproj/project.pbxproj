@@ -16,6 +16,7 @@
 		F40DDFB6298A57D300D05C2A /* NavigationPerformActionDelegate .swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB5298A57D300D05C2A /* NavigationPerformActionDelegate .swift */; };
 		F40DDFB9298A744C00D05C2A /* DetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB8298A744C00D05C2A /* DetailWebViewController.swift */; };
 		F40DDFBC298A9FF200D05C2A /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFBB298A9FF200D05C2A /* SkeletonView */; };
+		F40DDFBE298BA00100D05C2A /* PinchedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFBD298BA00100D05C2A /* PinchedImageViewController.swift */; };
 		F45C09DF296DB6730075E1AC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DE296DB6730075E1AC /* AlertView.swift */; };
 		F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E0296EB8130075E1AC /* StackingLabel.swift */; };
 		F45C09E3296F03070075E1AC /* DetailViewSectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */; };
@@ -270,6 +271,7 @@
 		F40DDFB3298A549E00D05C2A /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		F40DDFB5298A57D300D05C2A /* NavigationPerformActionDelegate .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationPerformActionDelegate .swift"; sourceTree = "<group>"; };
 		F40DDFB8298A744C00D05C2A /* DetailWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWebViewController.swift; sourceTree = "<group>"; };
+		F40DDFBD298BA00100D05C2A /* PinchedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchedImageViewController.swift; sourceTree = "<group>"; };
 		F45C09DE296DB6730075E1AC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		F45C09E0296EB8130075E1AC /* StackingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackingLabel.swift; sourceTree = "<group>"; };
 		F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewSectionLayoutManager.swift; sourceTree = "<group>"; };
@@ -553,6 +555,7 @@
 			isa = PBXGroup;
 			children = (
 				F40DDFB0298A517900D05C2A /* DetailZoomViewController.swift */,
+				F40DDFBD298BA00100D05C2A /* PinchedImageViewController.swift */,
 			);
 			path = ZoomView;
 			sourceTree = "<group>";
@@ -2040,6 +2043,7 @@
 				F4E3E5A92954C392009AFCFC /* UIViewController+Rx.swift in Sources */,
 				F45C0A0A297266DC0075E1AC /* FilterCase.swift in Sources */,
 				F49034E629515B3500CDE442 /* YoutubeAPIConstant.swift in Sources */,
+				F40DDFBE298BA00100D05C2A /* PinchedImageViewController.swift in Sources */,
 				F49034CE2950480200CDE442 /* APIKey.swift in Sources */,
 				F45C0A522980FAE50075E1AC /* ListCoordinator.swift in Sources */,
 				F49034DD2950954900CDE442 /* TouristTargetStub.swift in Sources */,

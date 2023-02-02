@@ -73,6 +73,8 @@ final class DetailCampsiteHeaderCell: UICollectionViewCell {
   
   private lazy var infoStack = DetailCampsiteHeaderStackView()
 
+  private let pagerViewDidTapped = PublishRelay<String>()
+  
   override func layoutSubviews() {
       super.layoutSubviews()
       setupView()
@@ -167,6 +169,10 @@ extension DetailCampsiteHeaderCell: ViewRepresentable {
         likeButton.rx.tap
           .map({ _ in
             HeaderCellAction.like(item)
+          }),
+        pagerViewDidTapped
+          .map({ urlStr in
+            HeaderCellAction.pager(item, urlStr)
           })
       )
     }
@@ -220,6 +226,7 @@ extension DetailCampsiteHeaderCell: FSPagerViewDelegate, FSPagerViewDataSource {
 
   func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
     let item = imageDataList[index]
+    pagerViewDidTapped.accept(item)
   }
 }
 

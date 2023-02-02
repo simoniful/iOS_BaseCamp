@@ -272,6 +272,15 @@ final class DetailViewModel: ViewModel {
         }
         .disposed(by: disposeBag)
       
+      headerAction
+        .capture(case: HeaderCellAction.pager)
+        .withUnretained(self)
+        .bind { owner, arg in
+          let (_, url) = arg
+          owner.coordinator?.navigateToFlowZoom(with: url)
+        }
+        .disposed(by: disposeBag)
+      
       input.didSelectItemAt
         .withUnretained(self)
         .emit { (owner, itemWithIndex) in
@@ -280,7 +289,8 @@ final class DetailViewModel: ViewModel {
           case 4:
             print(item)
           case 6:
-            print(item)
+            guard let item = item as? DetailImageItem else { return }
+            owner.coordinator?.navigateToFlowZoom(with: item.image)
           default:
             break
           }
