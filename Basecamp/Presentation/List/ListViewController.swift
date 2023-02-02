@@ -46,6 +46,10 @@ final class ListViewController: TabmanViewController {
   init(viewModel: ListViewModel) {
     self.viewModel = viewModel
     super.init(nibName: nil, bundle: nil)
+    setupNavigationBar()
+    setupDropdownUI()
+    setupDropdown()
+    bind()
   }
   
   required init?(coder: NSCoder) {
@@ -57,10 +61,6 @@ final class ListViewController: TabmanViewController {
     setupView()
     setupConstraints()
     setupAttribute()
-    setupNavigationBar()
-    bind()
-    setupDropdownUI()
-    setupDropdown()
     setupTabbar()
   }
   

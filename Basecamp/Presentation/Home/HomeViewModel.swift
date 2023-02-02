@@ -26,15 +26,16 @@ final class HomeViewModel: ViewModel {
     let viewDidLoad: Observable<Void>
     let viewWillAppear: Observable<Void>
     let didSelectItemAt: Signal<(HomeItem, IndexPath)>
+    let searchButtonDidTapped: Signal<Void>
+    let listButtonDidTapped: Signal<Void>
+    let mapButtonDidTapped: Signal<Void>
   }
   
   struct Output {
     let data: Driver<[HomeSectionModel]>
-    let indicatorHide: Driver<Void>
   }
   
   private let data = PublishRelay<[HomeSectionModel]>()
-  private let indicatorHide = PublishRelay<Void>()
   private let headerAction = PublishRelay<HeaderCellAction>()
   
   var disposeBag = DisposeBag()
@@ -56,24 +57,27 @@ final class HomeViewModel: ViewModel {
         self.homeUseCase.requestAreaData()
       }
 
-    let campsiteResult = input.viewDidLoad
+    let campsiteKeywordResult = input.viewDidLoad
       .flatMapLatest { _ in
-        self.homeUseCase.requestCampsiteList(numOfRows: 20, pageNo: 1, keyword: "글램핑")
+        self.homeUseCase.requestCampsiteKeywordList(numOfRows: 20, pageNo: 1)
       }
       .share()
 
-    let campsiteValue = campsiteResult
-      .do(onNext: { data in
-        print(data, "홈 캠핑 데이터 패칭 ----")
-      })
+    let campsiteKeywordValue = campsiteKeywordResult
       .compactMap { data -> [Campsite]? in
         self.homeUseCase.getCampsiteValue(data)
       }
 
-    let campsiteError = campsiteResult
+    let campsiteKeywordError = campsiteKeywordResult
       .compactMap { data -> String? in
         self.homeUseCase.getCampsiteError(data)
       }
+    
+    let campsiteThemeValue = input.viewDidLoad
+      .compactMap { _ in
+        self.homeUseCase.requestCampsiteThemeList()
+      }
+    
 
     let touristInfoResult = input.viewDidLoad
       .flatMapLatest { _ in
@@ -84,9 +88,6 @@ final class HomeViewModel: ViewModel {
       .share()
 
     let touristInfoValue = touristInfoResult
-      .do(onNext: { data in
-        print(data, "홈 관광정보 데이터 패칭 ----")
-      })
       .compactMap { data -> TouristInfoData? in
         self.homeUseCase.getTouristInfoValue(data)
       }
@@ -96,15 +97,11 @@ final class HomeViewModel: ViewModel {
         self.homeUseCase.getTouristInfoError(data)
       }
 
-    Observable.combineLatest(realmValue, areaValue, campsiteValue, touristInfoValue)
-      .do(onNext: { [weak self] _ in
-        print("home 데이터 패칭 완료")
-        self?.indicatorHide.accept(())
-      })
+    Observable.combineLatest(realmValue, areaValue, campsiteKeywordValue, campsiteThemeValue ,touristInfoValue)
       .withUnretained(self)
       .compactMap { (owner, values) -> [HomeSectionModel] in
-        let (realmData, areaData, campsiteList, touristList) = values
-        return owner.homeUseCase.getHomeSectionModel( realmData, areaData, campsiteList, touristList.item)
+        let (realmData, areaData, campsiteKeywordList, campsiteThemeList, touristList) = values
+        return owner.homeUseCase.getHomeSectionModel(realmData, areaData, campsiteKeywordList, campsiteThemeList, touristList.item)
       }
       .bind(to: data)
       .disposed(by: disposeBag)
@@ -137,12 +134,12 @@ final class HomeViewModel: ViewModel {
           print("여긴 클릭하면 안됨")
         case 1:
           guard let areaItem = model as? HomeAreaItem else { return }
-          self.coordinator?.changeTabByIndex(tabCase: .list, message: "지역별로 검색해보세요", area: areaItem.area, index: index.row + 1)
-        case 2:
+          self.coordinator?.changeTabByIndex(tabCase: .list, message: "지역별로 검색해보세요", area: areaItem.area, index: index.row)
+        case 2, 3:
           guard let campsite = model as? Campsite else { return }
           guard let didSubmitAction = self.didSubmitAction else { return }
           didSubmitAction(.campsite(data: campsite))
-        case 3:
+        case 4:
           guard let touristInfo = model as? TouristInfo else { return }
           guard let didSubmitAction = self.didSubmitAction else { return }
           didSubmitAction(.touristInfo(data: touristInfo))
@@ -152,9 +149,29 @@ final class HomeViewModel: ViewModel {
       }
       .disposed(by: disposeBag)
     
+    input.searchButtonDidTapped
+      .withUnretained(self)
+      .emit { owner, _ in
+        owner.coordinator?.changeTabByIndex(tabCase: .search, message: "조건별로 검색해보세요")
+      }
+      .disposed(by: disposeBag)
+    
+    input.listButtonDidTapped
+      .withUnretained(self)
+      .emit { owner, _ in
+        owner.coordinator?.changeTabByIndex(tabCase: .list, message: "지역별로 검색해보세요")
+      }
+      .disposed(by: disposeBag)
+    
+    input.mapButtonDidTapped
+      .withUnretained(self)
+      .emit { owner, _ in
+        owner.coordinator?.changeTabByIndex(tabCase: .map, message: "지도에서 검색해보세요")
+      }
+      .disposed(by: disposeBag)
+    
     return Output(
-      data: data.asDriver(onErrorJustReturn: []),
-      indicatorHide: indicatorHide.asDriver(onErrorJustReturn: ())
+      data: data.asDriver(onErrorJustReturn: [])
     )
   }
   
@@ -179,7 +196,12 @@ final class HomeViewModel: ViewModel {
           let item = items[indexPath.row]
           cell.setupData(area: item.area)
           return cell
-        case .campsiteSection(header: _, items: let items):
+        case .campsiteKeywordSection(header: _, items: let items):
+          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCampsiteCell.identifier, for: indexPath) as? HomeCampsiteCell else { return UICollectionViewCell() }
+          let item = items[indexPath.row]
+          cell.setData(campsite: item)
+          return cell
+        case .campsiteThemeSection(header: _, items: let items):
           guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCampsiteCell.identifier, for: indexPath) as? HomeCampsiteCell else { return UICollectionViewCell() }
           let item = items[indexPath.row]
           cell.setData(campsite: item)
@@ -189,6 +211,7 @@ final class HomeViewModel: ViewModel {
         let item = items[indexPath.row]
         cell.setData(touristInfo: item)
         return cell
+      
         }
       },
       configureSupplementaryView: { dataSource, collectionView, kind, indexPath in
@@ -197,7 +220,8 @@ final class HomeViewModel: ViewModel {
           let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeSectionHeader.identifier, for: indexPath)
           return header
         case .areaSection(header: let headerStr, _),
-             .campsiteSection(header: let headerStr, _),
+             .campsiteKeywordSection(header: let headerStr, _),
+             .campsiteThemeSection(header: let headerStr, _),
              .festivalSection(header: let headerStr, _):
           guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeSectionHeader.identifier, for: indexPath) as? HomeSectionHeader else { return UICollectionReusableView() }
           header.setData(header: headerStr)
@@ -215,7 +239,7 @@ final class HomeViewModel: ViewModel {
         return self.headerSection()
       case 1:
         return self.areaSection()
-      case 3:
+      case 4:
         return self.festivalSection()
       default:
         return self.campsiteSection()

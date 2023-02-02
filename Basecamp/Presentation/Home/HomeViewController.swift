@@ -40,7 +40,10 @@ final class HomeViewController: UIViewController {
   private lazy var input = HomeViewModel.Input(
     viewDidLoad: Observable.just(()),
     viewWillAppear: self.rx.viewWillAppear.asObservable(),
-    didSelectItemAt: self.collectionView.rx.modelAndIndexSelected(HomeItem.self).asSignal()
+    didSelectItemAt: self.collectionView.rx.modelAndIndexSelected(HomeItem.self).asSignal(),
+    searchButtonDidTapped: rightBarSearchButton.rx.tap.asSignal(),
+    listButtonDidTapped: rightBarListButton.rx.tap.asSignal(),
+    mapButtonDidTapped: rightBarMapButton.rx.tap.asSignal()
   )
   
   private lazy var output = viewModel.transform(input: input)
@@ -79,14 +82,12 @@ final class HomeViewController: UIViewController {
     let dataSource = viewModel.dataSource()
     
     output.data
+      .do(onNext: { _ in
+        IndicatorView.shared.hide()
+      })
       .drive(self.collectionView.rx.items(dataSource: dataSource))
       .disposed(by: disposeBag)
-    
-    output.indicatorHide
-      .drive {  _ in
-        IndicatorView.shared.hide()
-      }
-      .disposed(by: disposeBag)
+
   }
 }
 

@@ -37,6 +37,13 @@ final class RealmRepository: RealmRepositoryInterface {
     }
   }
   
+  func loadCampsite(query: String) -> [Campsite] {
+    let realmDTO = storage.readCampsites(query: query).toArray()
+    return realmDTO.map {
+      $0.toDomain()
+    }
+  }
+  
   func loadCampsite(query: [[String]]) -> [Campsite] {
     let realmDTO = storage.readCampsites(query: query).toArray()
     return realmDTO.map {

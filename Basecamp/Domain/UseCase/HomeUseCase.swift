@@ -16,6 +16,9 @@ final class HomeUseCase {
   private let campsiteRepository: CampsiteRepositoryInterface
   private let touristInfoRepository: TouristInfoRepositoryInterface
   
+  private let searchKeyword = ["글램핑", "카라반", "야영장", "오토캠핑"].randomElement()
+  private let theme = Experience.allCases.randomElement()
+  
   init(
     realmRepository: RealmRepositoryInterface,
     campsiteRepository: CampsiteRepositoryInterface,
@@ -54,17 +57,18 @@ final class HomeUseCase {
     return error.localizedDescription
   }
   
-  // Realm, Campsite, Tourist 데이터가 모두 완료된 후
   func getHomeSectionModel(
     _ realmData: [HomeHeaderItem],
     _ areaData: [HomeAreaItem],
-    _ campsiteList: [Campsite],
+    _ campsiteKeywordList: [Campsite],
+    _ campsiteThemeList: [Campsite],
     _ touristList: [TouristInfo]
   ) -> [HomeSectionModel] {
     var data: [HomeSectionModel] = []
     data.append(.headerSection(items: realmData))
     data.append(.areaSection(header: "어디로 가시나요?", items: areaData))
-    data.append(.campsiteSection(header: "글램핑", items: campsiteList))
+    data.append(.campsiteKeywordSection(header: searchKeyword!, items: campsiteKeywordList))
+    data.append(.campsiteThemeSection(header: theme!.rawValue + " 가능한 캠핑장", items: campsiteThemeList))
     data.append(.festivalSection(header: "축제/행사 소식", items: touristList))
     return data
   }
@@ -91,6 +95,11 @@ final class HomeUseCase {
     }
   }
   
+  func requestCampsiteThemeList() -> [Campsite] {
+    let data = realmRepository.loadCampsite(query: theme!.realmQuery)
+    return data
+  }
+  
   // MARK: - 지역 정보 매핑
   func requestAreaData() -> [HomeAreaItem] {
     let areaList = Area.allCases.map {
@@ -100,15 +109,9 @@ final class HomeUseCase {
   }
   
   // MARK: - 고캠핑 레포 연결
-  func requestCampsiteList(numOfRows: Int, pageNo: Int) -> Single<Result<[Campsite], CampsiteServiceError>> {
+  func requestCampsiteKeywordList(numOfRows: Int, pageNo: Int) -> Single<Result<[Campsite], CampsiteServiceError>> {
     campsiteRepository.requestCampsiteList(
-      campsiteQueryType: .basic(numOfRows: numOfRows, pageNo: pageNo)
-    )
-  }
-  
-  func requestCampsiteList(numOfRows: Int, pageNo: Int, keyword: String) -> Single<Result<[Campsite], CampsiteServiceError>> {
-    campsiteRepository.requestCampsiteList(
-      campsiteQueryType: .keyword(numOfRows: numOfRows, pageNo: pageNo, keyword: keyword)
+      campsiteQueryType: .keyword(numOfRows: numOfRows, pageNo: pageNo, keyword: searchKeyword!)
     )
   }
   

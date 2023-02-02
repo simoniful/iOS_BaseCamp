@@ -53,7 +53,7 @@ final class HomeCoordinator: Coordinator {
   
   func changeTabByIndex(tabCase: TabBarPageCase ,message: String, area: Area? = nil, index: Int = 0) {
     navigationController.tabBarController?.selectedIndex = tabCase.pageOrderNumber
-    navigationController.tabBarController?.view.makeToast(message, position: .center)
+    navigationController.tabBarController?.view.makeToast(message, position: .bottom)
     
     switch tabCase {
     case .list:
