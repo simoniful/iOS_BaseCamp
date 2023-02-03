@@ -85,14 +85,14 @@ final class DetailCampsiteHeaderStackView: UIStackView {
   }
   
   func setData(data: DetailCampsiteHeaderItem) {
-    telContentLabel.text = data.tel.isEmpty ? "・ 문의요망" : data.tel
+    telContentLabel.text = data.tel.isEmpty ? "문의요망" : data.tel
     lctClFacltDivNmContentLabel.text = "\(data.lctCl.isEmpty ? "복합" : data.lctCl.replacingOccurrences(of: ",", with: "・")) / \(data.facltDivNm.isEmpty ? "문의요망" : data.facltDivNm)"
     indutyContentLabel.text = data.induty.isEmpty ? "문의요망" : data.induty.replacingOccurrences(of: ",", with: "・")
     operDeClContentLabel.text = data.operDeCl.isEmpty ? "문의요망" : data.operDeCl
     operPDClContentLabel.text = data.operPDCl.isEmpty ? "문의요망" : data.operPDCl.replacingOccurrences(of: ",", with: "・")
-    homepageContentLabel.text = data.homepage.isEmpty ? "・ 문의요망" : data.homepage
-    posblFcltyClContentLabel.text = data.posblFcltyCl.isEmpty ? "・ 문의요망" : "・ " + data.posblFcltyCl
-    resveClContentLabel.text = data.resveCl.isEmpty ? "・ 문의요망" : data.resveCl.replacingOccurrences(of: ",", with: "・")
+    homepageContentLabel.text = data.homepage.isEmpty ? "문의요망" : data.homepage
+    posblFcltyClContentLabel.text = data.posblFcltyCl.isEmpty ? "문의요망" : "・" + data.posblFcltyCl
+    resveClContentLabel.text = data.resveCl.isEmpty ? "문의요망" : data.resveCl.replacingOccurrences(of: ",", with: "・")
   }
   
   private func makeStack(first: UIView, second: UIView, axis: NSLayoutConstraint.Axis) -> UIStackView {

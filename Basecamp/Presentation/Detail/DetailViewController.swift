@@ -111,6 +111,31 @@ final class DetailViewController: UIViewController {
         })
         .disposed(by: disposeBag)
       
+      output.noUrlDataAlert
+        .emit { [weak self] (title, message, keyword) in
+          let alert = AlertView.init(title: title, message: message, buttonStyle: .confirmAndCancel) {
+            guard let urlStr = "https://search.naver.com/search.naver?query=\(keyword)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+            guard let url = URL(string: urlStr) else { return }
+            guard UIApplication.shared.canOpenURL(url) else { return }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+          }
+          alert.showAlert()
+        }
+        .disposed(by: disposeBag)
+      
+      output.callAlert
+        .emit { (title, message, telNum) in
+          let alert = AlertView.init(title: title, message: message, buttonStyle: .confirmAndCancel) {
+            let telNum = telNum.replacingOccurrences(of: "-", with: "")
+            let urlStr = "tel://\(telNum)"
+            guard let url = URL(string: urlStr) else { return }
+            guard UIApplication.shared.canOpenURL(url) else { return }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+          }
+          alert.showAlert()
+        }
+        .disposed(by: disposeBag)
+      
     case .touristInfo:
       collectionView.collectionViewLayout = DetailViewSectionLayoutManager.createTouristInfoLayout()
       

@@ -41,6 +41,8 @@ final class DetailViewModel: ViewModel {
     let confirmAuthorizedLocation: Signal<Void>
     let updateLocationAction: Signal<Void>
     let unAutorizedLocationAlert: Signal<(String, String)>
+    let noUrlDataAlert: Signal<(String, String, String)>
+    let callAlert: Signal<(String, String, String)>
   }
   
   let aroundTabmanViewModel = DetailAroundTabmanViewModel()
@@ -50,6 +52,8 @@ final class DetailViewModel: ViewModel {
   private let confirmAuthorizedLocation = PublishRelay<Void>()
   private let updateLocationAction = PublishRelay<Void>()
   private let unAutorizedLocationAlert = PublishRelay<(String, String)>()
+  private let noUrlDataAlert = PublishRelay<(String, String, String)>()
+  private let callAlert = PublishRelay<(String, String, String)>()
   private let isAutorizedLocation = BehaviorRelay<Bool>(value: false)
   let headerAction = PublishRelay<HeaderCellAction>()
   
@@ -189,9 +193,6 @@ final class DetailViewModel: ViewModel {
       
       // MARK: - Around Tabman Data
       let touristResult = aroundTabmanViewModel.detailAroundTabmanSubViewModel.viewWillAppearWithContentType
-        .do(onNext: { (event, type) in
-          print("탭이 바꼇다. \(type)")
-        })
         .withUnretained(self)
         .flatMapLatest { (owner, eventWithType) in
           let (_, contentType) = eventWithType
@@ -246,15 +247,28 @@ final class DetailViewModel: ViewModel {
       // MARK: - HeaderAction
       headerAction
         .capture(case: HeaderCellAction.call)
-        .bind { _ in
-          print("전화")
+        .bind { [weak self] _ in
+          guard let tel = campsite.tel else { return }
+          if tel.isEmpty {
+            self?.noUrlDataAlert.accept(("등록된 번호가 없습니다", "검색 엔진으로 이동하여 검색 하시겠습니까?", campsite.facltNm!))
+          } else {
+            self?.callAlert.accept(("해당 번호로 전화를 거시겠습니까?", "📞 " + tel, tel))
+          }
         }
         .disposed(by: disposeBag)
       
       headerAction
         .capture(case: HeaderCellAction.reserve)
-        .bind { _ in
-          print("예약")
+        .bind { [weak self] _ in
+          guard let urlStr = campsite.homepage,
+                urlStr != "" else {
+            self?.noUrlDataAlert.accept(("등록된 홈페이지가 없습니다", "검색 엔진으로 이동하여 검색 하시겠습니까?", campsite.facltNm!))
+            return
+          }
+          guard let urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+          guard let url = URL(string: urlStr) else { return }
+          guard UIApplication.shared.canOpenURL(url) else { return }
+          UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
         .disposed(by: disposeBag)
       
@@ -267,6 +281,7 @@ final class DetailViewModel: ViewModel {
       
       headerAction
         .capture(case: HeaderCellAction.like)
+        .withUnretained(self)
         .bind { _ in
           print("찜")
         }
@@ -307,9 +322,6 @@ final class DetailViewModel: ViewModel {
         }
       
       let touristImageValue = touristImageResult
-        .do(onNext: { data in
-          print(data, "관광정보 데이터 패칭")
-        })
         .compactMap { [weak self] data -> [String]? in
           self?.detailUseCase.getValue(data)
         }
@@ -326,9 +338,6 @@ final class DetailViewModel: ViewModel {
         }
       
       let touristCommonValue = touristCommonResult
-        .do(onNext: { data in
-          print(data, "관광정보 커먼 데이터 패칭")
-        })
         .compactMap { [weak self] data -> [TouristInfoCommon]? in
           self?.detailUseCase.getValue(data)
         }
@@ -383,9 +392,6 @@ final class DetailViewModel: ViewModel {
         }
       
       let touristIntroValue = touristIntroResult
-        .do(onNext: { data in
-          print(data, "관광정보 인트로 데이터 패칭")
-        })
         .compactMap { [weak self] data -> [TouristInfoIntro]? in
           self?.detailUseCase.getValue(data)
         }
@@ -529,7 +535,9 @@ final class DetailViewModel: ViewModel {
       touristInfoData: touristInfoData.asDriver(onErrorJustReturn: []),
       confirmAuthorizedLocation: confirmAuthorizedLocation.asSignal(),
       updateLocationAction: updateLocationAction.asSignal(),
-      unAutorizedLocationAlert: unAutorizedLocationAlert.asSignal()
+      unAutorizedLocationAlert: unAutorizedLocationAlert.asSignal(),
+      noUrlDataAlert: noUrlDataAlert.asSignal(),
+      callAlert: callAlert.asSignal()
     )
   }
 }

@@ -15,7 +15,6 @@
 		F40DDFB4298A549E00D05C2A /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB3298A549E00D05C2A /* DetailCoordinator.swift */; };
 		F40DDFB6298A57D300D05C2A /* NavigationPerformActionDelegate .swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB5298A57D300D05C2A /* NavigationPerformActionDelegate .swift */; };
 		F40DDFB9298A744C00D05C2A /* DetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB8298A744C00D05C2A /* DetailWebViewController.swift */; };
-		F40DDFBC298A9FF200D05C2A /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFBB298A9FF200D05C2A /* SkeletonView */; };
 		F40DDFBE298BA00100D05C2A /* PinchedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFBD298BA00100D05C2A /* PinchedImageViewController.swift */; };
 		F45C09DF296DB6730075E1AC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DE296DB6730075E1AC /* AlertView.swift */; };
 		F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E0296EB8130075E1AC /* StackingLabel.swift */; };
@@ -504,7 +503,6 @@
 				F4E3E5F82961CD41009AFCFC /* Kingfisher in Frameworks */,
 				F49034762949B88C00CDE442 /* SnapKit in Frameworks */,
 				F4F0E0E7296D98980006C9D4 /* FSPagerView in Frameworks */,
-				F40DDFBC298A9FF200D05C2A /* SkeletonView in Frameworks */,
 				49BE202A0CBF2B71DE84E141 /* Pods_Basecamp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1642,7 +1640,6 @@
 				F4F0E089296473D30006C9D4 /* Tabman */,
 				F4F0E0E6296D98980006C9D4 /* FSPagerView */,
 				F45C0A5629810EC00075E1AC /* DropDown */,
-				F40DDFBB298A9FF200D05C2A /* SkeletonView */,
 			);
 			productName = Basecamp;
 			productReference = F4D10EA129497831000C02E0 /* Basecamp.app */;
@@ -1733,7 +1730,6 @@
 				F4F0E088296473D30006C9D4 /* XCRemoteSwiftPackageReference "Tabman" */,
 				F4F0E0E5296D98970006C9D4 /* XCRemoteSwiftPackageReference "FSPagerView" */,
 				F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */,
-				F40DDFBA298A9FF200D05C2A /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = F4D10EA229497831000C02E0 /* Products */;
 			projectDirPath = "";
@@ -2440,14 +2436,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F40DDFBA298A9FF200D05C2A /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 1.9.0;
-			};
-		};
 		F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AssistoLab/DropDown";
@@ -2555,11 +2543,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F40DDFBB298A9FF200D05C2A /* SkeletonView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F40DDFBA298A9FF200D05C2A /* XCRemoteSwiftPackageReference "SkeletonView" */;
-			productName = SkeletonView;
-		};
 		F45C0A5629810EC00075E1AC /* DropDown */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */;
