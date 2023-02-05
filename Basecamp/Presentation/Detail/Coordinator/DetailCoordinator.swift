@@ -65,6 +65,7 @@ final class DetailCoordinator: Coordinator {
   func navigateToFlowWeb(with data: SocialMediaInfo) {
     let viewController = DetailWebViewController()
     viewController.data = data
+    viewController.hidesBottomBarWhenPushed = true
     navigationController.pushViewController(viewController, animated: true)
   }
   

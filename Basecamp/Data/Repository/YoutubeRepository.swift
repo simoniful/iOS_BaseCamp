@@ -27,7 +27,6 @@ final class YoutubeRepository: YoutubeRepositoryInterface {
       return provider.rx.request(target)
         .filterSuccessfulStatusCodes()
         .flatMap { response ->  Single<Result<[YoutubeInfo], YoutubeServiceError>> in
-          print(response.statusCode, "리스폰스 코드 확인")
           let responseDTO = try response.map(YoutubeResponseDTO.self)
           return Single.just(Result.success(responseDTO.toDomain(keyword: keyword)))
         }

@@ -74,11 +74,7 @@ final class DetailCampsiteHeaderStackView: UIStackView {
     self.alignment = .fill
     self.distribution = .fill
     self.spacing = 4.0
-//    self.layer.cornerRadius = 8.0
-//    self.clipsToBounds = true
-//    self.layer.borderColor = UIColor.brown1.cgColor
-//    self.layer.borderWidth = 1.0
-    
+
     [telStack, campsiteTypeHStack, campsiteOperHStack, homepageStack, posblFcltyClStack, resveClStack].forEach {
       self.addArrangedSubview($0)
     }

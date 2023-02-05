@@ -96,7 +96,7 @@ extension DetailLocationCell: ViewRepresentable {
   func setupData(data: DetailLocationItem) {
     weatherCollectionView.performBatchUpdates {
       addressLabel.text = data.address
-      directionLabel.text = data.direction == "" ? "찾아오는 길: 문의처에 문의 바랍니다" :  data.direction
+      directionLabel.text = data.direction == "" ? "찾아오는 길: 문의처에 문의 바랍니다" :  data.direction.htmlToString
       weatherData = data.weatherInfos
     }
     

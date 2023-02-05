@@ -11,22 +11,22 @@ import SnapKit
 final class DetailTouristInfoHeaderStackView: UIStackView {
   
   private lazy var telStack = makeStack(first: telCategoryLabel, second: telContentLabel, axis: .vertical)
-  private lazy var telCategoryLabel = StackingLabel(title: "문의처", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .brown1)
-  private lazy var telContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
+  private lazy var telCategoryLabel = StackingLabel(title: "문의처", font: .boldSystemFont(ofSize: 17.0))
+  private lazy var telContentLabel = StackingLabel(title: "문의요망", font: .body2R16, textColor: .gray7)
   
   private lazy var homepageStack = makeStack(first: homepageCategoryLabel, second: homepageContentLabel, axis: .vertical)
-  private lazy var homepageCategoryLabel = StackingLabel(title: "홈페이지", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .brown1)
-  private lazy var homepageContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
+  private lazy var homepageCategoryLabel = StackingLabel(title: "홈페이지", font: .boldSystemFont(ofSize: 17.0))
+  private lazy var homepageContentLabel = StackingLabel(title: "문의요망", font: .body2R16, textColor: .gray7)
   
   
   private lazy var eventDateStack = makeStack(first: eventDateCategoryLabel, second: eventDateContentLabel, axis: .vertical)
-  private lazy var eventDateCategoryLabel = StackingLabel(title: "행사 일정", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .brown1)
-  private lazy var eventDateContentLabel = StackingLabel(title: "문의요망", font: .body2R16)
+  private lazy var eventDateCategoryLabel = StackingLabel(title: "행사 일정", font: .boldSystemFont(ofSize: 17.0))
+  private lazy var eventDateContentLabel = StackingLabel(title: "문의요망", font: .body2R16, textColor: .gray7)
   
   
   private lazy var overviewStack = makeStack(first: overviewCategoryLabel, second: overviewContentLabel, axis: .vertical)
-  private lazy var overviewCategoryLabel = StackingLabel(title: "소개말", font: .boldSystemFont(ofSize: 16.0), backgroundColor: .brown1)
-  private lazy var overviewContentLabel = StackingLabel(title: "문의요망", font: .body2R16, textAlignment: .left, padding: UIEdgeInsets(top: 8.0, left: 16.0, bottom: 8.0, right: 16.0))
+  private lazy var overviewCategoryLabel = StackingLabel(title: "소개말", font: .boldSystemFont(ofSize: 17.0))
+  private lazy var overviewContentLabel = StackingLabel(title: "문의요망", font: .body2R16, textColor: .gray7)
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -42,11 +42,7 @@ final class DetailTouristInfoHeaderStackView: UIStackView {
     self.axis = .vertical
     self.alignment = .fill
     self.distribution = .fill
-    self.spacing = 0
-    self.layer.cornerRadius = 8.0
-    self.clipsToBounds = true
-    self.layer.borderColor = UIColor.brown1.cgColor
-    self.layer.borderWidth = 1.0
+    self.spacing = 4.0
   
     [telStack, homepageStack, eventDateStack, overviewStack].forEach {
       self.addArrangedSubview($0)

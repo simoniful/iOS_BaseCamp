@@ -94,6 +94,9 @@ extension TouristInfoTarget: TargetType {
   
   var headers: [String : String]? {
     // text/html도 가능
-    return ["Content-Type": "text/html"]
+    return [
+      "Content-Type": "text/html",
+      "Accept-Language": "*/*;q=0.9"
+    ]
   }
 }

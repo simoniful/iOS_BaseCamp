@@ -96,10 +96,19 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
     return provider.rx.request(target)
       .filterSuccessfulStatusCodes()
       .flatMap { response -> Single<Result<TouristInfoData, TouristInfoServiceError>> in
+        let a = response.data
+        do {
+          let json = String(data: a, encoding: .utf8)
+          print(json, "투어리스트 패칭 에러 문자열")
+        } catch {
+          print("errorMsg")
+        }
         let responseDTO = try response.map(TouristInfoResponseDTO.self)
         return Single.just(Result.success(responseDTO.toDomain()))
       }
+      .retry(3)
       .catch { error in
+        print(error, "투어리스트 패칭 에러")
         return Single.just(Result.failure(.unknownError))
       }
   }
@@ -115,7 +124,9 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
       let responseDTO = try response.map(TouristInfoCommonResponseDTO.self)
       return Single.just(Result.success(responseDTO.toDomain()))
     }
+    .retry(3)
     .catch { error in
+      print(error, "투어리스트 커먼 패칭 에러")
       return Single.just(Result.failure(.unknownError))
     }
   }
@@ -153,7 +164,9 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
    
       }
     }
+    .retry(3)
     .catch { error in
+      print(error, "투어리스트 인트로 패칭 에러")
       return Single.just(Result.failure(.unknownError))
     }
   }
@@ -170,9 +183,8 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
       let responseDTO = try response.map(TouristInfoImageResponseDTO.self)
       return Single.just(Result.success(responseDTO.toDomain()))
     }
-    .catch { error in
-      return Single.just(Result.failure(.unknownError))
-    }
+    .retry(3)
+    .catchAndReturn(.success([]))
   }
   
   func requestTouristInfoAreaCode(touristInfoQueryType: TouristInfoQueryType) -> Single<Result<[Sigungu], TouristInfoServiceError>> {
@@ -186,7 +198,9 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
       let responseDTO = try response.map(TouristInfoAreaCodeResponseDTO.self)
       return Single.just(Result.success(responseDTO.toDomain()))
     }
+    .retry(3)
     .catch { error in
+      print(error, "투어리스트 아리아 코드 패칭 에러")
       return Single.just(Result.failure(.unknownError))
     }
   }

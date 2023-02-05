@@ -26,7 +26,6 @@ final class DetailLocationWeatherCell: UICollectionViewCell {
     super.layoutSubviews()
     setupView()
     setupConstraints()
-    setupAttribute()
   }
   
   override init(frame: CGRect) {
@@ -74,12 +73,6 @@ extension DetailLocationWeatherCell: ViewRepresentable {
       $0.top.equalToSuperview()
       $0.centerX.equalToSuperview()
     }
-  }
-  
-  func setupAttribute() {
-    //    contentView.layer.cornerRadius = 8.0
-    //    contentView.layer.borderColor = UIColor.brown1.withAlphaComponent(0.6).cgColor
-    //    contentView.layer.borderWidth = 1.0
   }
   
   func setupData(weatherInfo: WeatherInfo) {

@@ -24,10 +24,6 @@ final class DetailTouristInfoIntroStackView: UIStackView {
     self.alignment = .fill
     self.distribution = .fill
     self.spacing = 0
-    self.layer.cornerRadius = 8.0
-    self.clipsToBounds = true
-    self.layer.borderColor = UIColor.main.cgColor
-    self.layer.borderWidth = 1.0
   }
   
   func setData(data: any DetailTouristInfoIntroItem) {
@@ -136,7 +132,7 @@ final class DetailTouristInfoIntroStackView: UIStackView {
     stackView.axis = axis
     stackView.alignment = .fill
     stackView.distribution = .fill
-    stackView.spacing = 0
+    stackView.spacing = 0.0
     stackView.translatesAutoresizingMaskIntoConstraints = false
     
     [first, second].forEach {
@@ -146,8 +142,8 @@ final class DetailTouristInfoIntroStackView: UIStackView {
   }
   
   private func makeCategory(category: String, content: String) -> UIStackView {
-    let categoryLabel = StackingLabel(title: category, font: .boldSystemFont(ofSize: 16.0), backgroundColor: .brown1)
-    let contentLabel = StackingLabel(title: content, font: .body2R16)
+    let categoryLabel = StackingLabel(title: category, font: .boldSystemFont(ofSize: 17.0))
+    let contentLabel = StackingLabel(title: content, font: .body3R14, textColor: .gray7, padding: .init(top: 6.0, left: 16.0, bottom: 6.0, right: 16.0))
     let category = makeStack(first: categoryLabel, second: contentLabel, axis: .vertical)
     return category
   }

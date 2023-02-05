@@ -21,6 +21,7 @@ final class RealmRepository: RealmRepositoryInterface {
         let data = try Data(contentsOf: url, options: .mappedIfSafe)
         let decoder = JSONDecoder()
         if let mappingDTO = try? decoder.decode(CampsiteResponseDTO.self, from: data) {
+          // 기존의 데이터에서 추가된 부분의 집합만 구분하여 더하는 형식 필요
           let campsites = mappingDTO.toDomain()
           storage.writeFromLocalJson(campsites: campsites)
         }

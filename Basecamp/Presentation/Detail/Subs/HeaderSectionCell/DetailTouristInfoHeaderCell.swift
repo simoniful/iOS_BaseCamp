@@ -17,6 +17,7 @@ import Kingfisher
 
 final class DetailTouristInfoHeaderCell: UICollectionViewCell {
   static let identifier = "DetailTouristInfoHeaderCell"
+  private var interactionSetFlag = false
   
   private var imageDataList = [String]()
   
@@ -47,6 +48,8 @@ final class DetailTouristInfoHeaderCell: UICollectionViewCell {
   }()
   
   private lazy var infoStack = DetailTouristInfoHeaderStackView()
+  
+  private let pagerViewDidTapped = PublishRelay<String>()
 
   override func layoutSubviews() {
       super.layoutSubviews()
@@ -114,6 +117,19 @@ extension DetailTouristInfoHeaderCell: ViewRepresentable {
       imageDataList = Array(data.imageDataList[0..<7])
     }
   }
+  
+  func viewModel(item: DetailTouristInfoHeaderItem) -> Observable<HeaderCellAction>? {
+    if interactionSetFlag == false {
+      interactionSetFlag.toggle()
+      return Observable.merge(
+        pagerViewDidTapped
+          .map({ urlStr in
+            HeaderCellAction.touristPager(item, urlStr)
+          })
+      )
+    }
+    return nil
+  }
 }
 
 extension DetailTouristInfoHeaderCell: FSPagerViewDelegate, FSPagerViewDataSource {
@@ -149,6 +165,7 @@ extension DetailTouristInfoHeaderCell: FSPagerViewDelegate, FSPagerViewDataSourc
 
   func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
     let item = imageDataList[index]
+    pagerViewDidTapped.accept(item)
   }
 }
 

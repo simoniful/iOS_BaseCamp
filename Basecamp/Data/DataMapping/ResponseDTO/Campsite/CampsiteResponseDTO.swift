@@ -85,7 +85,7 @@ extension CampsiteResponseDTO {
 extension CampsiteResponseDTO_Item {
   func toDomain() -> Campsite {
     return .init(
-      contentID: contentID!,
+      contentID: contentID,
       facltNm: facltNm,
       lineIntro: lineIntro,
       intro: intro,

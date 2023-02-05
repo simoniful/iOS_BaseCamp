@@ -57,14 +57,4 @@ final class DropDownView: UIView {
       $0.edges.equalToSuperview()
     }
   }
-  
-  public func setupSelected() {
-    
-  }
-  
-  public func setupCanceled() {
-    
-  }
-  
-  
 }

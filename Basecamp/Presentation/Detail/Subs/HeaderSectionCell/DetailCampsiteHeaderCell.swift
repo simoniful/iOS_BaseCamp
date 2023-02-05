@@ -55,8 +55,7 @@ final class DetailCampsiteHeaderCell: UICollectionViewCell {
     stackView.distribution = .fillEqually
     stackView.spacing = 8.0
     stackView.layer.cornerRadius = 12.0
-    // stackView.clipsToBounds = true
-    // stackView.layer.borderColor = UIColor.systemGray2.cgColor
+    stackView.clipsToBounds = true
     stackView.backgroundColor = .systemGray6
  
     stackView.layer.shadowColor = UIColor.gray5.cgColor
@@ -156,23 +155,23 @@ extension DetailCampsiteHeaderCell: ViewRepresentable {
       return Observable.merge(
         callButton.rx.tap
           .map({ _ in
-            HeaderCellAction.call(item)
+            HeaderCellAction.call
           }),
         reservationButton.rx.tap
           .map({ _ in
-            HeaderCellAction.reserve(item)
+            HeaderCellAction.reserve
           }),
         visitButton.rx.tap
           .map({ _ in
-            HeaderCellAction.visit(item)
+            HeaderCellAction.visit
           }),
         likeButton.rx.tap
           .map({ _ in
-            HeaderCellAction.like(item)
+            HeaderCellAction.like
           }),
         pagerViewDidTapped
           .map({ urlStr in
-            HeaderCellAction.pager(item, urlStr)
+            HeaderCellAction.campsitePager(item, urlStr)
           })
       )
     }

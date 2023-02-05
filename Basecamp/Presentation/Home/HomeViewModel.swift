@@ -65,12 +65,14 @@ final class HomeViewModel: ViewModel {
 
     let campsiteKeywordValue = campsiteKeywordResult
       .compactMap { data -> [Campsite]? in
-        self.homeUseCase.getCampsiteValue(data)
+        print("캠핑장 에러", data)
+        return self.homeUseCase.getCampsiteValue(data)
       }
 
     let campsiteKeywordError = campsiteKeywordResult
       .compactMap { data -> String? in
-        self.homeUseCase.getCampsiteError(data)
+        print("캠핑장 에러", data)
+        return self.homeUseCase.getCampsiteError(data)
       }
     
     let campsiteThemeValue = input.viewDidLoad
@@ -89,12 +91,14 @@ final class HomeViewModel: ViewModel {
 
     let touristInfoValue = touristInfoResult
       .compactMap { data -> TouristInfoData? in
-        self.homeUseCase.getTouristInfoValue(data)
+        print("홈 투어리스트 에러", data)
+        return self.homeUseCase.getTouristInfoValue(data)
       }
 
     let touristInfoError = touristInfoResult
       .compactMap { data -> String? in
-        self.homeUseCase.getTouristInfoError(data)
+        print("홈 투어리스트 에러", data)
+        return self.homeUseCase.getTouristInfoError(data)
       }
 
     Observable.combineLatest(realmValue, areaValue, campsiteKeywordValue, campsiteThemeValue ,touristInfoValue)

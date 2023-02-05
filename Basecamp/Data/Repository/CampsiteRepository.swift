@@ -75,10 +75,20 @@ final class CampsiteRepository: CampsiteRepositoryInterface {
     )
     .filterSuccessfulStatusCodes()
     .flatMap { response -> Single<Result<[Campsite], CampsiteServiceError>> in
+      let a = response.data
+      do {
+        let json = String(data: a, encoding: .utf8)
+        print(json, "캠핑장 에러 문자열")
+      } catch {
+        print("errorMsg")
+      }
+      
       let responseDTO = try response.map(CampsiteResponseDTO.self)
       return Single.just(Result.success(responseDTO.toDomain()))
     }
+    .retry(3)
     .catch { error in
+      print(error, "캠핑장 에러")
       return Single.just(Result.failure(.applicationError))
     }
   }
@@ -94,9 +104,8 @@ final class CampsiteRepository: CampsiteRepositoryInterface {
       let responseDTO = try response.map(CampsiteImageResponseDTO.self)
       return Single.just(Result.success(responseDTO.toDomain()))
     }
-    .catch { error in
-      return Single.just(Result.failure(.applicationError))
-    }
+    .retry(3)
+    .catchAndReturn(.success([]))
   }
 }
 

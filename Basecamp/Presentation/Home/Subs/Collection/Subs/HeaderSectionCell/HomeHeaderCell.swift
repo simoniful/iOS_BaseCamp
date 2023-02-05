@@ -52,23 +52,21 @@ final class HomeHeaderCell: UICollectionViewCell {
     return label
   }()
   
-  private lazy var mapCompView: UIImageView = {
-    let imageView = UIImageView(image: UIImage())
-    imageView.backgroundColor = .systemGray6
-    imageView.layer.cornerRadius = 8.0
-    imageView.clipsToBounds = true
-    imageView.tintColor = .orange
-    return imageView
+  private lazy var mapCompView: ImageLabel = {
+    let view = ImageLabel()
+    view.layer.cornerRadius = 8.0
+    view.clipsToBounds = true
+    view.setupData(image: UIImage(named: "map")!, text: "지도검색")
+    return view
   }()
   
-  private lazy var searchCompView: UIImageView = {
-    let imageView = UIImageView(image: UIImage())
-    imageView.contentMode = .scaleAspectFit
-    imageView.backgroundColor = .systemGray6
-    imageView.layer.cornerRadius = 8.0
-    imageView.clipsToBounds = true
-    imageView.tintColor = .orange
-    return imageView
+  private lazy var searchCompView: ImageLabel = {
+    let view = ImageLabel()
+    view.backgroundColor = .brown1.withAlphaComponent(0.7)
+    view.layer.cornerRadius = 8.0
+    view.clipsToBounds = true
+    view.setupData(image: UIImage(named: "search")!, text: "테마검색")
+    return view
   }()
   
   private lazy var compStackView: UIStackView = {
@@ -129,9 +127,12 @@ extension HomeHeaderCell: ViewRepresentable {
     myCompContentLabel.snp.makeConstraints {
       $0.top.equalTo(myCompTitleLabel.snp.bottom).offset(16.0)
       $0.leading.equalToSuperview()
-      $0.height.equalTo(26.0)
       $0.trailing.equalToSuperview()
       $0.bottom.equalToSuperview().offset(-8)
+    }
+    
+    mapCompView.snp.makeConstraints {
+      $0.height.lessThanOrEqualTo(mapCompView.snp.width).multipliedBy(0.75)
     }
     
     compStackView.snp.makeConstraints {
@@ -177,9 +178,11 @@ enum HeaderCellAction: CaseAccessible {
   case myMenu(HomeHeaderItem)
   case map(HomeHeaderItem)
   case search(HomeHeaderItem)
-  case call(DetailCampsiteHeaderItem)
-  case reserve(DetailCampsiteHeaderItem)
-  case visit(DetailCampsiteHeaderItem)
-  case like(DetailCampsiteHeaderItem)
-  case pager(DetailCampsiteHeaderItem, String)
+  case call
+  case reserve
+  case visit
+  case like
+  case campsitePager(DetailCampsiteHeaderItem, String)
+  case touristPager(DetailTouristInfoHeaderItem, String)
+  
 }

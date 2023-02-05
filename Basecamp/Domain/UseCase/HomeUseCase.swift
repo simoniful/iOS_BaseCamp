@@ -16,7 +16,7 @@ final class HomeUseCase {
   private let campsiteRepository: CampsiteRepositoryInterface
   private let touristInfoRepository: TouristInfoRepositoryInterface
   
-  private let searchKeyword = ["글램핑", "카라반", "야영장", "오토캠핑"].randomElement()
+  private let searchKeyword = ["오토캠핑"].randomElement()
   private let theme = Experience.allCases.randomElement()
   
   init(
@@ -87,6 +87,7 @@ final class HomeUseCase {
   }
   
   func requestSavefromLocalJson() {
+    // 실제 버전 구분에 대한 플래그 작성 필요 - 날짜
     if userDefaults.bool(forKey: UserDefaultKeyCase.isNotFirstUser) {
       print("realm DB OK")
     } else {

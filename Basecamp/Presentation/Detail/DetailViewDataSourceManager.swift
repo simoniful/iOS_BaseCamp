@@ -21,9 +21,9 @@ struct DetailViewDataSourceManager {
           }
           let item = items[indexPath.row]
           cell.setupData(data: item)
-//          cell.viewModel(item: item)
-//            .bind(to: parent.viewModel.headerAction)
-//            .disposed(by: parent.disposeBag)
+          cell.viewModel(item: item)?
+            .bind(to: parent.viewModel.headerAction)
+            .disposed(by: parent.disposeBag)
           return cell
         case .locationSection(_, let items):
           guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailLocationCell.identifier, for: indexPath) as? DetailLocationCell else {

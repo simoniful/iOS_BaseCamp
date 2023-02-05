@@ -55,7 +55,7 @@ final class DetailViewModel: ViewModel {
   private let noUrlDataAlert = PublishRelay<(String, String, String)>()
   private let callAlert = PublishRelay<(String, String, String)>()
   private let isAutorizedLocation = BehaviorRelay<Bool>(value: false)
-  let headerAction = PublishRelay<HeaderCellAction>()
+  public let headerAction = PublishRelay<HeaderCellAction>()
   
   var disposeBag = DisposeBag()
   
@@ -168,7 +168,7 @@ final class DetailViewModel: ViewModel {
       // MARK: - Around Data
       let aroundValue = input.viewWillAppear
         .compactMap { [weak self] _ in
-          self?.detailUseCase.requestAroundData(campsite:campsite)
+          self?.detailUseCase.requestAroundData(campsite: campsite)
         }
       
       // MARK: - Image Data
@@ -288,7 +288,7 @@ final class DetailViewModel: ViewModel {
         .disposed(by: disposeBag)
       
       headerAction
-        .capture(case: HeaderCellAction.pager)
+        .capture(case: HeaderCellAction.campsitePager)
         .withUnretained(self)
         .bind { owner, arg in
           let (_, url) = arg
@@ -302,7 +302,8 @@ final class DetailViewModel: ViewModel {
           let (item, indexPath) = itemWithIndex
           switch indexPath.section {
           case 4:
-            print(item)
+            guard let item = item as? DetailSocialItem else { return }
+            owner.coordinator?.navigateToFlowWeb(with: item.socialMediaInfo)
           case 6:
             guard let item = item as? DetailImageItem else { return }
             owner.coordinator?.navigateToFlowZoom(with: item.image)
@@ -311,7 +312,6 @@ final class DetailViewModel: ViewModel {
           }
         }
         .disposed(by: disposeBag)
-      
       
     case .touristInfo(let touristInfo):
       // MARK: - Header Data
@@ -509,6 +509,32 @@ final class DetailViewModel: ViewModel {
         .subscribe { [weak self] (touristInfo, indexPath) in
           guard let self = self else { return }
           self.coordinator?.navigateToFlowDetail(with: .touristInfo(data: touristInfo))
+        }
+        .disposed(by: disposeBag)
+      
+      input.didSelectItemAt
+        .withUnretained(self)
+        .emit { (owner, itemWithIndex) in
+          let (item, indexPath) = itemWithIndex
+          switch indexPath.section {
+          case 3:
+            guard let item = item as? DetailSocialItem else { return }
+            owner.coordinator?.navigateToFlowWeb(with: item.socialMediaInfo)
+          case 5:
+            guard let item = item as? DetailImageItem else { return }
+            owner.coordinator?.navigateToFlowZoom(with: item.image)
+          default:
+            break
+          }
+        }
+        .disposed(by: disposeBag)
+      
+      headerAction
+        .capture(case: HeaderCellAction.touristPager)
+        .withUnretained(self)
+        .bind { owner, arg in
+          let (_, url) = arg
+          owner.coordinator?.navigateToFlowZoom(with: url)
         }
         .disposed(by: disposeBag)
       

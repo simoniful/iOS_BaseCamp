@@ -30,8 +30,47 @@ final class DetailViewController: UIViewController {
   lazy var rightBarDropDownButton: UIBarButtonItem = {
     let barButton = UIBarButtonItem()
     barButton.image = UIImage(systemName: "ellipsis")
-    barButton.style = .plain
+    barButton.menu = dropDownMenu
     return barButton
+  }()
+  
+  lazy var dropDownMenuItems: [UIAction] = {
+    switch viewModel.style {
+    case .campsite(data: let data):
+      return [
+        UIAction(title: "전화", image: UIImage(systemName: "phone"), handler: { _ in
+          self.viewModel.headerAction
+            .accept(HeaderCellAction.call)
+        }),
+        UIAction(title: "예약", image: UIImage(systemName: "calendar"), handler: { _ in
+          self.viewModel.headerAction
+            .accept(HeaderCellAction.reserve)
+        }),
+        UIAction(title: "방문", image: UIImage(systemName: "flag"), handler: { _ in
+          self.viewModel.headerAction
+            .accept(HeaderCellAction.visit)
+        }),
+        UIAction(title: "찜", image: UIImage(systemName: "heart"), handler: { _ in
+          self.viewModel.headerAction
+            .accept(HeaderCellAction.like)
+        })
+      ]
+    case .touristInfo(data: let data):
+      return [
+        UIAction(title: "전화", image: UIImage(systemName: "phone"), handler: { _ in
+          self.viewModel.headerAction
+            .accept(HeaderCellAction.call)
+        }),
+        UIAction(title: "예약", image: UIImage(systemName: "calendar"), handler: { _ in
+          self.viewModel.headerAction
+            .accept(HeaderCellAction.reserve)
+        })
+      ]
+    }
+  }()
+  
+  lazy var dropDownMenu: UIMenu = {
+    return UIMenu(title: "", options: [], children: dropDownMenuItems)
   }()
   
   let viewModel: DetailViewModel
@@ -142,6 +181,9 @@ final class DetailViewController: UIViewController {
       let dataSource = DetailViewDataSourceManager.touristInfoDataSource(self)
       
       output.touristInfoData
+        .do(onNext: { _ in
+          IndicatorView.shared.hide()
+        })
         .drive(self.collectionView.rx.items(dataSource: dataSource))
         .disposed(by: disposeBag)
       
