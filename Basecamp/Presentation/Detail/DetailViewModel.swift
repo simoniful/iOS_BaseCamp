@@ -10,6 +10,9 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 import Kingfisher
+import KakaoSDKCommon
+import KakaoSDKTemplate
+import KakaoSDKShare
 
 // 스타일에 따른 다른 데이터 소스/레이아웃 구성
 enum DetailStyle {
@@ -33,6 +36,7 @@ final class DetailViewModel: ViewModel {
     let viewWillAppear: Observable<Void>
     let isAutorizedLocation: Signal<Bool>
     let didSelectItemAt: Signal<(DetailItem, IndexPath)>
+    let shareButtonDidTapped: Signal<Void>
   }
   
   struct Output {
@@ -46,6 +50,7 @@ final class DetailViewModel: ViewModel {
   }
   
   let aroundTabmanViewModel = DetailAroundTabmanViewModel()
+  let detailReviewMakerViewModel = DetailReviewMakerViewModel()
   
   private let campsiteData = PublishRelay<[DetailCampsiteSectionModel]>()
   private let touristInfoData = PublishRelay<[DetailTouristInfoSectionModel]>()
@@ -274,8 +279,8 @@ final class DetailViewModel: ViewModel {
       
       headerAction
         .capture(case: HeaderCellAction.visit)
-        .bind { _ in
-          print("방문 리뷰 작성")
+        .bind { [weak self] _ in
+          self?.coordinator?.showReviewMakerModal(self!.detailReviewMakerViewModel)
         }
         .disposed(by: disposeBag)
       
@@ -309,6 +314,47 @@ final class DetailViewModel: ViewModel {
             owner.coordinator?.navigateToFlowZoom(with: item.image)
           default:
             break
+          }
+        }
+        .disposed(by: disposeBag)
+      
+      input.shareButtonDidTapped
+        .emit { [weak self] _ in
+          if ShareApi.isKakaoTalkSharingAvailable(){
+            // 우리가 원하는 앱으로 보내주는 링크이다.
+            // second, vvv는 url 링크 마지막에 딸려서 오기 때문에, 이 파라미터를 바탕으로 파싱해서
+            // 앱단에서 원하는 기능을 만들어서 실행할 수 있다 예를 들면 다른 뷰 페이지로 이동 등등~
+            let appLink = Link(iosExecutionParams: ["second": "vvv"])
+            
+            let button = Button(title: "앱에서 보기", link: appLink)
+            let imageUrl = campsite.firstImageURL!.isEmpty ? "https://images2.imgbox.com/3d/34/7xkF2x0U_o.png" : campsite.firstImageURL!
+            var description: String = ""
+            description += campsite.addr1!.isEmpty ? "" : "주소: " + campsite.addr1! + "\n"
+            description += campsite.tel!.isEmpty ? "" : "문의처: " + campsite.tel!
+            let content = Content(title: campsite.facltNm!,
+                                  imageUrl: URL(string: imageUrl)!,
+                                  description: description,
+                                  link: appLink)
+            let template = FeedTemplate(content: content, buttons: [button])
+            
+            if let templateJsonData = (try? SdkJSONEncoder.custom.encode(template)) {
+              
+              if let templateJsonObject = SdkUtils.toJsonObject(templateJsonData) {
+                ShareApi.shared.shareDefault(templateObject:templateJsonObject) {(linkResult, error) in
+                  if let error = error {
+                    print("error : \(error)")
+                  }
+                  else {
+                    print("defaultLink(templateObject:templateJsonObject) success.")
+                    guard let linkResult = linkResult else { return }
+                    UIApplication.shared.open(linkResult.url, options: [:], completionHandler: nil)
+                  }
+                }
+              }
+            }
+          }
+          else {
+            print("카카오톡 미설치")
           }
         }
         .disposed(by: disposeBag)

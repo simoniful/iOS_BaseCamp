@@ -17,6 +17,12 @@
 		F40DDFB9298A744C00D05C2A /* DetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB8298A744C00D05C2A /* DetailWebViewController.swift */; };
 		F40DDFBE298BA00100D05C2A /* PinchedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFBD298BA00100D05C2A /* PinchedImageViewController.swift */; };
 		F40DDFC0298F794A00D05C2A /* ImageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFBF298F794A00D05C2A /* ImageLabel.swift */; };
+		F40DDFC3298FF77800D05C2A /* KakaoSDKShare in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFC2298FF77800D05C2A /* KakaoSDKShare */; };
+		F40DDFC5298FF77800D05C2A /* KakaoSDKTalk in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFC4298FF77800D05C2A /* KakaoSDKTalk */; };
+		F40DDFC7298FF77800D05C2A /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFC6298FF77800D05C2A /* KakaoSDKTemplate */; };
+		F40DDFCA2990AEFE00D05C2A /* DetailReviewMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFC92990AEFD00D05C2A /* DetailReviewMakerViewController.swift */; };
+		F40DDFCC2990CA2300D05C2A /* DetailReviewMakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFCB2990CA2300D05C2A /* DetailReviewMakerViewModel.swift */; };
+		F40DDFCF2990D16300D05C2A /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFCE2990D16300D05C2A /* Cosmos */; };
 		F45C09DF296DB6730075E1AC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DE296DB6730075E1AC /* AlertView.swift */; };
 		F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E0296EB8130075E1AC /* StackingLabel.swift */; };
 		F45C09E3296F03070075E1AC /* DetailViewSectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */; };
@@ -142,6 +148,7 @@
 		F4D10F492949AD4A000C02E0 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4D10F472949AD4A000C02E0 /* NotoSansKR-Regular.otf */; };
 		F4D10F4C2949ADBE000C02E0 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10F4B2949ADBE000C02E0 /* UIFont.swift */; };
 		F4D10F4E2949ADF2000C02E0 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10F4D2949ADF2000C02E0 /* AppFont.swift */; };
+		F4E2A7922990F09E00B8EF4F /* DayRangeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */; };
 		F4E3E58329515FDA009AFCFC /* WeatherTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58229515FDA009AFCFC /* WeatherTargetStub.swift */; };
 		F4E3E585295161F9009AFCFC /* NaverBlogTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E584295161F9009AFCFC /* NaverBlogTargetStub.swift */; };
 		F4E3E58729516347009AFCFC /* YoutubeTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58629516347009AFCFC /* YoutubeTargetStub.swift */; };
@@ -273,6 +280,8 @@
 		F40DDFB8298A744C00D05C2A /* DetailWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWebViewController.swift; sourceTree = "<group>"; };
 		F40DDFBD298BA00100D05C2A /* PinchedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchedImageViewController.swift; sourceTree = "<group>"; };
 		F40DDFBF298F794A00D05C2A /* ImageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLabel.swift; sourceTree = "<group>"; };
+		F40DDFC92990AEFD00D05C2A /* DetailReviewMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewMakerViewController.swift; sourceTree = "<group>"; };
+		F40DDFCB2990CA2300D05C2A /* DetailReviewMakerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewMakerViewModel.swift; sourceTree = "<group>"; };
 		F45C09DE296DB6730075E1AC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		F45C09E0296EB8130075E1AC /* StackingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackingLabel.swift; sourceTree = "<group>"; };
 		F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewSectionLayoutManager.swift; sourceTree = "<group>"; };
@@ -392,6 +401,7 @@
 		F4D10F4B2949ADBE000C02E0 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		F4D10F4D2949ADF2000C02E0 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		F4D10F522949B120000C02E0 /* Basecamp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Basecamp.entitlements; sourceTree = "<group>"; };
+		F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRangeIndicatorView.swift; sourceTree = "<group>"; };
 		F4E3E58229515FDA009AFCFC /* WeatherTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTargetStub.swift; sourceTree = "<group>"; };
 		F4E3E584295161F9009AFCFC /* NaverBlogTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogTargetStub.swift; sourceTree = "<group>"; };
 		F4E3E58629516347009AFCFC /* YoutubeTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTargetStub.swift; sourceTree = "<group>"; };
@@ -494,11 +504,14 @@
 				F490348A2949BA5B00CDE442 /* Differentiator in Frameworks */,
 				F490347D2949B99400CDE442 /* Moya in Frameworks */,
 				F490347F2949B99400CDE442 /* RxMoya in Frameworks */,
+				F40DDFC7298FF77800D05C2A /* KakaoSDKTemplate in Frameworks */,
 				F49034922949BB5500CDE442 /* RxGesture in Frameworks */,
 				F4F0E08A296473D30006C9D4 /* Tabman in Frameworks */,
 				F49034822949B9B300CDE442 /* RxKeyboard in Frameworks */,
+				F40DDFCF2990D16300D05C2A /* Cosmos in Frameworks */,
 				F49034852949BA3300CDE442 /* Realm in Frameworks */,
 				F4E3E5A4295460A5009AFCFC /* EnumKit in Frameworks */,
+				F40DDFC5298FF77800D05C2A /* KakaoSDKTalk in Frameworks */,
 				F49034612949B63600CDE442 /* Toast in Frameworks */,
 				F490348C2949BA5B00CDE442 /* RxDataSources in Frameworks */,
 				F49034872949BA3300CDE442 /* RealmSwift in Frameworks */,
@@ -506,6 +519,7 @@
 				F49034762949B88C00CDE442 /* SnapKit in Frameworks */,
 				F4F0E0E7296D98980006C9D4 /* FSPagerView in Frameworks */,
 				49BE202A0CBF2B71DE84E141 /* Pods_Basecamp.framework in Frameworks */,
+				F40DDFC3298FF77800D05C2A /* KakaoSDKShare in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +588,16 @@
 				F40DDFB8298A744C00D05C2A /* DetailWebViewController.swift */,
 			);
 			path = WebView;
+			sourceTree = "<group>";
+		};
+		F40DDFC82990AED300D05C2A /* ReviewMaker */ = {
+			isa = PBXGroup;
+			children = (
+				F40DDFC92990AEFD00D05C2A /* DetailReviewMakerViewController.swift */,
+				F40DDFCB2990CA2300D05C2A /* DetailReviewMakerViewModel.swift */,
+				F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */,
+			);
+			path = ReviewMaker;
 			sourceTree = "<group>";
 		};
 		F45C09F029713FCE0075E1AC /* Protocol */ = {
@@ -1565,6 +1589,7 @@
 				F4F0E090296571EA0006C9D4 /* AroundSectionCell */,
 				F4F0E08D296571C60006C9D4 /* ImageSectionCell */,
 				F4F0E095296575AA0006C9D4 /* SectionHeader */,
+				F40DDFC82990AED300D05C2A /* ReviewMaker */,
 				F40DDFB7298A743800D05C2A /* WebView */,
 				F40DDFAF298A513C00D05C2A /* ZoomView */,
 			);
@@ -1643,6 +1668,10 @@
 				F4F0E089296473D30006C9D4 /* Tabman */,
 				F4F0E0E6296D98980006C9D4 /* FSPagerView */,
 				F45C0A5629810EC00075E1AC /* DropDown */,
+				F40DDFC2298FF77800D05C2A /* KakaoSDKShare */,
+				F40DDFC4298FF77800D05C2A /* KakaoSDKTalk */,
+				F40DDFC6298FF77800D05C2A /* KakaoSDKTemplate */,
+				F40DDFCE2990D16300D05C2A /* Cosmos */,
 			);
 			productName = Basecamp;
 			productReference = F4D10EA129497831000C02E0 /* Basecamp.app */;
@@ -1733,6 +1762,8 @@
 				F4F0E088296473D30006C9D4 /* XCRemoteSwiftPackageReference "Tabman" */,
 				F4F0E0E5296D98970006C9D4 /* XCRemoteSwiftPackageReference "FSPagerView" */,
 				F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */,
+				F40DDFC1298FF77800D05C2A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				F40DDFCD2990D16300D05C2A /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = F4D10EA229497831000C02E0 /* Products */;
 			projectDirPath = "";
@@ -1902,6 +1933,7 @@
 				F4F0E0C42969199B0006C9D4 /* AppColor.swift in Sources */,
 				F45C09F229713FEE0075E1AC /* PropertyIterable.swift in Sources */,
 				F45C09EB29703EA40075E1AC /* DetailTouristInfoIntroStackView.swift in Sources */,
+				F40DDFCA2990AEFE00D05C2A /* DetailReviewMakerViewController.swift in Sources */,
 				F4E3E5CF295DA92E009AFCFC /* TouristInfoIntroCulture.swift in Sources */,
 				F4E3E5C9295D8342009AFCFC /* TouristInfoImageResponseDTO.swift in Sources */,
 				F4E3E5EE295E9574009AFCFC /* TouristInfoImageRequestDTO.swift in Sources */,
@@ -2001,6 +2033,7 @@
 				F49034EC29515B7200CDE442 /* YoutubeAPIEnvironment.swift in Sources */,
 				F4D10EFE2949932B000C02E0 /* HomeViewModel.swift in Sources */,
 				F49034E429515B2300CDE442 /* NaverBlogAPIConstant.swift in Sources */,
+				F40DDFCC2990CA2300D05C2A /* DetailReviewMakerViewModel.swift in Sources */,
 				F4E3E5D6295DB4F7009AFCFC /* TouristInfoIntroShopping.swift in Sources */,
 				F49034BF2950007300CDE442 /* CampsiteRepositoryInterface.swift in Sources */,
 				F4FD50AA296305DC00FA3CB3 /* DetailLocationCell.swift in Sources */,
@@ -2077,6 +2110,7 @@
 				F4F0E079296459EC0006C9D4 /* YoutubeQuery.swift in Sources */,
 				F4F0E08C296477FB0006C9D4 /* DetailTouristSectionModel.swift in Sources */,
 				F4E3E59829540D74009AFCFC /* Constant.swift in Sources */,
+				F4E2A7922990F09E00B8EF4F /* DayRangeIndicatorView.swift in Sources */,
 				F4F0E0C8296BC0E10006C9D4 /* DetailCampsiteInfoStackView.swift in Sources */,
 				F4FD50AE296305FA00FA3CB3 /* DetailCampsiteInfoCell.swift in Sources */,
 				F49034D02950486900CDE442 /* CampsiteTarget.swift in Sources */,
@@ -2262,11 +2296,14 @@
 				DEVELOPMENT_TEAM = AT2N75TMZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Basecamp/Info.plist;
+				INFOPLIST_KEY_NSLocationUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2296,11 +2333,14 @@
 				DEVELOPMENT_TEAM = AT2N75TMZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Basecamp/Info.plist;
+				INFOPLIST_KEY_NSLocationUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2440,6 +2480,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F40DDFC1298FF77800D05C2A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		F40DDFCD2990D16300D05C2A /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AssistoLab/DropDown";
@@ -2547,6 +2603,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F40DDFC2298FF77800D05C2A /* KakaoSDKShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F40DDFC1298FF77800D05C2A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKShare;
+		};
+		F40DDFC4298FF77800D05C2A /* KakaoSDKTalk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F40DDFC1298FF77800D05C2A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKTalk;
+		};
+		F40DDFC6298FF77800D05C2A /* KakaoSDKTemplate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F40DDFC1298FF77800D05C2A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKTemplate;
+		};
+		F40DDFCE2990D16300D05C2A /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F40DDFCD2990D16300D05C2A /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
+		};
 		F45C0A5629810EC00075E1AC /* DropDown */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */;

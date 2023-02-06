@@ -9,6 +9,8 @@ import UIKit
 import UserNotifications
 import NMapsMap
 import DropDown
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     )
     application.registerForRemoteNotifications()
     DropDown.startListeningToKeyboard()
+    KakaoSDK.initSDK(appKey: APIKey.kakaoNative.rawValue)
+    
     return true
   }
 

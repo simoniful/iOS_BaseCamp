@@ -8,12 +8,13 @@
 import UIKit
 import Toast
 
-final class DetailCoordinator: Coordinator {
+final class DetailCoordinator: NSObject, Coordinator {
 
   weak var parentCoordinator: Coordinator?
   weak var delegate: CoordinatorDelegate?
   var childCoordinators = [Coordinator]()
   var navigationController: UINavigationController
+  var modalNavigationController = UINavigationController()
   var type: CoordinatorStyleCase = .detail
   let data: DetailStyle
   var isCompleted: (() -> ())?
@@ -77,6 +78,21 @@ final class DetailCoordinator: Coordinator {
     navigationController.present(viewController, animated: true)
   }
   
+  func showReviewMakerModal(_ viewModel: DetailReviewMakerViewModel) {
+    let vc = DetailReviewMakerViewController(viewModel: viewModel)
+    vc.title = "캠핑로그 작성"
+    modalNavigationController.viewControllers = [vc]
+    modalNavigationController.modalPresentationStyle = .pageSheet
+    modalNavigationController.view.backgroundColor = .systemBackground
+    if let sheet = modalNavigationController.sheetPresentationController {
+      sheet.detents = [.medium()]
+      sheet.delegate = self
+      sheet.prefersGrabberVisible = true
+      sheet.selectedDetentIdentifier = .medium
+    }
+    navigationController.present(modalNavigationController, animated: true)
+  }
+  
   func changeTabByIndex(tabCase: TabBarPageCase ,message: String, area: Area? = nil) {
     switch tabCase {
     case .list:
@@ -106,3 +122,6 @@ final class DetailCoordinator: Coordinator {
     }
   }
 }
+
+extension DetailCoordinator: UISheetPresentationControllerDelegate {}
+

@@ -1,4 +1,5 @@
 PODS:
+  - HorizonCalendar (1.16.0)
   - NaverMapCluster (0.1.5):
     - NMapsMap
     - RxBlocking
@@ -17,12 +18,14 @@ PODS:
   - TTGTagCollectionView (2.3.0)
 
 DEPENDENCIES:
+  - HorizonCalendar (= 1.16.0)
   - NaverMapCluster (from `https://github.com/manunite/NaverMapCluster.git`, tag `0.1.5`)
   - NMapsMap (= 3.16.0)
   - TTGTagCollectionView
 
 SPEC REPOS:
   trunk:
+    - HorizonCalendar
     - NMapsMap
     - RxBlocking
     - RxCocoa
@@ -41,6 +44,7 @@ CHECKOUT OPTIONS:
     :tag: 0.1.5
 
 SPEC CHECKSUMS:
+  HorizonCalendar: 90d7281cf1cd0cb3fae1d3e53f6f7fd24fda5a0e
   NaverMapCluster: 91b3c4010eb0808c4bcbcb385c84edd178194ea8
   NMapsMap: a2593320fca2bb09e521c05b4dffee4da42e96ed
   RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
@@ -49,6 +53,6 @@ SPEC CHECKSUMS:
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   TTGTagCollectionView: 4104f93281097eae5adbf4444811e32f5e52dc95
 
-PODFILE CHECKSUM: 4b2a8606927041b8c0dcdf4d26fa27934e9627e2
+PODFILE CHECKSUM: 6cb448f34aead9c0f2a40879c06817506c36e07b
 
 COCOAPODS: 1.11.3

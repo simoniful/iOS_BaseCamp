@@ -79,7 +79,8 @@ final class DetailViewController: UIViewController {
   private lazy var input = DetailViewModel.Input(
     viewWillAppear: self.rx.viewWillAppear.asObservable(),
     isAutorizedLocation: isAutorizedLocation.asSignal(),
-    didSelectItemAt: self.collectionView.rx.modelAndIndexSelected(DetailItem.self).asSignal()
+    didSelectItemAt: self.collectionView.rx.modelAndIndexSelected(DetailItem.self).asSignal(),
+    shareButtonDidTapped: rightBarShareButton.rx.tap.asSignal()
   )
   
   private lazy var output = viewModel.transform(input: input)
