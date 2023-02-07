@@ -18,23 +18,23 @@ final class DetailViewController: UIViewController {
   private let locationManager = CLLocationManager()
   private let isAutorizedLocation = PublishRelay<Bool>()
   
-  private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+  private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
   
-  lazy var rightBarShareButton: UIBarButtonItem = {
+  private lazy var rightBarShareButton: UIBarButtonItem = {
     let barButton = UIBarButtonItem()
     barButton.image = UIImage(systemName: "square.and.arrow.up")
     barButton.style = .plain
     return barButton
   }()
   
-  lazy var rightBarDropDownButton: UIBarButtonItem = {
+  private lazy var rightBarDropDownButton: UIBarButtonItem = {
     let barButton = UIBarButtonItem()
     barButton.image = UIImage(systemName: "ellipsis")
     barButton.menu = dropDownMenu
     return barButton
   }()
   
-  lazy var dropDownMenuItems: [UIAction] = {
+  private lazy var dropDownMenuItems: [UIAction] = {
     switch viewModel.style {
     case .campsite(data: let data):
       return [
@@ -69,7 +69,7 @@ final class DetailViewController: UIViewController {
     }
   }()
   
-  lazy var dropDownMenu: UIMenu = {
+  private lazy var dropDownMenu: UIMenu = {
     return UIMenu(title: "", options: [], children: dropDownMenuItems)
   }()
   

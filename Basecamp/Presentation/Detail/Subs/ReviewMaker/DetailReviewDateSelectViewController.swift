@@ -7,18 +7,28 @@
 
 import HorizonCalendar
 import UIKit
+import SnapKit
 
-final class DetailReviewMakerViewController: UIViewController {
-  public var viewModel: DetailReviewMakerViewModel
+enum CalendarSelection {
+  case singleDay(Day)
+  case dayRange(DayRange)
+}
+
+final class DetailReviewDateSelectViewController: UIViewController {
+  public weak var coordinator: DetailCoordinator?
   
-  init(viewModel: DetailReviewMakerViewModel) {
-    self.viewModel = viewModel
-    super.init(nibName: nil, bundle: nil)
-  }
+  public var campsite: Campsite?
+  private var calendarSelection: CalendarSelection?
   
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
+  private lazy var calendarView = CalendarView(initialContent: makeContent())
+  private lazy var rightBarNextButton: UIBarButtonItem = {
+    let barButton = UIBarButtonItem()
+    barButton.title = "다음"
+    barButton.action = #selector(navigateToFlowRate)
+    barButton.target = self
+    barButton.style = .plain
+    return barButton
+  }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,13 +48,9 @@ final class DetailReviewMakerViewController: UIViewController {
       case .none, .dayRange:
         self.calendarSelection = .singleDay(day)
       }
-
       self.calendarView.setContent(self.makeContent())
     }
   }
-  
-  
-  lazy var calendarView = CalendarView(initialContent: makeContent())
   
   private func makeContent() -> CalendarViewContent {
     let calendar = Calendar.current
@@ -99,7 +105,7 @@ final class DetailReviewMakerViewController: UIViewController {
       }
       
       if isSelectedStyle {
-        invariantViewProperties.backgroundShapeDrawingConfig.borderColor = .blue
+        invariantViewProperties.backgroundShapeDrawingConfig.borderColor = .main
       }
       
       let date = calendar.date(from: day.components)
@@ -120,19 +126,25 @@ final class DetailReviewMakerViewController: UIViewController {
     }
   }
   
-  private enum CalendarSelection {
-    case singleDay(Day)
-    case dayRange(DayRange)
+  @objc func navigateToFlowRate() {
+    guard let coordinator = coordinator,
+          let campsite = campsite,
+          let calendarSelection = calendarSelection
+    else {
+      let alert = AlertView(title: "알림", message: "날짜를 선택해주세요", buttonStyle: .confirm, okCompletion: nil) 
+      alert.showAlert()
+      return
+    }
+    coordinator.navigateToFlowRate(campsite, calendarSelection)
   }
-  private var calendarSelection: CalendarSelection?
-
 }
 
-extension DetailReviewMakerViewController: ViewRepresentable {
+extension DetailReviewDateSelectViewController: ViewRepresentable {
   func setupView() {
     [calendarView].forEach {
       view.addSubview($0)
     }
+    navigationItem.rightBarButtonItem = rightBarNextButton
   }
   
   func setupConstraints() {

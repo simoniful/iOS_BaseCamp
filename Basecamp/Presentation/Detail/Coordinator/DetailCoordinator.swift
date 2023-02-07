@@ -7,6 +7,7 @@
 
 import UIKit
 import Toast
+import HorizonCalendar
 
 final class DetailCoordinator: NSObject, Coordinator {
 
@@ -78,10 +79,12 @@ final class DetailCoordinator: NSObject, Coordinator {
     navigationController.present(viewController, animated: true)
   }
   
-  func showReviewMakerModal(_ viewModel: DetailReviewMakerViewModel) {
-    let vc = DetailReviewMakerViewController(viewModel: viewModel)
-    vc.title = "캠핑로그 작성"
-    modalNavigationController.viewControllers = [vc]
+  func showDateSelectModal(with campsite: Campsite) {
+    let viewController = DetailReviewDateSelectViewController()
+    viewController.campsite = campsite
+    viewController.coordinator = self
+    viewController.title = "방문일 선택"
+    modalNavigationController.viewControllers = [viewController]
     modalNavigationController.modalPresentationStyle = .pageSheet
     modalNavigationController.view.backgroundColor = .systemBackground
     if let sheet = modalNavigationController.sheetPresentationController {
@@ -91,6 +94,24 @@ final class DetailCoordinator: NSObject, Coordinator {
       sheet.selectedDetentIdentifier = .medium
     }
     navigationController.present(modalNavigationController, animated: true)
+  }
+  
+  func navigateToFlowRate(_ campsite: Campsite, _ date: CalendarSelection) {
+    let viewController = DetailReviewRateSelectViewController()
+    viewController.coordinator = self
+    viewController.hidesBottomBarWhenPushed = true
+    viewController.view.backgroundColor = .systemBackground
+    viewController.title = "평가 작성"
+    modalNavigationController.pushViewController(viewController, animated: true)
+  }
+  
+  func navigateToFlowPhoto(_ campsite: Campsite, _ date: CalendarSelection, _ rate: Double, _ content: String) {
+    let viewController = DetailReviewPhotoSelectViewController()
+    viewController.coordinator = self
+    viewController.hidesBottomBarWhenPushed = true
+    viewController.view.backgroundColor = .systemBackground
+    viewController.title = "사진 선택"
+    modalNavigationController.pushViewController(viewController, animated: true)
   }
   
   func changeTabByIndex(tabCase: TabBarPageCase ,message: String, area: Area? = nil) {

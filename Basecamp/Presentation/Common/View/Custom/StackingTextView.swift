@@ -47,7 +47,7 @@ final class StackingTextView: UITextView {
     self.textColor = textColor
     self.textAlignment = textAlignment
     self.backgroundColor = backgroundColor
-    self.padding = padding
+    self.textContainerInset = padding
   }
   
   required init?(coder: NSCoder) {
@@ -66,4 +66,6 @@ final class StackingTextView: UITextView {
     super.draw(rect.inset(by: padding))
   }
 }
+
+
   

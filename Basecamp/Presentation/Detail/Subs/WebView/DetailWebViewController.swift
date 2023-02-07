@@ -10,9 +10,7 @@ import WebKit
 import SnapKit
 
 final class DetailWebViewController: UIViewController {
-  weak var coordinator: DetailCoordinator?
   public var data: SocialMediaInfo?
-  
   private let webView = WKWebView()
   
   override func viewDidLoad() {

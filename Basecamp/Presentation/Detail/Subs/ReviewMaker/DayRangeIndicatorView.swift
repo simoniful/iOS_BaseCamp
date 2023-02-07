@@ -75,7 +75,6 @@ final class DayRangeIndicatorView: UIView {
   }
 
   // MARK: Private
-
   private let indicatorColor: UIColor
 
 }
@@ -91,17 +90,15 @@ extension DayRangeIndicatorView: CalendarItemViewRepresentable {
   
 
   struct InvariantViewProperties: Hashable {
-    var indicatorColor = UIColor.blue.withAlphaComponent(0.15)
+    var indicatorColor = UIColor.main.withAlphaComponent(0.15)
   }
 
   struct Content: Equatable {
     let framesOfDaysToHighlight: [CGRect]
   }
 
-  static func makeView(
-    withInvariantViewProperties invariantViewProperties: InvariantViewProperties)
-    -> DayRangeIndicatorView
-  {
+  static func makeView(withInvariantViewProperties invariantViewProperties: InvariantViewProperties)
+    -> DayRangeIndicatorView {
     DayRangeIndicatorView(indicatorColor: invariantViewProperties.indicatorColor)
   }
 

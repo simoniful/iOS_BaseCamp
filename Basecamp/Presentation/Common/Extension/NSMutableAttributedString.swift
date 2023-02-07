@@ -58,7 +58,6 @@ extension NSMutableAttributedString {
         let attributes:[NSAttributedString.Key : Any] = [
             .font: normalFont,
             .underlineStyle : NSUnderlineStyle.single.rawValue
-
         ]
 
         self.append(NSAttributedString(string: value, attributes:attributes))

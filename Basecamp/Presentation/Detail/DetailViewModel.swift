@@ -50,7 +50,6 @@ final class DetailViewModel: ViewModel {
   }
   
   let aroundTabmanViewModel = DetailAroundTabmanViewModel()
-  let detailReviewMakerViewModel = DetailReviewMakerViewModel()
   
   private let campsiteData = PublishRelay<[DetailCampsiteSectionModel]>()
   private let touristInfoData = PublishRelay<[DetailTouristInfoSectionModel]>()
@@ -280,7 +279,7 @@ final class DetailViewModel: ViewModel {
       headerAction
         .capture(case: HeaderCellAction.visit)
         .bind { [weak self] _ in
-          self?.coordinator?.showReviewMakerModal(self!.detailReviewMakerViewModel)
+          self?.coordinator?.showDateSelectModal(with: campsite)
         }
         .disposed(by: disposeBag)
       

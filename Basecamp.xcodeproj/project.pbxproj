@@ -13,15 +13,13 @@
 		F40DDFAC2989FF2D00D05C2A /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFAB2989FF2D00D05C2A /* NSMutableAttributedString.swift */; };
 		F40DDFB1298A517900D05C2A /* DetailZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB0298A517900D05C2A /* DetailZoomViewController.swift */; };
 		F40DDFB4298A549E00D05C2A /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB3298A549E00D05C2A /* DetailCoordinator.swift */; };
-		F40DDFB6298A57D300D05C2A /* NavigationPerformActionDelegate .swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB5298A57D300D05C2A /* NavigationPerformActionDelegate .swift */; };
 		F40DDFB9298A744C00D05C2A /* DetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB8298A744C00D05C2A /* DetailWebViewController.swift */; };
 		F40DDFBE298BA00100D05C2A /* PinchedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFBD298BA00100D05C2A /* PinchedImageViewController.swift */; };
 		F40DDFC0298F794A00D05C2A /* ImageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFBF298F794A00D05C2A /* ImageLabel.swift */; };
 		F40DDFC3298FF77800D05C2A /* KakaoSDKShare in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFC2298FF77800D05C2A /* KakaoSDKShare */; };
 		F40DDFC5298FF77800D05C2A /* KakaoSDKTalk in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFC4298FF77800D05C2A /* KakaoSDKTalk */; };
 		F40DDFC7298FF77800D05C2A /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFC6298FF77800D05C2A /* KakaoSDKTemplate */; };
-		F40DDFCA2990AEFE00D05C2A /* DetailReviewMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFC92990AEFD00D05C2A /* DetailReviewMakerViewController.swift */; };
-		F40DDFCC2990CA2300D05C2A /* DetailReviewMakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFCB2990CA2300D05C2A /* DetailReviewMakerViewModel.swift */; };
+		F40DDFCA2990AEFE00D05C2A /* DetailReviewDateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFC92990AEFD00D05C2A /* DetailReviewDateSelectViewController.swift */; };
 		F40DDFCF2990D16300D05C2A /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFCE2990D16300D05C2A /* Cosmos */; };
 		F45C09DF296DB6730075E1AC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DE296DB6730075E1AC /* AlertView.swift */; };
 		F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E0296EB8130075E1AC /* StackingLabel.swift */; };
@@ -149,6 +147,9 @@
 		F4D10F4C2949ADBE000C02E0 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10F4B2949ADBE000C02E0 /* UIFont.swift */; };
 		F4D10F4E2949ADF2000C02E0 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10F4D2949ADF2000C02E0 /* AppFont.swift */; };
 		F4E2A7922990F09E00B8EF4F /* DayRangeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */; };
+		F4E2A7D029922C7200B8EF4F /* DetailReviewRateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7CF29922C7200B8EF4F /* DetailReviewRateSelectViewController.swift */; };
+		F4E2A7D229923F3800B8EF4F /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7D129923F3800B8EF4F /* UILabel.swift */; };
+		F4E2A7D429924DE300B8EF4F /* DetailReviewPhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7D329924DE300B8EF4F /* DetailReviewPhotoSelectViewController.swift */; };
 		F4E3E58329515FDA009AFCFC /* WeatherTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58229515FDA009AFCFC /* WeatherTargetStub.swift */; };
 		F4E3E585295161F9009AFCFC /* NaverBlogTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E584295161F9009AFCFC /* NaverBlogTargetStub.swift */; };
 		F4E3E58729516347009AFCFC /* YoutubeTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58629516347009AFCFC /* YoutubeTargetStub.swift */; };
@@ -276,12 +277,10 @@
 		F40DDFAB2989FF2D00D05C2A /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
 		F40DDFB0298A517900D05C2A /* DetailZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailZoomViewController.swift; sourceTree = "<group>"; };
 		F40DDFB3298A549E00D05C2A /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
-		F40DDFB5298A57D300D05C2A /* NavigationPerformActionDelegate .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationPerformActionDelegate .swift"; sourceTree = "<group>"; };
 		F40DDFB8298A744C00D05C2A /* DetailWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWebViewController.swift; sourceTree = "<group>"; };
 		F40DDFBD298BA00100D05C2A /* PinchedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchedImageViewController.swift; sourceTree = "<group>"; };
 		F40DDFBF298F794A00D05C2A /* ImageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLabel.swift; sourceTree = "<group>"; };
-		F40DDFC92990AEFD00D05C2A /* DetailReviewMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewMakerViewController.swift; sourceTree = "<group>"; };
-		F40DDFCB2990CA2300D05C2A /* DetailReviewMakerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewMakerViewModel.swift; sourceTree = "<group>"; };
+		F40DDFC92990AEFD00D05C2A /* DetailReviewDateSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewDateSelectViewController.swift; sourceTree = "<group>"; };
 		F45C09DE296DB6730075E1AC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		F45C09E0296EB8130075E1AC /* StackingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackingLabel.swift; sourceTree = "<group>"; };
 		F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewSectionLayoutManager.swift; sourceTree = "<group>"; };
@@ -402,6 +401,9 @@
 		F4D10F4D2949ADF2000C02E0 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		F4D10F522949B120000C02E0 /* Basecamp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Basecamp.entitlements; sourceTree = "<group>"; };
 		F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRangeIndicatorView.swift; sourceTree = "<group>"; };
+		F4E2A7CF29922C7200B8EF4F /* DetailReviewRateSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewRateSelectViewController.swift; sourceTree = "<group>"; };
+		F4E2A7D129923F3800B8EF4F /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		F4E2A7D329924DE300B8EF4F /* DetailReviewPhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewPhotoSelectViewController.swift; sourceTree = "<group>"; };
 		F4E3E58229515FDA009AFCFC /* WeatherTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTargetStub.swift; sourceTree = "<group>"; };
 		F4E3E584295161F9009AFCFC /* NaverBlogTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogTargetStub.swift; sourceTree = "<group>"; };
 		F4E3E58629516347009AFCFC /* YoutubeTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTargetStub.swift; sourceTree = "<group>"; };
@@ -593,8 +595,9 @@
 		F40DDFC82990AED300D05C2A /* ReviewMaker */ = {
 			isa = PBXGroup;
 			children = (
-				F40DDFC92990AEFD00D05C2A /* DetailReviewMakerViewController.swift */,
-				F40DDFCB2990CA2300D05C2A /* DetailReviewMakerViewModel.swift */,
+				F40DDFC92990AEFD00D05C2A /* DetailReviewDateSelectViewController.swift */,
+				F4E2A7CF29922C7200B8EF4F /* DetailReviewRateSelectViewController.swift */,
+				F4E2A7D329924DE300B8EF4F /* DetailReviewPhotoSelectViewController.swift */,
 				F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */,
 			);
 			path = ReviewMaker;
@@ -997,7 +1000,6 @@
 			children = (
 				F4D10ED829497EA9000C02E0 /* Coordinator.swift */,
 				F4D10EE929498738000C02E0 /* CoordinatorDelegate.swift */,
-				F40DDFB5298A57D300D05C2A /* NavigationPerformActionDelegate .swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1238,6 +1240,7 @@
 			isa = PBXGroup;
 			children = (
 				F4D10F4B2949ADBE000C02E0 /* UIFont.swift */,
+				F4E2A7D129923F3800B8EF4F /* UILabel.swift */,
 				F4F0E0752963FE870006C9D4 /* UIButton.swift */,
 				F4F0E0C5296919CC0006C9D4 /* UIColor.swift */,
 				F40DDFAB2989FF2D00D05C2A /* NSMutableAttributedString.swift */,
@@ -1924,6 +1927,7 @@
 				F4D10EE4294982B5000C02E0 /* TabBarPageCase.swift in Sources */,
 				F45C0A81298788530075E1AC /* RxNMFMapViewCameraDelegateProxy.swift in Sources */,
 				F45C0A6E298226BD0075E1AC /* ListTouristViewHeader.swift in Sources */,
+				F4E2A7D029922C7200B8EF4F /* DetailReviewRateSelectViewController.swift in Sources */,
 				F49034B5294C5C6600CDE442 /* HomeCampsiteCell.swift in Sources */,
 				F45C0A21297526FE0075E1AC /* FilterSubViewModel.swift in Sources */,
 				F45C0A7C29876E2E0075E1AC /* NMFMap.swift in Sources */,
@@ -1933,7 +1937,7 @@
 				F4F0E0C42969199B0006C9D4 /* AppColor.swift in Sources */,
 				F45C09F229713FEE0075E1AC /* PropertyIterable.swift in Sources */,
 				F45C09EB29703EA40075E1AC /* DetailTouristInfoIntroStackView.swift in Sources */,
-				F40DDFCA2990AEFE00D05C2A /* DetailReviewMakerViewController.swift in Sources */,
+				F40DDFCA2990AEFE00D05C2A /* DetailReviewDateSelectViewController.swift in Sources */,
 				F4E3E5CF295DA92E009AFCFC /* TouristInfoIntroCulture.swift in Sources */,
 				F4E3E5C9295D8342009AFCFC /* TouristInfoImageResponseDTO.swift in Sources */,
 				F4E3E5EE295E9574009AFCFC /* TouristInfoImageRequestDTO.swift in Sources */,
@@ -1999,7 +2003,6 @@
 				F4D10F4C2949ADBE000C02E0 /* UIFont.swift in Sources */,
 				F40DDFAC2989FF2D00D05C2A /* NSMutableAttributedString.swift in Sources */,
 				F45C0A54298104690075E1AC /* ListUseCase.swift in Sources */,
-				F40DDFB6298A57D300D05C2A /* NavigationPerformActionDelegate .swift in Sources */,
 				F45C09F829715AF70075E1AC /* SearchViewModel.swift in Sources */,
 				F4E3E5AC29555961009AFCFC /* RealmRepository.swift in Sources */,
 				F49034BB294F5C3C00CDE442 /* HomeFestivalCell.swift in Sources */,
@@ -2028,12 +2031,12 @@
 				F40DDFC0298F794A00D05C2A /* ImageLabel.swift in Sources */,
 				F4D10F0429499427000C02E0 /* ViewRepresentable.swift in Sources */,
 				F45C0A7A298631C40075E1AC /* MapCoordinator.swift in Sources */,
+				F4E2A7D429924DE300B8EF4F /* DetailReviewPhotoSelectViewController.swift in Sources */,
 				F4E3E5F2295EA028009AFCFC /* Date.swift in Sources */,
 				F49034AC294C421300CDE442 /* Area.swift in Sources */,
 				F49034EC29515B7200CDE442 /* YoutubeAPIEnvironment.swift in Sources */,
 				F4D10EFE2949932B000C02E0 /* HomeViewModel.swift in Sources */,
 				F49034E429515B2300CDE442 /* NaverBlogAPIConstant.swift in Sources */,
-				F40DDFCC2990CA2300D05C2A /* DetailReviewMakerViewModel.swift in Sources */,
 				F4E3E5D6295DB4F7009AFCFC /* TouristInfoIntroShopping.swift in Sources */,
 				F49034BF2950007300CDE442 /* CampsiteRepositoryInterface.swift in Sources */,
 				F4FD50AA296305DC00FA3CB3 /* DetailLocationCell.swift in Sources */,
@@ -2048,6 +2051,7 @@
 				F40DDFB9298A744C00D05C2A /* DetailWebViewController.swift in Sources */,
 				F4FD509F2962E0F600FA3CB3 /* DetailViewModel.swift in Sources */,
 				F4E3E5BF295D77B1009AFCFC /* TouristInfoIntroSpot.swift in Sources */,
+				F4E2A7D229923F3800B8EF4F /* UILabel.swift in Sources */,
 				F45C0A6A298224AB0075E1AC /* ListTouristViewModel.swift in Sources */,
 				F4F0E0B9296726120006C9D4 /* DetailAroundTabmanSubViewModel.swift in Sources */,
 				F45C0A7F29877F010075E1AC /* NMFMapView+Rx.swift in Sources */,
