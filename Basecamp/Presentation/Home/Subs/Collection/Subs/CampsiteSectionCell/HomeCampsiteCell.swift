@@ -80,7 +80,7 @@ class HomeCampsiteCell: UICollectionViewCell {
   }
   
   func setData(campsite: Campsite) {
-    guard let urlString = campsite.firstImageURL else { return }
+    let urlString = campsite.firstImageURL 
     let url = URL(string: urlString)
     let processor = DownsamplingImageProcessor(size: CGSize(width: 400, height: 300))
     imageView.kf.indicatorType = .activity
@@ -97,7 +97,8 @@ class HomeCampsiteCell: UICollectionViewCell {
 
     titleLabel.text = campsite.facltNm
     
-    guard let doNm = campsite.doNm, let sigunguNm = campsite.sigunguNm else { return }
+    let doNm = campsite.doNm
+    let sigunguNm = campsite.sigunguNm
     locationLabel.text = doNm + " " + sigunguNm
   }
   

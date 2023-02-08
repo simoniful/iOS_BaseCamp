@@ -83,7 +83,5 @@ extension DetailCampsiteInfoCell: ViewRepresentable {
       tooltipLabel.text = data.tooltip.isEmpty ? "･ 캠핑장에 주변 지역 관광 정보가 구비되어있습니다" : "･  " + data.tooltip
       infoStackSetFlag.toggle()
     }
-//    overviewTextView.text = data.overview.isEmpty ? "캠핑장 사이트에서 자세히 알 수 있습니다." : data.overview
-//    themaEnvrnClLabel.text = data.themaEnvrnCl == "" ? "자체 행사 관련하여 캠핑장으로 추가적인 문의바랍니다." : data.themaEnvrnCl
   }
 }

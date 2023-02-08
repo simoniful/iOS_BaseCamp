@@ -37,7 +37,7 @@ final class SearchCell: UITableViewCell {
   }
   
   func setupData(campsite: Campsite) {
-    guard let urlString = campsite.firstImageURL else { return }
+    let urlString = campsite.firstImageURL
     let url = URL(string: urlString)
     let processor = DownsamplingImageProcessor(size: CGSize(width: 400, height: 300))
     thumbnailImageView.kf.indicatorType = .activity
@@ -51,8 +51,8 @@ final class SearchCell: UITableViewCell {
               
         ])
     titleLabel.text = campsite.facltNm
-    addressLabel.text = campsite.addr1!.isEmpty ? " " : campsite.addr1
-    introLabel.text = campsite.lineIntro!.isEmpty ? " " : campsite.lineIntro
+    addressLabel.text = campsite.addr1.isEmpty ? " " : campsite.addr1
+    introLabel.text = campsite.lineIntro.isEmpty ? " " : campsite.lineIntro
   }
   
   func setupData(touristInfo: TouristInfo) {

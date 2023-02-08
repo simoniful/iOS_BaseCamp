@@ -10,55 +10,57 @@ import RealmSwift
 
 
 class CampsiteRealmDTO: Object {
-  @Persisted(primaryKey: true) var contentID: String?
-  @Persisted var facltNm: String?
-  @Persisted var lineIntro: String?
-  @Persisted var intro: String?
-  @Persisted var manageSttus: String?
-  @Persisted var facltDivNm: String?
-  @Persisted var induty: String?
-  @Persisted var lctCl: String?
-  @Persisted var doNm: String?
-  @Persisted var sigunguNm: String?
-  @Persisted var addr1: String?
-  @Persisted var mapX: String?
-  @Persisted var mapY: String?
-  @Persisted var direction: String?
-  @Persisted var tel: String?
-  @Persisted var homepage: String?
-  @Persisted var resveCl: String?
-  @Persisted var gnrlSiteCo: String?
-  @Persisted var autoSiteCo: String?
-  @Persisted var glampSiteCo: String?
-  @Persisted var caravSiteCo: String?
-  @Persisted var indvdlCaravSiteCo: String?
-  @Persisted var tooltip: String?
-  @Persisted var glampInnerFclty: String?
-  @Persisted var caravInnerFclty: String?
-  @Persisted var operPDCl: String?
-  @Persisted var operDeCl: String?
-  @Persisted var brazierCl: String?
-  @Persisted var sbrsCl: String?
-  @Persisted var sbrsEtc: String?
-  @Persisted var clturEventAt: String?
-  @Persisted var clturEvent: String?
-  @Persisted var exprnProgrmAt: String?
-  @Persisted var exprnProgrm: String?
-  @Persisted var extshrCo: String?
-  @Persisted var frprvtWrppCo: String?
-  @Persisted var frprvtSandCo: String?
-  @Persisted var fireSensorCo: String?
-  @Persisted var themaEnvrnCl: String?
-  @Persisted var eqpmnLendCl: String?
-  @Persisted var animalCmgCl: String?
-  @Persisted var firstImageURL: String?
-  @Persisted var modifiedtime: String?
-  @Persisted var posblFcltyCl: String?
+  @Persisted(primaryKey: true) var _id: ObjectId
+  @Persisted var contentID: String
+  @Persisted var facltNm: String
+  @Persisted var lineIntro: String
+  @Persisted var intro: String
+  @Persisted var manageSttus: String
+  @Persisted var facltDivNm: String
+  @Persisted var induty: String
+  @Persisted var lctCl: String
+  @Persisted var doNm: String
+  @Persisted var sigunguNm: String
+  @Persisted var addr1: String
+  @Persisted var mapX: String
+  @Persisted var mapY: String
+  @Persisted var direction: String
+  @Persisted var tel: String
+  @Persisted var homepage: String
+  @Persisted var resveCl: String
+  @Persisted var gnrlSiteCo: String
+  @Persisted var autoSiteCo: String
+  @Persisted var glampSiteCo: String
+  @Persisted var caravSiteCo: String
+  @Persisted var indvdlCaravSiteCo: String
+  @Persisted var tooltip: String
+  @Persisted var glampInnerFclty: String
+  @Persisted var caravInnerFclty: String
+  @Persisted var operPDCl: String
+  @Persisted var operDeCl: String
+  @Persisted var brazierCl: String
+  @Persisted var sbrsCl: String
+  @Persisted var sbrsEtc: String
+  @Persisted var clturEventAt: String
+  @Persisted var clturEvent: String
+  @Persisted var exprnProgrmAt: String
+  @Persisted var exprnProgrm: String
+  @Persisted var extshrCo: String
+  @Persisted var frprvtWrppCo: String
+  @Persisted var frprvtSandCo: String
+  @Persisted var fireSensorCo: String
+  @Persisted var themaEnvrnCl: String
+  @Persisted var eqpmnLendCl: String
+  @Persisted var animalCmgCl: String
+  @Persisted var firstImageURL: String
+  @Persisted var modifiedtime: String
+  @Persisted var posblFcltyCl: String
   @Persisted var isLiked: Bool
   
   convenience init(campsite: Campsite) {
     self.init()
-    self.contentID = campsite.contentID!
+    self._id = campsite._id
+    self.contentID = campsite.contentID
     self.facltNm = campsite.facltNm
     self.lineIntro = campsite.lineIntro
     self.intro = campsite.intro
@@ -109,6 +111,7 @@ class CampsiteRealmDTO: Object {
 extension CampsiteRealmDTO {
   func toDomain() -> Campsite {
     return .init(
+      _id: _id,
       contentID: contentID,
       facltNm: facltNm,
       lineIntro: lineIntro,

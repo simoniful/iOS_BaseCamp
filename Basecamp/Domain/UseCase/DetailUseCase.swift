@@ -65,17 +65,17 @@ final class DetailUseCase {
     return [
       DetailCampsiteHeaderItem(
         imageDataList: images,
-        name: campsite.facltNm!,
-        address: campsite.addr1!,
-        lctCl: campsite.lctCl!,
-        facltDivNm: campsite.facltDivNm!,
-        induty: campsite.induty!,
-        operPDCl: campsite.operPDCl!,
-        operDeCl: campsite.operDeCl!,
-        homepage: campsite.homepage!,
-        resveCl: campsite.resveCl!,
-        posblFcltyCl: campsite.posblFcltyCl!,
-        tel: campsite.tel!,
+        name: campsite.facltNm,
+        address: campsite.addr1,
+        lctCl: campsite.lctCl,
+        facltDivNm: campsite.facltDivNm,
+        induty: campsite.induty,
+        operPDCl: campsite.operPDCl,
+        operDeCl: campsite.operDeCl,
+        homepage: campsite.homepage,
+        resveCl: campsite.resveCl,
+        posblFcltyCl: campsite.posblFcltyCl,
+        tel: campsite.tel,
         isLiked: realmRepository.checkCampsite(campsite: campsite)
       )
     ]
@@ -101,9 +101,9 @@ final class DetailUseCase {
   func requestLocationData(campsite: Campsite, weatherData: [WeatherInfo]) -> [DetailLocationItem] {
     return [
       DetailLocationItem(
-        mapX: campsite.mapX!,
-        mapY: campsite.mapY!,
-        address: campsite.addr1!,
+        mapX: campsite.mapX,
+        mapY: campsite.mapY,
+        address: campsite.addr1,
         direction: campsite.direction ?? "※ 자세한 위치는 문의처에 문의 바랍니다",
         weatherInfos: weatherData
       )
@@ -124,8 +124,8 @@ final class DetailUseCase {
   
   func requestFacilityData(campsite: Campsite) -> [DetailCampsiteFacilityItem] {
     var facArr: [Facility] = []
-    let sbrsClArr = campsite.sbrsCl?.components(separatedBy: ",")
-    sbrsClArr?.forEach {
+    let sbrsClArr = campsite.sbrsCl.components(separatedBy: ",")
+    sbrsClArr.forEach {
       if let enumCase = Facility(rawValue: $0) {
         facArr.append(enumCase)
       }
@@ -139,22 +139,22 @@ final class DetailUseCase {
   func requsetInfoData(campsite: Campsite) -> [DetailCampsiteInfoItem] {
     return [
       DetailCampsiteInfoItem(
-        gnrlSiteCo: campsite.gnrlSiteCo!,
-        autoSiteCo: campsite.autoSiteCo!,
-        glampSiteCo: campsite.glampSiteCo!,
-        caravSiteCo: campsite.caravSiteCo!,
-        sbrsEtc: campsite.sbrsEtc!,
-        animalCmgCl: campsite.animalCmgCl!,
-        glampInnerFclty: campsite.glampInnerFclty!,
-        caravInnerFclty: campsite.caravInnerFclty!,
-        brazierCl: campsite.brazierCl!,
-        extshrCo: campsite.extshrCo!,
-        frprvtWrppCo: campsite.frprvtWrppCo!,
-        frprvtSandCo: campsite.frprvtSandCo!,
-        fireSensorCo: campsite.fireSensorCo!,
-        overview: campsite.intro!,
-        themaEnvrnCl: campsite.themaEnvrnCl!,
-        tooltip: campsite.tooltip!
+        gnrlSiteCo: campsite.gnrlSiteCo,
+        autoSiteCo: campsite.autoSiteCo,
+        glampSiteCo: campsite.glampSiteCo,
+        caravSiteCo: campsite.caravSiteCo,
+        sbrsEtc: campsite.sbrsEtc,
+        animalCmgCl: campsite.animalCmgCl,
+        glampInnerFclty: campsite.glampInnerFclty,
+        caravInnerFclty: campsite.caravInnerFclty,
+        brazierCl: campsite.brazierCl,
+        extshrCo: campsite.extshrCo,
+        frprvtWrppCo: campsite.frprvtWrppCo,
+        frprvtSandCo: campsite.frprvtSandCo,
+        fireSensorCo: campsite.fireSensorCo,
+        overview: campsite.intro,
+        themaEnvrnCl: campsite.themaEnvrnCl,
+        tooltip: campsite.tooltip
       )
     ]
   }
@@ -189,8 +189,8 @@ final class DetailUseCase {
   func requestAroundData(campsite: Campsite) -> [DetailAroundItem] {
     return [
       DetailAroundItem(
-        mapX: campsite.mapX!,
-        mapY: campsite.mapY!,
+        mapX: campsite.mapX,
+        mapY: campsite.mapY,
         radius: "10000"
       )
     ]

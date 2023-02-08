@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 struct Review {
-  let _id: String
+  let _id: ObjectId
   let rate: Double
   let content: String
   let regDate: Date
-  let visitDate: Date
+  let startDate: Date
+  let endDate: Date
   let campsite: Campsite
 }

@@ -15,7 +15,12 @@ final class StackingTextView: UITextView {
     super.init(frame: frame, textContainer: textContainer)
   }
   
-  convenience init(font: UIFont, padding: UIEdgeInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)) {
+  convenience init(
+    font: UIFont,
+    padding: UIEdgeInsets = UIEdgeInsets(
+      top: 8.0, left: 8.0, bottom: 8.0, right: 8.0
+    )
+  ) {
     self.init()
     self.font = font
     self.padding = padding

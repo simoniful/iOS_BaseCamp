@@ -101,6 +101,7 @@ final class RealmStorage {
   func createReview(review: ReviewDTO) {
     try! realm.write {
       realm.add(review)
+      print("Realm is located at:", realm.configuration.fileURL!)
     }
   }
   

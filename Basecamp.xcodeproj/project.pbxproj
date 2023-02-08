@@ -150,6 +150,10 @@
 		F4E2A7D029922C7200B8EF4F /* DetailReviewRateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7CF29922C7200B8EF4F /* DetailReviewRateSelectViewController.swift */; };
 		F4E2A7D229923F3800B8EF4F /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7D129923F3800B8EF4F /* UILabel.swift */; };
 		F4E2A7D429924DE300B8EF4F /* DetailReviewPhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7D329924DE300B8EF4F /* DetailReviewPhotoSelectViewController.swift */; };
+		F4E2A7D6299277C700B8EF4F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7D5299277C700B8EF4F /* UIImage.swift */; };
+		F4E2A7DC2992A03100B8EF4F /* FMPhotoPicker in Frameworks */ = {isa = PBXBuildFile; productRef = F4E2A7DB2992A03100B8EF4F /* FMPhotoPicker */; };
+		F4E2A7DE2993263C00B8EF4F /* DetailReviewMakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7DD2993263C00B8EF4F /* DetailReviewMakerViewModel.swift */; };
+		F4E2A7E029933FA200B8EF4F /* ReviewMakerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7DF29933FA200B8EF4F /* ReviewMakerUseCase.swift */; };
 		F4E3E58329515FDA009AFCFC /* WeatherTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58229515FDA009AFCFC /* WeatherTargetStub.swift */; };
 		F4E3E585295161F9009AFCFC /* NaverBlogTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E584295161F9009AFCFC /* NaverBlogTargetStub.swift */; };
 		F4E3E58729516347009AFCFC /* YoutubeTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58629516347009AFCFC /* YoutubeTargetStub.swift */; };
@@ -404,6 +408,9 @@
 		F4E2A7CF29922C7200B8EF4F /* DetailReviewRateSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewRateSelectViewController.swift; sourceTree = "<group>"; };
 		F4E2A7D129923F3800B8EF4F /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		F4E2A7D329924DE300B8EF4F /* DetailReviewPhotoSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewPhotoSelectViewController.swift; sourceTree = "<group>"; };
+		F4E2A7D5299277C700B8EF4F /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		F4E2A7DD2993263C00B8EF4F /* DetailReviewMakerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewMakerViewModel.swift; sourceTree = "<group>"; };
+		F4E2A7DF29933FA200B8EF4F /* ReviewMakerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewMakerUseCase.swift; sourceTree = "<group>"; };
 		F4E3E58229515FDA009AFCFC /* WeatherTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTargetStub.swift; sourceTree = "<group>"; };
 		F4E3E584295161F9009AFCFC /* NaverBlogTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogTargetStub.swift; sourceTree = "<group>"; };
 		F4E3E58629516347009AFCFC /* YoutubeTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTargetStub.swift; sourceTree = "<group>"; };
@@ -505,6 +512,7 @@
 				F4E3E5A7295460D6009AFCFC /* RxEnumKit in Frameworks */,
 				F490348A2949BA5B00CDE442 /* Differentiator in Frameworks */,
 				F490347D2949B99400CDE442 /* Moya in Frameworks */,
+				F4E2A7DC2992A03100B8EF4F /* FMPhotoPicker in Frameworks */,
 				F490347F2949B99400CDE442 /* RxMoya in Frameworks */,
 				F40DDFC7298FF77800D05C2A /* KakaoSDKTemplate in Frameworks */,
 				F49034922949BB5500CDE442 /* RxGesture in Frameworks */,
@@ -595,6 +603,7 @@
 		F40DDFC82990AED300D05C2A /* ReviewMaker */ = {
 			isa = PBXGroup;
 			children = (
+				F4E2A7DD2993263C00B8EF4F /* DetailReviewMakerViewModel.swift */,
 				F40DDFC92990AEFD00D05C2A /* DetailReviewDateSelectViewController.swift */,
 				F4E2A7CF29922C7200B8EF4F /* DetailReviewRateSelectViewController.swift */,
 				F4E2A7D329924DE300B8EF4F /* DetailReviewPhotoSelectViewController.swift */,
@@ -776,11 +785,11 @@
 				F45C09E0296EB8130075E1AC /* StackingLabel.swift */,
 				F45C09EE2970FA2E0075E1AC /* StackingTextView.swift */,
 				F49034A4294AC72700CDE442 /* PaddingLabel.swift */,
-				F4FD50912962857600FA3CB3 /* IndicatorView.swift */,
 				F4F0E0BC2967B31E0006C9D4 /* InfoPlusView.swift */,
-				F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */,
+				F4FD50912962857600FA3CB3 /* IndicatorView.swift */,
 				F45C09DE296DB6730075E1AC /* AlertView.swift */,
 				F40DDFBF298F794A00D05C2A /* ImageLabel.swift */,
+				F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1119,6 +1128,7 @@
 			children = (
 				F4D10F082949A3CA000C02E0 /* HomeUseCase.swift */,
 				F4FD50B229630C9000FA3CB3 /* DetailUseCase.swift */,
+				F4E2A7DF29933FA200B8EF4F /* ReviewMakerUseCase.swift */,
 				F45C09FA2971C1560075E1AC /* SearchUseCase.swift */,
 				F45C0A53298104690075E1AC /* ListUseCase.swift */,
 				F45C0A7129862B840075E1AC /* MapUseCase.swift */,
@@ -1243,6 +1253,7 @@
 				F4E2A7D129923F3800B8EF4F /* UILabel.swift */,
 				F4F0E0752963FE870006C9D4 /* UIButton.swift */,
 				F4F0E0C5296919CC0006C9D4 /* UIColor.swift */,
+				F4E2A7D5299277C700B8EF4F /* UIImage.swift */,
 				F40DDFAB2989FF2D00D05C2A /* NSMutableAttributedString.swift */,
 				F4E3E5AA2954C3C5009AFCFC /* Rx */,
 			);
@@ -1675,6 +1686,7 @@
 				F40DDFC4298FF77800D05C2A /* KakaoSDKTalk */,
 				F40DDFC6298FF77800D05C2A /* KakaoSDKTemplate */,
 				F40DDFCE2990D16300D05C2A /* Cosmos */,
+				F4E2A7DB2992A03100B8EF4F /* FMPhotoPicker */,
 			);
 			productName = Basecamp;
 			productReference = F4D10EA129497831000C02E0 /* Basecamp.app */;
@@ -1767,6 +1779,7 @@
 				F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */,
 				F40DDFC1298FF77800D05C2A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				F40DDFCD2990D16300D05C2A /* XCRemoteSwiftPackageReference "Cosmos" */,
+				F4E2A7DA2992A03100B8EF4F /* XCRemoteSwiftPackageReference "FMPhotoPicker" */,
 			);
 			productRefGroup = F4D10EA229497831000C02E0 /* Products */;
 			projectDirPath = "";
@@ -2005,6 +2018,7 @@
 				F45C0A54298104690075E1AC /* ListUseCase.swift in Sources */,
 				F45C09F829715AF70075E1AC /* SearchViewModel.swift in Sources */,
 				F4E3E5AC29555961009AFCFC /* RealmRepository.swift in Sources */,
+				F4E2A7D6299277C700B8EF4F /* UIImage.swift in Sources */,
 				F49034BB294F5C3C00CDE442 /* HomeFestivalCell.swift in Sources */,
 				F4E3E5D1295DB1A9009AFCFC /* TouristInfoIntroLeisure.swift in Sources */,
 				F4F0E097296575BD0006C9D4 /* DetailSectionHeader.swift in Sources */,
@@ -2089,6 +2103,7 @@
 				F4D10EA729497831000C02E0 /* SceneDelegate.swift in Sources */,
 				F45C0A432978EA490075E1AC /* KeywordViewController.swift in Sources */,
 				F45C0A192973CA000075E1AC /* SearchHeader.swift in Sources */,
+				F4E2A7DE2993263C00B8EF4F /* DetailReviewMakerViewModel.swift in Sources */,
 				F4D10F092949A3CA000C02E0 /* HomeUseCase.swift in Sources */,
 				F4E3E585295161F9009AFCFC /* NaverBlogTargetStub.swift in Sources */,
 				F45C0A102972A8140075E1AC /* UITableView+Rx.swift in Sources */,
@@ -2122,6 +2137,7 @@
 				F49034AE294C42B200CDE442 /* Campsite.swift in Sources */,
 				F4E3E5EA295E9507009AFCFC /* TouristInfoCommonRequestDTO.swift in Sources */,
 				F4FD50A5296303E600FA3CB3 /* DetailCampsiteHeaderCell.swift in Sources */,
+				F4E2A7E029933FA200B8EF4F /* ReviewMakerUseCase.swift in Sources */,
 				F45C0A7229862B840075E1AC /* MapUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2564,6 +2580,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		F4E2A7DA2992A03100B8EF4F /* XCRemoteSwiftPackageReference "FMPhotoPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/congnd/FMPhotoPicker.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
 		F4E3E5A2295460A5009AFCFC /* XCRemoteSwiftPackageReference "EnumKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/gringoireDM/EnumKit";
@@ -2681,6 +2705,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F49034902949BB5500CDE442 /* XCRemoteSwiftPackageReference "RxGesture" */;
 			productName = RxGesture;
+		};
+		F4E2A7DB2992A03100B8EF4F /* FMPhotoPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4E2A7DA2992A03100B8EF4F /* XCRemoteSwiftPackageReference "FMPhotoPicker" */;
+			productName = FMPhotoPicker;
 		};
 		F4E3E5A3295460A5009AFCFC /* EnumKit */ = {
 			isa = XCSwiftPackageProductDependency;

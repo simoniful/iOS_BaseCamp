@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>&quot;해당 기능을 사용하기 위해 마이크 사용에 대한 권한이 필요합니다&quot;</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>&quot;해당 기능을 사용하기 위해 사진첩에 대한 접근 권한이 필요합니다&quot;</string>
+	<key>NSCameraUsageDescription</key>
+	<string>&quot;해당 기능을 사용하기 위해 카마레 사용에 대한 권한이 필요합니다&quot;</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

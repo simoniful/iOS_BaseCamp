@@ -11,10 +11,7 @@ import Cosmos
 import SnapKit
 
 final class DetailReviewRateSelectViewController: UIViewController {
-  public weak var coordinator: DetailCoordinator?
-  
-  public var campsite: Campsite?
-  public var calendarSelection: CalendarSelection?
+  private let viewModel: DetailReviewMakerViewModel
   private var rateSelection: Double?
   
   private lazy var rateLabel = DefaultLabel(title: "캠핑의 만족도를 선택해주세요", font: .systemFont(ofSize: 20, weight: .semibold), textAlignment: .left)
@@ -38,6 +35,15 @@ final class DetailReviewRateSelectViewController: UIViewController {
     return barButton
   }()
   
+  init(viewModel: DetailReviewMakerViewModel) {
+    self.viewModel = viewModel
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupView()
@@ -47,6 +53,7 @@ final class DetailReviewRateSelectViewController: UIViewController {
   
   func setupAttribute() {
     cosmosView.settings.fillMode = .half
+    cosmosView.rating = 0
     cosmosView.settings.starSize = 28
     cosmosView.settings.starMargin = 4
     cosmosView.settings.filledColor = .main
@@ -69,13 +76,16 @@ final class DetailReviewRateSelectViewController: UIViewController {
     guard let rateSelection = rateSelection,
           contentTextView.text != "최소 10자 이상 작성해주세요",
           contentTextView.text.count >= 10,
-          let coordinator = coordinator
+          let coordinator = viewModel.coordinator
     else {
       let alert = AlertView(title: "알림", message: "평가를 소중히 작성해주세요", buttonStyle: .confirm, okCompletion: nil)
       alert.showAlert()
       return
     }
-    coordinator.navigateToFlowPhoto(campsite!, calendarSelection!, rateSelection, contentTextView.text)
+    view.endEditing(true)
+    viewModel.selectedRate.accept(rateSelection)
+    viewModel.selectedContent.accept(contentTextView.text)
+    coordinator.navigateToFlowPhoto(viewModel: viewModel)
   }
   
   @objc private func didTapTextView(_ sender: Any) {

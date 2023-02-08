@@ -28,7 +28,7 @@ extension Reactive where Base: CLLocationManager {
   public var didUpdateLocations: Observable<[CLLocation]> {
     RxCLLocationManagerDelegateProxy.proxy(for: base).didUpdateLocationsSubject.asObservable()
   }
-
+  
   /**
    Reactive wrapper for `delegate` message.
    */

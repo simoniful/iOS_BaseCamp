@@ -89,7 +89,7 @@ final class DetailViewController: UIViewController {
     self.viewModel = viewModel
     switch viewModel.style {
     case .campsite(data: let campsite):
-      self.name = campsite.facltNm!
+      self.name = campsite.facltNm
     case .touristInfo(data: let touristInfo):
       self.name = touristInfo.title!
     }

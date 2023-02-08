@@ -75,9 +75,9 @@ final class MapViewController: UIViewController {
   
   func generateClusterItems(by campsites: [Campsite]) {
     for campsite in campsites {
-      let name = campsite.facltNm!
-      guard let lat = Double(campsite.mapY!),
-            let lng = Double(campsite.mapX!) else { return }
+      let name = campsite.facltNm
+      guard let lat = Double(campsite.mapY),
+            let lng = Double(campsite.mapX) else { return }
       let position = CLLocationCoordinate2D(latitude: lat, longitude: lng)
       let item = ClusterItem.init()
       item.markerInfo = Marker.init(markerName: name, latitude: lat, longitude: lng, markerHandler: { [weak self] in

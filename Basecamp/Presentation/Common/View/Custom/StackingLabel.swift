@@ -16,7 +16,11 @@ final class StackingLabel: UILabel {
     self.setConfiguration()
   }
   
-  convenience init(font: UIFont, padding: UIEdgeInsets = UIEdgeInsets(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)) {
+  convenience init(font: UIFont,
+                   padding: UIEdgeInsets = UIEdgeInsets(
+                    top: 8.0, left: 8.0, bottom: 8.0, right: 8.0
+                   )
+  ) {
     self.init()
     self.font = font
     self.padding = padding
@@ -75,7 +79,6 @@ final class StackingLabel: UILabel {
   
   private func setConfiguration() {
     numberOfLines = 0
-    // lineBreakMode = .byWordWrapping
     translatesAutoresizingMaskIntoConstraints = false
   }
 }

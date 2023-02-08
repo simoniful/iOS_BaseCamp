@@ -49,7 +49,7 @@ final class DetailViewModel: ViewModel {
     let callAlert: Signal<(String, String, String)>
   }
   
-  let aroundTabmanViewModel = DetailAroundTabmanViewModel()
+  lazy var aroundTabmanViewModel = DetailAroundTabmanViewModel()
   
   private let campsiteData = PublishRelay<[DetailCampsiteSectionModel]>()
   private let touristInfoData = PublishRelay<[DetailTouristInfoSectionModel]>()
@@ -71,7 +71,7 @@ final class DetailViewModel: ViewModel {
         .withUnretained(self)
         .flatMapLatest { (owner, _) in
           owner.detailUseCase.requestCampsiteImageList(
-            numOfRows: 30, pageNo: 1, contentId: campsite.contentID!
+            numOfRows: 30, pageNo: 1, contentId: campsite.contentID
           )
         }
       
@@ -96,8 +96,8 @@ final class DetailViewModel: ViewModel {
         .withUnretained(self)
         .flatMapLatest { (owner, _) in
           owner.detailUseCase.requestWeatherList(
-            lat: Double(campsite.mapY!)!,
-            lon: Double(campsite.mapX!)!
+            lat: Double(campsite.mapY)!,
+            lon: Double(campsite.mapX)!
           )
         }
       
@@ -133,13 +133,13 @@ final class DetailViewModel: ViewModel {
       let naverBlogResult = input.viewWillAppear
         .withUnretained(self)
         .flatMapLatest { (owner, _) in
-          owner.detailUseCase.requestNaverBlogInfoList(keyword: campsite.facltNm! ,display: 3)
+          owner.detailUseCase.requestNaverBlogInfoList(keyword: campsite.facltNm ,display: 3)
         }
       
       let youtubeResult = input.viewWillAppear
         .withUnretained(self)
         .flatMapLatest { (owner, _) in
-          owner.detailUseCase.requestYoutubeInfoList(keyword: campsite.facltNm!, maxResults: 3)
+          owner.detailUseCase.requestYoutubeInfoList(keyword: campsite.facltNm, maxResults: 3)
         }
       
       let naverBlogValue = naverBlogResult
@@ -204,8 +204,8 @@ final class DetailViewModel: ViewModel {
             numOfRows: 15, pageNo: 1,
             contentTypeId: contentType,
             coordinate: Coordinate(
-              latitude: Double(campsite.mapY!)!,
-              longitude: Double(campsite.mapX!)!
+              latitude: Double(campsite.mapY)!,
+              longitude: Double(campsite.mapX)!
             ),
             radius: 10000
           )
@@ -252,9 +252,9 @@ final class DetailViewModel: ViewModel {
       headerAction
         .capture(case: HeaderCellAction.call)
         .bind { [weak self] _ in
-          guard let tel = campsite.tel else { return }
+          let tel = campsite.tel
           if tel.isEmpty {
-            self?.noUrlDataAlert.accept(("등록된 번호가 없습니다", "검색 엔진으로 이동하여 검색 하시겠습니까?", campsite.facltNm!))
+            self?.noUrlDataAlert.accept(("등록된 번호가 없습니다", "검색 엔진으로 이동하여 검색 하시겠습니까?", campsite.facltNm))
           } else {
             self?.callAlert.accept(("해당 번호로 전화를 거시겠습니까?", "📞 " + tel, tel))
           }
@@ -264,12 +264,11 @@ final class DetailViewModel: ViewModel {
       headerAction
         .capture(case: HeaderCellAction.reserve)
         .bind { [weak self] _ in
-          guard let urlStr = campsite.homepage,
-                urlStr != "" else {
-            self?.noUrlDataAlert.accept(("등록된 홈페이지가 없습니다", "검색 엔진으로 이동하여 검색 하시겠습니까?", campsite.facltNm!))
+          guard campsite.homepage != "" else {
+            self?.noUrlDataAlert.accept(("등록된 홈페이지가 없습니다", "검색 엔진으로 이동하여 검색 하시겠습니까?", campsite.facltNm))
             return
           }
-          guard let urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+          guard let urlStr = campsite.homepage.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
           guard let url = URL(string: urlStr) else { return }
           guard UIApplication.shared.canOpenURL(url) else { return }
           UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -279,7 +278,8 @@ final class DetailViewModel: ViewModel {
       headerAction
         .capture(case: HeaderCellAction.visit)
         .bind { [weak self] _ in
-          self?.coordinator?.showDateSelectModal(with: campsite)
+          guard let self = self else { return }
+          self.coordinator?.showDateSelectModal(with: campsite)
         }
         .disposed(by: disposeBag)
       
@@ -320,17 +320,14 @@ final class DetailViewModel: ViewModel {
       input.shareButtonDidTapped
         .emit { [weak self] _ in
           if ShareApi.isKakaoTalkSharingAvailable(){
-            // 우리가 원하는 앱으로 보내주는 링크이다.
-            // second, vvv는 url 링크 마지막에 딸려서 오기 때문에, 이 파라미터를 바탕으로 파싱해서
-            // 앱단에서 원하는 기능을 만들어서 실행할 수 있다 예를 들면 다른 뷰 페이지로 이동 등등~
             let appLink = Link(iosExecutionParams: ["second": "vvv"])
             
             let button = Button(title: "앱에서 보기", link: appLink)
-            let imageUrl = campsite.firstImageURL!.isEmpty ? "https://images2.imgbox.com/3d/34/7xkF2x0U_o.png" : campsite.firstImageURL!
+            let imageUrl = campsite.firstImageURL.isEmpty ? "https://images2.imgbox.com/3d/34/7xkF2x0U_o.png" : campsite.firstImageURL
             var description: String = ""
-            description += campsite.addr1!.isEmpty ? "" : "주소: " + campsite.addr1! + "\n"
-            description += campsite.tel!.isEmpty ? "" : "문의처: " + campsite.tel!
-            let content = Content(title: campsite.facltNm!,
+            description += campsite.addr1.isEmpty ? "" : "주소: " + campsite.addr1 + "\n"
+            description += campsite.tel.isEmpty ? "" : "문의처: " + campsite.tel
+            let content = Content(title: campsite.facltNm,
                                   imageUrl: URL(string: imageUrl)!,
                                   description: description,
                                   link: appLink)

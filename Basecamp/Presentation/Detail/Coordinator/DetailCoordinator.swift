@@ -42,7 +42,7 @@ final class DetailCoordinator: NSObject, Coordinator {
     let viewController = DetailViewController(viewModel: viewModel)
     switch data {
     case .campsite(let data):
-      viewController.title = data.facltNm!
+      viewController.title = data.facltNm
     case .touristInfo(let data):
       viewController.title = data.title!
     }
@@ -80,9 +80,15 @@ final class DetailCoordinator: NSObject, Coordinator {
   }
   
   func showDateSelectModal(with campsite: Campsite) {
-    let viewController = DetailReviewDateSelectViewController()
-    viewController.campsite = campsite
-    viewController.coordinator = self
+    let viewController = DetailReviewDateSelectViewController(
+      viewModel: DetailReviewMakerViewModel(
+        coordinator: self,
+        reviewMakerUseCase: ReviewMakerUseCase(
+          realmRepository: RealmRepository()
+        ),
+        campsite: campsite
+      )
+    )
     viewController.title = "방문일 선택"
     modalNavigationController.viewControllers = [viewController]
     modalNavigationController.modalPresentationStyle = .pageSheet
@@ -96,18 +102,20 @@ final class DetailCoordinator: NSObject, Coordinator {
     navigationController.present(modalNavigationController, animated: true)
   }
   
-  func navigateToFlowRate(_ campsite: Campsite, _ date: CalendarSelection) {
-    let viewController = DetailReviewRateSelectViewController()
-    viewController.coordinator = self
+  func navigateToFlowRate(viewModel: DetailReviewMakerViewModel) {
+    let viewController = DetailReviewRateSelectViewController(
+      viewModel: viewModel
+    )
     viewController.hidesBottomBarWhenPushed = true
     viewController.view.backgroundColor = .systemBackground
     viewController.title = "평가 작성"
     modalNavigationController.pushViewController(viewController, animated: true)
   }
   
-  func navigateToFlowPhoto(_ campsite: Campsite, _ date: CalendarSelection, _ rate: Double, _ content: String) {
-    let viewController = DetailReviewPhotoSelectViewController()
-    viewController.coordinator = self
+  func navigateToFlowPhoto(viewModel: DetailReviewMakerViewModel) {
+    let viewController = DetailReviewPhotoSelectViewController(
+      viewModel: viewModel
+    )
     viewController.hidesBottomBarWhenPushed = true
     viewController.view.backgroundColor = .systemBackground
     viewController.title = "사진 선택"
@@ -131,7 +139,6 @@ final class DetailCoordinator: NSObject, Coordinator {
     default:
       break
     }
-    
     navigationController.tabBarController?.selectedIndex = tabCase.pageOrderNumber
     navigationController.tabBarController?.view.makeToast(message, position: .center)
   }

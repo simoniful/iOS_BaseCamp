@@ -8,6 +8,7 @@
 import HorizonCalendar
 import UIKit
 import SnapKit
+import RealmSwift
 
 enum CalendarSelection {
   case singleDay(Day)
@@ -15,9 +16,7 @@ enum CalendarSelection {
 }
 
 final class DetailReviewDateSelectViewController: UIViewController {
-  public weak var coordinator: DetailCoordinator?
-  
-  public var campsite: Campsite?
+  private let viewModel: DetailReviewMakerViewModel
   private var calendarSelection: CalendarSelection?
   
   private lazy var calendarView = CalendarView(initialContent: makeContent())
@@ -29,6 +28,15 @@ final class DetailReviewDateSelectViewController: UIViewController {
     barButton.style = .plain
     return barButton
   }()
+  
+  init(viewModel: DetailReviewMakerViewModel) {
+    self.viewModel = viewModel
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -127,15 +135,14 @@ final class DetailReviewDateSelectViewController: UIViewController {
   }
   
   @objc func navigateToFlowRate() {
-    guard let coordinator = coordinator,
-          let campsite = campsite,
-          let calendarSelection = calendarSelection
-    else {
+    guard let coordinator = viewModel.coordinator,
+          let calendarSelection = calendarSelection else {
       let alert = AlertView(title: "알림", message: "날짜를 선택해주세요", buttonStyle: .confirm, okCompletion: nil) 
       alert.showAlert()
       return
     }
-    coordinator.navigateToFlowRate(campsite, calendarSelection)
+    viewModel.selectedDate.accept(calendarSelection)
+    coordinator.navigateToFlowRate(viewModel: viewModel)
   }
 }
 

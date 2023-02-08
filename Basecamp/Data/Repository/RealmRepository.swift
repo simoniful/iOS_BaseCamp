@@ -77,7 +77,7 @@ final class RealmRepository: RealmRepositoryInterface {
   }
   
   func checkCampsite(campsite: Campsite) -> Bool {
-    storage.hasCampsites(contentID: campsite.contentID!)
+    storage.hasCampsites(contentID: campsite.contentID)
   }
   
   func loadReview() -> [Review] {
@@ -88,7 +88,8 @@ final class RealmRepository: RealmRepositoryInterface {
   }
   
   func saveReview(review: Review) {
-    
+    let reviewDTO = ReviewDTO(review: review)
+    storage.createReview(review: reviewDTO)
   }
 
   func updateReveiw(review: Review) {

@@ -8,6 +8,6 @@
 import Foundation
 
 protocol ViewRepresentable {
-    func setupView()
-    func setupConstraints()
+  func setupView()
+  func setupConstraints()
 }

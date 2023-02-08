@@ -58,10 +58,13 @@ final class DetailCampsiteHeaderCell: UICollectionViewCell {
     stackView.clipsToBounds = true
     stackView.backgroundColor = .systemGray6
  
-    stackView.layer.shadowColor = UIColor.gray5.cgColor
-    stackView.layer.shadowOpacity = 1.0
-    stackView.layer.shadowOffset = CGSize.zero
-    stackView.layer.shadowRadius = 1.0
+    stackView.layer.borderWidth = 1
+    stackView.layer.borderColor = UIColor.systemGray6.cgColor
+    stackView.layer.masksToBounds = false
+    stackView.layer.shadowColor = UIColor.black.cgColor
+    stackView.layer.shadowOpacity = 0.2
+    stackView.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+    stackView.layer.shadowRadius = 3.0
     return stackView
   }()
   
