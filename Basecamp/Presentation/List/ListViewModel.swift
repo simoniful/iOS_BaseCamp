@@ -23,7 +23,6 @@ final class ListViewModel: ViewModel {
   
   struct Input {
     let viewDidLoad: Observable<Void>
-    
   }
   
   struct Output {
@@ -180,6 +179,21 @@ final class ListViewModel: ViewModel {
       .bind(to: listTouristViewModel.resultCellData)
       .disposed(by: disposeBag)
  
+    listCampsiteViewModel.didSelectItemAt
+      .withUnretained(self)
+      .subscribe { owner, comp in
+        let (campsite, _) = comp
+        owner.coordinator?.showDetailViewController(data: .campsite(data: campsite))
+      }
+      .disposed(by: disposeBag)
+    
+    listTouristViewModel.didSelectItemAt
+      .withUnretained(self)
+      .subscribe { owner, comp in
+        let (touristInfo, _) = comp
+        owner.coordinator?.showDetailViewController(data: .touristInfo(data: touristInfo))
+      }
+      .disposed(by: disposeBag)
 
     return Output(
       sigunguReloadSignal: sigunguReloadSignal.asDriver(onErrorJustReturn: []),

@@ -47,7 +47,7 @@ final class HomeViewModel: ViewModel {
       }
       .disposed(by: disposeBag)
     
-    let realmValue = input.viewDidLoad
+    let realmValue = input.viewWillAppear
       .compactMap{ _ in
         self.homeUseCase.requestRealmData()
       }
@@ -57,25 +57,26 @@ final class HomeViewModel: ViewModel {
         self.homeUseCase.requestAreaData()
       }
 
-    let campsiteKeywordResult = input.viewDidLoad
-      .flatMapLatest { _ in
-        self.homeUseCase.requestCampsiteKeywordList(numOfRows: 20, pageNo: 1)
+    let campsiteKeywordValue = input.viewWillAppear
+      .compactMap { _ in
+        //self.homeUseCase.requestCampsiteKeywordList(numOfRows: 20, pageNo: 1)
+        self.homeUseCase.requestCampsiteTypeList()
       }
       .share()
 
-    let campsiteKeywordValue = campsiteKeywordResult
-      .compactMap { data -> [Campsite]? in
-        print("캠핑장 에러", data)
-        return self.homeUseCase.getCampsiteValue(data)
-      }
-
-    let campsiteKeywordError = campsiteKeywordResult
-      .compactMap { data -> String? in
-        print("캠핑장 에러", data)
-        return self.homeUseCase.getCampsiteError(data)
-      }
+//    let campsiteKeywordValue = campsiteKeywordResult
+//      .compactMap { data -> [Campsite]? in
+//        print("캠핑장 에러", data)
+//        return self.homeUseCase.getCampsiteValue(data)
+//      }
+//
+//    let campsiteKeywordError = campsiteKeywordResult
+//      .compactMap { data -> String? in
+//        print("캠핑장 에러", data)
+//        return self.homeUseCase.getCampsiteError(data)
+//      }
     
-    let campsiteThemeValue = input.viewDidLoad
+    let campsiteThemeValue = input.viewWillAppear
       .compactMap { _ in
         self.homeUseCase.requestCampsiteThemeList()
       }
@@ -84,7 +85,7 @@ final class HomeViewModel: ViewModel {
     let touristInfoResult = input.viewDidLoad
       .flatMapLatest { _ in
         self.homeUseCase.requestTouristInfoList(
-          numOfRows: 15, pageNo: 1, areaCode: nil, sigunguCode: nil
+          numOfRows: 20, pageNo: 1, areaCode: nil, sigunguCode: nil
         )
       }
       .share()

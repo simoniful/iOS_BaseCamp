@@ -7,8 +7,8 @@
 
 import UIKit
 import UserNotifications
-import NMapsMap
 import DropDown
+import GoogleMaps
 import KakaoSDKCommon
 import KakaoSDKAuth
 
@@ -22,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     sleep(4)
     
     AppAppearance.setupAppearance()
-    NMFAuthManager.shared().clientId = APIKey.naverMapId.rawValue
+    GMSServices.provideAPIKey(APIKey.googleMapId.rawValue)
+    GMSServices.setMetalRendererEnabled(true)
+    
     UNUserNotificationCenter.current().delegate = self
 
     let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]

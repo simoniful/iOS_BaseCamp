@@ -66,10 +66,6 @@
 		F45C0A75298631980075E1AC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A74298631980075E1AC /* MapViewController.swift */; };
 		F45C0A77298631A90075E1AC /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A76298631A90075E1AC /* MapViewModel.swift */; };
 		F45C0A7A298631C40075E1AC /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A79298631C40075E1AC /* MapCoordinator.swift */; };
-		F45C0A7C29876E2E0075E1AC /* NMFMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A7B29876E2E0075E1AC /* NMFMap.swift */; };
-		F45C0A7F29877F010075E1AC /* NMFMapView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A7E29877F010075E1AC /* NMFMapView+Rx.swift */; };
-		F45C0A81298788530075E1AC /* RxNMFMapViewCameraDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A80298788530075E1AC /* RxNMFMapViewCameraDelegateProxy.swift */; };
-		F45C0A83298788C00075E1AC /* RxNMFMapViewTouchDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A82298788C00075E1AC /* RxNMFMapViewTouchDelegateProxy.swift */; };
 		F45C0A85298789D00075E1AC /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A84298789D00075E1AC /* CLLocationManager+Rx.swift */; };
 		F45C0A8729878A540075E1AC /* RxCLLocationManagerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A8629878A540075E1AC /* RxCLLocationManagerDelegateProxy.swift */; };
 		F46BFB73296323DE007EB676 /* YoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB72296323DE007EB676 /* YoutubeRepository.swift */; };
@@ -154,6 +150,7 @@
 		F4E2A7DC2992A03100B8EF4F /* FMPhotoPicker in Frameworks */ = {isa = PBXBuildFile; productRef = F4E2A7DB2992A03100B8EF4F /* FMPhotoPicker */; };
 		F4E2A7DE2993263C00B8EF4F /* DetailReviewMakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7DD2993263C00B8EF4F /* DetailReviewMakerViewModel.swift */; };
 		F4E2A7E029933FA200B8EF4F /* ReviewMakerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7DF29933FA200B8EF4F /* ReviewMakerUseCase.swift */; };
+		F4E2A7E22993FAF700B8EF4F /* TouristInfoIntroTourCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7E12993FAF700B8EF4F /* TouristInfoIntroTourCourse.swift */; };
 		F4E3E58329515FDA009AFCFC /* WeatherTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58229515FDA009AFCFC /* WeatherTargetStub.swift */; };
 		F4E3E585295161F9009AFCFC /* NaverBlogTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E584295161F9009AFCFC /* NaverBlogTargetStub.swift */; };
 		F4E3E58729516347009AFCFC /* YoutubeTargetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E58629516347009AFCFC /* YoutubeTargetStub.swift */; };
@@ -329,10 +326,6 @@
 		F45C0A74298631980075E1AC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F45C0A76298631A90075E1AC /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		F45C0A79298631C40075E1AC /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
-		F45C0A7B29876E2E0075E1AC /* NMFMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMFMap.swift; sourceTree = "<group>"; };
-		F45C0A7E29877F010075E1AC /* NMFMapView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NMFMapView+Rx.swift"; sourceTree = "<group>"; };
-		F45C0A80298788530075E1AC /* RxNMFMapViewCameraDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNMFMapViewCameraDelegateProxy.swift; sourceTree = "<group>"; };
-		F45C0A82298788C00075E1AC /* RxNMFMapViewTouchDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNMFMapViewTouchDelegateProxy.swift; sourceTree = "<group>"; };
 		F45C0A84298789D00075E1AC /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
 		F45C0A8629878A540075E1AC /* RxCLLocationManagerDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCLLocationManagerDelegateProxy.swift; sourceTree = "<group>"; };
 		F46BFB72296323DE007EB676 /* YoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeRepository.swift; sourceTree = "<group>"; };
@@ -411,6 +404,7 @@
 		F4E2A7D5299277C700B8EF4F /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		F4E2A7DD2993263C00B8EF4F /* DetailReviewMakerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewMakerViewModel.swift; sourceTree = "<group>"; };
 		F4E2A7DF29933FA200B8EF4F /* ReviewMakerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewMakerUseCase.swift; sourceTree = "<group>"; };
+		F4E2A7E12993FAF700B8EF4F /* TouristInfoIntroTourCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristInfoIntroTourCourse.swift; sourceTree = "<group>"; };
 		F4E3E58229515FDA009AFCFC /* WeatherTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTargetStub.swift; sourceTree = "<group>"; };
 		F4E3E584295161F9009AFCFC /* NaverBlogTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverBlogTargetStub.swift; sourceTree = "<group>"; };
 		F4E3E58629516347009AFCFC /* YoutubeTargetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeTargetStub.swift; sourceTree = "<group>"; };
@@ -733,14 +727,6 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		F45C0A7D29876E320075E1AC /* NaverMap */ = {
-			isa = PBXGroup;
-			children = (
-				F45C0A7B29876E2E0075E1AC /* NMFMap.swift */,
-			);
-			path = NaverMap;
-			sourceTree = "<group>";
-		};
 		F462A0E22988C65200C07B74 /* Subs */ = {
 			isa = PBXGroup;
 			children = (
@@ -823,7 +809,6 @@
 			children = (
 				F49034C5295030A600CDE442 /* Network */,
 				F49034C6295030AE00CDE442 /* DataBase */,
-				F45C0A7D29876E320075E1AC /* NaverMap */,
 				F49034C7295030B800CDE442 /* Mocks */,
 			);
 			path = Infrastructure;
@@ -1304,9 +1289,6 @@
 		F4E3E5AA2954C3C5009AFCFC /* Rx */ = {
 			isa = PBXGroup;
 			children = (
-				F45C0A7E29877F010075E1AC /* NMFMapView+Rx.swift */,
-				F45C0A80298788530075E1AC /* RxNMFMapViewCameraDelegateProxy.swift */,
-				F45C0A82298788C00075E1AC /* RxNMFMapViewTouchDelegateProxy.swift */,
 				F45C0A84298789D00075E1AC /* CLLocationManager+Rx.swift */,
 				F45C0A8629878A540075E1AC /* RxCLLocationManagerDelegateProxy.swift */,
 				F4E3E5A82954C392009AFCFC /* UIViewController+Rx.swift */,
@@ -1418,6 +1400,7 @@
 				F4E3E5CE295DA92E009AFCFC /* TouristInfoIntroCulture.swift */,
 				F49034AF294C475A00CDE442 /* TouristInfoIntroFestival.swift */,
 				F4E3E5D0295DB1A9009AFCFC /* TouristInfoIntroLeisure.swift */,
+				F4E2A7E12993FAF700B8EF4F /* TouristInfoIntroTourCourse.swift */,
 				F45C0A6F298425500075E1AC /* TouristInfoIntroAccommodation.swift */,
 				F4E3E5D5295DB4F7009AFCFC /* TouristInfoIntroShopping.swift */,
 				F4E3E5D3295DB4EC009AFCFC /* TouristInfoIntroRestaurant.swift */,
@@ -1659,6 +1642,7 @@
 				F4D10E9E29497831000C02E0 /* Frameworks */,
 				F4D10E9F29497831000C02E0 /* Resources */,
 				9938DCDBC829F9756C9E6C77 /* [CP] Embed Pods Frameworks */,
+				F854CB4CC36BDB91A6CC1754 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1720,6 +1704,7 @@
 				F4D10EBE29497834000C02E0 /* Frameworks */,
 				F4D10EBF29497834000C02E0 /* Resources */,
 				50B7A7C6F49A02A024AB1E9C /* [CP] Embed Pods Frameworks */,
+				DB149E3DAF46A82229308983 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1922,6 +1907,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DB149E3DAF46A82229308983 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F854CB4CC36BDB91A6CC1754 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1930,7 +1949,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4FD50972962C18E00FA3CB3 /* DetailViewController.swift in Sources */,
-				F45C0A83298788C00075E1AC /* RxNMFMapViewTouchDelegateProxy.swift in Sources */,
 				F45C0A1D297443C20075E1AC /* SearchHeaderViewModel.swift in Sources */,
 				F45C0A3E297638280075E1AC /* FilterItem.swift in Sources */,
 				F4D10ED629497C6E000C02E0 /* AppCoordinator.swift in Sources */,
@@ -1938,12 +1956,10 @@
 				F4FD50AC296305EC00FA3CB3 /* DetailFacilityCell.swift in Sources */,
 				F45C0A70298425500075E1AC /* TouristInfoIntroAccommodation.swift in Sources */,
 				F4D10EE4294982B5000C02E0 /* TabBarPageCase.swift in Sources */,
-				F45C0A81298788530075E1AC /* RxNMFMapViewCameraDelegateProxy.swift in Sources */,
 				F45C0A6E298226BD0075E1AC /* ListTouristViewHeader.swift in Sources */,
 				F4E2A7D029922C7200B8EF4F /* DetailReviewRateSelectViewController.swift in Sources */,
 				F49034B5294C5C6600CDE442 /* HomeCampsiteCell.swift in Sources */,
 				F45C0A21297526FE0075E1AC /* FilterSubViewModel.swift in Sources */,
-				F45C0A7C29876E2E0075E1AC /* NMFMap.swift in Sources */,
 				F4F0E0A92965CD620006C9D4 /* NaverBlogRequestDTO.swift in Sources */,
 				F49034E829515B4E00CDE442 /* WeatherAPIEnvironment.swift in Sources */,
 				F4F0E083296469210006C9D4 /* WeatherInfo.swift in Sources */,
@@ -2068,7 +2084,6 @@
 				F4E2A7D229923F3800B8EF4F /* UILabel.swift in Sources */,
 				F45C0A6A298224AB0075E1AC /* ListTouristViewModel.swift in Sources */,
 				F4F0E0B9296726120006C9D4 /* DetailAroundTabmanSubViewModel.swift in Sources */,
-				F45C0A7F29877F010075E1AC /* NMFMapView+Rx.swift in Sources */,
 				F4D10F0129499386000C02E0 /* ViewModel.swift in Sources */,
 				F45C0A3629755C840075E1AC /* FilterSubItemCell.swift in Sources */,
 				F45C0A492979A73D0075E1AC /* KeywordViewModel.swift in Sources */,
@@ -2117,6 +2132,7 @@
 				F4F0E0762963FE870006C9D4 /* UIButton.swift in Sources */,
 				F45C0A1B2973CA130075E1AC /* SearchCell.swift in Sources */,
 				F45C0A4D2980FA3D0075E1AC /* ListViewController.swift in Sources */,
+				F4E2A7E22993FAF700B8EF4F /* TouristInfoIntroTourCourse.swift in Sources */,
 				F4E3E593295210BD009AFCFC /* CampsiteResponseDTO.swift in Sources */,
 				F4D10EFA294992A8000C02E0 /* HomeViewController.swift in Sources */,
 				F4E3E59129518A0C009AFCFC /* CampsiteRequestDTO.swift in Sources */,

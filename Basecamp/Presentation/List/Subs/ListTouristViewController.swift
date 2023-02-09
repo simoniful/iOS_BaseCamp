@@ -52,6 +52,10 @@ final class ListTouristViewController: UIViewController {
     tableView.rx.prefetchRows
       .bind(to: viewModel.prefetchRowsAt)
       .disposed(by: disposeBag)
+    
+    tableView.rx.modelAndIndexSelected(TouristInfo.self)
+      .bind(to: viewModel.didSelectItemAt)
+      .disposed(by: disposeBag)
   }
 }
 

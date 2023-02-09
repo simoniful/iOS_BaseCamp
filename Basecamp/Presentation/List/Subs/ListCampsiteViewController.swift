@@ -44,6 +44,10 @@ final class ListCampsiteViewController: UIViewController {
         return cell
       }
       .disposed(by: disposeBag)
+    
+    tableView.rx.modelAndIndexSelected(Campsite.self)
+      .bind(to: viewModel.didSelectItemAt)
+      .disposed(by: disposeBag)
   }
 }
 

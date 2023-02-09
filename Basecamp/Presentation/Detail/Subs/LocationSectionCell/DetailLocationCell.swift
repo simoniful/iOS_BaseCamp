@@ -9,12 +9,12 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
-import NMapsMap
+import GoogleMaps
 
 final class DetailLocationCell: UICollectionViewCell {
   static let identifier = "DetailLocationCell"
   
-  private lazy var mapView = globalMapView
+  private lazy var mapView = GMSMapView(frame: .zero)
   private lazy var weatherCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
   private lazy var addressLabel: UILabel = {
     let label = UILabel()
@@ -64,7 +64,6 @@ extension DetailLocationCell: ViewRepresentable {
     weatherCollectionView.collectionViewLayout = createLayout()
     weatherCollectionView.delegate = self
     weatherCollectionView.dataSource = self
-    mapView.addCameraDelegate(delegate: self)
   }
   
   func setupConstraints() {
@@ -100,13 +99,12 @@ extension DetailLocationCell: ViewRepresentable {
       weatherData = data.weatherInfos
     }
     
-    let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: Double(data.mapY)!, lng: Double(data.mapX)!))
-    mapView.moveCamera(cameraUpdate)
-    
-    let marker = NMFMarker()
-    marker.position = NMGLatLng(lat: Double(data.mapY)!, lng: Double(data.mapX)!)
-    marker.mapView = mapView
-    marker.iconImage = NMF_MARKER_IMAGE_YELLOW
+    let camera = GMSCameraPosition.camera(withLatitude: Double(data.mapY)!, longitude: Double(data.mapX)!, zoom: 13.0)
+    mapView.moveCamera(.setCamera(camera))
+   
+    let marker = GMSMarker()
+    marker.position = CLLocationCoordinate2D(latitude: Double(data.mapY)!, longitude: Double(data.mapX)!)
+    marker.map = mapView
   }
   
   func createLayout() -> UICollectionViewCompositionalLayout {
@@ -123,9 +121,6 @@ extension DetailLocationCell: ViewRepresentable {
     return layout
   }
 }
-
-
-extension DetailLocationCell: NMFMapViewCameraDelegate {}
 
 extension DetailLocationCell: UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

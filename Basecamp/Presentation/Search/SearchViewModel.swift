@@ -78,9 +78,9 @@ final class SearchViewModel: ViewModel {
     
     input.didSelectItemAt
       .withUnretained(self)
-      .emit { (owner, itemAndIndex) in
-        let (campsite, _) = itemAndIndex
-        owner.coordinator?.showDetailViewController(detailStyle: .campsite(data: campsite), name: campsite.facltNm)
+      .emit { (owner, comp) in
+        let (campsite, _) = comp
+        owner.coordinator?.showDetailViewController(data: .campsite(data: campsite))
       }
       .disposed(by: disposeBag)
     

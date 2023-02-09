@@ -11,6 +11,7 @@ enum TouristInfoContentType: Int, CaseIterable, Codable {
   case touristSpot = 12
   case cultureFacilities = 14
   case festival = 15
+  case tourCourse = 25
   case leisure = 28
   case accommodation = 32
   case shoppingSpot = 38
@@ -32,6 +33,8 @@ enum TouristInfoContentType: Int, CaseIterable, Codable {
       return "쇼핑"
     case .restaurant:
       return "맛집"
+    case .tourCourse:
+      return "여행코스"
     }
   }
   
@@ -147,6 +150,14 @@ enum TouristInfoContentType: Int, CaseIterable, Codable {
         "seat": "좌석수",
         "smoking": "금연/흡연",
         "treatmenu": "취급 메뉴"
+      ]
+    case .tourCourse:
+      return [
+        "distance": "코스 총거리",
+        "infocentertourcourse": "문의 및 안내",
+        "schedule": "코스 일정",
+        "taketime": "코스 총 소요시간",
+        "theme": "코스 테마"
       ]
     }
   }

@@ -51,6 +51,10 @@ final class DetailCoordinator: NSObject, Coordinator {
       self?.isCompleted?()
     }
     
+    if parentCoordinator is MapCoordinator {
+      navigationController.isNavigationBarHidden = false
+    }
+    
     navigationController.pushViewController(viewController, animated: true)
   }
   

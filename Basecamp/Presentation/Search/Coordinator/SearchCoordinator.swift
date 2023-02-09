@@ -35,25 +35,14 @@ final class SearchCoordinator: NSObject, Coordinator {
     navigationController.pushViewController(vc, animated: true)
   }
   
-  func showDetailViewController(detailStyle: DetailStyle, name: String) {
-//    let vc = DetailViewController(
-//      viewModel: DetailViewModel(
-//        coordinator: self,
-//        detailUseCase: DetailUseCase(
-//          campsiteRepository: CampsiteRepository(),
-//          realmRepository: RealmRepository(),
-//          touristInfoRepository: TouristInfoRepository(),
-//          weatherRepository: WeatherRepository(),
-//          naverBlogRepository: NaverBlogRepository(),
-//          youtubeRepository: YoutubeRepository()
-//        ),
-//        style: detailStyle
-//      ),
-//      name: name
-//    )
-//    vc.hidesBottomBarWhenPushed = true
-//    vc.title = name
-//    navigationController.pushViewController(vc, animated: true)
+  func showDetailViewController(data: DetailStyle) {
+    let detailCoordinator = DetailCoordinator(self.navigationController, data: data)
+    detailCoordinator.parentCoordinator = self
+    detailCoordinator.isCompleted = { [weak self] in
+      self?.free(coordinator: detailCoordinator)
+    }
+    self.store(coordinator: detailCoordinator)
+    detailCoordinator.start()
   }
   
   func showFilterMainModal(_ viewModel: FilterMainViewModel) {

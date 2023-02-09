@@ -127,7 +127,7 @@ struct TouristInfoIntroResponseDTO_FestivalItem: Codable, TouristInfoIntroRespon
     case usetimefestival, discountinfofestival, spendtimefestival,
          festivalgrade
   }
-
+  
   func toDomain() -> TouristInfoIntro {
     return TouristInfoIntroFestival(
       contentId: Int(contentId!),
@@ -185,6 +185,30 @@ struct TouristInfoIntroResponseDTO_LeisureItem: Codable, TouristInfoIntroRespons
     )
   }
 }
+
+struct TouristInfoIntroResponseDTO_TourCourseItem: Codable, TouristInfoIntroResponseDTO_Item {
+  let contentId, contentTypeId, infocentertourcourse, distance: String?
+  let schedule, taketime, theme: String?
+  
+  enum CodingKeys: String, CodingKey {
+    case contentId = "contentid"
+    case contentTypeId = "contenttypeid"
+    case infocentertourcourse, distance, schedule, taketime, theme
+  }
+  
+  func toDomain() -> TouristInfoIntro {
+    return TouristInfoIntroTourCourse(
+      contentId: Int(contentId!),
+      contentTypeId: TouristInfoContentType(rawValue: Int(contentTypeId!)!)!,
+      infocentertourcourse: infocentertourcourse ?? "",
+      distance: distance ?? "",
+      schedule: schedule ?? "",
+      taketime: taketime ?? "",
+      theme: theme ?? ""
+    )
+  }
+}
+
 
 // 실제 json과 비교하여 구조체 구성
 struct TouristInfoIntroResponseDTO_AccommodationItem: Codable, TouristInfoIntroResponseDTO_Item {

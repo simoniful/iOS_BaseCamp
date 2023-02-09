@@ -61,9 +61,9 @@ struct DetailReviewMakerViewModel {
       )
     }
     
-    print(review)
     reviewMakerUseCase.requestSaveReview(review: review)
     saveImageToDocuments(imageName: review._id.stringValue, image: photos.first!)
+    coordinator?.navigationController.view.makeToast("캠핑로그 저장완료!")
   }
   
   func saveImageToDocuments(imageName: String, image: UIImage) {

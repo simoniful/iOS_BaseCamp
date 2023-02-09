@@ -124,6 +124,20 @@ final class DetailTouristInfoIntroStackView: UIStackView {
       categories.forEach {
         self.addArrangedSubview($0)
       }
+    case .tourCourse:
+      guard let convertedData = data.intro as? TouristInfoIntroTourCourse else { return }
+      let dataDic = convertedData.allProperties()
+      let filetred = dataDic.filter {
+        guard let value = $0.value as? String else { return false }
+        return !(value.isEmpty)
+      }
+      let categories = filetred.map { (key, value) in
+        let value = value as! String
+        return makeCategory(category: data.intro.contentTypeId.introDic[key]!, content: value.htmlToString)
+      }
+      categories.forEach {
+        self.addArrangedSubview($0)
+      }
     }
   }
   

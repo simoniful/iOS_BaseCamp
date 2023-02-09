@@ -38,6 +38,14 @@ final class KeywordViewModel: ViewModel {
   var disposeBag = DisposeBag()
   
   func transform(input: Input) -> Output {
+    input.didSelectItemAt
+      .withUnretained(self)
+      .emit { (owner, comp) in
+        let (campsite, _) = comp
+        owner.coordinator?.showDetailViewController(data: .campsite(data: campsite))
+      }
+      .disposed(by: disposeBag)
+    
     input.searchKeyword
       .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
       .distinctUntilChanged()
@@ -54,7 +62,7 @@ final class KeywordViewModel: ViewModel {
       })
       .bind(to: data)
       .disposed(by: disposeBag)
-    
+        
     return Output(
       data: data.asDriver(onErrorJustReturn: []),
       invalidKeywordSignal: invalidKeywordSignal.asDriver(onErrorJustReturn: ()),

@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import FMPhotoPicker
+import Toast
 
 final class DetailReviewPhotoSelectViewController: UIViewController {
   private let viewModel: DetailReviewMakerViewModel
@@ -142,9 +143,9 @@ extension DetailReviewPhotoSelectViewController: ViewRepresentable {
   
   @objc func completeReview() {
     let alert = AlertView.init(title: "캠핑로그 저장", message: "해당 내용대로 캠핑로그를 저장하시겠습니까?", buttonStyle: .confirmAndCancel) {
-      print("Reaml 저장 로직 구현")
       self.viewModel.selectedPhotos.accept(self.selectedItems)
       self.viewModel.saveReview()
+      self.navigationController?.dismiss(animated: true)
     }
     alert.showAlert()
   }

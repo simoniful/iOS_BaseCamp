@@ -161,7 +161,9 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
       case .restaurant:
         let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_RestaurantItem>.self)
         return Single.just(Result.success(responseDTO.toDomain()))
-   
+      case .tourCourse:
+        let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_TourCourseItem>.self)
+        return Single.just(Result.success(responseDTO.toDomain()))
       }
     }
     .retry(3)

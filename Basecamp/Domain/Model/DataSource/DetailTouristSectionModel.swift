@@ -63,6 +63,10 @@ struct DetailTouristInfoRestaurantIntroItem:  DetailTouristInfoIntroItem {
   var intro: TouristInfoIntroRestaurant
 }
 
+struct DetailTouristInfoTourCourseIntroItem:  DetailTouristInfoIntroItem {
+  var intro: TouristInfoIntroTourCourse
+}
+
 extension DetailTouristInfoSectionModel: SectionModelType {
   typealias Item = DetailItem
   
