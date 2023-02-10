@@ -32,7 +32,7 @@ final class SearchViewModel: ViewModel {
   private let data = PublishRelay<[Campsite]>()
   
   lazy var searchHeaderViewModel = SearchHeaderViewModel()
-  lazy var filterMainViewModel = FilterMainViewModel(coordinator: coordinator, searchUseCase: searchUseCase)
+  lazy var filterMainViewModel = FilterMainViewModel(coordinator: coordinator, filterUseCase: searchUseCase)
   lazy var keywordViewModel = KeywordViewModel(coordinator: coordinator, searchUseCase: searchUseCase)
   
   var disposeBag = DisposeBag()

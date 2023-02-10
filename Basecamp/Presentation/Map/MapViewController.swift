@@ -16,7 +16,7 @@ import Kingfisher
 final class POIItem: NSObject, GMUClusterItem {
   var position: CLLocationCoordinate2D
   var campsite: Campsite
-
+  
   init(position: CLLocationCoordinate2D, campsite: Campsite) {
     self.position = position
     self.campsite = campsite
@@ -32,21 +32,23 @@ final class MapViewController: UIViewController {
     button.setImage(UIImage(systemName: "slider.horizontal.3"), for: .normal)
     button.tintColor = .black
     button.backgroundColor = .white
+    button.layer.masksToBounds = false
     button.layer.cornerRadius = 8.0
     button.layer.borderWidth = 1.0
-    button.layer.shadowColor = UIColor.gray.cgColor
-    button.layer.shadowOpacity = 1.0
-    button.layer.shadowOffset = CGSize.zero
-    button.layer.shadowRadius = 2
-    button.clipsToBounds = true
+    button.layer.borderColor = UIColor.white.cgColor
+    button.layer.shadowColor = UIColor.black.cgColor
+    button.layer.shadowOpacity = 0.6
+    button.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+    button.layer.shadowRadius = 3
     return button
   }()
   
   private lazy var input = MapViewModel.Input(
-    viewDidLoad: self.rx.viewWillAppear.asObservable()
+    viewDidLoad: Observable.just(Void()),
+    viewWillAppear: self.rx.viewWillAppear.asSignal(),
+    sortButtonTapped: filterButton.rx.tap.asSignal()
   )
   private lazy var output = viewModel.transform(input: input)
-  
   
   public let viewModel: MapViewModel
   private let disposeBag = DisposeBag()
@@ -75,53 +77,21 @@ final class MapViewController: UIViewController {
   
   func bind() {
     output.data
-      .subscribe { [weak self] campsites in
+      .drive { [weak self] campsites in
         self?.generateClusterItems(by: campsites)
+        self?.clusterManager.cluster()
       }
       .disposed(by: disposeBag)
   }
   
   func generateClusterItems(by campsites: [Campsite]) {
+    clusterManager.clearItems()
     for campsite in campsites {
       guard let latitude = Double(campsite.mapY),
             let longitude = Double(campsite.mapX) else { return }
       let position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
       let item = POIItem(position: position, campsite: campsite)
       clusterManager.add(item)
-    }
-    clusterManager.cluster()
-  }
-  
-  func showPopup(campsite: Campsite) {
-    let url = URL(string: campsite.firstImageURL)!
-    let resource = ImageResource(downloadURL: url)
-    KingfisherManager.shared.retrieveImage(with: resource, options: nil, progressBlock: nil) { result in
-      switch result {
-      case .success(let value):
-        self.view.makeToast(
-          campsite.addr1, duration: 5.0,
-          position: .bottom,
-          title: campsite.facltNm, image: value.image
-        ) { didTap in
-          if didTap {
-            self.viewModel.coordinator?.showDetailViewController(data: .campsite(data: campsite))
-          } else {
-            print("completion without tap")
-          }
-        }
-      case .failure(_):
-        self.view.makeToast(
-          campsite.addr1, duration: 5.0,
-          position: .bottom,
-          title: campsite.facltNm, image: UIImage(named: "logoNoback")
-        ) { didTap in
-          if didTap {
-            self.viewModel.coordinator?.showDetailViewController(data: .campsite(data: campsite))
-          } else {
-            print("completion without tap")
-          }
-        }
-      }
     }
   }
 }
@@ -151,28 +121,110 @@ extension MapViewController: ViewRepresentable {
     mapView.mapType = .normal
     mapView.isIndoorEnabled = false
     mapView.isMyLocationEnabled = true
-    mapView.settings.myLocationButton = true
     mapView.settings.compassButton = true
     mapView.settings.tiltGestures = false
     mapView.settings.rotateGestures = false
     let iconGenerator = GMUDefaultClusterIconGenerator()
     let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
     let renderer = GMUDefaultClusterRenderer(mapView: mapView, clusterIconGenerator: iconGenerator)
+    renderer.animatesClusters = false
+    renderer.delegate = self
     clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm, renderer: renderer)
-    clusterManager.setMapDelegate(self)
+    clusterManager.setDelegate(self, mapDelegate: self)
   }
 }
 
 extension MapViewController: GMSMapViewDelegate {
   func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
     mapView.animate(toLocation: marker.position)
-    if marker.userData is GMUCluster {
-      mapView.animate(toZoom: mapView.camera.zoom + 1)
-      NSLog("Did tap cluster")
-      return true
-    }
-    guard let poi = marker.userData as? POIItem else { return false }
-    print(poi.campsite.facltNm)
     return false
+  }
+  
+  func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+    guard let poi = marker.userData as? POIItem else { return }
+    self.viewModel.coordinator?.showDetailViewController(data: .campsite(data: poi.campsite))
+  }
+}
+
+extension MapViewController: GMUClusterManagerDelegate {
+  func clusterManager(_ clusterManager: GMUClusterManager, didTap cluster: GMUCluster) -> Bool {
+    mapView.animate(toZoom: mapView.camera.zoom + 1)
+    // clusterManager.cluster()
+    return false
+  }
+}
+
+extension MapViewController: GMUClusterRendererDelegate {
+  func renderer(_ renderer: GMUClusterRenderer, willRenderMarker marker: GMSMarker) {
+    if marker.userData is POIItem {
+      if let item = marker.userData as? POIItem {
+        marker.icon = UIImage(named: "defaultMarker")?.resize(newWidth: 40.0)
+        marker.title = item.campsite.facltNm
+        marker.snippet = item.campsite.addr1
+        marker.appearAnimation = .pop
+      }
+    }
+    
+    if marker.userData is GMUStaticCluster {
+      if let staticCluster = marker.userData as? GMUStaticCluster {
+        switch staticCluster.count {
+        case 0..<50:
+          let customClusterMarker = CustomClusterMarker()
+          customClusterMarker.setupData(count: staticCluster.count, corner: 20, color: .green, font: .systemFont(ofSize: 14, weight: .bold))
+          let view = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+          view.addSubview(customClusterMarker)
+          customClusterMarker.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+          }
+          marker.iconView = view
+        case 50..<100:
+          let customClusterMarker = CustomClusterMarker()
+          customClusterMarker.setupData(count: staticCluster.count, corner: 24, color: .greenGray, font: .systemFont(ofSize: 16, weight: .bold))
+          let view = UIView(frame: CGRect(x: 0, y: 0, width: 48, height: 48))
+          view.addSubview(customClusterMarker)
+          customClusterMarker.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+          }
+          marker.iconView = view
+        case 100..<200:
+          let customClusterMarker = CustomClusterMarker()
+          customClusterMarker.setupData(count: staticCluster.count, corner: 28, color: .mainWeak, font: .systemFont(ofSize: 18, weight: .bold))
+          let view = UIView(frame: CGRect(x: 0, y: 0, width: 56, height: 56))
+          view.addSubview(customClusterMarker)
+          customClusterMarker.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+          }
+          marker.iconView = view
+        case 200..<500:
+          let customClusterMarker = CustomClusterMarker()
+          customClusterMarker.setupData(count: staticCluster.count, corner: 32, color: .main, font: .systemFont(ofSize: 20, weight: .bold))
+          let view = UIView(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
+          view.addSubview(customClusterMarker)
+          customClusterMarker.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+          }
+          marker.iconView = view
+        case 500..<1000:
+          let customClusterMarker = CustomClusterMarker()
+          customClusterMarker.setupData(count: staticCluster.count, corner: 36, color: .mainStrong, font: .systemFont(ofSize: 20, weight: .bold))
+          let view = UIView(frame: CGRect(x: 0, y: 0, width: 72, height: 72))
+          view.addSubview(customClusterMarker)
+          customClusterMarker.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+          }
+          marker.iconView = view
+        default:
+          let customClusterMarker = CustomClusterMarker()
+          customClusterMarker.setupData(count: staticCluster.count, corner: 40, color: .error, font: .systemFont(ofSize: 24, weight: .bold))
+          let view = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+          view.addSubview(customClusterMarker)
+          customClusterMarker.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+          }
+          marker.iconView = view
+        }
+        marker.appearAnimation = .pop
+      }
+    }
   }
 }

@@ -23,6 +23,12 @@ extension UIColor {
   static var main: UIColor {
     return UIColor(named: AppColor.main.rawValue)!
   }
+  static var mainStrong: UIColor {
+    return UIColor(named: AppColor.mainStrong.rawValue)!
+  }
+  static var mainWeak: UIColor {
+    return UIColor(named: AppColor.mainWeak.rawValue)!
+  }
   static var gray7: UIColor {
     return UIColor(named: AppColor.gray7.rawValue)!
   }
@@ -56,19 +62,18 @@ extension UIColor {
   static var brown1: UIColor {
     return UIColor(named: AppColor.brown1.rawValue)!
   }
-  
   static var brown2: UIColor {
     return UIColor(named: AppColor.brown2.rawValue)!
   }
-  
   static var brown3: UIColor {
     return UIColor(named: AppColor.brown3.rawValue)!
   }
-  
+  static var brown4: UIColor {
+    return UIColor(named: AppColor.brown4.rawValue)!
+  }
   static var darkBlue: UIColor {
     return UIColor(named: AppColor.darkBlue.rawValue)!
   }
-  
   static var paleBlue: UIColor {
     return UIColor(named: AppColor.paleBlue.rawValue)!
   }

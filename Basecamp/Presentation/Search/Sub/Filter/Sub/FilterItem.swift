@@ -12,9 +12,9 @@ import RxDataSources
 
 struct FilterItem: IdentifiableType, Equatable {
   var identity: String {
-      return UUID().uuidString
+    return UUID().uuidString
   }
-
+  
   var title: String?
   var selected: Bool = false
 }
@@ -29,18 +29,18 @@ extension FilterItem {
 }
 
 struct FilterSubSection {
-    var header: String
-    var items: [Item]
+  var header: String
+  var items: [Item]
 }
 
 extension FilterSubSection : AnimatableSectionModelType {
-   typealias Item = FilterItem
-    var identity: String {
-        return header
-    }
-
-    init(original: FilterSubSection, items: [Item]) {
-        self = original
-        self.items = items
-    }
+  typealias Item = FilterItem
+  var identity: String {
+    return header
+  }
+  
+  init(original: FilterSubSection, items: [Item]) {
+    self = original
+    self.items = items
+  }
 }

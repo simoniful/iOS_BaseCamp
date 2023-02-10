@@ -13,6 +13,8 @@ enum AppColor: String {
   case green
   case greenGray
   case main
+  case mainWeak
+  case mainStrong
   case gray7
   case gray6
   case gray5
@@ -26,6 +28,7 @@ enum AppColor: String {
   case brown1
   case brown2
   case brown3
+  case brown4
   case darkBlue
   case paleBlue
 }

@@ -99,7 +99,6 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
         let a = response.data
         do {
           let json = String(data: a, encoding: .utf8)
-          print(json, "투어리스트 패칭 에러 문자열")
         } catch {
           print("errorMsg")
         }
@@ -108,7 +107,6 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
       }
       .retry(3)
       .catch { error in
-        print(error, "투어리스트 패칭 에러")
         return Single.just(Result.failure(.unknownError))
       }
   }
@@ -126,7 +124,6 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
     }
     .retry(3)
     .catch { error in
-      print(error, "투어리스트 커먼 패칭 에러")
       return Single.just(Result.failure(.unknownError))
     }
   }
@@ -168,7 +165,6 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
     }
     .retry(3)
     .catch { error in
-      print(error, "투어리스트 인트로 패칭 에러")
       return Single.just(Result.failure(.unknownError))
     }
   }
@@ -202,7 +198,6 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
     }
     .retry(3)
     .catch { error in
-      print(error, "투어리스트 아리아 코드 패칭 에러")
       return Single.just(Result.failure(.unknownError))
     }
   }

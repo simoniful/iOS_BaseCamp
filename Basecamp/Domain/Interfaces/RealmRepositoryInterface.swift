@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 protocol RealmRepositoryInterface: AnyObject {
-  func saveFromLocalJson()
+  static func saveFromLocalJson()
   
   func loadCampsite() -> [Campsite]
   func loadCampsite(query: String) -> [Campsite]

@@ -18,8 +18,8 @@ final class HomeViewModel: ViewModel {
   public var didTapBack: (() -> ())?
   
   init(coordinator: HomeCoordinator?, homeUseCase: HomeUseCase) {
-      self.coordinator = coordinator
-      self.homeUseCase = homeUseCase
+    self.coordinator = coordinator
+    self.homeUseCase = homeUseCase
   }
   
   struct Input {
@@ -39,14 +39,7 @@ final class HomeViewModel: ViewModel {
   private let headerAction = PublishRelay<HeaderCellAction>()
   
   var disposeBag = DisposeBag()
-  
   func transform(input: Input) -> Output {
-    input.viewDidLoad
-      .subscribe { [weak self] _ in
-        self?.homeUseCase.requestSavefromLocalJson()
-      }
-      .disposed(by: disposeBag)
-    
     let realmValue = input.viewWillAppear
       .compactMap{ _ in
         self.homeUseCase.requestRealmData()
@@ -59,29 +52,14 @@ final class HomeViewModel: ViewModel {
 
     let campsiteKeywordValue = input.viewWillAppear
       .compactMap { _ in
-        //self.homeUseCase.requestCampsiteKeywordList(numOfRows: 20, pageNo: 1)
         self.homeUseCase.requestCampsiteTypeList()
       }
-      .share()
-
-//    let campsiteKeywordValue = campsiteKeywordResult
-//      .compactMap { data -> [Campsite]? in
-//        print("캠핑장 에러", data)
-//        return self.homeUseCase.getCampsiteValue(data)
-//      }
-//
-//    let campsiteKeywordError = campsiteKeywordResult
-//      .compactMap { data -> String? in
-//        print("캠핑장 에러", data)
-//        return self.homeUseCase.getCampsiteError(data)
-//      }
     
     let campsiteThemeValue = input.viewWillAppear
       .compactMap { _ in
         self.homeUseCase.requestCampsiteThemeList()
       }
     
-
     let touristInfoResult = input.viewDidLoad
       .flatMapLatest { _ in
         self.homeUseCase.requestTouristInfoList(
@@ -92,13 +70,11 @@ final class HomeViewModel: ViewModel {
 
     let touristInfoValue = touristInfoResult
       .compactMap { data -> TouristInfoData? in
-        print("홈 투어리스트 에러", data)
         return self.homeUseCase.getTouristInfoValue(data)
       }
 
     let touristInfoError = touristInfoResult
       .compactMap { data -> String? in
-        print("홈 투어리스트 에러", data)
         return self.homeUseCase.getTouristInfoError(data)
       }
 

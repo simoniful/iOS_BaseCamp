@@ -142,6 +142,7 @@
 		F4D10F492949AD4A000C02E0 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4D10F472949AD4A000C02E0 /* NotoSansKR-Regular.otf */; };
 		F4D10F4C2949ADBE000C02E0 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10F4B2949ADBE000C02E0 /* UIFont.swift */; };
 		F4D10F4E2949ADF2000C02E0 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10F4D2949ADF2000C02E0 /* AppFont.swift */; };
+		F4D90C8829953F8B00B12D6B /* CustomClusterMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D90C8729953F8A00B12D6B /* CustomClusterMarker.swift */; };
 		F4E2A7922990F09E00B8EF4F /* DayRangeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */; };
 		F4E2A7D029922C7200B8EF4F /* DetailReviewRateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7CF29922C7200B8EF4F /* DetailReviewRateSelectViewController.swift */; };
 		F4E2A7D229923F3800B8EF4F /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7D129923F3800B8EF4F /* UILabel.swift */; };
@@ -397,6 +398,7 @@
 		F4D10F4B2949ADBE000C02E0 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		F4D10F4D2949ADF2000C02E0 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		F4D10F522949B120000C02E0 /* Basecamp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Basecamp.entitlements; sourceTree = "<group>"; };
+		F4D90C8729953F8A00B12D6B /* CustomClusterMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClusterMarker.swift; sourceTree = "<group>"; };
 		F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRangeIndicatorView.swift; sourceTree = "<group>"; };
 		F4E2A7CF29922C7200B8EF4F /* DetailReviewRateSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewRateSelectViewController.swift; sourceTree = "<group>"; };
 		F4E2A7D129923F3800B8EF4F /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
@@ -657,8 +659,8 @@
 		F45C0A122972B9620075E1AC /* Sub */ = {
 			isa = PBXGroup;
 			children = (
-				F45C0A3329755B750075E1AC /* FilterSubViewController.swift */,
 				F45C0A20297526FE0075E1AC /* FilterSubViewModel.swift */,
+				F45C0A3329755B750075E1AC /* FilterSubViewController.swift */,
 				F45C0A3F29763BEF0075E1AC /* FilterSubSectionHeader.swift */,
 				F45C0A3529755C840075E1AC /* FilterSubItemCell.swift */,
 				F45C0A09297266DC0075E1AC /* FilterCase.swift */,
@@ -775,6 +777,7 @@
 				F4FD50912962857600FA3CB3 /* IndicatorView.swift */,
 				F45C09DE296DB6730075E1AC /* AlertView.swift */,
 				F40DDFBF298F794A00D05C2A /* ImageLabel.swift */,
+				F4D90C8729953F8A00B12D6B /* CustomClusterMarker.swift */,
 				F49034A7294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift */,
 			);
 			path = Custom;
@@ -2118,6 +2121,7 @@
 				F4D10EA729497831000C02E0 /* SceneDelegate.swift in Sources */,
 				F45C0A432978EA490075E1AC /* KeywordViewController.swift in Sources */,
 				F45C0A192973CA000075E1AC /* SearchHeader.swift in Sources */,
+				F4D90C8829953F8B00B12D6B /* CustomClusterMarker.swift in Sources */,
 				F4E2A7DE2993263C00B8EF4F /* DetailReviewMakerViewModel.swift in Sources */,
 				F4D10F092949A3CA000C02E0 /* HomeUseCase.swift in Sources */,
 				F4E3E585295161F9009AFCFC /* NaverBlogTargetStub.swift in Sources */,

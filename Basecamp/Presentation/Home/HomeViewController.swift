@@ -38,7 +38,7 @@ final class HomeViewController: UIViewController {
   private let disposeBag = DisposeBag()
   
   private lazy var input = HomeViewModel.Input(
-    viewDidLoad: Observable.just(()),
+    viewDidLoad: Observable.just(Void()),
     viewWillAppear: self.rx.viewWillAppear.asObservable(),
     didSelectItemAt: self.collectionView.rx.modelAndIndexSelected(HomeItem.self).asSignal(),
     searchButtonDidTapped: rightBarSearchButton.rx.tap.asSignal(),

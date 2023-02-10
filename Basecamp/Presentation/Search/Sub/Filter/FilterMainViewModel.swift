@@ -10,12 +10,12 @@ import RxSwift
 import RxCocoa
 
 class FilterMainViewModel: ViewModel {
-  private weak var coordinator: SearchCoordinator?
-  private let searchUseCase: SearchUseCase
+  private weak var coordinator: FilterModalCoordinator?
+  private let filterUseCase: FilterUseCase
   
-  init(coordinator: SearchCoordinator?, searchUseCase: SearchUseCase) {
+  init(coordinator: FilterModalCoordinator?, filterUseCase: FilterUseCase) {
       self.coordinator = coordinator
-      self.searchUseCase = searchUseCase
+      self.filterUseCase = filterUseCase
   }
   
   struct Input {
@@ -28,7 +28,7 @@ class FilterMainViewModel: ViewModel {
     let data: Driver<[FilterCase]>
   }
   
-  lazy var filterSubViewModel = FilterSubViewModel(coordinator: coordinator, searchUseCase: searchUseCase)
+  lazy var filterSubViewModel = FilterSubViewModel(coordinator: coordinator, filterUseCase: filterUseCase)
 
   private let data = BehaviorRelay(value: [
     FilterCase.area(nil),

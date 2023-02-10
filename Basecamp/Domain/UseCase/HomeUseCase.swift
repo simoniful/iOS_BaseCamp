@@ -69,7 +69,7 @@ final class HomeUseCase {
     data.append(.areaSection(header: "어디로 가시나요?", items: areaData))
     data.append(.campsiteKeywordSection(header: searchKeyword!.rawValue, items: campsiteKeywordList))
     data.append(.campsiteThemeSection(header: theme!.rawValue + " 가능한 캠핑장", items: campsiteThemeList))
-    data.append(.festivalSection(header: "축제/행사 소식", items: touristList))
+    data.append(.festivalSection(header: "축제/행사 소식", items: touristList.shuffled()))
     return data
   }
   
@@ -86,26 +86,14 @@ final class HomeUseCase {
     ]
   }
   
-  func requestSavefromLocalJson() {
-    // 실제 버전 구분에 대한 플래그 작성 필요 - 날짜
-    // old Realm Data와 new Json 데이터 코더블 파싱 후
-    // Set 형식 변환 후 new 데이터에서 여집합 부분만 추가 
-    if userDefaults.bool(forKey: UserDefaultKeyCase.isNotFirstUser) {
-      print("realm DB OK")
-    } else {
-      realmRepository.saveFromLocalJson()
-      userDefaults.set(true, forKey: UserDefaultKeyCase.isNotFirstUser)
-    }
-  }
-  
   func requestCampsiteTypeList() -> [Campsite] {
     let data = realmRepository.loadCampsite(query: searchKeyword!.realmQuery)
-    return data
+    return data.shuffled()
   }
   
   func requestCampsiteThemeList() -> [Campsite] {
     let data = realmRepository.loadCampsite(query: theme!.realmQuery)
-    return data
+    return data.shuffled()
   }
   
   // MARK: - 지역 정보 매핑

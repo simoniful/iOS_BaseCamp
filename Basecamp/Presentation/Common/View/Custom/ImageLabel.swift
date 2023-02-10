@@ -26,7 +26,7 @@ final class ImageLabel: UIView {
   }()
   
   override init(frame: CGRect){
-      super.init(frame: frame)
+    super.init(frame: frame)
     setupView()
     setupConstraints()
   }

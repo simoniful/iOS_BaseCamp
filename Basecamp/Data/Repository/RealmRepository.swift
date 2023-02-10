@@ -8,59 +8,62 @@
 import Foundation
 import RealmSwift
 
-final class RealmRepository: RealmRepositoryInterface {
-  var storage: RealmStorage
+enum RealmError: Error {
+  case saveFromLocalFailure
+}
 
-  init() {
-      self.storage = RealmStorage.shared
-  }
+final class RealmRepository: RealmRepositoryInterface {
+  static var storage = RealmStorage.shared
   
-  func saveFromLocalJson() {
-    if let url = Bundle.main.url(forResource: "goCampingData", withExtension: "json") {
-      do {
-        let data = try Data(contentsOf: url, options: .mappedIfSafe)
-        let decoder = JSONDecoder()
-        if let mappingDTO = try? decoder.decode(CampsiteResponseDTO.self, from: data) {
-          // 기존의 데이터에서 추가된 부분의 집합만 구분하여 더하는 형식 필요
-          let campsites = mappingDTO.toDomain()
-          storage.writeFromLocalJson(campsites: campsites)
-        }
-      } catch {
-        print("불러오기를 실패했습니다")
+//  init() {
+//    self.storage = RealmStorage.shared
+//  }
+  
+  static func saveFromLocalJson()  {
+    guard let url = Bundle.main.url(forResource: "goCampingData", withExtension: "json") else { return }
+    do {
+      let data = try Data(contentsOf: url, options: .mappedIfSafe)
+      let decoder = JSONDecoder()
+      if let mappingDTO = try? decoder.decode(CampsiteResponseDTO.self, from: data) {
+        // 기존의 데이터에서 추가된 부분의 집합만 구분하여 더하는 형식 필요
+        let campsites = mappingDTO.toDomain()
+        storage.writeFromLocalJson(campsites: campsites)
       }
+    } catch {
+      print("Init DB Setting Error")
     }
   }
   
   func loadCampsite() -> [Campsite] {
-    let realmDTO = storage.readCampsites().toArray()
+    let realmDTO = RealmRepository.storage.readCampsites().toArray()
     return realmDTO.map {
       $0.toDomain()
     }
   }
   
   func loadCampsite(query: String) -> [Campsite] {
-    let realmDTO = storage.readCampsites(query: query).toArray()
+    let realmDTO = RealmRepository.storage.readCampsites(query: query).toArray()
     return realmDTO.map {
       $0.toDomain()
     }
   }
   
   func loadCampsite(query: [[String]]) -> [Campsite] {
-    let realmDTO = storage.readCampsites(query: query).toArray()
+    let realmDTO = RealmRepository.storage.readCampsites(query: query).toArray()
     return realmDTO.map {
       $0.toDomain()
     }
   }
   
   func loadCampsite(keyword: String) -> [Campsite] {
-    let realmDTO = storage.readCampsites(keyword: keyword).toArray()
+    let realmDTO = RealmRepository.storage.readCampsites(keyword: keyword).toArray()
     return realmDTO.map {
       $0.toDomain()
     }
   }
   
   func loadCampsite(area: Area?, sigungu: Sigungu?) -> [Campsite] {
-    let realmDTO = storage.readCampsites(area: area, sigungu: sigungu).toArray()
+    let realmDTO = RealmRepository.storage.readCampsites(area: area, sigungu: sigungu).toArray()
     return realmDTO.map {
       $0.toDomain()
     }
@@ -68,20 +71,20 @@ final class RealmRepository: RealmRepositoryInterface {
   
   func saveCampsite(campsite: Campsite) {
     let campsiteDTO = CampsiteRealmDTO(campsite: campsite)
-    storage.createCampsite(campsite: campsiteDTO)
+    RealmRepository.storage.createCampsite(campsite: campsiteDTO)
   }
   
   func unsaveCampsite(campsite: Campsite) {
     let campsiteDTO = CampsiteRealmDTO(campsite: campsite)
-    storage.deleteCampsite(campsite: campsiteDTO)
+    RealmRepository.storage.deleteCampsite(campsite: campsiteDTO)
   }
   
   func checkCampsite(campsite: Campsite) -> Bool {
-    storage.hasCampsites(contentID: campsite.contentID)
+    RealmRepository.storage.hasCampsites(contentID: campsite.contentID)
   }
   
   func loadReview() -> [Review] {
-    let realmDTO = storage.readReviews().toArray()
+    let realmDTO = RealmRepository.storage.readReviews().toArray()
     return realmDTO.map {
       $0.toDomain()
     }
@@ -89,13 +92,13 @@ final class RealmRepository: RealmRepositoryInterface {
   
   func saveReview(review: Review) {
     let reviewDTO = ReviewDTO(review: review)
-    storage.createReview(review: reviewDTO)
+    RealmRepository.storage.createReview(review: reviewDTO)
   }
-
+  
   func updateReveiw(review: Review) {
     
   }
-
+  
   func deleteReview(review: Review) {
     
   }

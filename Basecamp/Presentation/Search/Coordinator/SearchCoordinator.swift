@@ -9,7 +9,14 @@ import Foundation
 import UIKit
 import Toast
 
-final class SearchCoordinator: NSObject, Coordinator {
+protocol FilterModalCoordinator: AnyObject {
+  var modalNavigationController: UINavigationController { get set }
+  func showFilterMainModal(_ viewModel: FilterMainViewModel)
+  func showFilterSubViewController(_ viewModel: FilterSubViewModel, type: FilterCase)
+  func popToFilterMainViewController(message: String?, filterCase: FilterCase)
+}
+
+final class SearchCoordinator: NSObject, Coordinator, FilterModalCoordinator {
   weak var delegate: CoordinatorDelegate?
   var childCoordinators = [Coordinator]()
   var navigationController: UINavigationController

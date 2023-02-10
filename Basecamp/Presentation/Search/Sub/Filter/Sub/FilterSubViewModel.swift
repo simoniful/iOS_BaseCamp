@@ -10,14 +10,14 @@ import RxSwift
 import RxCocoa
 
 final class FilterSubViewModel: ViewModel {
-  private weak var coordinator: SearchCoordinator?
-  private let searchUseCase: SearchUseCase
+  private weak var coordinator: FilterModalCoordinator?
+  private let filterUseCase: FilterUseCase
 
   var type: FilterCase?
   
-  init(coordinator: SearchCoordinator?, searchUseCase: SearchUseCase) {
+  init(coordinator: FilterModalCoordinator?, filterUseCase: FilterUseCase) {
     self.coordinator = coordinator
-    self.searchUseCase = searchUseCase
+    self.filterUseCase = filterUseCase
   }
   
   struct Input {

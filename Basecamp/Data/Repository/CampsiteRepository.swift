@@ -78,7 +78,6 @@ final class CampsiteRepository: CampsiteRepositoryInterface {
       let a = response.data
       do {
         let json = String(data: a, encoding: .utf8)
-        print(json, "캠핑장 에러 문자열")
       } catch {
         print("errorMsg")
       }
@@ -88,7 +87,6 @@ final class CampsiteRepository: CampsiteRepositoryInterface {
     }
     .retry(3)
     .catch { error in
-      print(error, "캠핑장 에러")
       return Single.just(Result.failure(.applicationError))
     }
   }

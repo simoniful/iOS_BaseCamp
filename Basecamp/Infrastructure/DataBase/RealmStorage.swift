@@ -30,7 +30,7 @@ final class RealmStorage {
   }
   
   func readCampsites() -> Results<CampsiteRealmDTO> {
-    print("Realm is located at:", realm.configuration.fileURL!)
+    // print("Realm is located at:", realm.configuration.fileURL!)
     return realm.objects(CampsiteRealmDTO.self).filter("contentID == '4'")
   }
   

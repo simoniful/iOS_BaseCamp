@@ -9,9 +9,15 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class SearchUseCase {
+protocol FilterUseCase: AnyObject {
+  var realmRepository: RealmRepositoryInterface { get }
+  
+  func requestRealmData(min: Int, max: Int, filterCases: [FilterCase]) -> [Campsite]
+}
+
+final class SearchUseCase: FilterUseCase {
   private let campsiteRepository: CampsiteRepositoryInterface
-  private let realmRepository: RealmRepositoryInterface
+  internal let realmRepository: RealmRepositoryInterface
   
   init(campsiteRepository: CampsiteRepositoryInterface, realmRepository: RealmRepositoryInterface) {
     self.campsiteRepository = campsiteRepository
