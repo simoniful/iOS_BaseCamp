@@ -12,7 +12,6 @@ import RxCocoa
 import CoreLocation
 import RxDataSources
 
-
 final class DetailViewController: UIViewController {
   private let name: String
   private let locationManager = CLLocationManager()
@@ -38,31 +37,31 @@ final class DetailViewController: UIViewController {
     switch viewModel.style {
     case .campsite(data: let data):
       return [
-        UIAction(title: "전화", image: UIImage(systemName: "phone"), handler: { _ in
-          self.viewModel.headerAction
+        UIAction(title: "전화", image: UIImage(systemName: "phone"), handler: { [weak self] _ in
+          self?.viewModel.headerAction
             .accept(HeaderCellAction.call)
         }),
-        UIAction(title: "예약", image: UIImage(systemName: "calendar"), handler: { _ in
-          self.viewModel.headerAction
+        UIAction(title: "예약", image: UIImage(systemName: "calendar"), handler: { [weak self] _ in
+          self?.viewModel.headerAction
             .accept(HeaderCellAction.reserve)
         }),
-        UIAction(title: "방문", image: UIImage(systemName: "flag"), handler: { _ in
-          self.viewModel.headerAction
+        UIAction(title: "방문", image: UIImage(systemName: "flag"), handler: { [weak self] _ in
+          self?.viewModel.headerAction
             .accept(HeaderCellAction.visit)
         }),
-        UIAction(title: "찜", image: UIImage(systemName: "heart"), handler: { _ in
-          self.viewModel.headerAction
+        UIAction(title: "찜", image: UIImage(systemName: "heart"), handler: { [weak self] _ in
+          self?.viewModel.headerAction
             .accept(HeaderCellAction.like)
         })
       ]
     case .touristInfo(data: let data):
       return [
-        UIAction(title: "전화", image: UIImage(systemName: "phone"), handler: { _ in
-          self.viewModel.headerAction
+        UIAction(title: "전화", image: UIImage(systemName: "phone"), handler: { [weak self] _ in
+          self?.viewModel.headerAction
             .accept(HeaderCellAction.call)
         }),
-        UIAction(title: "예약", image: UIImage(systemName: "calendar"), handler: { _ in
-          self.viewModel.headerAction
+        UIAction(title: "예약", image: UIImage(systemName: "calendar"), handler: { [weak self] _ in
+          self?.viewModel.headerAction
             .accept(HeaderCellAction.reserve)
         })
       ]
@@ -73,7 +72,7 @@ final class DetailViewController: UIViewController {
     return UIMenu(title: "", options: [], children: dropDownMenuItems)
   }()
   
-  let viewModel: DetailViewModel
+  var viewModel: DetailViewModel
   let disposeBag = DisposeBag()
   
   private lazy var input = DetailViewModel.Input(
@@ -112,6 +111,15 @@ final class DetailViewController: UIViewController {
   override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
     self.collectionView.performBatchUpdates(nil, completion: nil)
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+
+  }
+  
+  deinit {
+    print("디테일 뷰 디이닛")
   }
   
   func bind() {
@@ -164,7 +172,7 @@ final class DetailViewController: UIViewController {
         .disposed(by: disposeBag)
       
       output.callAlert
-        .emit { (title, message, telNum) in
+        .emit { [weak self] (title, message, telNum) in
           let alert = AlertView.init(title: title, message: message, buttonStyle: .confirmAndCancel) {
             let telNum = telNum.replacingOccurrences(of: "-", with: "")
             let urlStr = "tel://\(telNum)"

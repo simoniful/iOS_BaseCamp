@@ -21,7 +21,7 @@ final class DetailTouristInfoHeaderCell: UICollectionViewCell {
   
   private var imageDataList = [String]()
   
-  private(set) var disposeBag = DisposeBag()
+  public var disposeBag = DisposeBag()
   
   private lazy var pagerView: FSPagerView = {
     let pagerView = FSPagerView()

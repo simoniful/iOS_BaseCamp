@@ -36,12 +36,6 @@ final class MapViewModel: ViewModel {
   var disposeBag = DisposeBag()
   
   func transform(input: Input) -> Output {
-//    input.viewDidLoad
-//      .subscribe { [weak self] _ in
-//        self?.data.accept((self?.mapUseCase.requestRealmData(area: nil, sigungu: nil))!)
-//      }
-//      .disposed(by: disposeBag)
-    
     let realmValue = Observable.combineLatest(input.viewDidLoad, filterCases)
       .compactMap { (_, filterCases) in
         self.mapUseCase.requestRealmData(filterCases: filterCases)

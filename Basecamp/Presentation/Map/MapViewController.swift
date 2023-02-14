@@ -13,16 +13,6 @@ import GoogleMaps
 import GoogleMapsUtils
 import Kingfisher
 
-final class POIItem: NSObject, GMUClusterItem {
-  var position: CLLocationCoordinate2D
-  var campsite: Campsite
-  
-  init(position: CLLocationCoordinate2D, campsite: Campsite) {
-    self.position = position
-    self.campsite = campsite
-  }
-}
-
 final class MapViewController: UIViewController {
   private lazy var mapView = GMSMapView(frame: .zero)
   private var clusterManager: GMUClusterManager!
@@ -50,7 +40,7 @@ final class MapViewController: UIViewController {
   )
   private lazy var output = viewModel.transform(input: input)
   
-  public let viewModel: MapViewModel
+  private let viewModel: MapViewModel
   private let disposeBag = DisposeBag()
   
   init(viewModel: MapViewModel) {
@@ -149,7 +139,6 @@ extension MapViewController: GMSMapViewDelegate {
 extension MapViewController: GMUClusterManagerDelegate {
   func clusterManager(_ clusterManager: GMUClusterManager, didTap cluster: GMUCluster) -> Bool {
     mapView.animate(toZoom: mapView.camera.zoom + 1)
-    // clusterManager.cluster()
     return false
   }
 }
@@ -215,7 +204,7 @@ extension MapViewController: GMUClusterRendererDelegate {
           marker.iconView = view
         default:
           let customClusterMarker = CustomClusterMarker()
-          customClusterMarker.setupData(count: staticCluster.count, corner: 40, color: .error, font: .systemFont(ofSize: 24, weight: .bold))
+          customClusterMarker.setupData(count: staticCluster.count, corner: 40, color: .error, font: .systemFont(ofSize: 22, weight: .bold))
           let view = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
           view.addSubview(customClusterMarker)
           customClusterMarker.snp.makeConstraints {
@@ -226,5 +215,15 @@ extension MapViewController: GMUClusterRendererDelegate {
         marker.appearAnimation = .pop
       }
     }
+  }
+}
+
+final class POIItem: NSObject, GMUClusterItem {
+  var position: CLLocationCoordinate2D
+  var campsite: Campsite
+  
+  init(position: CLLocationCoordinate2D, campsite: Campsite) {
+    self.position = position
+    self.campsite = campsite
   }
 }

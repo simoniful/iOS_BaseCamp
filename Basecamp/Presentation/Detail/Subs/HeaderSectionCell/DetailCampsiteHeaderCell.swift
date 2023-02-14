@@ -21,7 +21,7 @@ final class DetailCampsiteHeaderCell: UICollectionViewCell {
   
   private var imageDataList = [String]()
   
-  private(set) var disposeBag = DisposeBag()
+  public var disposeBag = DisposeBag()
   
   private lazy var pagerView: FSPagerView = {
     let pagerView = FSPagerView()
@@ -68,14 +68,14 @@ final class DetailCampsiteHeaderCell: UICollectionViewCell {
     return stackView
   }()
   
-  private lazy var callButton = makeButton(iconName: "phone", title: "전화")
-  private lazy var reservationButton = makeButton(iconName: "calendar", title: "예약")
-  private lazy var visitButton = makeButton(iconName: "flag", title: "방문")
-  private lazy var likeButton = makeButton(iconName: "heart", title: "찜")
+  public lazy var callButton = makeButton(iconName: "phone", title: "전화")
+  public lazy var reservationButton = makeButton(iconName: "calendar", title: "예약")
+  public lazy var visitButton = makeButton(iconName: "flag", title: "방문")
+  public lazy var likeButton = makeButton(iconName: "heart", title: "찜")
   
   private lazy var infoStack = DetailCampsiteHeaderStackView()
 
-  private let pagerViewDidTapped = PublishRelay<String>()
+  public let pagerViewDidTapped = PublishRelay<String>()
   
   override func layoutSubviews() {
       super.layoutSubviews()

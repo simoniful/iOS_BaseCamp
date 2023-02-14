@@ -14,8 +14,8 @@ class FilterMainViewModel: ViewModel {
   private let filterUseCase: FilterUseCase
   
   init(coordinator: FilterModalCoordinator?, filterUseCase: FilterUseCase) {
-      self.coordinator = coordinator
-      self.filterUseCase = filterUseCase
+    self.coordinator = coordinator
+    self.filterUseCase = filterUseCase
   }
   
   struct Input {

@@ -52,7 +52,7 @@ extension DetailImageCell: ViewRepresentable {
                             .processor(processor),
                             .scaleFactor(UIScreen.main.scale),
                             .transition(.fade(1)),
-                            .cacheOriginalImage
+                            .cacheMemoryOnly
                           ]
     )
   }

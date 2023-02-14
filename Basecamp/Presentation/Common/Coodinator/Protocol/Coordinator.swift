@@ -8,20 +8,27 @@
 import Foundation
 import UIKit
 
+protocol AppCoordinatorProtocol: Coordinator {
+    func connectAuthFlow()
+    func connectTabBarFlow()
+}
+
 protocol Coordinator: AnyObject {
-  var delegate: CoordinatorDelegate? { get set }
+  var finishDelegate: CoordinatorFinishDelegate? { get set }
   var navigationController: UINavigationController { get set }
   var childCoordinators: [Coordinator] { get set }
   var type: CoordinatorStyleCase { get }
   
   func start()
   func finish()
+  
+  // init(_ navigationController: UINavigationController)
 }
 
 extension Coordinator {
   func finish() {
     childCoordinators.removeAll()
-    delegate?.didFinish(childCoordinator: self)
+    finishDelegate?.didFinish(childCoordinator: self)
   }
   
   func findCoordinator(type: CoordinatorStyleCase) -> Coordinator? {

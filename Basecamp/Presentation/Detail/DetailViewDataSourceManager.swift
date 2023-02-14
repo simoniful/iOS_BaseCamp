@@ -13,7 +13,7 @@ struct DetailViewDataSourceManager {
   
   static func touristInfoDataSource(_ parent: DetailViewController) -> RxCollectionViewSectionedReloadDataSource<DetailTouristInfoSectionModel> {
     let dataSource = RxCollectionViewSectionedReloadDataSource<DetailTouristInfoSectionModel>(
-      configureCell: { dataSource, collectionView, indexPath, item in
+      configureCell: { [weak parent] dataSource, collectionView, indexPath, item in
         switch dataSource[indexPath.section] {
         case .headerSection(let items):
           guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailTouristInfoHeaderCell.identifier, for: indexPath) as? DetailTouristInfoHeaderCell else {
@@ -22,8 +22,8 @@ struct DetailViewDataSourceManager {
           let item = items[indexPath.row]
           cell.setupData(data: item)
           cell.viewModel(item: item)?
-            .bind(to: parent.viewModel.headerAction)
-            .disposed(by: parent.disposeBag)
+            .bind(to: parent!.viewModel.headerAction)
+            .disposed(by: cell.disposeBag)
           return cell
         case .locationSection(_, let items):
           guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailLocationCell.identifier, for: indexPath) as? DetailLocationCell else {
@@ -85,7 +85,7 @@ struct DetailViewDataSourceManager {
   
   static func campsiteDataSource(_ parent: DetailViewController) -> RxCollectionViewSectionedReloadDataSource<DetailCampsiteSectionModel> {
     let dataSource = RxCollectionViewSectionedReloadDataSource<DetailCampsiteSectionModel>(
-      configureCell: { dataSource, collectionView, indexPath, item in
+      configureCell: { [weak parent] dataSource, collectionView, indexPath, item in
         switch dataSource[indexPath.section] {
         case .headerSection(items: let items):
           guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCampsiteHeaderCell.identifier, for: indexPath) as? DetailCampsiteHeaderCell else {
@@ -94,8 +94,8 @@ struct DetailViewDataSourceManager {
           let item = items[indexPath.row]
           cell.setupData(data: item)
           cell.viewModel(item: item)?
-            .bind(to: parent.viewModel.headerAction)
-            .disposed(by: parent.disposeBag)
+            .bind(to: (parent?.viewModel.headerAction)!)
+            .disposed(by: cell.disposeBag)
           return cell
         case .locationSection(header: _, items: let items):
           guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailLocationCell.identifier, for: indexPath) as? DetailLocationCell else {

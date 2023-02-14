@@ -90,8 +90,6 @@ private extension SearchViewController {
     navigationItem.rightBarButtonItems = [
       rightBarSearchButton
     ]
-    let backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
-    navigationItem.backBarButtonItem = backBarButtonItem
   }
   
   func setupLogo() {

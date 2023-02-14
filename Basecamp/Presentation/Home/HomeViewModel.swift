@@ -14,8 +14,7 @@ final class HomeViewModel: ViewModel {
   
   private weak var coordinator: HomeCoordinator?
   private let homeUseCase: HomeUseCase
-  public var didSubmitAction: ((DetailStyle) -> ())?
-  public var didTapBack: (() -> ())?
+//  public var didSubmitAction: ((DetailStyle) -> ())?
   
   init(coordinator: HomeCoordinator?, homeUseCase: HomeUseCase) {
     self.coordinator = coordinator
@@ -109,21 +108,19 @@ final class HomeViewModel: ViewModel {
       .disposed(by: disposeBag)
       
     input.didSelectItemAt
-      .emit { (model, index) in
+      .emit { [weak self] (model, index) in
         switch index.section {
         case 0:
           print("여긴 클릭하면 안됨")
         case 1:
           guard let areaItem = model as? HomeAreaItem else { return }
-          self.coordinator?.changeTabByIndex(tabCase: .list, message: "지역별로 검색해보세요", area: areaItem.area, index: index.row)
+          self?.coordinator?.changeTabByIndex(tabCase: .list, message: "지역별로 검색해보세요", area: areaItem.area, index: index.row)
         case 2, 3:
           guard let campsite = model as? Campsite else { return }
-          guard let didSubmitAction = self.didSubmitAction else { return }
-          didSubmitAction(.campsite(data: campsite))
+          self?.coordinator?.navigateToFlowDetail(with: .campsite(data: campsite))
         case 4:
           guard let touristInfo = model as? TouristInfo else { return }
-          guard let didSubmitAction = self.didSubmitAction else { return }
-          didSubmitAction(.touristInfo(data: touristInfo))
+          self?.coordinator?.navigateToFlowDetail(with: .touristInfo(data: touristInfo))
         default:
           print("여긴 클릭하면 안됨")
         }

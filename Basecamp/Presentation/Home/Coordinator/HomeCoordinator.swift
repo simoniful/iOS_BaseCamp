@@ -8,13 +8,11 @@
 import UIKit
 import Toast
 
-final class HomeCoordinator: Coordinator {
-  
-  weak var delegate: CoordinatorDelegate?
+final class HomeCoordinator: NSObject, Coordinator {
+  weak var finishDelegate: CoordinatorFinishDelegate?
   var childCoordinators = [Coordinator]()
   var navigationController: UINavigationController
   var type: CoordinatorStyleCase = .home
-  var isCompleted: (() -> ())?
   
   init(_ navigationController: UINavigationController) {
     self.navigationController = navigationController
@@ -30,23 +28,21 @@ final class HomeCoordinator: Coordinator {
       )
     )
     let viewController = HomeViewController(viewModel: viewModel)
-    viewModel.didSubmitAction = { [weak self] detailType in
-      guard let self = self else { return }
-      self.navigateToFlowDetail(with: detailType)
-    }
-    viewModel.didTapBack = { [weak self] in
-      guard let self = self else { return }
-      self.isCompleted?()
-    }
+//    viewModel.didSubmitAction = { [weak self] detailType in
+//      guard let self = self else { return }
+//      self.navigateToFlowDetail(with: detailType)
+//    }
+    navigationController.delegate = self
     navigationController.pushViewController(viewController, animated: true)
   }
   
   func navigateToFlowDetail(with data: DetailStyle) {
-    let detailCoordinator = DetailCoordinator(self.navigationController, data: data)
+    let detailCoordinator = DetailCoordinator(self.navigationController)
+    detailCoordinator.data = data
     detailCoordinator.parentCoordinator = self
-    detailCoordinator.isCompleted = { [weak self] in
-      self?.free(coordinator: detailCoordinator)
-    }
+//    detailCoordinator.isCompleted = { [weak self] in
+//      self?.free(coordinator: detailCoordinator)
+//    }
     self.store(coordinator: detailCoordinator)
     detailCoordinator.start()
   }
@@ -79,4 +75,30 @@ final class HomeCoordinator: Coordinator {
       navigationController.view.makeToast(message, position: .top)
     }
   }
+  
+  func childDidFinish(_ child: Coordinator?) {
+    for (index, coordinator) in childCoordinators.enumerated() {
+      if coordinator === child {
+        childCoordinators.remove(at: index)
+        break
+      }
+    }
+  }
 }
+
+extension HomeCoordinator: UINavigationControllerDelegate {
+  func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {
+      return
+    }
+    
+    if navigationController.viewControllers.contains(fromViewController) {
+      return
+    }
+    
+    if let detailViewController = fromViewController as? DetailViewController {
+      childDidFinish(detailViewController.viewModel.coordinator)
+    }
+  }
+}
+

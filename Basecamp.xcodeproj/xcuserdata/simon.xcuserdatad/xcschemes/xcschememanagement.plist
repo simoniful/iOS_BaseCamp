@@ -7,7 +7,7 @@
 		<key>Basecamp.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>8</integer>
 		</dict>
 		<key>GettingStarted (Playground) 1.xcscheme</key>
 		<dict>
@@ -323,6 +323,24 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>8</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>F4D10EA029497831000C02E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4D10EB629497834000C02E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4D10EC029497834000C02E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

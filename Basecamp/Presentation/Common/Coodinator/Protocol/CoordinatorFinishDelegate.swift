@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol CoordinatorDelegate: AnyObject {
+protocol CoordinatorFinishDelegate: AnyObject {
   func didFinish(childCoordinator: Coordinator)
 }

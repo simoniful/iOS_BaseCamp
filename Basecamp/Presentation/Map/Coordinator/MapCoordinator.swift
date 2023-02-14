@@ -9,7 +9,7 @@ import UIKit
 import Toast
 
 final class MapCoordinator: NSObject, Coordinator, FilterModalCoordinator {
-  weak var delegate: CoordinatorDelegate?
+  weak var finishDelegate: CoordinatorFinishDelegate?
   var childCoordinators = [Coordinator]()
   var navigationController: UINavigationController
   var type: CoordinatorStyleCase = .map
@@ -33,11 +33,12 @@ final class MapCoordinator: NSObject, Coordinator, FilterModalCoordinator {
   }
   
   func showDetailViewController(data: DetailStyle) {
-    let detailCoordinator = DetailCoordinator(self.navigationController, data: data)
+    let detailCoordinator = DetailCoordinator(self.navigationController)
+    detailCoordinator.data = data
     detailCoordinator.parentCoordinator = self
-    detailCoordinator.isCompleted = { [weak self] in
-      self?.free(coordinator: detailCoordinator)
-    }
+//    detailCoordinator.isCompleted = { [weak self] in
+//      self?.free(coordinator: detailCoordinator)
+//    }
     self.store(coordinator: detailCoordinator)
     detailCoordinator.start()
   }

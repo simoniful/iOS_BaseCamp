@@ -16,19 +16,19 @@ final class MapUseCase: FilterUseCase {
     self.realmRepository = realmRepository
   }
   
-  func getValue<T>(_ result: Result<[T], some Error>) -> [T]? {
-    guard case .success(let value) = result else {
-      return nil
-    }
-    return value
-  }
-  
-  func getError<T>(_ result: Result<[T], some Error>) -> String? {
-    guard case .failure(let error) = result else {
-      return nil
-    }
-    return error.localizedDescription
-  }
+//  func getValue<T>(_ result: Result<[T], some Error>) -> [T]? {
+//    guard case .success(let value) = result else {
+//      return nil
+//    }
+//    return value
+//  }
+//
+//  func getError<T>(_ result: Result<[T], some Error>) -> String? {
+//    guard case .failure(let error) = result else {
+//      return nil
+//    }
+//    return error.localizedDescription
+//  }
   
   // MARK: - 램 데이터베이스 레포 연결
   func requestRealmData(area: Area?, sigungu: Sigungu?) -> [Campsite] {

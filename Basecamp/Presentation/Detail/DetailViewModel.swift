@@ -21,10 +21,10 @@ enum DetailStyle {
 }
 
 final class DetailViewModel: ViewModel {
-  private weak var coordinator: DetailCoordinator?
+  weak var coordinator: DetailCoordinator?
   private let detailUseCase: DetailUseCase
   public let style: DetailStyle
-  public var didTapBack: (() -> ())?
+//  public var didTapBack: (() -> ())?
   
   init(coordinator: DetailCoordinator?, detailUseCase: DetailUseCase, style: DetailStyle) {
     self.coordinator = coordinator

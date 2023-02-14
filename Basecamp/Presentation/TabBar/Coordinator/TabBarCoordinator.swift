@@ -8,11 +8,11 @@
 import UIKit
 
 final class TabBarCoordinator: Coordinator {
-  
-  weak var delegate: CoordinatorDelegate?
+  weak var finishDelegate: CoordinatorFinishDelegate?
   var childCoordinators = [Coordinator]()
   var navigationController: UINavigationController
   var tabBarController: UITabBarController
+  var isCompleted: (() -> ())?
   var type: CoordinatorStyleCase = .tab
   
   init(_ navigationController: UINavigationController) {
@@ -73,39 +73,39 @@ final class TabBarCoordinator: Coordinator {
     switch page {
     case .home:
       let homeCoordinator = HomeCoordinator(tabNavigationController)
-      homeCoordinator.delegate = self
-      self.childCoordinators.append(homeCoordinator)
-      homeCoordinator.isCompleted = { [weak self] in
-        self?.free(coordinator: homeCoordinator)
-      }
+      self.store(coordinator: homeCoordinator)
+      homeCoordinator.finishDelegate = self
       homeCoordinator.start()
     case .search:
       let searchCoordinator = SearchCoordinator(tabNavigationController)
-      searchCoordinator.delegate = self
-      self.childCoordinators.append(searchCoordinator)
+      self.store(coordinator: searchCoordinator)
+      searchCoordinator.finishDelegate = self
       searchCoordinator.start()
     case .list:
       let listCoordinator = ListCoordinator(tabNavigationController)
-      listCoordinator.delegate = self
-      self.childCoordinators.append(listCoordinator)
+      self.store(coordinator: listCoordinator)
+      listCoordinator.finishDelegate = self
       listCoordinator.start()
     case .map:
       let mapCoordinator = MapCoordinator(tabNavigationController)
-      mapCoordinator.delegate = self
-      self.childCoordinators.append(mapCoordinator)
+      self.store(coordinator: mapCoordinator)
+      mapCoordinator.finishDelegate = self
       mapCoordinator.start()
-    default:
-      break
+    case .mypage:
+      let myPageCoordinator = MyPageCoordinator(tabNavigationController)
+      self.store(coordinator: myPageCoordinator)
+      myPageCoordinator.finishDelegate = self
+      myPageCoordinator.start()
     }
   }
 }
 
-extension TabBarCoordinator: CoordinatorDelegate {
+extension TabBarCoordinator: CoordinatorFinishDelegate {
   func didFinish(childCoordinator: Coordinator) {
     self.childCoordinators = childCoordinators.filter({ $0.type != childCoordinator.type })
     if childCoordinator.type == .myPage {
-      self.navigationController.viewControllers.removeAll()
-      self.delegate?.didFinish(childCoordinator: self)
+        self.navigationController.viewControllers.removeAll()
+        self.finishDelegate?.didFinish(childCoordinator: self)
     }
   }
 }

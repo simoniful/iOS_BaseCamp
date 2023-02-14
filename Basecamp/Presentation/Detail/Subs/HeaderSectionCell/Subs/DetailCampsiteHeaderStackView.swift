@@ -68,6 +68,10 @@ final class DetailCampsiteHeaderStackView: UIStackView {
     fatalError("init(coder:) has not been implemented")
   }
   
+  deinit {
+    print("헤더 디이닛")
+  }
+  
   func setupView() {
     self.translatesAutoresizingMaskIntoConstraints = false
     self.axis = .vertical

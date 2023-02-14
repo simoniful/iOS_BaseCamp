@@ -10,22 +10,20 @@ import Toast
 import HorizonCalendar
 
 final class DetailCoordinator: NSObject, Coordinator {
-
   weak var parentCoordinator: Coordinator?
-  weak var delegate: CoordinatorDelegate?
+  weak var finishDelegate: CoordinatorFinishDelegate?
+  var data: DetailStyle?
   var childCoordinators = [Coordinator]()
   var navigationController: UINavigationController
   var modalNavigationController = UINavigationController()
   var type: CoordinatorStyleCase = .detail
-  let data: DetailStyle
-  var isCompleted: (() -> ())?
-  
-  init(_ navigationController: UINavigationController, data: DetailStyle) {
+
+  init(_ navigationController: UINavigationController) {
     self.navigationController = navigationController
-    self.data = data
   }
   
   func start() {
+    guard let data = data else { return }
     let viewModel = DetailViewModel(
       coordinator: self,
       detailUseCase: DetailUseCase(
@@ -47,10 +45,6 @@ final class DetailCoordinator: NSObject, Coordinator {
       viewController.title = data.title!
     }
     
-    viewModel.didTapBack = { [weak self] in
-      self?.isCompleted?()
-    }
-    
     if parentCoordinator is MapCoordinator {
       navigationController.isNavigationBarHidden = false
     }
@@ -59,11 +53,9 @@ final class DetailCoordinator: NSObject, Coordinator {
   }
   
   func navigateToFlowDetail(with data: DetailStyle) {
-    let detailCoordinator = DetailCoordinator(self.navigationController, data: data)
+    let detailCoordinator = DetailCoordinator(self.navigationController)
+    detailCoordinator.data = data
     detailCoordinator.parentCoordinator = self
-    detailCoordinator.isCompleted = { [weak self] in
-      self?.free(coordinator: detailCoordinator)
-    }
     self.store(coordinator: detailCoordinator)
     detailCoordinator.start()
   }
@@ -153,7 +145,31 @@ final class DetailCoordinator: NSObject, Coordinator {
       navigationController.view.makeToast(message, position: .top)
     }
   }
+  
+  func childDidFinish(_ child: Coordinator?) {
+    for (index, coordinator) in childCoordinators.enumerated() {
+      if coordinator === child {
+        childCoordinators.remove(at: index)
+        break
+      }
+    }
+  }
 }
 
 extension DetailCoordinator: UISheetPresentationControllerDelegate {}
+ 
+extension DetailCoordinator: UINavigationControllerDelegate {
+  func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {
+      return
+    }
+    
+    if navigationController.viewControllers.contains(fromViewController) {
+      return
+    }
 
+    if let detailViewController = fromViewController as? DetailViewController {
+      childDidFinish(detailViewController.viewModel.coordinator)
+    }
+  }
+}
