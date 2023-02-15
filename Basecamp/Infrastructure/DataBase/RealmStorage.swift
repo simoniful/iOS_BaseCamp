@@ -30,7 +30,7 @@ final class RealmStorage {
   }
   
   func readCampsites() -> Results<CampsiteRealmDTO> {
-    // print("Realm is located at:", realm.configuration.fileURL!)
+    print("Realm is located at:", realm.configuration.fileURL!)
     return realm.objects(CampsiteRealmDTO.self).filter("isLiked == true")
   }
   
@@ -78,8 +78,13 @@ final class RealmStorage {
     return result
   }
   
-  func hasCampsites(contentID: String) -> Bool {
-    return !(realm.objects(CampsiteRealmDTO.self).filter("contentID == '\(contentID)'").isEmpty)
+  func updateCampsites(campsite: CampsiteRealmDTO) {
+    print("Realm is located at:", self.realm.configuration.fileURL!)
+    guard let taskToUpdate = realm.objects(CampsiteRealmDTO.self).filter("contentID == '\(campsite.contentID)'").first else { return }
+    
+    try! realm.write {
+      taskToUpdate.isLiked = !(taskToUpdate.isLiked)
+    }
   }
   
   func createCampsite(campsite: CampsiteRealmDTO) {

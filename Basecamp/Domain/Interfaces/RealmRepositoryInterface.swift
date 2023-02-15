@@ -18,7 +18,7 @@ protocol RealmRepositoryInterface: AnyObject {
   func loadCampsite(area: Area?, sigungu: Sigungu?) -> [Campsite]
   func saveCampsite(campsite: Campsite)
   func unsaveCampsite(campsite: Campsite)
-  func checkCampsite(campsite: Campsite) -> Bool
+  func updateCampsite(campsite: Campsite)
   
   func loadReview() -> [Review]
   func saveReview(review: Review)

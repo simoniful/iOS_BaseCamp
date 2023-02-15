@@ -99,14 +99,14 @@ extension MapViewController: ViewRepresentable {
     }
     
     filterButton.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(40.0)
+      $0.top.equalTo(mapView.snp.top).offset(16.0)
       $0.trailing.equalToSuperview().offset(-16.0)
       $0.width.height.equalTo(44.0)
     }
   }
   
   func setupAttribute() {
-    let camera = GMSCameraPosition(latitude: 36.38, longitude: 127.51, zoom: 5.75)
+    let camera = GMSCameraPosition(latitude: 36.38, longitude: 127.51, zoom: 6.75)
     mapView.moveCamera(.setCamera(camera))
     mapView.mapType = .normal
     mapView.isIndoorEnabled = false

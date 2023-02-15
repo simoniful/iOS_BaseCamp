@@ -15,10 +15,6 @@ enum RealmError: Error {
 final class RealmRepository: RealmRepositoryInterface {
   static var storage = RealmStorage.shared
   
-//  init() {
-//    self.storage = RealmStorage.shared
-//  }
-  
   static func saveFromLocalJson()  {
     guard let url = Bundle.main.url(forResource: "goCampingData", withExtension: "json") else { return }
     do {
@@ -69,6 +65,7 @@ final class RealmRepository: RealmRepositoryInterface {
     }
   }
   
+  
   func saveCampsite(campsite: Campsite) {
     let campsiteDTO = CampsiteRealmDTO(campsite: campsite)
     RealmRepository.storage.createCampsite(campsite: campsiteDTO)
@@ -79,8 +76,9 @@ final class RealmRepository: RealmRepositoryInterface {
     RealmRepository.storage.deleteCampsite(campsite: campsiteDTO)
   }
   
-  func checkCampsite(campsite: Campsite) -> Bool {
-    RealmRepository.storage.hasCampsites(contentID: campsite.contentID)
+  func updateCampsite(campsite: Campsite) {
+    let campsiteDTO = CampsiteRealmDTO(campsite: campsite)
+    RealmRepository.storage.updateCampsites(campsite: campsiteDTO)
   }
   
   func loadReview() -> [Review] {

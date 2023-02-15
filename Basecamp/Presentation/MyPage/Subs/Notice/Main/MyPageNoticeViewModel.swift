@@ -33,8 +33,8 @@ final class MyPageNoticeViewModel: ViewModel {
     input.didSelectItemAt
       .withUnretained(self)
       .emit { owner, item in
-        let (notice, indexPath) = item
-        // owner.coordinator.
+        let (notice, _) = item
+         owner.coordinator?.showSubNoticeViewController(notice: notice)
       }
       .disposed(by: disposeBag)
     

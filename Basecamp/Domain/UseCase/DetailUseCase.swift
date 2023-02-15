@@ -76,7 +76,7 @@ final class DetailUseCase {
         resveCl: campsite.resveCl,
         posblFcltyCl: campsite.posblFcltyCl,
         tel: campsite.tel,
-        isLiked: realmRepository.checkCampsite(campsite: campsite)
+        isLiked: campsite.isLiked
       )
     ]
   }
@@ -104,7 +104,7 @@ final class DetailUseCase {
         mapX: campsite.mapX,
         mapY: campsite.mapY,
         address: campsite.addr1,
-        direction: campsite.direction ?? "※ 자세한 위치는 문의처에 문의 바랍니다",
+        direction: campsite.direction,
         weatherInfos: weatherData
       )
     ]
@@ -250,6 +250,11 @@ final class DetailUseCase {
     data.append(.aroundSection(header: "주변에 갈만한 곳", items: aroundData))
     data.append(.imageSection(header: "사진", items: imageData))
     return data
+  }
+  
+  // MARK: - 램 데이터베이스 레포 연결
+  func requestSaveLikeState(campsite: Campsite) {
+    realmRepository.updateCampsite(campsite: campsite)
   }
   
   // MARK: - 고캠핑 레포 연결

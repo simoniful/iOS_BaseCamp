@@ -38,31 +38,31 @@ final class DetailViewController: UIViewController {
     case .campsite(data: let data):
       return [
         UIAction(title: "전화", image: UIImage(systemName: "phone"), handler: { [weak self] _ in
-          self?.viewModel.headerAction
-            .accept(HeaderCellAction.call)
+          self?.viewModel.campsiteHeaderViewModel.callButtonDidTapped
+            .accept(Void())
         }),
         UIAction(title: "예약", image: UIImage(systemName: "calendar"), handler: { [weak self] _ in
-          self?.viewModel.headerAction
-            .accept(HeaderCellAction.reserve)
+          self?.viewModel.campsiteHeaderViewModel.reservationButtonDidTapped
+            .accept(Void())
         }),
         UIAction(title: "방문", image: UIImage(systemName: "flag"), handler: { [weak self] _ in
-          self?.viewModel.headerAction
-            .accept(HeaderCellAction.visit)
+          self?.viewModel.campsiteHeaderViewModel.visitButtonDidTapped
+            .accept(Void())
         }),
         UIAction(title: "찜", image: UIImage(systemName: "heart"), handler: { [weak self] _ in
-          self?.viewModel.headerAction
-            .accept(HeaderCellAction.like)
+          self?.viewModel.campsiteHeaderViewModel.likeButtonDidTapped
+            .accept(Void())
         })
       ]
     case .touristInfo(data: let data):
       return [
         UIAction(title: "전화", image: UIImage(systemName: "phone"), handler: { [weak self] _ in
-          self?.viewModel.headerAction
-            .accept(HeaderCellAction.call)
+          self?.viewModel.touristHeaderViewModel.callButtonDidTapped
+            .accept(Void())
         }),
         UIAction(title: "예약", image: UIImage(systemName: "calendar"), handler: { [weak self] _ in
-          self?.viewModel.headerAction
-            .accept(HeaderCellAction.reserve)
+          self?.viewModel.touristHeaderViewModel.reservationButtonDidTapped
+            .accept(Void())
         })
       ]
     }
@@ -158,32 +158,6 @@ final class DetailViewController: UIViewController {
           alert.showAlert()
         })
         .disposed(by: disposeBag)
-      
-      output.noUrlDataAlert
-        .emit { [weak self] (title, message, keyword) in
-          let alert = AlertView.init(title: title, message: message, buttonStyle: .confirmAndCancel) {
-            guard let urlStr = "https://search.naver.com/search.naver?query=\(keyword)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-            guard let url = URL(string: urlStr) else { return }
-            guard UIApplication.shared.canOpenURL(url) else { return }
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-          }
-          alert.showAlert()
-        }
-        .disposed(by: disposeBag)
-      
-      output.callAlert
-        .emit { [weak self] (title, message, telNum) in
-          let alert = AlertView.init(title: title, message: message, buttonStyle: .confirmAndCancel) {
-            let telNum = telNum.replacingOccurrences(of: "-", with: "")
-            let urlStr = "tel://\(telNum)"
-            guard let url = URL(string: urlStr) else { return }
-            guard UIApplication.shared.canOpenURL(url) else { return }
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-          }
-          alert.showAlert()
-        }
-        .disposed(by: disposeBag)
-      
     case .touristInfo:
       collectionView.collectionViewLayout = DetailViewSectionLayoutManager.createTouristInfoLayout()
       
@@ -220,6 +194,31 @@ final class DetailViewController: UIViewController {
         })
         .disposed(by: disposeBag)
     }
+    
+    output.noUrlDataAlert
+      .emit { [weak self] (title, message, keyword) in
+        let alert = AlertView.init(title: title, message: message, buttonStyle: .confirmAndCancel) {
+          guard let urlStr = "https://search.naver.com/search.naver?query=\(keyword)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+          guard let url = URL(string: urlStr) else { return }
+          guard UIApplication.shared.canOpenURL(url) else { return }
+          UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        alert.showAlert()
+      }
+      .disposed(by: disposeBag)
+    
+    output.callAlert
+      .emit { [weak self] (title, message, telNum) in
+        let alert = AlertView.init(title: title, message: message, buttonStyle: .confirmAndCancel) {
+          let telNum = telNum.replacingOccurrences(of: "-", with: "")
+          let urlStr = "tel://\(telNum)"
+          guard let url = URL(string: urlStr) else { return }
+          guard UIApplication.shared.canOpenURL(url) else { return }
+          UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        alert.showAlert()
+      }
+      .disposed(by: disposeBag)
   }
   
   override var prefersStatusBarHidden: Bool {

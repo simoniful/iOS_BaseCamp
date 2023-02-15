@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 final class FilterSubSectionHeader: UITableViewHeaderFooterView {
   static let identifier = "FilterSubSectionHeader"
@@ -14,30 +15,30 @@ final class FilterSubSectionHeader: UITableViewHeaderFooterView {
   
   override init(reuseIdentifier: String?) {
     super.init(reuseIdentifier: reuseIdentifier)
-    attribute()
-    layout()
+    setupView()
+    setupConstraints()
   }
 
   required init?(coder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
   }
-  
-  private func attribute() {
+}
 
+extension FilterSubSectionHeader: ViewRepresentable {
+  func setupView() {
+    [titleLabel].forEach {
+        self.addSubview($0)
+    }
   }
   
-  private func layout() {
-      [titleLabel].forEach {
-          self.addSubview($0)
-      }
-      
-      titleLabel.snp.makeConstraints {
-          $0.centerY.equalToSuperview()
-        $0.leading.equalToSuperview().offset(16.0)
-      }
+  func setupConstraints() {
+    titleLabel.snp.makeConstraints {
+        $0.centerY.equalToSuperview()
+      $0.leading.equalToSuperview().offset(16.0)
+    }
   }
   
-  func setData(header: String) {
+  func setupData(header: String) {
     self.titleLabel.text = header
   }
 }

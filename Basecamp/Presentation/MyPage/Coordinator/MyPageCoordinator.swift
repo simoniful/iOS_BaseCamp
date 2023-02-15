@@ -61,7 +61,11 @@ final class MyPageCoordinator: NSObject, Coordinator {
   }
   
   func showSubNoticeViewController(notice: Notice) {
-    
+    let viewController = MyPageNoticeSubViewController()
+    viewController.title = "공지사항"
+    viewController.notice = notice
+    viewController.coordinator = self
+    navigationController.pushViewController(viewController, animated: true)
   }
 
 

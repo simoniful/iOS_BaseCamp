@@ -123,7 +123,7 @@ extension FilterSubViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: FilterSubSectionHeader.identifier) as? FilterSubSectionHeader else { return UIView() }
     let headerStr = viewModel.data.value[section].header
-    header.setData(header: headerStr)
+    header.setupData(header: headerStr)
     return header
   }
 }

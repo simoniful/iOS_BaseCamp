@@ -10,7 +10,6 @@ import RxSwift
 import RxDataSources
 
 struct DetailViewDataSourceManager {
-  
   static func touristInfoDataSource(_ parent: DetailViewController) -> RxCollectionViewSectionedReloadDataSource<DetailTouristInfoSectionModel> {
     let dataSource = RxCollectionViewSectionedReloadDataSource<DetailTouristInfoSectionModel>(
       configureCell: { [weak parent] dataSource, collectionView, indexPath, item in
@@ -21,9 +20,7 @@ struct DetailViewDataSourceManager {
           }
           let item = items[indexPath.row]
           cell.setupData(data: item)
-          cell.viewModel(item: item)?
-            .bind(to: parent!.viewModel.headerAction)
-            .disposed(by: cell.disposeBag)
+          cell.configure(with: (parent?.viewModel.touristHeaderViewModel)!)
           return cell
         case .locationSection(_, let items):
           guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailLocationCell.identifier, for: indexPath) as? DetailLocationCell else {
@@ -71,7 +68,7 @@ struct DetailViewDataSourceManager {
              .aroundSection(header: let headerStr, _),
              .imageSection(header: let headerStr, _):
           guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailSectionHeader.identifier, for: indexPath) as? DetailSectionHeader else { return UICollectionReusableView() }
-          header.setData(header: headerStr)
+          header.setupData(header: headerStr)
           return header
         default:
           let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailSectionHeader.identifier, for: indexPath)
@@ -92,10 +89,9 @@ struct DetailViewDataSourceManager {
             return UICollectionViewCell()
           }
           let item = items[indexPath.row]
+          cell.configure(with: (parent?.viewModel.campsiteHeaderViewModel)!)
           cell.setupData(data: item)
-          cell.viewModel(item: item)?
-            .bind(to: (parent?.viewModel.headerAction)!)
-            .disposed(by: cell.disposeBag)
+
           return cell
         case .locationSection(header: _, items: let items):
           guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailLocationCell.identifier, for: indexPath) as? DetailLocationCell else {
@@ -154,7 +150,7 @@ struct DetailViewDataSourceManager {
             .aroundSection(header: let headerStr, _),
             .imageSection(header: let headerStr, _):
           guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DetailSectionHeader.identifier, for: indexPath) as? DetailSectionHeader else { return UICollectionReusableView() }
-          header.setData(header: headerStr)
+          header.setupData(header: headerStr)
           return header
         }
       }

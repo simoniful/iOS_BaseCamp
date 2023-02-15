@@ -118,17 +118,10 @@ extension DetailTouristInfoHeaderCell: ViewRepresentable {
     }
   }
   
-  func viewModel(item: DetailTouristInfoHeaderItem) -> Observable<HeaderCellAction>? {
-    if interactionSetFlag == false {
-      interactionSetFlag.toggle()
-      return Observable.merge(
-        pagerViewDidTapped
-          .map({ urlStr in
-            HeaderCellAction.touristPager(item, urlStr)
-          })
-      )
-    }
-    return nil
+  func configure(with viewModel: DetailTouristInfoHeaderCellViewModel) {
+    self.pagerViewDidTapped
+      .bind(to: viewModel.pagerViewDidTapped)
+      .disposed(by: disposeBag)
   }
 }
 

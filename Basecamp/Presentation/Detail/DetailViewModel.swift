@@ -24,7 +24,6 @@ final class DetailViewModel: ViewModel {
   weak var coordinator: DetailCoordinator?
   private let detailUseCase: DetailUseCase
   public let style: DetailStyle
-//  public var didTapBack: (() -> ())?
   
   init(coordinator: DetailCoordinator?, detailUseCase: DetailUseCase, style: DetailStyle) {
     self.coordinator = coordinator
@@ -50,6 +49,19 @@ final class DetailViewModel: ViewModel {
   }
   
   lazy var aroundTabmanViewModel = DetailAroundTabmanViewModel()
+  lazy var campsiteHeaderViewModel = DetailCampsiteHeaderCellViewModel(
+    likeButtonDidTapped: PublishRelay<Void>(),
+    visitButtonDidTapped: PublishRelay<Void>(),
+    reservationButtonDidTapped: PublishRelay<Void>(),
+    callButtonDidTapped: PublishRelay<Void>(),
+    pagerViewDidTapped: PublishRelay<String>(),
+    isLiked: BehaviorRelay<Bool>(value: false)
+  )
+  lazy var touristHeaderViewModel = DetailTouristInfoHeaderCellViewModel(
+    reservationButtonDidTapped: PublishRelay<Void>(),
+    callButtonDidTapped: PublishRelay<Void>(),
+    pagerViewDidTapped: PublishRelay<String>()
+  )
   
   private let campsiteData = PublishRelay<[DetailCampsiteSectionModel]>()
   private let touristInfoData = PublishRelay<[DetailTouristInfoSectionModel]>()
@@ -66,6 +78,8 @@ final class DetailViewModel: ViewModel {
   func transform(input: Input) -> Output {
     switch style {
     case .campsite(let campsite):
+      campsiteHeaderViewModel.isLiked.accept(campsite.isLiked)
+      
       // MARK: - Header Data
       let campsiteImageResult = input.viewWillAppear
         .withUnretained(self)
@@ -201,7 +215,7 @@ final class DetailViewModel: ViewModel {
         .flatMapLatest { (owner, eventWithType) in
           let (_, contentType) = eventWithType
           return owner.detailUseCase.requestTouristInfoList(
-            numOfRows: 15, pageNo: 1,
+            numOfRows: 20, pageNo: 1,
             contentTypeId: contentType,
             coordinate: Coordinate(
               latitude: Double(campsite.mapY)!,
@@ -249,8 +263,7 @@ final class DetailViewModel: ViewModel {
         .disposed(by: disposeBag)
       
       // MARK: - HeaderAction
-      headerAction
-        .capture(case: HeaderCellAction.call)
+      campsiteHeaderViewModel.callButtonDidTapped
         .bind { [weak self] _ in
           let tel = campsite.tel
           if tel.isEmpty {
@@ -261,8 +274,7 @@ final class DetailViewModel: ViewModel {
         }
         .disposed(by: disposeBag)
       
-      headerAction
-        .capture(case: HeaderCellAction.reserve)
+      campsiteHeaderViewModel.reservationButtonDidTapped
         .bind { [weak self] _ in
           guard campsite.homepage != "" else {
             self?.noUrlDataAlert.accept(("등록된 홈페이지가 없습니다", "검색 엔진으로 이동하여 검색 하시겠습니까?", campsite.facltNm))
@@ -275,30 +287,30 @@ final class DetailViewModel: ViewModel {
         }
         .disposed(by: disposeBag)
       
-      headerAction
-        .capture(case: HeaderCellAction.visit)
+      campsiteHeaderViewModel.visitButtonDidTapped
         .bind { [weak self] _ in
           guard let self = self else { return }
           self.coordinator?.showDateSelectModal(with: campsite)
         }
         .disposed(by: disposeBag)
       
-      headerAction
-        .capture(case: HeaderCellAction.like)
+      campsiteHeaderViewModel.likeButtonDidTapped
         .withUnretained(self)
-        .bind { _ in
-          print("찜")
+        .bind { (owner, _) in
+          let old = owner.campsiteHeaderViewModel.isLiked.value
+          print(old)
+          let new = !old
+          owner.campsiteHeaderViewModel.isLiked.accept(new)
+          owner.detailUseCase.requestSaveLikeState(campsite: campsite)
         }
         .disposed(by: disposeBag)
       
-      headerAction
-        .capture(case: HeaderCellAction.campsitePager)
-        .withUnretained(self)
-        .bind { owner, arg in
-          let (_, url) = arg
-          owner.coordinator?.navigateToFlowZoom(with: url)
+      campsiteHeaderViewModel.pagerViewDidTapped
+        .subscribe { [weak self] url in
+          self?.coordinator?.navigateToFlowZoom(with: url)
         }
         .disposed(by: disposeBag)
+        
       
       input.didSelectItemAt
         .withUnretained(self)
@@ -523,7 +535,7 @@ final class DetailViewModel: ViewModel {
         .flatMapLatest { (owner, eventWithType) in
           let (_, contentType) = eventWithType
           return owner.detailUseCase.requestTouristInfoList(
-            numOfRows: 15, pageNo: 1,
+            numOfRows: 20, pageNo: 1,
             contentTypeId: contentType,
             coordinate: Coordinate(
               latitude: Double(touristInfo.mapY!)!,
@@ -571,12 +583,43 @@ final class DetailViewModel: ViewModel {
         }
         .disposed(by: disposeBag)
       
-      headerAction
-        .capture(case: HeaderCellAction.touristPager)
-        .withUnretained(self)
-        .bind { owner, arg in
-          let (_, url) = arg
-          owner.coordinator?.navigateToFlowZoom(with: url)
+      touristHeaderViewModel.pagerViewDidTapped
+        .subscribe { [weak self] url in
+          self?.coordinator?.navigateToFlowZoom(with: url)
+        }
+        .disposed(by: disposeBag)
+      
+      Observable.combineLatest(
+        touristCommonValue,
+        touristHeaderViewModel.callButtonDidTapped
+      )
+      .subscribe { [weak self] (common, _) in
+        guard let common = common.first else { return }
+        guard let tel = common.tel else { return }
+        guard tel != "" else {
+          self?.noUrlDataAlert.accept(("등록된 번호가 없습니다", "검색 엔진으로 이동하여 검색 하시겠습니까?", common.title!))
+          return
+        }
+        
+        print(tel)
+        self?.callAlert.accept(("해당 번호로 전화를 거시겠습니까?", "📞 " + tel, tel))
+      }
+      .disposed(by: disposeBag)
+      
+      Observable.combineLatest(
+        touristCommonValue,
+        touristHeaderViewModel.reservationButtonDidTapped
+      )
+      .subscribe { [weak self] (common, _) in
+        guard let common = common.first else { return }
+        guard common.homepage != "" else {
+          self?.noUrlDataAlert.accept(("등록된 홈페이지가 없습니다", "검색 엔진으로 이동하여 검색 하시겠습니까?", common.title!))
+          return
+        }
+        guard let urlStr = common.homepage!.htmlToString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+          guard let url = URL(string: urlStr) else { return }
+          guard UIApplication.shared.canOpenURL(url) else { return }
+          UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
         .disposed(by: disposeBag)
       

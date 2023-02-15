@@ -17,18 +17,16 @@ import Kingfisher
 
 final class DetailCampsiteHeaderCell: UICollectionViewCell {
   static let identifier = "DetailCampsiteHeaderCell"
-  private var interactionSetFlag = false
-  
   private var imageDataList = [String]()
-  
   public var disposeBag = DisposeBag()
+  private let isLiked = PublishRelay<Bool>()
   
   private lazy var pagerView: FSPagerView = {
     let pagerView = FSPagerView()
     pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "HeaderPagerViewCell")
     pagerView.itemSize = FSPagerView.automaticSize
     pagerView.isInfinite = true
-    pagerView.automaticSlidingInterval = 6.0
+    pagerView.automaticSlidingInterval = 10.0
     return pagerView
   }()
   
@@ -90,6 +88,11 @@ final class DetailCampsiteHeaderCell: UICollectionViewCell {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    disposeBag = DisposeBag()
+  }
 }
 
 extension DetailCampsiteHeaderCell: ViewRepresentable {
@@ -150,35 +153,34 @@ extension DetailCampsiteHeaderCell: ViewRepresentable {
     } else {
       imageDataList = Array(data.imageDataList[0..<7])
     }
+    
+    isLiked.accept(data.isLiked)
   }
   
-  func viewModel(item: DetailCampsiteHeaderItem) -> Observable<HeaderCellAction>? {
-    if interactionSetFlag == false {
-      interactionSetFlag.toggle()
-      return Observable.merge(
-        callButton.rx.tap
-          .map({ _ in
-            HeaderCellAction.call
-          }),
-        reservationButton.rx.tap
-          .map({ _ in
-            HeaderCellAction.reserve
-          }),
-        visitButton.rx.tap
-          .map({ _ in
-            HeaderCellAction.visit
-          }),
-        likeButton.rx.tap
-          .map({ _ in
-            HeaderCellAction.like
-          }),
-        pagerViewDidTapped
-          .map({ urlStr in
-            HeaderCellAction.campsitePager(item, urlStr)
-          })
-      )
+  func configure(with viewModel: DetailCampsiteHeaderCellViewModel) {
+    viewModel.isLiked
+      .bind(to: self.isLiked)
+      .disposed(by: disposeBag)
+    callButton.rx.tap
+      .bind(to: viewModel.callButtonDidTapped)
+      .disposed(by: disposeBag)
+    reservationButton.rx.tap
+      .bind(to: viewModel.reservationButtonDidTapped)
+      .disposed(by: disposeBag)
+    visitButton.rx.tap.bind(to: viewModel.visitButtonDidTapped).disposed(by: disposeBag)
+    likeButton.rx.tap
+      .bind(to: viewModel.likeButtonDidTapped)
+      .disposed(by: disposeBag)
+    self.pagerViewDidTapped
+      .bind(to: viewModel.pagerViewDidTapped)
+      .disposed(by: disposeBag)
+  
+    self.isLiked.subscribe { [weak self] likeState in
+      let image = likeState ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+      self?.likeButton.setImage(image, for: .normal)
+      self?.likeButton.tintColor =  likeState ? .systemRed : .darkGray
     }
-    return nil
+    .disposed(by: disposeBag)
   }
   
   func makeButton(iconName: String, title: String) -> UIButton {
