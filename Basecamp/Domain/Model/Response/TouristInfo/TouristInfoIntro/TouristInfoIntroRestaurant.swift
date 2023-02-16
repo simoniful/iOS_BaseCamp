@@ -14,5 +14,5 @@ struct TouristInfoIntroRestaurant: TouristInfoIntro, PropertyIterable {
   let firstmenu, treatmenu, smoking, packing: String
   let infocenterfood, scalefood, parkingfood, opendatefood: String
   let opentimefood, restdatefood, discountinfofood, chkcreditcardfood: String
-  let reservationfood, lcnsno: String
+  let reservationfood: String
 }

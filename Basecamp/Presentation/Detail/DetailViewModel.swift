@@ -310,7 +310,7 @@ final class DetailViewModel: ViewModel {
           self?.coordinator?.navigateToFlowZoom(with: url)
         }
         .disposed(by: disposeBag)
-        
+      
       
       input.didSelectItemAt
         .withUnretained(self)
@@ -617,11 +617,52 @@ final class DetailViewModel: ViewModel {
           return
         }
         guard let urlStr = common.homepage!.htmlToString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-          guard let url = URL(string: urlStr) else { return }
-          guard UIApplication.shared.canOpenURL(url) else { return }
-          UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        guard let url = URL(string: urlStr) else { return }
+        guard UIApplication.shared.canOpenURL(url) else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+      }
+      .disposed(by: disposeBag)
+      
+      Observable.combineLatest(
+        touristCommonValue,
+        input.shareButtonDidTapped.asObservable()
+      )
+      .subscribe { [weak self] (common, _) in
+        guard let common = common.first else { return }
+        if ShareApi.isKakaoTalkSharingAvailable(){
+          let appLink = Link(iosExecutionParams: ["second": "vvv"])
+          let button = Button(title: "앱에서 보기", link: appLink)
+          let imageUrl = touristInfo.mainImage!.isEmpty ? "https://images2.imgbox.com/3d/34/7xkF2x0U_o.png" : touristInfo.mainImage
+          var description: String = ""
+          description += common.homepage!.isEmpty ? "" : "홈페이지: " +
+          common.homepage!.htmlToString
+          let content = Content(title: touristInfo.title!,
+                                imageUrl: URL(string: imageUrl!)!,
+                                description: description,
+                                link: appLink)
+          let template = FeedTemplate(content: content, buttons: [button])
+          
+          if let templateJsonData = (try? SdkJSONEncoder.custom.encode(template)) {
+            
+            if let templateJsonObject = SdkUtils.toJsonObject(templateJsonData) {
+              ShareApi.shared.shareDefault(templateObject:templateJsonObject) {(linkResult, error) in
+                if let error = error {
+                  print("error : \(error)")
+                }
+                else {
+                  print("defaultLink(templateObject:templateJsonObject) success.")
+                  guard let linkResult = linkResult else { return }
+                  UIApplication.shared.open(linkResult.url, options: [:], completionHandler: nil)
+                }
+              }
+            }
+          }
         }
-        .disposed(by: disposeBag)
+        else {
+          print("카카오톡 미설치")
+        }
+      }
+      .disposed(by: disposeBag)
       
       // MARK: - CLLocation Control
       input.isAutorizedLocation

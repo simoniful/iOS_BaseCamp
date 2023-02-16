@@ -78,7 +78,6 @@
 		F49034762949B88C00CDE442 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F49034752949B88C00CDE442 /* SnapKit */; };
 		F490347D2949B99400CDE442 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = F490347C2949B99400CDE442 /* Moya */; };
 		F490347F2949B99400CDE442 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F490347E2949B99400CDE442 /* RxMoya */; };
-		F49034822949B9B300CDE442 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = F49034812949B9B300CDE442 /* RxKeyboard */; };
 		F49034852949BA3300CDE442 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F49034842949BA3300CDE442 /* Realm */; };
 		F49034872949BA3300CDE442 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F49034862949BA3300CDE442 /* RealmSwift */; };
 		F490348A2949BA5B00CDE442 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = F49034892949BA5B00CDE442 /* Differentiator */; };
@@ -164,6 +163,9 @@
 		F4D90CAE299A398D00B12D6B /* MyPageSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D90CAD299A398D00B12D6B /* MyPageSettingViewModel.swift */; };
 		F4D90CB0299A3D7000B12D6B /* MyPageNoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D90CAF299A3D7000B12D6B /* MyPageNoticeCell.swift */; };
 		F4D90CB2299B4D8700B12D6B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D90CB1299B4D8700B12D6B /* UIViewController.swift */; };
+		F4DEE3B4299DD3D100C37A78 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F4DEE3B3299DD3D100C37A78 /* Kingfisher */; };
+		F4DEE3B8299E23A500C37A78 /* MyPageReviewCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4DEE3B7299E23A500C37A78 /* MyPageReviewCardCell.xib */; };
+		F4DEE3BA299E23BB00C37A78 /* MyPageReviewCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DEE3B9299E23BB00C37A78 /* MyPageReviewCardCell.swift */; };
 		F4E2A7922990F09E00B8EF4F /* DayRangeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */; };
 		F4E2A7D029922C7200B8EF4F /* DetailReviewRateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7CF29922C7200B8EF4F /* DetailReviewRateSelectViewController.swift */; };
 		F4E2A7D229923F3800B8EF4F /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7D129923F3800B8EF4F /* UILabel.swift */; };
@@ -220,7 +222,6 @@
 		F4E3E5F0295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5EF295E9581009AFCFC /* TouristInfoAreaCodeRequestDTO.swift */; };
 		F4E3E5F2295EA028009AFCFC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5F1295EA028009AFCFC /* Date.swift */; };
 		F4E3E5F529604B43009AFCFC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5F429604B43009AFCFC /* String.swift */; };
-		F4E3E5F82961CD41009AFCFC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F4E3E5F72961CD41009AFCFC /* Kingfisher */; };
 		F4F0E0742963F4850006C9D4 /* DetailCampsiteHeaderStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0732963F4850006C9D4 /* DetailCampsiteHeaderStackView.swift */; };
 		F4F0E0762963FE870006C9D4 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0752963FE870006C9D4 /* UIButton.swift */; };
 		F4F0E079296459EC0006C9D4 /* YoutubeQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E078296459EC0006C9D4 /* YoutubeQuery.swift */; };
@@ -441,6 +442,8 @@
 		F4D90CAD299A398D00B12D6B /* MyPageSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSettingViewModel.swift; sourceTree = "<group>"; };
 		F4D90CAF299A3D7000B12D6B /* MyPageNoticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageNoticeCell.swift; sourceTree = "<group>"; };
 		F4D90CB1299B4D8700B12D6B /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		F4DEE3B7299E23A500C37A78 /* MyPageReviewCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageReviewCardCell.xib; sourceTree = "<group>"; };
+		F4DEE3B9299E23BB00C37A78 /* MyPageReviewCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageReviewCardCell.swift; sourceTree = "<group>"; };
 		F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRangeIndicatorView.swift; sourceTree = "<group>"; };
 		F4E2A7CF29922C7200B8EF4F /* DetailReviewRateSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewRateSelectViewController.swift; sourceTree = "<group>"; };
 		F4E2A7D129923F3800B8EF4F /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
@@ -555,7 +558,7 @@
 				F40DDFC7298FF77800D05C2A /* KakaoSDKTemplate in Frameworks */,
 				F49034922949BB5500CDE442 /* RxGesture in Frameworks */,
 				F4F0E08A296473D30006C9D4 /* Tabman in Frameworks */,
-				F49034822949B9B300CDE442 /* RxKeyboard in Frameworks */,
+				F4DEE3B4299DD3D100C37A78 /* Kingfisher in Frameworks */,
 				F40DDFCF2990D16300D05C2A /* Cosmos in Frameworks */,
 				F49034852949BA3300CDE442 /* Realm in Frameworks */,
 				F4E3E5A4295460A5009AFCFC /* EnumKit in Frameworks */,
@@ -563,7 +566,6 @@
 				F49034612949B63600CDE442 /* Toast in Frameworks */,
 				F490348C2949BA5B00CDE442 /* RxDataSources in Frameworks */,
 				F49034872949BA3300CDE442 /* RealmSwift in Frameworks */,
-				F4E3E5F82961CD41009AFCFC /* Kingfisher in Frameworks */,
 				F49034762949B88C00CDE442 /* SnapKit in Frameworks */,
 				F4F0E0E7296D98980006C9D4 /* FSPagerView in Frameworks */,
 				49BE202A0CBF2B71DE84E141 /* Pods_Basecamp.framework in Frameworks */,
@@ -1045,8 +1047,8 @@
 			children = (
 				F4D10EDC294981ED000C02E0 /* Common */,
 				F4D10EDD294981FB000C02E0 /* TabBar */,
-				F4FD50952962C16500FA3CB3 /* Detail */,
 				F4D10EE52949854B000C02E0 /* Home */,
+				F4FD50952962C16500FA3CB3 /* Detail */,
 				F45C09F3297157BC0075E1AC /* Search */,
 				F45C09F4297157DF0075E1AC /* List */,
 				F45C0A73298630E70075E1AC /* Map */,
@@ -1367,6 +1369,8 @@
 			children = (
 				F4D90C9A299A098C00B12D6B /* MyPageReviewViewController.swift */,
 				F4D90CA1299A392000B12D6B /* MyPageReviewViewModel.swift */,
+				F4DEE3B7299E23A500C37A78 /* MyPageReviewCardCell.xib */,
+				F4DEE3B9299E23BB00C37A78 /* MyPageReviewCardCell.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -1800,7 +1804,6 @@
 				F49034752949B88C00CDE442 /* SnapKit */,
 				F490347C2949B99400CDE442 /* Moya */,
 				F490347E2949B99400CDE442 /* RxMoya */,
-				F49034812949B9B300CDE442 /* RxKeyboard */,
 				F49034842949BA3300CDE442 /* Realm */,
 				F49034862949BA3300CDE442 /* RealmSwift */,
 				F49034892949BA5B00CDE442 /* Differentiator */,
@@ -1808,7 +1811,6 @@
 				F49034912949BB5500CDE442 /* RxGesture */,
 				F4E3E5A3295460A5009AFCFC /* EnumKit */,
 				F4E3E5A6295460D6009AFCFC /* RxEnumKit */,
-				F4E3E5F72961CD41009AFCFC /* Kingfisher */,
 				F4F0E089296473D30006C9D4 /* Tabman */,
 				F4F0E0E6296D98980006C9D4 /* FSPagerView */,
 				F45C0A5629810EC00075E1AC /* DropDown */,
@@ -1817,6 +1819,7 @@
 				F40DDFC6298FF77800D05C2A /* KakaoSDKTemplate */,
 				F40DDFCE2990D16300D05C2A /* Cosmos */,
 				F4E2A7DB2992A03100B8EF4F /* FMPhotoPicker */,
+				F4DEE3B3299DD3D100C37A78 /* Kingfisher */,
 			);
 			productName = Basecamp;
 			productReference = F4D10EA129497831000C02E0 /* Basecamp.app */;
@@ -1898,19 +1901,18 @@
 				F490345F2949B63600CDE442 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				F49034742949B88C00CDE442 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F490347B2949B99400CDE442 /* XCRemoteSwiftPackageReference "Moya" */,
-				F49034802949B9B300CDE442 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
 				F49034832949BA3300CDE442 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				F49034882949BA5B00CDE442 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				F49034902949BB5500CDE442 /* XCRemoteSwiftPackageReference "RxGesture" */,
 				F4E3E5A2295460A5009AFCFC /* XCRemoteSwiftPackageReference "EnumKit" */,
 				F4E3E5A5295460D6009AFCFC /* XCRemoteSwiftPackageReference "RxEnumKit" */,
-				F4E3E5F62961CD41009AFCFC /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F4F0E088296473D30006C9D4 /* XCRemoteSwiftPackageReference "Tabman" */,
 				F4F0E0E5296D98970006C9D4 /* XCRemoteSwiftPackageReference "FSPagerView" */,
 				F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */,
 				F40DDFC1298FF77800D05C2A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				F40DDFCD2990D16300D05C2A /* XCRemoteSwiftPackageReference "Cosmos" */,
 				F4E2A7DA2992A03100B8EF4F /* XCRemoteSwiftPackageReference "FMPhotoPicker" */,
+				F4DEE3B2299DD3D100C37A78 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = F4D10EA229497831000C02E0 /* Products */;
 			projectDirPath = "";
@@ -1932,6 +1934,7 @@
 				F4D10EB129497833000C02E0 /* LaunchScreen.storyboard in Resources */,
 				F4FD50902962851600FA3CB3 /* goCampingData.json in Resources */,
 				F4D10F492949AD4A000C02E0 /* NotoSansKR-Regular.otf in Resources */,
+				F4DEE3B8299E23A500C37A78 /* MyPageReviewCardCell.xib in Resources */,
 				F4D10EAE29497833000C02E0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2120,6 +2123,7 @@
 				F40DDFCA2990AEFE00D05C2A /* DetailReviewDateSelectViewController.swift in Sources */,
 				F4E3E5CF295DA92E009AFCFC /* TouristInfoIntroCulture.swift in Sources */,
 				F4E3E5C9295D8342009AFCFC /* TouristInfoImageResponseDTO.swift in Sources */,
+				F4DEE3BA299E23BB00C37A78 /* MyPageReviewCardCell.swift in Sources */,
 				F4E3E5EE295E9574009AFCFC /* TouristInfoImageRequestDTO.swift in Sources */,
 				F4E3E5B5295D3053009AFCFC /* TouristInfoResponseDTO.swift in Sources */,
 				F45C0A04297258E00075E1AC /* FilterMainViewModel.swift in Sources */,
@@ -2732,14 +2736,6 @@
 				minimumVersion = 15.0.0;
 			};
 		};
-		F49034802949B9B300CDE442 /* XCRemoteSwiftPackageReference "RxKeyboard" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RxSwiftCommunity/RxKeyboard";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 		F49034832949BA3300CDE442 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift";
@@ -2764,6 +2760,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		F4DEE3B2299DD3D100C37A78 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		F4E2A7DA2992A03100B8EF4F /* XCRemoteSwiftPackageReference "FMPhotoPicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/congnd/FMPhotoPicker.git";
@@ -2786,14 +2790,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
-			};
-		};
-		F4E3E5F62961CD41009AFCFC /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
 			};
 		};
 		F4F0E088296473D30006C9D4 /* XCRemoteSwiftPackageReference "Tabman" */ = {
@@ -2860,11 +2856,6 @@
 			package = F490347B2949B99400CDE442 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
 		};
-		F49034812949B9B300CDE442 /* RxKeyboard */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F49034802949B9B300CDE442 /* XCRemoteSwiftPackageReference "RxKeyboard" */;
-			productName = RxKeyboard;
-		};
 		F49034842949BA3300CDE442 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F49034832949BA3300CDE442 /* XCRemoteSwiftPackageReference "realm-swift" */;
@@ -2890,6 +2881,11 @@
 			package = F49034902949BB5500CDE442 /* XCRemoteSwiftPackageReference "RxGesture" */;
 			productName = RxGesture;
 		};
+		F4DEE3B3299DD3D100C37A78 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4DEE3B2299DD3D100C37A78 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		F4E2A7DB2992A03100B8EF4F /* FMPhotoPicker */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F4E2A7DA2992A03100B8EF4F /* XCRemoteSwiftPackageReference "FMPhotoPicker" */;
@@ -2904,11 +2900,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F4E3E5A5295460D6009AFCFC /* XCRemoteSwiftPackageReference "RxEnumKit" */;
 			productName = RxEnumKit;
-		};
-		F4E3E5F72961CD41009AFCFC /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F4E3E5F62961CD41009AFCFC /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 		F4F0E089296473D30006C9D4 /* Tabman */ = {
 			isa = XCSwiftPackageProductDependency;

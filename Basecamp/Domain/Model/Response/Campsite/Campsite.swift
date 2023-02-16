@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-struct Campsite: HomeItem, Codable {
+struct Campsite: HomeItem, Codable, Equatable {
   let _id: ObjectId
   let contentID: String
   let facltNm: String

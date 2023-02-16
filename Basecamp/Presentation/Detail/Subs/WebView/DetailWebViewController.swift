@@ -71,7 +71,6 @@ final class DetailWebViewController: UIViewController {
 
     let baseURL = data.url?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     guard let url = URL(string: baseURL!) else { return }
-    let requset = URLRequest(url: url)
     
     let configuration = WKWebViewConfiguration()
     scriptMessageHandler = ScriptMessageHandler(configuration: configuration, delegate: self)

@@ -315,8 +315,7 @@ struct TouristInfoIntroResponseDTO_RestaurantItem: Codable, TouristInfoIntroResp
       restdatefood: restdatefood ?? "",
       discountinfofood: discountinfofood ?? "",
       chkcreditcardfood: chkcreditcardfood ?? "",
-      reservationfood: reservationfood ?? "",
-      lcnsno: lcnsno ?? ""
+      reservationfood: reservationfood ?? ""
     )
   }
 }

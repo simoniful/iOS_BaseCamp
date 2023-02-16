@@ -27,23 +27,21 @@ final class MyPageViewModel: ViewModel {
     let data: Driver<[MyMenuCase]>
   }
   
-  // private lazy var likeViewModel =
-  
-  
   var disposeBag = DisposeBag()
   private let data = BehaviorRelay<[MyMenuCase]>(value: [.notice, .like(0), .review(0), .info, .setting])
   
   func transform(input: Input) -> Output {
     input.didSelectItemAt
       .emit { [weak self] (menu, index) in
-        self?.coordinator?.showSubViewController(type: menu)
+        guard let useCase = self?.myPageUseCase else { return }
+        self?.coordinator?.showSubViewController(type: menu, useCase: useCase)
       }
       .disposed(by: disposeBag)
     
     input.viewWillAppear
       .withUnretained(self)
       .emit { (owner, _) in
-        let count = owner.myPageUseCase.requestRealmData()
+        let count = owner.myPageUseCase.requestRealmDataCount()
         owner.data.accept([.notice, .like(count.0), .review(count.1), .info, .setting])
       }
       .disposed(by: disposeBag)

@@ -39,7 +39,7 @@ final class MyPageCoordinator: NSObject, Coordinator {
     detailCoordinator.start()
   }
   
-  func showSubViewController(type: MyMenuCase) {
+  func showSubViewController(type: MyMenuCase, useCase: MyPageUseCase) {
     switch type {
     case .notice:
       let viewController = MyPageNoticeViewController(
@@ -50,7 +50,14 @@ final class MyPageCoordinator: NSObject, Coordinator {
       viewController.title = "공지사항"
       navigationController.pushViewController(viewController, animated: true)
     case .like:
-      break
+      let viewController = MyPageLikeViewController(
+        viewModel: MyPageLikeViewModel(
+          coordinator: self,
+          myPageUseCase: useCase
+        )
+      )
+      viewController.title = "관심 캠핑장"
+      navigationController.pushViewController(viewController, animated: true)
     case .review:
       break
     case .info:

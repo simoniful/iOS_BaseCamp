@@ -55,8 +55,8 @@ final class HomeViewModel: ViewModel {
       }
     
     let campsiteThemeValue = input.viewWillAppear
-      .compactMap { _ in
-        self.homeUseCase.requestCampsiteThemeList()
+      .compactMap { [weak self] _ in
+        self?.homeUseCase.requestCampsiteThemeList()
       }
     
     let touristInfoResult = input.viewDidLoad

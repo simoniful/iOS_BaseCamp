@@ -15,10 +15,26 @@ final class MyPageUseCase {
   }
   
   // MARK: - 램 데이터베이스 레포 연결
-  func requestRealmData() -> (Int, Int) {
+  func requestRealmDataCount() -> (Int, Int) {
     let likedCampsiteCount = realmRepository.loadCampsite().count
     let completedCampsiteCount = realmRepository.loadReview().count
     
     return (likedCampsiteCount, completedCampsiteCount)
+  }
+  
+  func requestLikedCampsiteData() -> [Campsite] {
+    let data = realmRepository.loadCampsite()
+    return data
+  }
+  
+  func updateLikedCampsiteData(campsites: [Campsite]) {
+    campsites.forEach {
+      realmRepository.updateCampsite(campsite: $0)
+    }
+  }
+  
+  func requestReviewData() -> [Review] {
+    let data = realmRepository.loadReview()
+    return data
   }
 }
