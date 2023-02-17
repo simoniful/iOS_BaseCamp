@@ -21,6 +21,7 @@
 		F40DDFC7298FF77800D05C2A /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFC6298FF77800D05C2A /* KakaoSDKTemplate */; };
 		F40DDFCA2990AEFE00D05C2A /* DetailReviewDateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFC92990AEFD00D05C2A /* DetailReviewDateSelectViewController.swift */; };
 		F40DDFCF2990D16300D05C2A /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFCE2990D16300D05C2A /* Cosmos */; };
+		F44B1D9D299F8E1D0053CAB4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F44B1D9C299F8E1D0053CAB4 /* SnapKit */; };
 		F45C09DF296DB6730075E1AC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DE296DB6730075E1AC /* AlertView.swift */; };
 		F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E0296EB8130075E1AC /* StackingLabel.swift */; };
 		F45C09E3296F03070075E1AC /* DetailViewSectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */; };
@@ -75,7 +76,6 @@
 		F46BFB7B29632451007EB676 /* NaverBlogRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB7A29632451007EB676 /* NaverBlogRepositoryInterface.swift */; };
 		F46BFB7D29632465007EB676 /* YoutubeRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB7C29632465007EB676 /* YoutubeRepositoryInterface.swift */; };
 		F49034612949B63600CDE442 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = F49034602949B63600CDE442 /* Toast */; };
-		F49034762949B88C00CDE442 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F49034752949B88C00CDE442 /* SnapKit */; };
 		F490347D2949B99400CDE442 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = F490347C2949B99400CDE442 /* Moya */; };
 		F490347F2949B99400CDE442 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F490347E2949B99400CDE442 /* RxMoya */; };
 		F49034852949BA3300CDE442 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F49034842949BA3300CDE442 /* Realm */; };
@@ -552,6 +552,7 @@
 				F45C0A5729810EC00075E1AC /* DropDown in Frameworks */,
 				F4E3E5A7295460D6009AFCFC /* RxEnumKit in Frameworks */,
 				F490348A2949BA5B00CDE442 /* Differentiator in Frameworks */,
+				F44B1D9D299F8E1D0053CAB4 /* SnapKit in Frameworks */,
 				F490347D2949B99400CDE442 /* Moya in Frameworks */,
 				F4E2A7DC2992A03100B8EF4F /* FMPhotoPicker in Frameworks */,
 				F490347F2949B99400CDE442 /* RxMoya in Frameworks */,
@@ -566,7 +567,6 @@
 				F49034612949B63600CDE442 /* Toast in Frameworks */,
 				F490348C2949BA5B00CDE442 /* RxDataSources in Frameworks */,
 				F49034872949BA3300CDE442 /* RealmSwift in Frameworks */,
-				F49034762949B88C00CDE442 /* SnapKit in Frameworks */,
 				F4F0E0E7296D98980006C9D4 /* FSPagerView in Frameworks */,
 				49BE202A0CBF2B71DE84E141 /* Pods_Basecamp.framework in Frameworks */,
 				F40DDFC3298FF77800D05C2A /* KakaoSDKShare in Frameworks */,
@@ -1801,7 +1801,6 @@
 			name = Basecamp;
 			packageProductDependencies = (
 				F49034602949B63600CDE442 /* Toast */,
-				F49034752949B88C00CDE442 /* SnapKit */,
 				F490347C2949B99400CDE442 /* Moya */,
 				F490347E2949B99400CDE442 /* RxMoya */,
 				F49034842949BA3300CDE442 /* Realm */,
@@ -1820,6 +1819,7 @@
 				F40DDFCE2990D16300D05C2A /* Cosmos */,
 				F4E2A7DB2992A03100B8EF4F /* FMPhotoPicker */,
 				F4DEE3B3299DD3D100C37A78 /* Kingfisher */,
+				F44B1D9C299F8E1D0053CAB4 /* SnapKit */,
 			);
 			productName = Basecamp;
 			productReference = F4D10EA129497831000C02E0 /* Basecamp.app */;
@@ -1899,7 +1899,6 @@
 			mainGroup = F4D10E9829497831000C02E0;
 			packageReferences = (
 				F490345F2949B63600CDE442 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
-				F49034742949B88C00CDE442 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F490347B2949B99400CDE442 /* XCRemoteSwiftPackageReference "Moya" */,
 				F49034832949BA3300CDE442 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				F49034882949BA5B00CDE442 /* XCRemoteSwiftPackageReference "RxDataSources" */,
@@ -1913,6 +1912,7 @@
 				F40DDFCD2990D16300D05C2A /* XCRemoteSwiftPackageReference "Cosmos" */,
 				F4E2A7DA2992A03100B8EF4F /* XCRemoteSwiftPackageReference "FMPhotoPicker" */,
 				F4DEE3B2299DD3D100C37A78 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				F44B1D9B299F8E1D0053CAB4 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = F4D10EA229497831000C02E0 /* Products */;
 			projectDirPath = "";
@@ -2704,6 +2704,14 @@
 				kind = branch;
 			};
 		};
+		F44B1D9B299F8E1D0053CAB4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
 		F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AssistoLab/DropDown";
@@ -2715,14 +2723,6 @@
 		F490345F2949B63600CDE442 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		F49034742949B88C00CDE442 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
@@ -2831,6 +2831,11 @@
 			package = F40DDFCD2990D16300D05C2A /* XCRemoteSwiftPackageReference "Cosmos" */;
 			productName = Cosmos;
 		};
+		F44B1D9C299F8E1D0053CAB4 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F44B1D9B299F8E1D0053CAB4 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		F45C0A5629810EC00075E1AC /* DropDown */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */;
@@ -2840,11 +2845,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F490345F2949B63600CDE442 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
-		};
-		F49034752949B88C00CDE442 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F49034742949B88C00CDE442 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
 		};
 		F490347C2949B99400CDE442 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;

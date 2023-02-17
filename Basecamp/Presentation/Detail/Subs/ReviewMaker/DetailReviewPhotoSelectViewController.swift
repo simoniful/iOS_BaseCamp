@@ -104,12 +104,14 @@ extension DetailReviewPhotoSelectViewController: ViewRepresentable {
     config.mediaTypes = mediaTypes
     config.maxImage = 5
     config.forceCropEnabled = true
-    config.eclipsePreviewEnabled = true
+    // config.eclipsePreviewEnabled = true
     
     // in force crop mode, only the first crop option is available
     config.availableCrops = [
       FMCrop.ratio9x16
     ]
+    config.useCropFirst = true
+    config.alertController = FMCustomAlert()
     
     // all available filters will be used
     config.availableFilters = []
@@ -120,7 +122,7 @@ extension DetailReviewPhotoSelectViewController: ViewRepresentable {
       "picker_warning_over_video_select_format":  "최대 %d개의 동영상만 선택할 수 있습니다",
       "present_title_photo_created_date_format":  "yyyy.MM.dd",
       "present_button_back":                      "뒤로",
-      "present_button_edit_image":                "수정 완료",
+      "present_button_edit_image":                "이미지 수정",
       "editor_button_cancel":                     "취소",
       "editor_button_done":                       "완료",
       "editor_menu_filter":                       "필터",
@@ -166,6 +168,17 @@ extension DetailReviewPhotoSelectViewController: FMPhotoPickerViewControllerDele
       imageView.image = thumbnail
     }
     selectedItems = photos
+  }
+}
+
+struct FMCustomAlert: FMAlertable {
+  func show(in viewController: UIViewController, ok: @escaping () -> Void, cancel: @escaping () -> Void) {
+    let alert = UIAlertController(title: "작업을 취소하시겠습니까?", message: nil, preferredStyle: .alert)
+    
+    alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: { _ in ok() }))
+    alert.addAction(UIAlertAction(title: "취소", style: .default, handler: { _ in cancel() }))
+    
+    viewController.present(alert, animated: true, completion: nil)
   }
 }
 

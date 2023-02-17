@@ -62,35 +62,47 @@ struct DetailReviewMakerViewModel {
     }
     
     reviewMakerUseCase.requestSaveReview(review: review)
-    saveImageToDocuments(imageName: review._id.stringValue, image: photos.first!)
+    saveImageToDocuments(imageName: review._id.stringValue, images: photos)
     coordinator?.navigationController.view.makeToast("캠핑로그 저장완료!")
   }
   
-  func saveImageToDocuments(imageName: String, image: UIImage) {
-      guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-      let imagesDirectoryURL = documentDirectory.appendingPathComponent("images")
-      if !(FileManager.default.fileExists(atPath: imagesDirectoryURL.path)) {
-          do {
-              try FileManager.default.createDirectory(atPath: imagesDirectoryURL.path, withIntermediateDirectories: false, attributes: nil)
-          } catch let error {
-              print(error.localizedDescription)
-          }
+  func saveImageToDocuments(imageName: String, images: [UIImage]) {
+    guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+    let imagesDirectoryURL = documentDirectory.appendingPathComponent("images")
+    if !(FileManager.default.fileExists(atPath: imagesDirectoryURL.path)) {
+      do {
+        try FileManager.default.createDirectory(atPath: imagesDirectoryURL.path, withIntermediateDirectories: false, attributes: nil)
+      } catch let error {
+        print(error.localizedDescription)
       }
-      let imageURL = imagesDirectoryURL.appendingPathComponent(imageName)
+    }
+    
+    let reviewIdDirectoryURL = imagesDirectoryURL.appendingPathComponent(imageName)
+    if !(FileManager.default.fileExists(atPath: reviewIdDirectoryURL.path)) {
+      do {
+        try FileManager.default.createDirectory(atPath: reviewIdDirectoryURL.path, withIntermediateDirectories: false, attributes: nil)
+      } catch let error {
+        print(error.localizedDescription)
+      }
+    }
+    
+    for (index, image) in images.enumerated() {
+      let imageURL = reviewIdDirectoryURL.appendingPathComponent("\(index)")
       let image = image.resize(newWidth: UIScreen.main.bounds.width * 2)
       guard let data = image.jpegData(compressionQuality: 0.3) else { return }
       if FileManager.default.fileExists(atPath: imageURL.path) {
-          do {
-              try FileManager.default.removeItem(at: imageURL)
-              print("이미지 삭제 완료")
-          } catch {
-              print("이미지 삭제 실패")
-          }
+        do {
+          try FileManager.default.removeItem(at: imageURL)
+          print("이미지 삭제 완료")
+        } catch {
+          print("이미지 삭제 실패")
+        }
       }
       do {
-          try data.write(to: imageURL)
+        try data.write(to: imageURL)
       } catch {
-          print("이미지 저장 실패")
+        print("이미지 저장 실패")
       }
+    }
   }
 }
