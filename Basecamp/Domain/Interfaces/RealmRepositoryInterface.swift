@@ -21,6 +21,7 @@ protocol RealmRepositoryInterface: AnyObject {
   func updateCampsite(campsite: Campsite)
   
   func loadReview() -> [Review]
+  func loadReview(query: String, startDate: Date, endDate: Date) -> [Review]
   func saveReview(review: Review)
   func updateReveiw(review: Review)
   func deleteReview(review: Review)

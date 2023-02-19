@@ -20,7 +20,6 @@
 		F40DDFC5298FF77800D05C2A /* KakaoSDKTalk in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFC4298FF77800D05C2A /* KakaoSDKTalk */; };
 		F40DDFC7298FF77800D05C2A /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFC6298FF77800D05C2A /* KakaoSDKTemplate */; };
 		F40DDFCA2990AEFE00D05C2A /* DetailReviewDateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFC92990AEFD00D05C2A /* DetailReviewDateSelectViewController.swift */; };
-		F40DDFCF2990D16300D05C2A /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFCE2990D16300D05C2A /* Cosmos */; };
 		F44B1D9D299F8E1D0053CAB4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F44B1D9C299F8E1D0053CAB4 /* SnapKit */; };
 		F45C09DF296DB6730075E1AC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DE296DB6730075E1AC /* AlertView.swift */; };
 		F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E0296EB8130075E1AC /* StackingLabel.swift */; };
@@ -257,7 +256,8 @@
 		F4F0E0C8296BC0E10006C9D4 /* DetailCampsiteInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C7296BC0E00006C9D4 /* DetailCampsiteInfoStackView.swift */; };
 		F4F0E0CA296BC4CC0006C9D4 /* DetailInfoPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C9296BC4CC0006C9D4 /* DetailInfoPlusView.swift */; };
 		F4F0E0CE296C02100006C9D4 /* DetailAroundSubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0CD296C02100006C9D4 /* DetailAroundSubCell.swift */; };
-		F4F0E0E7296D98980006C9D4 /* FSPagerView in Frameworks */ = {isa = PBXBuildFile; productRef = F4F0E0E6296D98980006C9D4 /* FSPagerView */; };
+		F4F1DE8D299FDC350023DF83 /* FSPagerViewCustomTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1DE8C299FDC350023DF83 /* FSPagerViewCustomTransformer.swift */; };
+		F4F1DE9029A07AC90023DF83 /* FSPagerView in Frameworks */ = {isa = PBXBuildFile; productRef = F4F1DE8F29A07AC90023DF83 /* FSPagerView */; };
 		F4FD50902962851600FA3CB3 /* goCampingData.json in Resources */ = {isa = PBXBuildFile; fileRef = F4FD508F2962851600FA3CB3 /* goCampingData.json */; };
 		F4FD50922962857600FA3CB3 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50912962857600FA3CB3 /* IndicatorView.swift */; };
 		F4FD50942962BF4F00FA3CB3 /* UICollectionView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */; };
@@ -531,6 +531,7 @@
 		F4F0E0C7296BC0E00006C9D4 /* DetailCampsiteInfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampsiteInfoStackView.swift; sourceTree = "<group>"; };
 		F4F0E0C9296BC4CC0006C9D4 /* DetailInfoPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoPlusView.swift; sourceTree = "<group>"; };
 		F4F0E0CD296C02100006C9D4 /* DetailAroundSubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAroundSubCell.swift; sourceTree = "<group>"; };
+		F4F1DE8C299FDC350023DF83 /* FSPagerViewCustomTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPagerViewCustomTransformer.swift; sourceTree = "<group>"; };
 		F4FD508F2962851600FA3CB3 /* goCampingData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goCampingData.json; sourceTree = "<group>"; };
 		F4FD50912962857600FA3CB3 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Rx.swift"; sourceTree = "<group>"; };
@@ -551,6 +552,7 @@
 			files = (
 				F45C0A5729810EC00075E1AC /* DropDown in Frameworks */,
 				F4E3E5A7295460D6009AFCFC /* RxEnumKit in Frameworks */,
+				F4F1DE9029A07AC90023DF83 /* FSPagerView in Frameworks */,
 				F490348A2949BA5B00CDE442 /* Differentiator in Frameworks */,
 				F44B1D9D299F8E1D0053CAB4 /* SnapKit in Frameworks */,
 				F490347D2949B99400CDE442 /* Moya in Frameworks */,
@@ -560,14 +562,12 @@
 				F49034922949BB5500CDE442 /* RxGesture in Frameworks */,
 				F4F0E08A296473D30006C9D4 /* Tabman in Frameworks */,
 				F4DEE3B4299DD3D100C37A78 /* Kingfisher in Frameworks */,
-				F40DDFCF2990D16300D05C2A /* Cosmos in Frameworks */,
 				F49034852949BA3300CDE442 /* Realm in Frameworks */,
 				F4E3E5A4295460A5009AFCFC /* EnumKit in Frameworks */,
 				F40DDFC5298FF77800D05C2A /* KakaoSDKTalk in Frameworks */,
 				F49034612949B63600CDE442 /* Toast in Frameworks */,
 				F490348C2949BA5B00CDE442 /* RxDataSources in Frameworks */,
 				F49034872949BA3300CDE442 /* RealmSwift in Frameworks */,
-				F4F0E0E7296D98980006C9D4 /* FSPagerView in Frameworks */,
 				49BE202A0CBF2B71DE84E141 /* Pods_Basecamp.framework in Frameworks */,
 				F40DDFC3298FF77800D05C2A /* KakaoSDKShare in Frameworks */,
 			);
@@ -1371,6 +1371,7 @@
 				F4D90CA1299A392000B12D6B /* MyPageReviewViewModel.swift */,
 				F4DEE3B7299E23A500C37A78 /* MyPageReviewCardCell.xib */,
 				F4DEE3B9299E23BB00C37A78 /* MyPageReviewCardCell.swift */,
+				F4F1DE8C299FDC350023DF83 /* FSPagerViewCustomTransformer.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -1811,15 +1812,14 @@
 				F4E3E5A3295460A5009AFCFC /* EnumKit */,
 				F4E3E5A6295460D6009AFCFC /* RxEnumKit */,
 				F4F0E089296473D30006C9D4 /* Tabman */,
-				F4F0E0E6296D98980006C9D4 /* FSPagerView */,
 				F45C0A5629810EC00075E1AC /* DropDown */,
 				F40DDFC2298FF77800D05C2A /* KakaoSDKShare */,
 				F40DDFC4298FF77800D05C2A /* KakaoSDKTalk */,
 				F40DDFC6298FF77800D05C2A /* KakaoSDKTemplate */,
-				F40DDFCE2990D16300D05C2A /* Cosmos */,
 				F4E2A7DB2992A03100B8EF4F /* FMPhotoPicker */,
 				F4DEE3B3299DD3D100C37A78 /* Kingfisher */,
 				F44B1D9C299F8E1D0053CAB4 /* SnapKit */,
+				F4F1DE8F29A07AC90023DF83 /* FSPagerView */,
 			);
 			productName = Basecamp;
 			productReference = F4D10EA129497831000C02E0 /* Basecamp.app */;
@@ -1906,13 +1906,12 @@
 				F4E3E5A2295460A5009AFCFC /* XCRemoteSwiftPackageReference "EnumKit" */,
 				F4E3E5A5295460D6009AFCFC /* XCRemoteSwiftPackageReference "RxEnumKit" */,
 				F4F0E088296473D30006C9D4 /* XCRemoteSwiftPackageReference "Tabman" */,
-				F4F0E0E5296D98970006C9D4 /* XCRemoteSwiftPackageReference "FSPagerView" */,
 				F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */,
 				F40DDFC1298FF77800D05C2A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
-				F40DDFCD2990D16300D05C2A /* XCRemoteSwiftPackageReference "Cosmos" */,
 				F4E2A7DA2992A03100B8EF4F /* XCRemoteSwiftPackageReference "FMPhotoPicker" */,
 				F4DEE3B2299DD3D100C37A78 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				F44B1D9B299F8E1D0053CAB4 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F4F1DE8E29A07AC90023DF83 /* XCRemoteSwiftPackageReference "FSPagerView" */,
 			);
 			productRefGroup = F4D10EA229497831000C02E0 /* Products */;
 			projectDirPath = "";
@@ -2243,6 +2242,7 @@
 				F40DDFB9298A744C00D05C2A /* DetailWebViewController.swift in Sources */,
 				F4FD509F2962E0F600FA3CB3 /* DetailViewModel.swift in Sources */,
 				F4E3E5BF295D77B1009AFCFC /* TouristInfoIntroSpot.swift in Sources */,
+				F4F1DE8D299FDC350023DF83 /* FSPagerViewCustomTransformer.swift in Sources */,
 				F4E2A7D229923F3800B8EF4F /* UILabel.swift in Sources */,
 				F4B312A2299C7A7000F9022C /* MyPageNoticeSubHeader.swift in Sources */,
 				F45C0A6A298224AB0075E1AC /* ListTouristViewModel.swift in Sources */,
@@ -2696,14 +2696,6 @@
 				kind = branch;
 			};
 		};
-		F40DDFCD2990D16300D05C2A /* XCRemoteSwiftPackageReference "Cosmos" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		F44B1D9B299F8E1D0053CAB4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -2800,7 +2792,7 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		F4F0E0E5296D98970006C9D4 /* XCRemoteSwiftPackageReference "FSPagerView" */ = {
+		F4F1DE8E29A07AC90023DF83 /* XCRemoteSwiftPackageReference "FSPagerView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSPagerView";
 			requirement = {
@@ -2825,11 +2817,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F40DDFC1298FF77800D05C2A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKTemplate;
-		};
-		F40DDFCE2990D16300D05C2A /* Cosmos */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F40DDFCD2990D16300D05C2A /* XCRemoteSwiftPackageReference "Cosmos" */;
-			productName = Cosmos;
 		};
 		F44B1D9C299F8E1D0053CAB4 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -2906,9 +2893,9 @@
 			package = F4F0E088296473D30006C9D4 /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
 		};
-		F4F0E0E6296D98980006C9D4 /* FSPagerView */ = {
+		F4F1DE8F29A07AC90023DF83 /* FSPagerView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F4F0E0E5296D98970006C9D4 /* XCRemoteSwiftPackageReference "FSPagerView" */;
+			package = F4F1DE8E29A07AC90023DF83 /* XCRemoteSwiftPackageReference "FSPagerView" */;
 			productName = FSPagerView;
 		};
 /* End XCSwiftPackageProductDependency section */

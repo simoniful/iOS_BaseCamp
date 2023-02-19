@@ -11,6 +11,7 @@ import SnapKit
 enum AlertStyle {
   case confirmAndCancel
   case confirm
+  case doubleChoice
 }
 
 final class AlertView: UIView {
@@ -52,6 +53,29 @@ final class AlertView: UIView {
     return button
   }()
   
+  
+  private let someButton: UIButton = {
+    let button = UIButton()
+    button.setTitle("삭제하기", for: .normal)
+    button.titleLabel?.font = .body3R14
+    button.backgroundColor = .main
+    button.setTitleColor(.white, for: .normal)
+    button.layer.masksToBounds = true
+    button.layer.cornerRadius = 11
+    return button
+  }()
+  
+  private let otherButton: UIButton = {
+    let button = UIButton()
+    button.setTitle("캠핑장 보기", for: .normal)
+    button.titleLabel?.font = .body3R14
+    button.backgroundColor = .main
+    button.setTitleColor(.white, for: .normal)
+    button.layer.masksToBounds = true
+    button.layer.cornerRadius = 11
+    return button
+  }()
+  
   private let cancelButton: UIButton = {
     let button = UIButton()
     button.setTitle("취소", for: .normal)
@@ -66,6 +90,8 @@ final class AlertView: UIView {
   private var title: String?
   private var message: String?
   private var completion: (() -> Void)?
+  private var otherCompletion: (() -> Void)?
+  
   private var buttonStyle: AlertStyle = .confirm
   
   override init(frame: CGRect){
@@ -100,6 +126,21 @@ final class AlertView: UIView {
     self.completion = okCompletion
   }
   
+  convenience init(
+    title: String,
+    message: String? = nil,
+    buttonStyle: AlertStyle = .doubleChoice,
+    someCompletion: (() -> Void)?,
+    otherCompletion: (() -> Void)?
+  ) {
+    self.init(frame: CGRect.zero)
+    self.title = title
+    self.message = message
+    self.buttonStyle = buttonStyle
+    self.completion = someCompletion
+    self.otherCompletion = otherCompletion
+  }
+  
   func showAlert() {
     self.setAttributes()
     self.setConstraints()
@@ -112,6 +153,8 @@ final class AlertView: UIView {
     messageLabel.text = message
     confirmButton.addTarget(self, action: #selector(confirmAction), for: .touchUpInside)
     cancelButton.addTarget(self, action: #selector(cancelAction), for: .touchUpInside)
+    someButton.addTarget(self, action: #selector(confirmAction), for: .touchUpInside)
+    otherButton.addTarget(self, action: #selector(otherAction), for: .touchUpInside)
   }
   
   @objc private func confirmAction() {
@@ -120,6 +163,11 @@ final class AlertView: UIView {
   }
   
   @objc private func cancelAction() {
+    removeAnimation()
+  }
+  
+  @objc private func otherAction() {
+    otherCompletion?()
     removeAnimation()
   }
   
@@ -172,6 +220,20 @@ final class AlertView: UIView {
         make.right.bottom.equalToSuperview().offset(-16)
         make.height.equalTo(confirmButton.snp.width).multipliedBy(48 / 343.0)
       }
+    case .doubleChoice:
+      alertView.addSubview(someButton)
+      alertView.addSubview(otherButton)
+      someButton.snp.makeConstraints { make in
+        make.left.equalToSuperview().offset(16)
+        make.bottom.equalToSuperview().offset(-16)
+        make.width.equalToSuperview().offset(-20).dividedBy(2.0)
+        make.height.equalTo(someButton.snp.width).multipliedBy(48 / 152.0)
+      }
+      otherButton.snp.makeConstraints { make in
+        make.right.bottom.equalToSuperview().offset(-16)
+        make.width.equalToSuperview().offset(-20).dividedBy(2.0)
+        make.height.equalTo(otherButton.snp.width).multipliedBy(48 / 152.0)
+      }
     }
   }
   
@@ -196,6 +258,8 @@ final class AlertView: UIView {
         self.confirmButton.removeFromSuperview()
         self.messageLabel.removeFromSuperview()
         self.cancelButton.removeFromSuperview()
+        self.someButton.removeFromSuperview()
+        self.otherButton.removeFromSuperview()
         self.titleLabel.removeFromSuperview()
         self.alertView.removeFromSuperview()
         self.removeFromSuperview()

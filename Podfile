@@ -10,6 +10,7 @@ target 'Basecamp' do
   pod 'HorizonCalendar', '1.16.0'
   pod 'GoogleMaps', '7.3.0'
   pod 'Google-Maps-iOS-Utils', '~> 4.1.0'
+  pod 'Cosmos'
 
   target 'BasecampTests' do
     inherit! :search_paths
@@ -19,5 +20,4 @@ target 'Basecamp' do
   target 'BasecampUITests' do
     # Pods for testing
   end
-
 end

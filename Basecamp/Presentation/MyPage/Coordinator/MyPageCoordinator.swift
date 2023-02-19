@@ -48,6 +48,7 @@ final class MyPageCoordinator: NSObject, Coordinator {
         )
       )
       viewController.title = "공지사항"
+      viewController.hidesBottomBarWhenPushed = true
       navigationController.pushViewController(viewController, animated: true)
     case .like:
       let viewController = MyPageLikeViewController(
@@ -57,9 +58,18 @@ final class MyPageCoordinator: NSObject, Coordinator {
         )
       )
       viewController.title = "관심 캠핑장"
+      viewController.hidesBottomBarWhenPushed = true
       navigationController.pushViewController(viewController, animated: true)
     case .review:
-      break
+      let viewController = MyPageReviewViewController(
+        viewModel: MyPageReviewViewModel(
+          coordinator: self,
+          myPageUseCase: useCase
+        )
+      )
+      viewController.title = "캠핑로그"
+      viewController.hidesBottomBarWhenPushed = true
+      navigationController.pushViewController(viewController, animated: true)
     case .info:
       break
     case .setting:

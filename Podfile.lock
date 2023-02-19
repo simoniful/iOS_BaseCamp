@@ -1,4 +1,5 @@
 PODS:
+  - Cosmos (23.0.0)
   - Google-Maps-iOS-Utils (4.1.0):
     - Google-Maps-iOS-Utils/Clustering (= 4.1.0)
     - Google-Maps-iOS-Utils/Geometry (= 4.1.0)
@@ -27,6 +28,7 @@ PODS:
   - TTGTagCollectionView (2.3.0)
 
 DEPENDENCIES:
+  - Cosmos
   - Google-Maps-iOS-Utils (~> 4.1.0)
   - GoogleMaps (= 7.3.0)
   - HorizonCalendar (= 1.16.0)
@@ -34,17 +36,19 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Cosmos
     - Google-Maps-iOS-Utils
     - GoogleMaps
     - HorizonCalendar
     - TTGTagCollectionView
 
 SPEC CHECKSUMS:
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   Google-Maps-iOS-Utils: 3343332b18dfd5be8f1f44edd7d481ace3da4d9a
   GoogleMaps: a146f275ee429d14822178c7a841c03366ec92a1
   HorizonCalendar: 90d7281cf1cd0cb3fae1d3e53f6f7fd24fda5a0e
   TTGTagCollectionView: 4104f93281097eae5adbf4444811e32f5e52dc95
 
-PODFILE CHECKSUM: f7381d81f6b52722e1ff7f3e5f3fdd8f527ea7a0
+PODFILE CHECKSUM: fbb3a42a1a7a972d9414ca535fed152ea14532c3
 
 COCOAPODS: 1.11.3

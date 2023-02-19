@@ -170,6 +170,7 @@ extension ListViewController {
     DropDown.appearance().selectionBackgroundColor = UIColor.gray1
     DropDown.appearance().setupCornerRadius(8)
     DropDown.appearance().cellHeight = 36.0
+  
     areaDropDown.dismissMode = .automatic
     sigunguDropDown.dismissMode = .automatic
     
@@ -213,13 +214,17 @@ extension ListViewController {
   }
   
   @objc func areaDropdownClicked(_ sender: Any) {
-    areaDropDown.show()
-    self.areaDropDownView.iconImageView.image = UIImage.init(systemName: "chevron.up")
+    if areaDropDown.isHidden {
+      areaDropDown.show()
+      self.areaDropDownView.iconImageView.image = UIImage.init(systemName: "chevron.up")
+    }
   }
   
   @objc func sigunguDropdownClicked(_ sender: Any) {
-    sigunguDropDown.show()
-    self.sigunguDropDownView.iconImageView.image = UIImage.init(systemName: "chevron.up")
+    if sigunguDropDown.isHidden {
+      sigunguDropDown.show()
+      self.sigunguDropDownView.iconImageView.image = UIImage.init(systemName: "chevron.up")
+    }
   }
 }
 

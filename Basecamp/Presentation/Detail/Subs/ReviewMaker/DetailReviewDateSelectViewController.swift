@@ -60,6 +60,15 @@ final class DetailReviewDateSelectViewController: UIViewController {
     }
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    calendarView.scroll(
+      toDayContaining: Date(),
+      scrollPosition: .firstFullyVisiblePosition,
+      animated: true
+    )
+  }
+  
   private func makeContent() -> CalendarViewContent {
     let calendar = Calendar.current
     

@@ -103,6 +103,10 @@ final class RealmStorage {
     return realm.objects(ReviewDTO.self)
   }
   
+  func readReviews(query: String, startDate: Date, endDate: Date) -> Results<ReviewDTO> {
+    return realm.objects(ReviewDTO.self).filter(query, startDate, endDate)
+  }
+  
   func createReview(review: ReviewDTO) {
     try! realm.write {
       realm.add(review)
@@ -115,8 +119,13 @@ final class RealmStorage {
   }
   
   func deleteReview(review: ReviewDTO) {
+    
+    guard let taskToDelete = realm.objects(ReviewDTO.self).filter("_id == %@", review._id).first else { return }
+    
+    print(review._id, taskToDelete._id, "비교")
+    
     try! realm.write {
-      realm.delete(review)
+      realm.delete(taskToDelete)
     }
   }
 }

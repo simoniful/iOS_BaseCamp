@@ -88,6 +88,13 @@ final class RealmRepository: RealmRepositoryInterface {
     }
   }
   
+  func loadReview(query: String, startDate: Date, endDate: Date) -> [Review] {
+    let realmDTO = RealmRepository.storage.readReviews(query: query, startDate: startDate, endDate: endDate).toArray()
+    return realmDTO.map {
+      $0.toDomain()
+    }
+  }
+  
   func saveReview(review: Review) {
     let reviewDTO = ReviewDTO(review: review)
     RealmRepository.storage.createReview(review: reviewDTO)
@@ -98,7 +105,8 @@ final class RealmRepository: RealmRepositoryInterface {
   }
   
   func deleteReview(review: Review) {
-    
+    let reviewDTO = ReviewDTO(review: review)
+    RealmRepository.storage.deleteReview(review: reviewDTO)
   }
 }
 

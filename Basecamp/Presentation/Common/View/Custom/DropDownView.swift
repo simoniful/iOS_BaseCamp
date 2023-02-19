@@ -43,14 +43,14 @@ final class DropDownView: UIView {
   private func setupConstraints() {
     textField.snp.makeConstraints {
       $0.centerY.equalToSuperview()
-      $0.leading.equalToSuperview()
+      $0.leading.equalToSuperview().offset(8.0)
       $0.trailing.equalTo(iconImageView.snp.leading)
     }
     
     iconImageView.snp.makeConstraints {
       $0.centerY.equalToSuperview()
-      $0.trailing.equalToSuperview()
-      $0.width.height.equalTo(20.0)
+      $0.trailing.equalToSuperview().offset(-8.0)
+      $0.width.height.equalTo(16.0)
     }
     
     selectButton.snp.makeConstraints {

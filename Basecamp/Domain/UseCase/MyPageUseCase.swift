@@ -37,4 +37,13 @@ final class MyPageUseCase {
     let data = realmRepository.loadReview()
     return data
   }
+  
+  func requestReviewData(query: String, startDate: Date, endDate: Date) -> [Review] {
+    let data = realmRepository.loadReview(query: query, startDate: startDate, endDate: endDate)
+    return data
+  }
+  
+  func deleteReviewData(review: Review) {
+    realmRepository.deleteReview(review: review)
+  }
 }
