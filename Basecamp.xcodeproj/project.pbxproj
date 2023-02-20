@@ -258,6 +258,8 @@
 		F4F0E0CE296C02100006C9D4 /* DetailAroundSubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0CD296C02100006C9D4 /* DetailAroundSubCell.swift */; };
 		F4F1DE8D299FDC350023DF83 /* FSPagerViewCustomTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1DE8C299FDC350023DF83 /* FSPagerViewCustomTransformer.swift */; };
 		F4F1DE9029A07AC90023DF83 /* FSPagerView in Frameworks */ = {isa = PBXBuildFile; productRef = F4F1DE8F29A07AC90023DF83 /* FSPagerView */; };
+		F4F1DE9329A32AE70023DF83 /* MyPageInfoWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1DE9229A32AE70023DF83 /* MyPageInfoWebViewController.swift */; };
+		F4F1DEA429A3BEB00023DF83 /* MyPageSettingSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1DEA329A3BEB00023DF83 /* MyPageSettingSwitchCell.swift */; };
 		F4FD50902962851600FA3CB3 /* goCampingData.json in Resources */ = {isa = PBXBuildFile; fileRef = F4FD508F2962851600FA3CB3 /* goCampingData.json */; };
 		F4FD50922962857600FA3CB3 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50912962857600FA3CB3 /* IndicatorView.swift */; };
 		F4FD50942962BF4F00FA3CB3 /* UICollectionView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */; };
@@ -532,6 +534,8 @@
 		F4F0E0C9296BC4CC0006C9D4 /* DetailInfoPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoPlusView.swift; sourceTree = "<group>"; };
 		F4F0E0CD296C02100006C9D4 /* DetailAroundSubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAroundSubCell.swift; sourceTree = "<group>"; };
 		F4F1DE8C299FDC350023DF83 /* FSPagerViewCustomTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPagerViewCustomTransformer.swift; sourceTree = "<group>"; };
+		F4F1DE9229A32AE70023DF83 /* MyPageInfoWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageInfoWebViewController.swift; sourceTree = "<group>"; };
+		F4F1DEA329A3BEB00023DF83 /* MyPageSettingSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSettingSwitchCell.swift; sourceTree = "<group>"; };
 		F4FD508F2962851600FA3CB3 /* goCampingData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goCampingData.json; sourceTree = "<group>"; };
 		F4FD50912962857600FA3CB3 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Rx.swift"; sourceTree = "<group>"; };
@@ -759,7 +763,6 @@
 			children = (
 				F45C0A74298631980075E1AC /* MapViewController.swift */,
 				F45C0A76298631A90075E1AC /* MapViewModel.swift */,
-				F462A0E22988C65200C07B74 /* Subs */,
 				F45C0A78298631AD0075E1AC /* Coordinator */,
 			);
 			path = Map;
@@ -771,13 +774,6 @@
 				F45C0A79298631C40075E1AC /* MapCoordinator.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		F462A0E22988C65200C07B74 /* Subs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Subs;
 			sourceTree = "<group>";
 		};
 		F4903497294AB26600CDE442 /* Subs */ = {
@@ -1381,6 +1377,7 @@
 			children = (
 				F4D90CAB299A398200B12D6B /* MyPageSettingViewController.swift */,
 				F4D90CAD299A398D00B12D6B /* MyPageSettingViewModel.swift */,
+				F4F1DEA529A3BEB80023DF83 /* Subs */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -1390,6 +1387,7 @@
 			children = (
 				F4D90CA7299A396300B12D6B /* MyPageInfoViewController.swift */,
 				F4D90CA9299A396F00B12D6B /* MyPageInfoViewModel.swift */,
+				F4F1DE9129A32AAD0023DF83 /* Subs */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -1707,6 +1705,22 @@
 			children = (
 				F4F0E0732963F4850006C9D4 /* DetailCampsiteHeaderStackView.swift */,
 				F45C09E629703D530075E1AC /* DetailTouristInfoHeaderStackView.swift */,
+			);
+			path = Subs;
+			sourceTree = "<group>";
+		};
+		F4F1DE9129A32AAD0023DF83 /* Subs */ = {
+			isa = PBXGroup;
+			children = (
+				F4F1DE9229A32AE70023DF83 /* MyPageInfoWebViewController.swift */,
+			);
+			path = Subs;
+			sourceTree = "<group>";
+		};
+		F4F1DEA529A3BEB80023DF83 /* Subs */ = {
+			isa = PBXGroup;
+			children = (
+				F4F1DEA329A3BEB00023DF83 /* MyPageSettingSwitchCell.swift */,
 			);
 			path = Subs;
 			sourceTree = "<group>";
@@ -2099,6 +2113,7 @@
 				F4FD50972962C18E00FA3CB3 /* DetailViewController.swift in Sources */,
 				F45C0A1D297443C20075E1AC /* SearchHeaderViewModel.swift in Sources */,
 				F45C0A3E297638280075E1AC /* FilterItem.swift in Sources */,
+				F4F1DEA429A3BEB00023DF83 /* MyPageSettingSwitchCell.swift in Sources */,
 				F4D90C902998ED5000B12D6B /* MyPageCoordinator.swift in Sources */,
 				F4D10ED629497C6E000C02E0 /* AppCoordinator.swift in Sources */,
 				F4E3E5DC295E8422009AFCFC /* CampsiteLocationRequestDTO.swift in Sources */,
@@ -2144,6 +2159,7 @@
 				F49034EA29515B5E00CDE442 /* NaverBlogAPIEnvironment.swift in Sources */,
 				F45C0A8729878A540075E1AC /* RxCLLocationManagerDelegateProxy.swift in Sources */,
 				F46BFB7D29632465007EB676 /* YoutubeRepositoryInterface.swift in Sources */,
+				F4F1DE9329A32AE70023DF83 /* MyPageInfoWebViewController.swift in Sources */,
 				F4E3E5C1295D7AF6009AFCFC /* TouristInfoCommonResponseDTO.swift in Sources */,
 				F4F0E099296576120006C9D4 /* DetailAroundTabmanViewController.swift in Sources */,
 				F45C0A4029763BEF0075E1AC /* FilterSubSectionHeader.swift in Sources */,
@@ -2504,8 +2520,11 @@
 				DEVELOPMENT_TEAM = AT2N75TMZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Basecamp/Info.plist;
-				INFOPLIST_KEY_NSLocationUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 권한이 필요합니다.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 권한이 필요합니다.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "해당 기능을 사용하기 위해 카메라에 대한 접근 권한이 필요합니다";
+				INFOPLIST_KEY_NSLocationUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "해당 기능을 사용하기 위해 마이크 사용에 대한 접근 권한이 필요합니다";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "해당 기능을 사용하기 위해 사진첩에 대한 접근 권한이 필요합니다";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
@@ -2541,8 +2560,11 @@
 				DEVELOPMENT_TEAM = AT2N75TMZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Basecamp/Info.plist;
-				INFOPLIST_KEY_NSLocationUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 권한이 필요합니다.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 권한이 필요합니다.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "해당 기능을 사용하기 위해 카메라에 대한 접근 권한이 필요합니다";
+				INFOPLIST_KEY_NSLocationUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 접근 권한이 필요합니다.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "해당 기능을 사용하기 위해 마이크 사용에 대한 접근 권한이 필요합니다";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "해당 기능을 사용하기 위해 사진첩에 대한 접근 권한이 필요합니다";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";

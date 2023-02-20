@@ -50,11 +50,11 @@ final class MyPageViewController: UIViewController {
         cell.imageView?.image = UIImage(systemName: element.icon)
         cell.tintColor = .mainStrong
         cell.textLabel?.text = element.title
+        cell.textLabel?.font = .systemFont(ofSize: 16.0, weight: .regular)
         cell.detailTextLabel?.font = .body4R12
         cell.detailTextLabel?.textColor = .gray7
         switch element {
         case .notice, .info, .setting:
-          cell.textLabel?.font = .systemFont(ofSize: 18.0, weight: .regular)
           cell.detailTextLabel?.text = nil
         case .like(let count):
           cell.detailTextLabel?.text = "\(count)곳"

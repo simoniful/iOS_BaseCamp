@@ -18,8 +18,6 @@ final class MyPageNoticeViewModel: ViewModel {
     self.coordinator = coordinator
   }
   
-  let data = BehaviorRelay<[Notice]>(value: NoticeStorage.notices)
-  
   struct Input {
     let viewDidLoad: Signal<Void>
     let didSelectItemAt: Signal<(Notice, IndexPath)>
@@ -28,6 +26,8 @@ final class MyPageNoticeViewModel: ViewModel {
   struct Output {
     let data: Driver<[Notice]>
   }
+  
+  let data = BehaviorRelay<[Notice]>(value: NoticeStorage.notices)
   
   func transform(input: Input) -> Output {
     input.didSelectItemAt

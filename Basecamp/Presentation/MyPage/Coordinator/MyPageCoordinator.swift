@@ -71,7 +71,15 @@ final class MyPageCoordinator: NSObject, Coordinator {
       viewController.hidesBottomBarWhenPushed = true
       navigationController.pushViewController(viewController, animated: true)
     case .info:
-      break
+      let viewController = MyPageInfoViewController(
+        viewModel: MyPageInfoViewModel(
+          coordinator: self,
+          myPageUseCase: useCase
+        )
+      )
+      viewController.title = "서비스 정보"
+      viewController.hidesBottomBarWhenPushed = true
+      navigationController.pushViewController(viewController, animated: true)
     case .setting:
       break
     }
@@ -82,6 +90,13 @@ final class MyPageCoordinator: NSObject, Coordinator {
     viewController.title = "공지사항"
     viewController.notice = notice
     viewController.coordinator = self
+    navigationController.pushViewController(viewController, animated: true)
+  }
+  
+  func showInfoWebViewController(with data: MyPageInfoCase) {
+    let viewController = MyPageInfoWebViewController()
+    viewController.data = data
+    viewController.hidesBottomBarWhenPushed = true
     navigationController.pushViewController(viewController, animated: true)
   }
 
