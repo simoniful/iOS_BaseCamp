@@ -50,7 +50,7 @@ final class MyPageViewController: UIViewController {
         cell.imageView?.image = UIImage(systemName: element.icon)
         cell.tintColor = .mainStrong
         cell.textLabel?.text = element.title
-        cell.textLabel?.font = .systemFont(ofSize: 16.0, weight: .regular)
+        cell.textLabel?.font = .body2R16
         cell.detailTextLabel?.font = .body4R12
         cell.detailTextLabel?.textColor = .gray7
         switch element {

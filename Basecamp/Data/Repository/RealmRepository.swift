@@ -65,7 +65,6 @@ final class RealmRepository: RealmRepositoryInterface {
     }
   }
   
-  
   func saveCampsite(campsite: Campsite) {
     let campsiteDTO = CampsiteRealmDTO(campsite: campsite)
     RealmRepository.storage.createCampsite(campsite: campsiteDTO)

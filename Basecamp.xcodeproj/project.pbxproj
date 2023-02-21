@@ -7,20 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49BE202A0CBF2B71DE84E141 /* Pods_Basecamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A104479E3D8BBBAFA976694 /* Pods_Basecamp.framework */; };
-		53507BE8BC0AB0C83F21E834 /* Pods_Basecamp_BasecampUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60474E8179EDD7D45C034045 /* Pods_Basecamp_BasecampUITests.framework */; };
-		E962BE98BE9DCA8C96A1F154 /* Pods_BasecampTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588F38723AF90D0CF6446D5A /* Pods_BasecampTests.framework */; };
+		49BE202A0CBF2B71DE84E141 /* Pods_Basecamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A104479E3D8BBBAFA976694 /* Pods_Basecamp.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		F40DDFAC2989FF2D00D05C2A /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFAB2989FF2D00D05C2A /* NSMutableAttributedString.swift */; };
 		F40DDFB1298A517900D05C2A /* DetailZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB0298A517900D05C2A /* DetailZoomViewController.swift */; };
 		F40DDFB4298A549E00D05C2A /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB3298A549E00D05C2A /* DetailCoordinator.swift */; };
 		F40DDFB9298A744C00D05C2A /* DetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB8298A744C00D05C2A /* DetailWebViewController.swift */; };
 		F40DDFBE298BA00100D05C2A /* PinchedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFBD298BA00100D05C2A /* PinchedImageViewController.swift */; };
 		F40DDFC0298F794A00D05C2A /* ImageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFBF298F794A00D05C2A /* ImageLabel.swift */; };
-		F40DDFC3298FF77800D05C2A /* KakaoSDKShare in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFC2298FF77800D05C2A /* KakaoSDKShare */; };
-		F40DDFC5298FF77800D05C2A /* KakaoSDKTalk in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFC4298FF77800D05C2A /* KakaoSDKTalk */; };
-		F40DDFC7298FF77800D05C2A /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = F40DDFC6298FF77800D05C2A /* KakaoSDKTemplate */; };
 		F40DDFCA2990AEFE00D05C2A /* DetailReviewDateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFC92990AEFD00D05C2A /* DetailReviewDateSelectViewController.swift */; };
-		F44B1D9D299F8E1D0053CAB4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F44B1D9C299F8E1D0053CAB4 /* SnapKit */; };
 		F45C09DF296DB6730075E1AC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DE296DB6730075E1AC /* AlertView.swift */; };
 		F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E0296EB8130075E1AC /* StackingLabel.swift */; };
 		F45C09E3296F03070075E1AC /* DetailViewSectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */; };
@@ -54,7 +48,6 @@
 		F45C0A4F2980FA4A0075E1AC /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A4E2980FA4A0075E1AC /* ListViewModel.swift */; };
 		F45C0A522980FAE50075E1AC /* ListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A512980FAE50075E1AC /* ListCoordinator.swift */; };
 		F45C0A54298104690075E1AC /* ListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A53298104690075E1AC /* ListUseCase.swift */; };
-		F45C0A5729810EC00075E1AC /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = F45C0A5629810EC00075E1AC /* DropDown */; };
 		F45C0A5E298137DA0075E1AC /* ListCampsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A5D298137DA0075E1AC /* ListCampsiteViewController.swift */; };
 		F45C0A63298144360075E1AC /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A62298144360075E1AC /* DropDownView.swift */; };
 		F45C0A68298223090075E1AC /* ListCampsiteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C0A67298223090075E1AC /* ListCampsiteViewModel.swift */; };
@@ -74,14 +67,6 @@
 		F46BFB792963243A007EB676 /* WeatherRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB782963243A007EB676 /* WeatherRepositoryInterface.swift */; };
 		F46BFB7B29632451007EB676 /* NaverBlogRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB7A29632451007EB676 /* NaverBlogRepositoryInterface.swift */; };
 		F46BFB7D29632465007EB676 /* YoutubeRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BFB7C29632465007EB676 /* YoutubeRepositoryInterface.swift */; };
-		F49034612949B63600CDE442 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = F49034602949B63600CDE442 /* Toast */; };
-		F490347D2949B99400CDE442 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = F490347C2949B99400CDE442 /* Moya */; };
-		F490347F2949B99400CDE442 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = F490347E2949B99400CDE442 /* RxMoya */; };
-		F49034852949BA3300CDE442 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F49034842949BA3300CDE442 /* Realm */; };
-		F49034872949BA3300CDE442 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F49034862949BA3300CDE442 /* RealmSwift */; };
-		F490348A2949BA5B00CDE442 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = F49034892949BA5B00CDE442 /* Differentiator */; };
-		F490348C2949BA5B00CDE442 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = F490348B2949BA5B00CDE442 /* RxDataSources */; };
-		F49034922949BB5500CDE442 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = F49034912949BB5500CDE442 /* RxGesture */; };
 		F4903495294A172D00CDE442 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4903494294A172D00CDE442 /* HomeHeaderCell.swift */; };
 		F4903499294AB2CA00CDE442 /* HomeAreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4903498294AB2CA00CDE442 /* HomeAreaCell.swift */; };
 		F49034A5294AC72700CDE442 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49034A4294AC72700CDE442 /* PaddingLabel.swift */; };
@@ -124,9 +109,6 @@
 		F4D10EA729497831000C02E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EA629497831000C02E0 /* SceneDelegate.swift */; };
 		F4D10EAE29497833000C02E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4D10EAD29497833000C02E0 /* Assets.xcassets */; };
 		F4D10EB129497833000C02E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4D10EAF29497833000C02E0 /* LaunchScreen.storyboard */; };
-		F4D10EBC29497834000C02E0 /* BasecampTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EBB29497834000C02E0 /* BasecampTests.swift */; };
-		F4D10EC629497834000C02E0 /* BasecampUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EC529497834000C02E0 /* BasecampUITests.swift */; };
-		F4D10EC829497834000C02E0 /* BasecampUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EC729497834000C02E0 /* BasecampUITestsLaunchTests.swift */; };
 		F4D10ED629497C6E000C02E0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10ED529497C6E000C02E0 /* AppCoordinator.swift */; };
 		F4D10ED929497EAA000C02E0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10ED829497EA9000C02E0 /* Coordinator.swift */; };
 		F4D10EE029498251000C02E0 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EDF29498251000C02E0 /* TabBarCoordinator.swift */; };
@@ -162,7 +144,14 @@
 		F4D90CAE299A398D00B12D6B /* MyPageSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D90CAD299A398D00B12D6B /* MyPageSettingViewModel.swift */; };
 		F4D90CB0299A3D7000B12D6B /* MyPageNoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D90CAF299A3D7000B12D6B /* MyPageNoticeCell.swift */; };
 		F4D90CB2299B4D8700B12D6B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D90CB1299B4D8700B12D6B /* UIViewController.swift */; };
-		F4DEE3B4299DD3D100C37A78 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F4DEE3B3299DD3D100C37A78 /* Kingfisher */; };
+		F4D9B61329A4C88200A12C99 /* HomeUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B61229A4C88200A12C99 /* HomeUseCaseTests.swift */; };
+		F4D9B62029A4C9FC00A12C99 /* BasecampUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B61F29A4C9FC00A12C99 /* BasecampUITests.swift */; };
+		F4D9B62229A4C9FC00A12C99 /* BasecampUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B62129A4C9FC00A12C99 /* BasecampUITestsLaunchTests.swift */; };
+		F4D9B62929A4CA3200A12C99 /* Pods_BasecampTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D9B62829A4CA3200A12C99 /* Pods_BasecampTests.framework */; };
+		F4D9B62B29A4CA5D00A12C99 /* Pods_Basecamp_BasecampUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D9B62A29A4CA5D00A12C99 /* Pods_Basecamp_BasecampUITests.framework */; };
+		F4D9B62D29A4CC8600A12C99 /* MockRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B62C29A4CC8600A12C99 /* MockRealmRepository.swift */; };
+		F4D9B63029A4CD9700A12C99 /* MockCampsiteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B62F29A4CD9700A12C99 /* MockCampsiteRepository.swift */; };
+		F4D9B63229A4CEA100A12C99 /* MockTouristInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B63129A4CEA100A12C99 /* MockTouristInfoRepository.swift */; };
 		F4DEE3B8299E23A500C37A78 /* MyPageReviewCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4DEE3B7299E23A500C37A78 /* MyPageReviewCardCell.xib */; };
 		F4DEE3BA299E23BB00C37A78 /* MyPageReviewCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DEE3B9299E23BB00C37A78 /* MyPageReviewCardCell.swift */; };
 		F4E2A7922990F09E00B8EF4F /* DayRangeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */; };
@@ -170,7 +159,6 @@
 		F4E2A7D229923F3800B8EF4F /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7D129923F3800B8EF4F /* UILabel.swift */; };
 		F4E2A7D429924DE300B8EF4F /* DetailReviewPhotoSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7D329924DE300B8EF4F /* DetailReviewPhotoSelectViewController.swift */; };
 		F4E2A7D6299277C700B8EF4F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7D5299277C700B8EF4F /* UIImage.swift */; };
-		F4E2A7DC2992A03100B8EF4F /* FMPhotoPicker in Frameworks */ = {isa = PBXBuildFile; productRef = F4E2A7DB2992A03100B8EF4F /* FMPhotoPicker */; };
 		F4E2A7DE2993263C00B8EF4F /* DetailReviewMakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7DD2993263C00B8EF4F /* DetailReviewMakerViewModel.swift */; };
 		F4E2A7E029933FA200B8EF4F /* ReviewMakerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7DF29933FA200B8EF4F /* ReviewMakerUseCase.swift */; };
 		F4E2A7E22993FAF700B8EF4F /* TouristInfoIntroTourCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7E12993FAF700B8EF4F /* TouristInfoIntroTourCourse.swift */; };
@@ -188,8 +176,6 @@
 		F4E3E59C2954466C009AFCFC /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E59B2954466C009AFCFC /* RealmStorage.swift */; };
 		F4E3E59E29544796009AFCFC /* CampsiteRealmDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E59D29544796009AFCFC /* CampsiteRealmDTO.swift */; };
 		F4E3E5A129544823009AFCFC /* ReviewRealmDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5A029544823009AFCFC /* ReviewRealmDTO.swift */; };
-		F4E3E5A4295460A5009AFCFC /* EnumKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4E3E5A3295460A5009AFCFC /* EnumKit */; };
-		F4E3E5A7295460D6009AFCFC /* RxEnumKit in Frameworks */ = {isa = PBXBuildFile; productRef = F4E3E5A6295460D6009AFCFC /* RxEnumKit */; };
 		F4E3E5A92954C392009AFCFC /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5A82954C392009AFCFC /* UIViewController+Rx.swift */; };
 		F4E3E5AC29555961009AFCFC /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5AB29555961009AFCFC /* RealmRepository.swift */; };
 		F4E3E5AE29557132009AFCFC /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E3E5AD29557132009AFCFC /* Review.swift */; };
@@ -230,7 +216,6 @@
 		F4F0E083296469210006C9D4 /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E082296469210006C9D4 /* WeatherInfo.swift */; };
 		F4F0E0852964694F0006C9D4 /* YoutubeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0842964694F0006C9D4 /* YoutubeInfo.swift */; };
 		F4F0E0872964697A0006C9D4 /* NaverBlogInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0862964697A0006C9D4 /* NaverBlogInfo.swift */; };
-		F4F0E08A296473D30006C9D4 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = F4F0E089296473D30006C9D4 /* Tabman */; };
 		F4F0E08C296477FB0006C9D4 /* DetailTouristSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E08B296477FB0006C9D4 /* DetailTouristSectionModel.swift */; };
 		F4F0E0922965758A0006C9D4 /* DetailAroundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0912965758A0006C9D4 /* DetailAroundCell.swift */; };
 		F4F0E094296575A00006C9D4 /* DetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E093296575A00006C9D4 /* DetailImageCell.swift */; };
@@ -257,7 +242,6 @@
 		F4F0E0CA296BC4CC0006C9D4 /* DetailInfoPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C9296BC4CC0006C9D4 /* DetailInfoPlusView.swift */; };
 		F4F0E0CE296C02100006C9D4 /* DetailAroundSubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0CD296C02100006C9D4 /* DetailAroundSubCell.swift */; };
 		F4F1DE8D299FDC350023DF83 /* FSPagerViewCustomTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1DE8C299FDC350023DF83 /* FSPagerViewCustomTransformer.swift */; };
-		F4F1DE9029A07AC90023DF83 /* FSPagerView in Frameworks */ = {isa = PBXBuildFile; productRef = F4F1DE8F29A07AC90023DF83 /* FSPagerView */; };
 		F4F1DE9329A32AE70023DF83 /* MyPageInfoWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1DE9229A32AE70023DF83 /* MyPageInfoWebViewController.swift */; };
 		F4F1DEA429A3BEB00023DF83 /* MyPageSettingSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1DEA329A3BEB00023DF83 /* MyPageSettingSwitchCell.swift */; };
 		F4FD50902962851600FA3CB3 /* goCampingData.json in Resources */ = {isa = PBXBuildFile; fileRef = F4FD508F2962851600FA3CB3 /* goCampingData.json */; };
@@ -274,14 +258,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F4D10EB829497834000C02E0 /* PBXContainerItemProxy */ = {
+		F4D9B61429A4C88200A12C99 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F4D10E9929497831000C02E0 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F4D10EA029497831000C02E0;
 			remoteInfo = Basecamp;
 		};
-		F4D10EC229497834000C02E0 /* PBXContainerItemProxy */ = {
+		F4D9B62329A4C9FC00A12C99 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F4D10E9929497831000C02E0 /* Project object */;
 			proxyType = 1;
@@ -403,11 +387,6 @@
 		F4D10EAD29497833000C02E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4D10EB029497833000C02E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4D10EB229497833000C02E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4D10EB729497834000C02E0 /* BasecampTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasecampTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4D10EBB29497834000C02E0 /* BasecampTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasecampTests.swift; sourceTree = "<group>"; };
-		F4D10EC129497834000C02E0 /* BasecampUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasecampUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4D10EC529497834000C02E0 /* BasecampUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasecampUITests.swift; sourceTree = "<group>"; };
-		F4D10EC729497834000C02E0 /* BasecampUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasecampUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F4D10ED529497C6E000C02E0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		F4D10ED829497EA9000C02E0 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F4D10EDF29498251000C02E0 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -444,6 +423,16 @@
 		F4D90CAD299A398D00B12D6B /* MyPageSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSettingViewModel.swift; sourceTree = "<group>"; };
 		F4D90CAF299A3D7000B12D6B /* MyPageNoticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageNoticeCell.swift; sourceTree = "<group>"; };
 		F4D90CB1299B4D8700B12D6B /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		F4D9B61029A4C88000A12C99 /* BasecampTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasecampTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4D9B61229A4C88200A12C99 /* HomeUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCaseTests.swift; sourceTree = "<group>"; };
+		F4D9B61D29A4C9FB00A12C99 /* BasecampUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasecampUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4D9B61F29A4C9FC00A12C99 /* BasecampUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasecampUITests.swift; sourceTree = "<group>"; };
+		F4D9B62129A4C9FC00A12C99 /* BasecampUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasecampUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F4D9B62829A4CA3200A12C99 /* Pods_BasecampTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_BasecampTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4D9B62A29A4CA5D00A12C99 /* Pods_Basecamp_BasecampUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Basecamp_BasecampUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4D9B62C29A4CC8600A12C99 /* MockRealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRealmRepository.swift; sourceTree = "<group>"; };
+		F4D9B62F29A4CD9700A12C99 /* MockCampsiteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCampsiteRepository.swift; sourceTree = "<group>"; };
+		F4D9B63129A4CEA100A12C99 /* MockTouristInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTouristInfoRepository.swift; sourceTree = "<group>"; };
 		F4DEE3B7299E23A500C37A78 /* MyPageReviewCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageReviewCardCell.xib; sourceTree = "<group>"; };
 		F4DEE3B9299E23BB00C37A78 /* MyPageReviewCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageReviewCardCell.swift; sourceTree = "<group>"; };
 		F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRangeIndicatorView.swift; sourceTree = "<group>"; };
@@ -536,6 +525,7 @@
 		F4F1DE8C299FDC350023DF83 /* FSPagerViewCustomTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPagerViewCustomTransformer.swift; sourceTree = "<group>"; };
 		F4F1DE9229A32AE70023DF83 /* MyPageInfoWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageInfoWebViewController.swift; sourceTree = "<group>"; };
 		F4F1DEA329A3BEB00023DF83 /* MyPageSettingSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSettingSwitchCell.swift; sourceTree = "<group>"; };
+		F4F1DEAE29A4B4300023DF83 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F4FD508F2962851600FA3CB3 /* goCampingData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goCampingData.json; sourceTree = "<group>"; };
 		F4FD50912962857600FA3CB3 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Rx.swift"; sourceTree = "<group>"; };
@@ -554,42 +544,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F45C0A5729810EC00075E1AC /* DropDown in Frameworks */,
-				F4E3E5A7295460D6009AFCFC /* RxEnumKit in Frameworks */,
-				F4F1DE9029A07AC90023DF83 /* FSPagerView in Frameworks */,
-				F490348A2949BA5B00CDE442 /* Differentiator in Frameworks */,
-				F44B1D9D299F8E1D0053CAB4 /* SnapKit in Frameworks */,
-				F490347D2949B99400CDE442 /* Moya in Frameworks */,
-				F4E2A7DC2992A03100B8EF4F /* FMPhotoPicker in Frameworks */,
-				F490347F2949B99400CDE442 /* RxMoya in Frameworks */,
-				F40DDFC7298FF77800D05C2A /* KakaoSDKTemplate in Frameworks */,
-				F49034922949BB5500CDE442 /* RxGesture in Frameworks */,
-				F4F0E08A296473D30006C9D4 /* Tabman in Frameworks */,
-				F4DEE3B4299DD3D100C37A78 /* Kingfisher in Frameworks */,
-				F49034852949BA3300CDE442 /* Realm in Frameworks */,
-				F4E3E5A4295460A5009AFCFC /* EnumKit in Frameworks */,
-				F40DDFC5298FF77800D05C2A /* KakaoSDKTalk in Frameworks */,
-				F49034612949B63600CDE442 /* Toast in Frameworks */,
-				F490348C2949BA5B00CDE442 /* RxDataSources in Frameworks */,
-				F49034872949BA3300CDE442 /* RealmSwift in Frameworks */,
 				49BE202A0CBF2B71DE84E141 /* Pods_Basecamp.framework in Frameworks */,
-				F40DDFC3298FF77800D05C2A /* KakaoSDKShare in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F4D10EB429497834000C02E0 /* Frameworks */ = {
+		F4D9B60D29A4C87F00A12C99 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E962BE98BE9DCA8C96A1F154 /* Pods_BasecampTests.framework in Frameworks */,
+				F4D9B62929A4CA3200A12C99 /* Pods_BasecampTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F4D10EBE29497834000C02E0 /* Frameworks */ = {
+		F4D9B61A29A4C9FB00A12C99 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53507BE8BC0AB0C83F21E834 /* Pods_Basecamp_BasecampUITests.framework in Frameworks */,
+				F4D9B62B29A4CA5D00A12C99 /* Pods_Basecamp_BasecampUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +570,9 @@
 		9C8294BEC84F68CAE5ED8269 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F4D9B62A29A4CA5D00A12C99 /* Pods_Basecamp_BasecampUITests.framework */,
+				F4D9B62829A4CA3200A12C99 /* Pods_BasecampTests.framework */,
+				F4F1DEAE29A4B4300023DF83 /* XCTest.framework */,
 				6A104479E3D8BBBAFA976694 /* Pods_Basecamp.framework */,
 				60474E8179EDD7D45C034045 /* Pods_Basecamp_BasecampUITests.framework */,
 				588F38723AF90D0CF6446D5A /* Pods_BasecampTests.framework */,
@@ -965,8 +939,8 @@
 			isa = PBXGroup;
 			children = (
 				F4D10EA329497831000C02E0 /* Basecamp */,
-				F4D10EBA29497834000C02E0 /* BasecampTests */,
-				F4D10EC429497834000C02E0 /* BasecampUITests */,
+				F4D9B61129A4C88200A12C99 /* BasecampTests */,
+				F4D9B61E29A4C9FC00A12C99 /* BasecampUITests */,
 				F4D10EA229497831000C02E0 /* Products */,
 				E1AA31DAF93484D32AAF52CD /* Pods */,
 				9C8294BEC84F68CAE5ED8269 /* Frameworks */,
@@ -977,8 +951,8 @@
 			isa = PBXGroup;
 			children = (
 				F4D10EA129497831000C02E0 /* Basecamp.app */,
-				F4D10EB729497834000C02E0 /* BasecampTests.xctest */,
-				F4D10EC129497834000C02E0 /* BasecampUITests.xctest */,
+				F4D9B61029A4C88000A12C99 /* BasecampTests.xctest */,
+				F4D9B61D29A4C9FB00A12C99 /* BasecampUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -997,23 +971,6 @@
 				F4D10EB229497833000C02E0 /* Info.plist */,
 			);
 			path = Basecamp;
-			sourceTree = "<group>";
-		};
-		F4D10EBA29497834000C02E0 /* BasecampTests */ = {
-			isa = PBXGroup;
-			children = (
-				F4D10EBB29497834000C02E0 /* BasecampTests.swift */,
-			);
-			path = BasecampTests;
-			sourceTree = "<group>";
-		};
-		F4D10EC429497834000C02E0 /* BasecampUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F4D10EC529497834000C02E0 /* BasecampUITests.swift */,
-				F4D10EC729497834000C02E0 /* BasecampUITestsLaunchTests.swift */,
-			);
-			path = BasecampUITests;
 			sourceTree = "<group>";
 		};
 		F4D10ED429497B4B000C02E0 /* Application */ = {
@@ -1390,6 +1347,34 @@
 				F4F1DE9129A32AAD0023DF83 /* Subs */,
 			);
 			path = Info;
+			sourceTree = "<group>";
+		};
+		F4D9B61129A4C88200A12C99 /* BasecampTests */ = {
+			isa = PBXGroup;
+			children = (
+				F4D9B61229A4C88200A12C99 /* HomeUseCaseTests.swift */,
+				F4D9B62E29A4CD4100A12C99 /* Mocks */,
+			);
+			path = BasecampTests;
+			sourceTree = "<group>";
+		};
+		F4D9B61E29A4C9FC00A12C99 /* BasecampUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F4D9B61F29A4C9FC00A12C99 /* BasecampUITests.swift */,
+				F4D9B62129A4C9FC00A12C99 /* BasecampUITestsLaunchTests.swift */,
+			);
+			path = BasecampUITests;
+			sourceTree = "<group>";
+		};
+		F4D9B62E29A4CD4100A12C99 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				F4D9B62C29A4CC8600A12C99 /* MockRealmRepository.swift */,
+				F4D9B62F29A4CD9700A12C99 /* MockCampsiteRepository.swift */,
+				F4D9B63129A4CEA100A12C99 /* MockTouristInfoRepository.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		F4E3E58A29518174009AFCFC /* RequestDTO */ = {
@@ -1814,69 +1799,49 @@
 			dependencies = (
 			);
 			name = Basecamp;
-			packageProductDependencies = (
-				F49034602949B63600CDE442 /* Toast */,
-				F490347C2949B99400CDE442 /* Moya */,
-				F490347E2949B99400CDE442 /* RxMoya */,
-				F49034842949BA3300CDE442 /* Realm */,
-				F49034862949BA3300CDE442 /* RealmSwift */,
-				F49034892949BA5B00CDE442 /* Differentiator */,
-				F490348B2949BA5B00CDE442 /* RxDataSources */,
-				F49034912949BB5500CDE442 /* RxGesture */,
-				F4E3E5A3295460A5009AFCFC /* EnumKit */,
-				F4E3E5A6295460D6009AFCFC /* RxEnumKit */,
-				F4F0E089296473D30006C9D4 /* Tabman */,
-				F45C0A5629810EC00075E1AC /* DropDown */,
-				F40DDFC2298FF77800D05C2A /* KakaoSDKShare */,
-				F40DDFC4298FF77800D05C2A /* KakaoSDKTalk */,
-				F40DDFC6298FF77800D05C2A /* KakaoSDKTemplate */,
-				F4E2A7DB2992A03100B8EF4F /* FMPhotoPicker */,
-				F4DEE3B3299DD3D100C37A78 /* Kingfisher */,
-				F44B1D9C299F8E1D0053CAB4 /* SnapKit */,
-				F4F1DE8F29A07AC90023DF83 /* FSPagerView */,
-			);
 			productName = Basecamp;
 			productReference = F4D10EA129497831000C02E0 /* Basecamp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F4D10EB629497834000C02E0 /* BasecampTests */ = {
+		F4D9B60F29A4C87F00A12C99 /* BasecampTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4D10ECE29497834000C02E0 /* Build configuration list for PBXNativeTarget "BasecampTests" */;
+			buildConfigurationList = F4D9B61629A4C88400A12C99 /* Build configuration list for PBXNativeTarget "BasecampTests" */;
 			buildPhases = (
-				B65B902AF6DE463AB3551798 /* [CP] Check Pods Manifest.lock */,
-				F4D10EB329497834000C02E0 /* Sources */,
-				F4D10EB429497834000C02E0 /* Frameworks */,
-				F4D10EB529497834000C02E0 /* Resources */,
+				5D4EFA42EEE946DA872B921B /* [CP] Check Pods Manifest.lock */,
+				F4D9B60C29A4C87F00A12C99 /* Sources */,
+				F4D9B60D29A4C87F00A12C99 /* Frameworks */,
+				F4D9B60E29A4C87F00A12C99 /* Resources */,
+				4C1EAD153860E4B0C329529B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F4D10EB929497834000C02E0 /* PBXTargetDependency */,
+				F4D9B61529A4C88200A12C99 /* PBXTargetDependency */,
 			);
 			name = BasecampTests;
 			productName = BasecampTests;
-			productReference = F4D10EB729497834000C02E0 /* BasecampTests.xctest */;
+			productReference = F4D9B61029A4C88000A12C99 /* BasecampTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F4D10EC029497834000C02E0 /* BasecampUITests */ = {
+		F4D9B61C29A4C9FB00A12C99 /* BasecampUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4D10ED129497834000C02E0 /* Build configuration list for PBXNativeTarget "BasecampUITests" */;
+			buildConfigurationList = F4D9B62729A4C9FC00A12C99 /* Build configuration list for PBXNativeTarget "BasecampUITests" */;
 			buildPhases = (
-				20948598261E8B1A1D946E21 /* [CP] Check Pods Manifest.lock */,
-				F4D10EBD29497834000C02E0 /* Sources */,
-				F4D10EBE29497834000C02E0 /* Frameworks */,
-				F4D10EBF29497834000C02E0 /* Resources */,
-				50B7A7C6F49A02A024AB1E9C /* [CP] Embed Pods Frameworks */,
-				DB149E3DAF46A82229308983 /* [CP] Copy Pods Resources */,
+				B3D8233B0C2030E0A26167AC /* [CP] Check Pods Manifest.lock */,
+				F4D9B61929A4C9FB00A12C99 /* Sources */,
+				F4D9B61A29A4C9FB00A12C99 /* Frameworks */,
+				F4D9B61B29A4C9FB00A12C99 /* Resources */,
+				E6B21384E32EE02F71F67887 /* [CP] Embed Pods Frameworks */,
+				7E3AD48D55CDC2E7A842464B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F4D10EC329497834000C02E0 /* PBXTargetDependency */,
+				F4D9B62429A4C9FC00A12C99 /* PBXTargetDependency */,
 			);
 			name = BasecampUITests;
 			productName = BasecampUITests;
-			productReference = F4D10EC129497834000C02E0 /* BasecampUITests.xctest */;
+			productReference = F4D9B61D29A4C9FB00A12C99 /* BasecampUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -1892,11 +1857,11 @@
 					F4D10EA029497831000C02E0 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
-					F4D10EB629497834000C02E0 = {
+					F4D9B60F29A4C87F00A12C99 = {
 						CreatedOnToolsVersion = 14.0.1;
 						TestTargetID = F4D10EA029497831000C02E0;
 					};
-					F4D10EC029497834000C02E0 = {
+					F4D9B61C29A4C9FB00A12C99 = {
 						CreatedOnToolsVersion = 14.0.1;
 						TestTargetID = F4D10EA029497831000C02E0;
 					};
@@ -1911,29 +1876,13 @@
 				Base,
 			);
 			mainGroup = F4D10E9829497831000C02E0;
-			packageReferences = (
-				F490345F2949B63600CDE442 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
-				F490347B2949B99400CDE442 /* XCRemoteSwiftPackageReference "Moya" */,
-				F49034832949BA3300CDE442 /* XCRemoteSwiftPackageReference "realm-swift" */,
-				F49034882949BA5B00CDE442 /* XCRemoteSwiftPackageReference "RxDataSources" */,
-				F49034902949BB5500CDE442 /* XCRemoteSwiftPackageReference "RxGesture" */,
-				F4E3E5A2295460A5009AFCFC /* XCRemoteSwiftPackageReference "EnumKit" */,
-				F4E3E5A5295460D6009AFCFC /* XCRemoteSwiftPackageReference "RxEnumKit" */,
-				F4F0E088296473D30006C9D4 /* XCRemoteSwiftPackageReference "Tabman" */,
-				F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */,
-				F40DDFC1298FF77800D05C2A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
-				F4E2A7DA2992A03100B8EF4F /* XCRemoteSwiftPackageReference "FMPhotoPicker" */,
-				F4DEE3B2299DD3D100C37A78 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				F44B1D9B299F8E1D0053CAB4 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				F4F1DE8E29A07AC90023DF83 /* XCRemoteSwiftPackageReference "FSPagerView" */,
-			);
 			productRefGroup = F4D10EA229497831000C02E0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				F4D10EA029497831000C02E0 /* Basecamp */,
-				F4D10EB629497834000C02E0 /* BasecampTests */,
-				F4D10EC029497834000C02E0 /* BasecampUITests */,
+				F4D9B60F29A4C87F00A12C99 /* BasecampTests */,
+				F4D9B61C29A4C9FB00A12C99 /* BasecampUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1952,14 +1901,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F4D10EB529497834000C02E0 /* Resources */ = {
+		F4D9B60E29A4C87F00A12C99 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F4D10EBF29497834000C02E0 /* Resources */ = {
+		F4D9B61B29A4C9FB00A12C99 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1969,7 +1918,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		20948598261E8B1A1D946E21 /* [CP] Check Pods Manifest.lock */ = {
+		4C1EAD153860E4B0C329529B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasecampTests/Pods-BasecampTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasecampTests/Pods-BasecampTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasecampTests/Pods-BasecampTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D4EFA42EEE946DA872B921B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1984,28 +1950,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Basecamp-BasecampUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BasecampTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		50B7A7C6F49A02A024AB1E9C /* [CP] Embed Pods Frameworks */ = {
+		7E3AD48D55CDC2E7A842464B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9938DCDBC829F9756C9E6C77 /* [CP] Embed Pods Frameworks */ = {
@@ -2047,7 +2013,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B65B902AF6DE463AB3551798 /* [CP] Check Pods Manifest.lock */ = {
+		B3D8233B0C2030E0A26167AC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2062,28 +2028,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BasecampTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Basecamp-BasecampUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DB149E3DAF46A82229308983 /* [CP] Copy Pods Resources */ = {
+		E6B21384E32EE02F71F67887 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F854CB4CC36BDB91A6CC1754 /* [CP] Copy Pods Resources */ = {
@@ -2346,35 +2312,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F4D10EB329497834000C02E0 /* Sources */ = {
+		F4D9B60C29A4C87F00A12C99 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4D10EBC29497834000C02E0 /* BasecampTests.swift in Sources */,
+				F4D9B61329A4C88200A12C99 /* HomeUseCaseTests.swift in Sources */,
+				F4D9B62D29A4CC8600A12C99 /* MockRealmRepository.swift in Sources */,
+				F4D9B63229A4CEA100A12C99 /* MockTouristInfoRepository.swift in Sources */,
+				F4D9B63029A4CD9700A12C99 /* MockCampsiteRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F4D10EBD29497834000C02E0 /* Sources */ = {
+		F4D9B61929A4C9FB00A12C99 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4D10EC829497834000C02E0 /* BasecampUITestsLaunchTests.swift in Sources */,
-				F4D10EC629497834000C02E0 /* BasecampUITests.swift in Sources */,
+				F4D9B62229A4C9FC00A12C99 /* BasecampUITestsLaunchTests.swift in Sources */,
+				F4D9B62029A4C9FC00A12C99 /* BasecampUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F4D10EB929497834000C02E0 /* PBXTargetDependency */ = {
+		F4D9B61529A4C88200A12C99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F4D10EA029497831000C02E0 /* Basecamp */;
-			targetProxy = F4D10EB829497834000C02E0 /* PBXContainerItemProxy */;
+			targetProxy = F4D9B61429A4C88200A12C99 /* PBXContainerItemProxy */;
 		};
-		F4D10EC329497834000C02E0 /* PBXTargetDependency */ = {
+		F4D9B62429A4C9FC00A12C99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F4D10EA029497831000C02E0 /* Basecamp */;
-			targetProxy = F4D10EC229497834000C02E0 /* PBXContainerItemProxy */;
+			targetProxy = F4D9B62329A4C9FC00A12C99 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2424,6 +2393,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2486,6 +2456,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2517,6 +2488,7 @@
 				CODE_SIGN_ENTITLEMENTS = Basecamp/Basecamp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = AT2N75TMZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Basecamp/Info.plist;
@@ -2557,6 +2529,7 @@
 				CODE_SIGN_ENTITLEMENTS = Basecamp/Basecamp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = AT2N75TMZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Basecamp/Info.plist;
@@ -2588,11 +2561,10 @@
 			};
 			name = Release;
 		};
-		F4D10ECF29497834000C02E0 /* Debug */ = {
+		F4D9B61729A4C88400A12C99 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 88C41F39A89BB978470DA401 /* Pods-BasecampTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -2609,11 +2581,10 @@
 			};
 			name = Debug;
 		};
-		F4D10ED029497834000C02E0 /* Release */ = {
+		F4D9B61829A4C88400A12C99 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A2EA8885FF5D31274F60587C /* Pods-BasecampTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -2630,15 +2601,15 @@
 			};
 			name = Release;
 		};
-		F4D10ED229497834000C02E0 /* Debug */ = {
+		F4D9B62529A4C9FC00A12C99 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 76642875F45AB8A1A43C2F2A /* Pods-Basecamp-BasecampUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AT2N75TMZD;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simon.BasecampUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2649,15 +2620,15 @@
 			};
 			name = Debug;
 		};
-		F4D10ED329497834000C02E0 /* Release */ = {
+		F4D9B62629A4C9FC00A12C99 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3FFA40812AA56670F8B380A7 /* Pods-Basecamp-BasecampUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AT2N75TMZD;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simon.BasecampUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2689,238 +2660,25 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F4D10ECE29497834000C02E0 /* Build configuration list for PBXNativeTarget "BasecampTests" */ = {
+		F4D9B61629A4C88400A12C99 /* Build configuration list for PBXNativeTarget "BasecampTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F4D10ECF29497834000C02E0 /* Debug */,
-				F4D10ED029497834000C02E0 /* Release */,
+				F4D9B61729A4C88400A12C99 /* Debug */,
+				F4D9B61829A4C88400A12C99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F4D10ED129497834000C02E0 /* Build configuration list for PBXNativeTarget "BasecampUITests" */ = {
+		F4D9B62729A4C9FC00A12C99 /* Build configuration list for PBXNativeTarget "BasecampUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F4D10ED229497834000C02E0 /* Debug */,
-				F4D10ED329497834000C02E0 /* Release */,
+				F4D9B62529A4C9FC00A12C99 /* Debug */,
+				F4D9B62629A4C9FC00A12C99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		F40DDFC1298FF77800D05C2A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		F44B1D9B299F8E1D0053CAB4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 5.6.0;
-			};
-		};
-		F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AssistoLab/DropDown";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		F490345F2949B63600CDE442 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		F490347B2949B99400CDE442 /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 15.0.0;
-			};
-		};
-		F49034832949BA3300CDE442 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.22.0;
-			};
-		};
-		F49034882949BA5B00CDE442 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		F49034902949BB5500CDE442 /* XCRemoteSwiftPackageReference "RxGesture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
-			};
-		};
-		F4DEE3B2299DD3D100C37A78 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
-		F4E2A7DA2992A03100B8EF4F /* XCRemoteSwiftPackageReference "FMPhotoPicker" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/congnd/FMPhotoPicker.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 1.3.0;
-			};
-		};
-		F4E3E5A2295460A5009AFCFC /* XCRemoteSwiftPackageReference "EnumKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/gringoireDM/EnumKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		F4E3E5A5295460D6009AFCFC /* XCRemoteSwiftPackageReference "RxEnumKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/gringoireDM/RxEnumKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-		F4F0E088296473D30006C9D4 /* XCRemoteSwiftPackageReference "Tabman" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/uias/Tabman";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-		F4F1DE8E29A07AC90023DF83 /* XCRemoteSwiftPackageReference "FSPagerView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/WenchaoD/FSPagerView";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		F40DDFC2298FF77800D05C2A /* KakaoSDKShare */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F40DDFC1298FF77800D05C2A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
-			productName = KakaoSDKShare;
-		};
-		F40DDFC4298FF77800D05C2A /* KakaoSDKTalk */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F40DDFC1298FF77800D05C2A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
-			productName = KakaoSDKTalk;
-		};
-		F40DDFC6298FF77800D05C2A /* KakaoSDKTemplate */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F40DDFC1298FF77800D05C2A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
-			productName = KakaoSDKTemplate;
-		};
-		F44B1D9C299F8E1D0053CAB4 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F44B1D9B299F8E1D0053CAB4 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		F45C0A5629810EC00075E1AC /* DropDown */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F45C0A5529810EC00075E1AC /* XCRemoteSwiftPackageReference "DropDown" */;
-			productName = DropDown;
-		};
-		F49034602949B63600CDE442 /* Toast */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F490345F2949B63600CDE442 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
-			productName = Toast;
-		};
-		F490347C2949B99400CDE442 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F490347B2949B99400CDE442 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
-		};
-		F490347E2949B99400CDE442 /* RxMoya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F490347B2949B99400CDE442 /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = RxMoya;
-		};
-		F49034842949BA3300CDE442 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F49034832949BA3300CDE442 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		F49034862949BA3300CDE442 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F49034832949BA3300CDE442 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
-		};
-		F49034892949BA5B00CDE442 /* Differentiator */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F49034882949BA5B00CDE442 /* XCRemoteSwiftPackageReference "RxDataSources" */;
-			productName = Differentiator;
-		};
-		F490348B2949BA5B00CDE442 /* RxDataSources */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F49034882949BA5B00CDE442 /* XCRemoteSwiftPackageReference "RxDataSources" */;
-			productName = RxDataSources;
-		};
-		F49034912949BB5500CDE442 /* RxGesture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F49034902949BB5500CDE442 /* XCRemoteSwiftPackageReference "RxGesture" */;
-			productName = RxGesture;
-		};
-		F4DEE3B3299DD3D100C37A78 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F4DEE3B2299DD3D100C37A78 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		F4E2A7DB2992A03100B8EF4F /* FMPhotoPicker */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F4E2A7DA2992A03100B8EF4F /* XCRemoteSwiftPackageReference "FMPhotoPicker" */;
-			productName = FMPhotoPicker;
-		};
-		F4E3E5A3295460A5009AFCFC /* EnumKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F4E3E5A2295460A5009AFCFC /* XCRemoteSwiftPackageReference "EnumKit" */;
-			productName = EnumKit;
-		};
-		F4E3E5A6295460D6009AFCFC /* RxEnumKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F4E3E5A5295460D6009AFCFC /* XCRemoteSwiftPackageReference "RxEnumKit" */;
-			productName = RxEnumKit;
-		};
-		F4F0E089296473D30006C9D4 /* Tabman */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F4F0E088296473D30006C9D4 /* XCRemoteSwiftPackageReference "Tabman" */;
-			productName = Tabman;
-		};
-		F4F1DE8F29A07AC90023DF83 /* FSPagerView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F4F1DE8E29A07AC90023DF83 /* XCRemoteSwiftPackageReference "FSPagerView" */;
-			productName = FSPagerView;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F4D10E9929497831000C02E0 /* Project object */;
 }

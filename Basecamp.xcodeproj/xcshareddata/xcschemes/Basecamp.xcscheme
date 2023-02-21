@@ -26,14 +26,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO"
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F4D10EB629497834000C02E0"
+               BlueprintIdentifier = "F4D9B60F29A4C87F00A12C99"
                BuildableName = "BasecampTests.xctest"
                BlueprintName = "BasecampTests"
                ReferencedContainer = "container:Basecamp.xcodeproj">
@@ -44,7 +45,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F4D10EC029497834000C02E0"
+               BlueprintIdentifier = "F4D9B61C29A4C9FB00A12C99"
                BuildableName = "BasecampUITests.xctest"
                BlueprintName = "BasecampUITests"
                ReferencedContainer = "container:Basecamp.xcodeproj">
@@ -72,23 +73,6 @@
             ReferencedContainer = "container:Basecamp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-         <AdditionalOption
-            key = "MallocStackLogging"
-            value = ""
-            isEnabled = "YES">
-         </AdditionalOption>
-         <AdditionalOption
-            key = "PrefersMallocStackLoggingLite"
-            value = ""
-            isEnabled = "YES">
-         </AdditionalOption>
-         <AdditionalOption
-            key = "MallocScribble"
-            value = ""
-            isEnabled = "YES">
-         </AdditionalOption>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

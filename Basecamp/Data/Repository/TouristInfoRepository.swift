@@ -8,7 +8,6 @@
 import Foundation
 import RxSwift
 import Moya
-import RxMoya
 
 enum TouristInfoServiceError: Int, Error {
   case applicationError = 1

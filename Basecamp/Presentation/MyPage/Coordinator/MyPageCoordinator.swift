@@ -81,7 +81,15 @@ final class MyPageCoordinator: NSObject, Coordinator {
       viewController.hidesBottomBarWhenPushed = true
       navigationController.pushViewController(viewController, animated: true)
     case .setting:
-      break
+      let viewController = MyPageSettingViewController(
+        viewModel: MyPageSettingViewModel(
+          coordinator: self,
+          myPageUseCase: useCase
+        )
+      )
+      viewController.title = "설정"
+      viewController.hidesBottomBarWhenPushed = true
+      navigationController.pushViewController(viewController, animated: true)
     }
   }
   

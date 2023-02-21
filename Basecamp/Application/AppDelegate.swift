@@ -40,10 +40,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
     UNUserNotificationCenter.current().requestAuthorization(
-      options: authOptions,
-      completionHandler: { _, _ in }
-    )
-    application.registerForRemoteNotifications()
+      options: authOptions) { granted, error in
+        DispatchQueue.main.async {
+          switch granted {
+          case true:
+            application.registerForRemoteNotifications()
+          case false:
+            application.unregisterForRemoteNotifications()
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+          }
+        }
+      }
   
     DropDown.startListeningToKeyboard()
     KakaoSDK.initSDK(appKey: APIKey.kakaoNative.rawValue)

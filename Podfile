@@ -6,15 +6,32 @@ target 'Basecamp' do
   use_frameworks!
 
   # Pods for Basecamp
+  pod 'KakaoSDK'
+  pod 'Moya/RxSwift'
+  pod 'RealmSwift'
+  pod 'Kingfisher'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Tabman'
+  pod 'RxGesture'
+  pod 'RxEnumKit'
+  pod 'RxDataSources'
+  pod 'SnapKit'
+  pod 'Toast'
+  pod 'DropDown'
+  pod 'FMPhotoPicker'
+  pod 'FSPagerView'
   pod 'TTGTagCollectionView'
-  pod 'HorizonCalendar', '1.16.0'
-  pod 'GoogleMaps', '7.3.0'
-  pod 'Google-Maps-iOS-Utils', '~> 4.1.0'
+  pod 'HorizonCalendar'
+  pod 'GoogleMaps'
+  pod 'Google-Maps-iOS-Utils'
   pod 'Cosmos'
 
   target 'BasecampTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RxBlocking', '6.5.0'
+    pod 'RxTest', '6.5.0'
   end
 
   target 'BasecampUITests' do
