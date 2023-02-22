@@ -26,26 +26,44 @@ final class MyPageSettingViewModel: ViewModel {
     let viewDidLoad: Signal<Void>
     let didSelectItemAt: Signal<(MyPageSettingCase, IndexPath)>
   }
+  
   struct Output {
     let data: Driver<[MyPageSettingCase]>
+    let pushDenyAlert: Signal<(String, String)>
+    let toastSignal: Signal<String>
   }
   
   let switchCellViewModel = MyPageSettingSwitchCellViewModel(
-    switchState: PublishRelay<Bool>()
+    switchState: PublishRelay<Bool>(),
+    changeSwitch: PublishRelay<Void>()
   )
+  
   let data = BehaviorRelay<[MyPageSettingCase]>(value: MyPageSettingCase.allCases)
+  let pushDenyAlert = PublishRelay<(String, String)>()
+  let toastSignal = PublishRelay<String>()
   
   func transform(input: Input) -> Output {
     switchCellViewModel.switchState
       .withUnretained(self)
       .observe(on: MainScheduler.instance)
-      .subscribe { owner, state in
-        if state {
-          UIApplication.shared.registerForRemoteNotifications()
+      .subscribe { owner, switchState in
+        if switchState {
+          owner.isPushNotificationsEnabled { pushState in
+            switch pushState {
+            case true:
+              DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+              }
+              owner.toastSignal.accept("앱 실행 중 알림 설정")
+            case false:
+              owner.pushDenyAlert.accept(("접근 권한 설정 필요", "Push 알림에 대한 접근 권한을 바꾸어야 합니다"))
+            }
+          }
         } else {
           UIApplication.shared.unregisterForRemoteNotifications()
           UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
           UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+          owner.toastSignal.accept("앱 실행 중 알림 해제")
         }
       }
       .disposed(by: disposeBag)
@@ -64,12 +82,30 @@ final class MyPageSettingViewModel: ViewModel {
         }
       }
       .disposed(by: disposeBag)
-    return Output(data: data.asDriver(onErrorJustReturn: []))
+    return Output(
+      data: data.asDriver(onErrorJustReturn: []),
+      pushDenyAlert: pushDenyAlert.asSignal(),
+      toastSignal: toastSignal.asSignal()
+    )
+  }
+  
+  func isPushNotificationsEnabled(completion: @escaping (Bool) -> Void) {
+    let center = UNUserNotificationCenter.current()
+    center.getNotificationSettings { settings in
+      switch settings.authorizationStatus {
+      case .notDetermined, .denied:
+        completion(false)
+      case .authorized, .provisional, .ephemeral:
+        completion(true)
+      @unknown default:
+        completion(false)
+      }
+    }
   }
 }
 
 enum MyPageSettingCase: String, CaseIterable {
-  case pushControl = "휴대폰 Push 알림 설정"
+  case pushControl = "앱 실행 중 알림"
   case accessRight = "접근 권한 설정"
   case version = "버전 정보"
 }

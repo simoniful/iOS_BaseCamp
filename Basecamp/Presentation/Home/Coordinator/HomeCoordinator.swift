@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Toast
+import Toast_Swift
 
 final class HomeCoordinator: NSObject, Coordinator {
   weak var finishDelegate: CoordinatorFinishDelegate?
@@ -23,15 +23,10 @@ final class HomeCoordinator: NSObject, Coordinator {
       coordinator: self,
       homeUseCase: HomeUseCase(
         realmRepository: RealmRepository(),
-        campsiteRepository: CampsiteRepository(),
         touristInfoRepository: TouristInfoRepository()
       )
     )
     let viewController = HomeViewController(viewModel: viewModel)
-//    viewModel.didSubmitAction = { [weak self] detailType in
-//      guard let self = self else { return }
-//      self.navigateToFlowDetail(with: detailType)
-//    }
     navigationController.delegate = self
     navigationController.pushViewController(viewController, animated: true)
   }
@@ -40,9 +35,6 @@ final class HomeCoordinator: NSObject, Coordinator {
     let detailCoordinator = DetailCoordinator(self.navigationController)
     detailCoordinator.data = data
     detailCoordinator.parentCoordinator = self
-//    detailCoordinator.isCompleted = { [weak self] in
-//      self?.free(coordinator: detailCoordinator)
-//    }
     self.store(coordinator: detailCoordinator)
     detailCoordinator.start()
   }

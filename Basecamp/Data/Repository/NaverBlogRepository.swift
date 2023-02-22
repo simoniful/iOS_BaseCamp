@@ -8,7 +8,6 @@
 import Foundation
 import RxSwift
 import Moya
-import RxMoya
 
 enum NaverBlogServiceError: String, Error {
   case incorrectQueryRequest = "SE01"

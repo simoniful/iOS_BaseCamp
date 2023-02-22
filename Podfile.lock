@@ -101,7 +101,7 @@ PODS:
   - SnapKit (5.6.0)
   - Tabman (3.0.1):
     - Pageboy (~> 4.0.2)
-  - Toast (4.0.0)
+  - Toast-Swift (5.0.1)
   - TTGTagCollectionView (2.3.0)
 
 DEPENDENCIES:
@@ -125,7 +125,7 @@ DEPENDENCIES:
   - RxTest (= 6.5.0)
   - SnapKit
   - Tabman
-  - Toast
+  - Toast-Swift
   - TTGTagCollectionView
 
 SPEC REPOS:
@@ -165,7 +165,7 @@ SPEC REPOS:
     - RxTest
     - SnapKit
     - Tabman
-    - Toast
+    - Toast-Swift
     - TTGTagCollectionView
 
 SPEC CHECKSUMS:
@@ -204,9 +204,9 @@ SPEC CHECKSUMS:
   RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   Tabman: a5880789298f81d3f2cdd6510b54ae637cfd8e09
-  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   TTGTagCollectionView: 4104f93281097eae5adbf4444811e32f5e52dc95
 
-PODFILE CHECKSUM: b61e199eda6a8644bd4bf46ac03c1e41d3b87bad
+PODFILE CHECKSUM: 35ab47c7f1c225cd8f251fdef6d2d9c08882eb91
 
 COCOAPODS: 1.11.3

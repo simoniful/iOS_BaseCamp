@@ -11,7 +11,7 @@ import SnapKit
 class DetailSectionHeader: UICollectionReusableView {
   static let identifier = "DetailSectionHeader"
   
-  private lazy var titleLabel = DefaultLabel(font: .systemFont(ofSize: 20, weight: .bold))
+  private lazy var titleLabel = DefaultLabel(font: .systemFont(ofSize: 22, weight: .bold))
   
   override init(frame: CGRect) {
     super.init(frame: frame)

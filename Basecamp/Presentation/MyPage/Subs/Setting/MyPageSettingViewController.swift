@@ -74,6 +74,21 @@ final class MyPageSettingViewController: UIViewController {
         }
       }
       .disposed(by: disposeBag)
+    
+    output.pushDenyAlert
+      .emit { [weak self] (title, message) in
+        let alert = AlertView.init(title: title, message: message) {
+          self?.viewModel.switchCellViewModel.changeSwitch.accept(Void())
+        }
+        alert.showAlert()
+      }
+      .disposed(by: disposeBag)
+    
+    output.toastSignal
+      .emit { [weak self] message in
+        self?.view.makeToast(message)
+      }
+      .disposed(by: disposeBag)
   }
   
   func isPushNotificationsEnabled(completion: @escaping (Bool) -> Void) {

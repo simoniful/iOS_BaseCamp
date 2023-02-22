@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Toast
+import Toast_Swift
 
 final class MapCoordinator: NSObject, Coordinator, FilterModalCoordinator {
   weak var finishDelegate: CoordinatorFinishDelegate?

@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 import FMPhotoPicker
-import Toast
+import Toast_Swift
 
 final class DetailReviewPhotoSelectViewController: UIViewController {
   private let viewModel: DetailReviewMakerViewModel

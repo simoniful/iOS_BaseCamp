@@ -38,10 +38,6 @@ extension MyPageSettingSwitchCell: ViewRepresentable {
   func setupView() {
     contentView.addSubview(titleLabel)
     contentView.addSubview(switchView)
-//
-//    switchView.rx.isOn
-//      .bind(to: switchState)
-//      .disposed(by: disposeBag)
   }
   
   func setupConstraints() {
@@ -63,16 +59,19 @@ extension MyPageSettingSwitchCell: ViewRepresentable {
   }
   
   func configure(with viewModel: MyPageSettingSwitchCellViewModel) {
-//    viewModel.switchState
-//      .bind(to: switchView.rx.isOn)
-//      .disposed(by: disposeBag)
-    
     switchView.rx.isOn
       .bind(to: viewModel.switchState)
+      .disposed(by: disposeBag)
+    
+    viewModel.changeSwitch
+      .subscribe { [weak self] _ in
+        self?.switchView.isOn = false
+      }
       .disposed(by: disposeBag)
   }
 }
 
 struct MyPageSettingSwitchCellViewModel {
   let switchState: PublishRelay<Bool>
+  let changeSwitch: PublishRelay<Void>
 }

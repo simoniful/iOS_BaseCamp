@@ -17,7 +17,7 @@
 		F40DDFCA2990AEFE00D05C2A /* DetailReviewDateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFC92990AEFD00D05C2A /* DetailReviewDateSelectViewController.swift */; };
 		F45C09DF296DB6730075E1AC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DE296DB6730075E1AC /* AlertView.swift */; };
 		F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E0296EB8130075E1AC /* StackingLabel.swift */; };
-		F45C09E3296F03070075E1AC /* DetailViewSectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */; };
+		F45C09E3296F03070075E1AC /* DetailViewTouristInfoSectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E2296F03070075E1AC /* DetailViewTouristInfoSectionLayoutManager.swift */; };
 		F45C09E529703CF80075E1AC /* DetailTouristInfoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E429703CF80075E1AC /* DetailTouristInfoHeaderCell.swift */; };
 		F45C09E729703D530075E1AC /* DetailTouristInfoHeaderStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E629703D530075E1AC /* DetailTouristInfoHeaderStackView.swift */; };
 		F45C09E929703E4D0075E1AC /* DetailTouristInfoIntroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E829703E4D0075E1AC /* DetailTouristInfoIntroCell.swift */; };
@@ -152,6 +152,12 @@
 		F4D9B62D29A4CC8600A12C99 /* MockRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B62C29A4CC8600A12C99 /* MockRealmRepository.swift */; };
 		F4D9B63029A4CD9700A12C99 /* MockCampsiteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B62F29A4CD9700A12C99 /* MockCampsiteRepository.swift */; };
 		F4D9B63229A4CEA100A12C99 /* MockTouristInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B63129A4CEA100A12C99 /* MockTouristInfoRepository.swift */; };
+		F4D9B63429A5C9C900A12C99 /* HomeViewSectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B63329A5C9C900A12C99 /* HomeViewSectionLayoutManager.swift */; };
+		F4D9B63629A5C9E700A12C99 /* HomeViewDataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B63529A5C9E700A12C99 /* HomeViewDataSourceManager.swift */; };
+		F4D9B63D29A61CB900A12C99 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B63C29A61CB900A12C99 /* Case.swift */; };
+		F4D9B63F29A61D4400A12C99 /* SetionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B63E29A61D4300A12C99 /* SetionLayoutManager.swift */; };
+		F4D9B64129A61DBC00A12C99 /* DetailViewCampsiteSectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B64029A61DBC00A12C99 /* DetailViewCampsiteSectionLayoutManager.swift */; };
+		F4D9B64329A6259C00A12C99 /* SectionLayoutManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B64229A6259C00A12C99 /* SectionLayoutManagerFactory.swift */; };
 		F4DEE3B8299E23A500C37A78 /* MyPageReviewCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4DEE3B7299E23A500C37A78 /* MyPageReviewCardCell.xib */; };
 		F4DEE3BA299E23BB00C37A78 /* MyPageReviewCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DEE3B9299E23BB00C37A78 /* MyPageReviewCardCell.swift */; };
 		F4E2A7922990F09E00B8EF4F /* DayRangeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */; };
@@ -293,7 +299,7 @@
 		F40DDFC92990AEFD00D05C2A /* DetailReviewDateSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewDateSelectViewController.swift; sourceTree = "<group>"; };
 		F45C09DE296DB6730075E1AC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		F45C09E0296EB8130075E1AC /* StackingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackingLabel.swift; sourceTree = "<group>"; };
-		F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewSectionLayoutManager.swift; sourceTree = "<group>"; };
+		F45C09E2296F03070075E1AC /* DetailViewTouristInfoSectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewTouristInfoSectionLayoutManager.swift; sourceTree = "<group>"; };
 		F45C09E429703CF80075E1AC /* DetailTouristInfoHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTouristInfoHeaderCell.swift; sourceTree = "<group>"; };
 		F45C09E629703D530075E1AC /* DetailTouristInfoHeaderStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTouristInfoHeaderStackView.swift; sourceTree = "<group>"; };
 		F45C09E829703E4D0075E1AC /* DetailTouristInfoIntroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTouristInfoIntroCell.swift; sourceTree = "<group>"; };
@@ -433,6 +439,12 @@
 		F4D9B62C29A4CC8600A12C99 /* MockRealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRealmRepository.swift; sourceTree = "<group>"; };
 		F4D9B62F29A4CD9700A12C99 /* MockCampsiteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCampsiteRepository.swift; sourceTree = "<group>"; };
 		F4D9B63129A4CEA100A12C99 /* MockTouristInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTouristInfoRepository.swift; sourceTree = "<group>"; };
+		F4D9B63329A5C9C900A12C99 /* HomeViewSectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewSectionLayoutManager.swift; sourceTree = "<group>"; };
+		F4D9B63529A5C9E700A12C99 /* HomeViewDataSourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDataSourceManager.swift; sourceTree = "<group>"; };
+		F4D9B63C29A61CB900A12C99 /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
+		F4D9B63E29A61D4300A12C99 /* SetionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetionLayoutManager.swift; sourceTree = "<group>"; };
+		F4D9B64029A61DBC00A12C99 /* DetailViewCampsiteSectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCampsiteSectionLayoutManager.swift; sourceTree = "<group>"; };
+		F4D9B64229A6259C00A12C99 /* SectionLayoutManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionLayoutManagerFactory.swift; sourceTree = "<group>"; };
 		F4DEE3B7299E23A500C37A78 /* MyPageReviewCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageReviewCardCell.xib; sourceTree = "<group>"; };
 		F4DEE3B9299E23BB00C37A78 /* MyPageReviewCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageReviewCardCell.swift; sourceTree = "<group>"; };
 		F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRangeIndicatorView.swift; sourceTree = "<group>"; };
@@ -1026,6 +1038,7 @@
 				F4D10EFF29499358000C02E0 /* ViewModel */,
 				F4D10ED729497CC5000C02E0 /* Coodinator */,
 				F4D10F4A2949AD89000C02E0 /* Extension */,
+				F4D9B63B29A61C6F00A12C99 /* SectionLayoutManagerFactory */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1070,6 +1083,7 @@
 			children = (
 				F4D10EF9294992A8000C02E0 /* HomeViewController.swift */,
 				F4D10EFD2949932B000C02E0 /* HomeViewModel.swift */,
+				F4D9B63529A5C9E700A12C99 /* HomeViewDataSourceManager.swift */,
 				F4903497294AB26600CDE442 /* Subs */,
 				F4D10EEB2949894B000C02E0 /* Coordinator */,
 			);
@@ -1375,6 +1389,19 @@
 				F4D9B63129A4CEA100A12C99 /* MockTouristInfoRepository.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		F4D9B63B29A61C6F00A12C99 /* SectionLayoutManagerFactory */ = {
+			isa = PBXGroup;
+			children = (
+				F4D9B63E29A61D4300A12C99 /* SetionLayoutManager.swift */,
+				F4D9B64229A6259C00A12C99 /* SectionLayoutManagerFactory.swift */,
+				F4D9B63329A5C9C900A12C99 /* HomeViewSectionLayoutManager.swift */,
+				F45C09E2296F03070075E1AC /* DetailViewTouristInfoSectionLayoutManager.swift */,
+				F4D9B64029A61DBC00A12C99 /* DetailViewCampsiteSectionLayoutManager.swift */,
+				F4D9B63C29A61CB900A12C99 /* Case.swift */,
+			);
+			path = SectionLayoutManagerFactory;
 			sourceTree = "<group>";
 		};
 		F4E3E58A29518174009AFCFC /* RequestDTO */ = {
@@ -1715,7 +1742,6 @@
 			children = (
 				F4FD50962962C18E00FA3CB3 /* DetailViewController.swift */,
 				F4FD509E2962E0F600FA3CB3 /* DetailViewModel.swift */,
-				F45C09E2296F03070075E1AC /* DetailViewSectionLayoutManager.swift */,
 				F45C09EC2970EFB50075E1AC /* DetailViewDataSourceManager.swift */,
 				F4FD50A2296303C000FA3CB3 /* Subs */,
 				F40DDFB2298A545D00D05C2A /* Coordinator */,
@@ -2133,13 +2159,14 @@
 				F45C09E929703E4D0075E1AC /* DetailTouristInfoIntroCell.swift in Sources */,
 				F49034A5294AC72700CDE442 /* PaddingLabel.swift in Sources */,
 				F45C09F629715AE60075E1AC /* SearchViewController.swift in Sources */,
+				F4D9B64129A61DBC00A12C99 /* DetailViewCampsiteSectionLayoutManager.swift in Sources */,
 				F45C0A4F2980FA4A0075E1AC /* ListViewModel.swift in Sources */,
 				F4E3E5DA295E81A5009AFCFC /* CampsiteBasicRequestDTO.swift in Sources */,
 				F40DDFB1298A517900D05C2A /* DetailZoomViewController.swift in Sources */,
 				F4F0E0C2296826180006C9D4 /* DetailLocationWeatherCell.swift in Sources */,
 				F4E3E5F529604B43009AFCFC /* String.swift in Sources */,
 				F4E3E5E8295E948C009AFCFC /* TouristInfoFestivalRequestDTO.swift in Sources */,
-				F45C09E3296F03070075E1AC /* DetailViewSectionLayoutManager.swift in Sources */,
+				F45C09E3296F03070075E1AC /* DetailViewTouristInfoSectionLayoutManager.swift in Sources */,
 				F4E3E5B0295AC26C009AFCFC /* TouristInfoRepository.swift in Sources */,
 				F49034E229515B0C00CDE442 /* WeatherAPIConstant.swift in Sources */,
 				F4D10EEA29498738000C02E0 /* CoordinatorFinishDelegate.swift in Sources */,
@@ -2152,6 +2179,7 @@
 				F4E3E59E29544796009AFCFC /* CampsiteRealmDTO.swift in Sources */,
 				F45C09ED2970EFB50075E1AC /* DetailViewDataSourceManager.swift in Sources */,
 				F4E3E5E4295E9431009AFCFC /* TouristInfoLocationRequestDTO.swift in Sources */,
+				F4D9B64329A6259C00A12C99 /* SectionLayoutManagerFactory.swift in Sources */,
 				F49034DB295088CB00CDE442 /* TouristInfoTarget.swift in Sources */,
 				F4D10F272949A700000C02E0 /* AppAppearance.swift in Sources */,
 				F49034EE29515B8300CDE442 /* WeatherTarget.swift in Sources */,
@@ -2172,6 +2200,7 @@
 				F4D10F4C2949ADBE000C02E0 /* UIFont.swift in Sources */,
 				F4D90CB0299A3D7000B12D6B /* MyPageNoticeCell.swift in Sources */,
 				F40DDFAC2989FF2D00D05C2A /* NSMutableAttributedString.swift in Sources */,
+				F4D9B63629A5C9E700A12C99 /* HomeViewDataSourceManager.swift in Sources */,
 				F45C0A54298104690075E1AC /* ListUseCase.swift in Sources */,
 				F45C09F829715AF70075E1AC /* SearchViewModel.swift in Sources */,
 				F4E3E5AC29555961009AFCFC /* RealmRepository.swift in Sources */,
@@ -2195,6 +2224,7 @@
 				F45C09E729703D530075E1AC /* DetailTouristInfoHeaderStackView.swift in Sources */,
 				F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */,
 				F4F0E0852964694F0006C9D4 /* YoutubeInfo.swift in Sources */,
+				F4D9B63F29A61D4400A12C99 /* SetionLayoutManager.swift in Sources */,
 				F4D90CAA299A396F00B12D6B /* MyPageInfoViewModel.swift in Sources */,
 				F49034A8294AC9BF00CDE442 /* CollectionViewLeftAlignFlowLayout.swift in Sources */,
 				F45C0A85298789D00075E1AC /* CLLocationManager+Rx.swift in Sources */,
@@ -2252,6 +2282,7 @@
 				F49034D9295075F800CDE442 /* TouristInfoAPIEnvironment.swift in Sources */,
 				F4F0E07B29645BBB0006C9D4 /* NaverBlogQuery.swift in Sources */,
 				F4E3E5BB295D779B009AFCFC /* TouristInfoCommon.swift in Sources */,
+				F4D9B63D29A61CB900A12C99 /* Case.swift in Sources */,
 				F4E3E5E6295E946F009AFCFC /* TouristInfoKeywordRequestDTO.swift in Sources */,
 				F4903495294A172D00CDE442 /* HomeHeaderCell.swift in Sources */,
 				F4E3E5A92954C392009AFCFC /* UIViewController+Rx.swift in Sources */,
@@ -2287,6 +2318,7 @@
 				F4E2A7E22993FAF700B8EF4F /* TouristInfoIntroTourCourse.swift in Sources */,
 				F4E3E593295210BD009AFCFC /* CampsiteResponseDTO.swift in Sources */,
 				F4D10EFA294992A8000C02E0 /* HomeViewController.swift in Sources */,
+				F4D9B63429A5C9C900A12C99 /* HomeViewSectionLayoutManager.swift in Sources */,
 				F4E3E59129518A0C009AFCFC /* CampsiteRequestDTO.swift in Sources */,
 				F4E3E5D4295DB4EC009AFCFC /* TouristInfoIntroRestaurant.swift in Sources */,
 				F4F0E0872964697A0006C9D4 /* NaverBlogInfo.swift in Sources */,

@@ -8,7 +8,6 @@
 import Foundation
 import RxSwift
 import Moya
-import RxMoya
 
 enum YoutubeServiceError: Error {
   case serviceError

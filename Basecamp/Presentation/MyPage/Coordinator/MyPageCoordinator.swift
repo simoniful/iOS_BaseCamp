@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Toast
+import Toast_Swift
 
 final class MyPageCoordinator: NSObject, Coordinator {
   weak var finishDelegate: CoordinatorFinishDelegate?

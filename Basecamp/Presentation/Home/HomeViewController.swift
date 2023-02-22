@@ -34,8 +34,9 @@ final class HomeViewController: UIViewController {
     return barButton
   }()
   
-  private let viewModel: HomeViewModel
+  public let viewModel: HomeViewModel
   private let disposeBag = DisposeBag()
+  private let sectionLayoutFactory = SectionLayoutManagerFactory()
   
   private lazy var input = HomeViewModel.Input(
     viewDidLoad: Observable.just(Void()),
@@ -69,7 +70,9 @@ final class HomeViewController: UIViewController {
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(true)
-    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    navigationItem.backBarButtonItem = UIBarButtonItem(
+      title: "", style: .plain, target: nil, action: nil
+    )
   }
   
   override func viewWillLayoutSubviews() {
@@ -78,8 +81,8 @@ final class HomeViewController: UIViewController {
   }
   
   func bind() {
-    collectionView.collectionViewLayout = viewModel.createLayout()
-    let dataSource = viewModel.dataSource()
+    collectionView.collectionViewLayout = sectionLayoutFactory.createManager(type: .home).createLayout()
+    let dataSource = HomeViewDataSourceManager.homeDataSource(self)
     
     output.data
       .do(onNext: { _ in
@@ -87,7 +90,6 @@ final class HomeViewController: UIViewController {
       })
       .drive(self.collectionView.rx.items(dataSource: dataSource))
       .disposed(by: disposeBag)
-
   }
 }
 

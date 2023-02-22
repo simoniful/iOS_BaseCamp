@@ -74,6 +74,7 @@ final class DetailViewController: UIViewController {
   
   var viewModel: DetailViewModel
   let disposeBag = DisposeBag()
+  let sectionLayoutFactory = SectionLayoutManagerFactory()
   
   private lazy var input = DetailViewModel.Input(
     viewWillAppear: self.rx.viewWillAppear.asObservable(),
@@ -125,7 +126,7 @@ final class DetailViewController: UIViewController {
   func bind() {
     switch viewModel.style {
     case .campsite:
-      collectionView.collectionViewLayout = DetailViewSectionLayoutManager.createCampsiteLayout()
+      collectionView.collectionViewLayout = sectionLayoutFactory.createManager(type: .campsiteDetail).createLayout()
       let dataSource = DetailViewDataSourceManager.campsiteDataSource(self)
       
       output.campsiteData
@@ -159,7 +160,7 @@ final class DetailViewController: UIViewController {
         })
         .disposed(by: disposeBag)
     case .touristInfo:
-      collectionView.collectionViewLayout = DetailViewSectionLayoutManager.createTouristInfoLayout()
+      collectionView.collectionViewLayout = sectionLayoutFactory.createManager(type: .touristInfoDetail).createLayout()
       
       let dataSource = DetailViewDataSourceManager.touristInfoDataSource(self)
       

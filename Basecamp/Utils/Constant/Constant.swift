@@ -5,7 +5,7 @@
 //  Created by Sang hun Lee on 2022/12/22.
 //
 
-import Foundation
+import UIKit
 
 struct WeatherStation {
     static let locationDic : [String : [Double]] = [
@@ -38,4 +38,14 @@ struct AttractionType {
         "맛집": 39,
         "쇼핑": 38
     ]
+}
+
+struct Size {
+  static var screenW: CGFloat {
+    return UIScreen.main.bounds.width
+  }
+  
+  static var screenH: CGFloat {
+    return UIScreen.main.bounds.height
+  }
 }

@@ -13,7 +13,6 @@ final class HomeUseCase {
   private let userDefaults = UserDefaults.standard
   
   private let realmRepository: RealmRepositoryInterface
-  private let campsiteRepository: CampsiteRepositoryInterface
   private let touristInfoRepository: TouristInfoRepositoryInterface
   
   private let searchKeyword = CampType.allCases.randomElement()
@@ -21,26 +20,10 @@ final class HomeUseCase {
   
   init(
     realmRepository: RealmRepositoryInterface,
-    campsiteRepository: CampsiteRepositoryInterface,
     touristInfoRepository: TouristInfoRepositoryInterface
   ) {
     self.realmRepository = realmRepository
-    self.campsiteRepository = campsiteRepository
     self.touristInfoRepository = touristInfoRepository
-  }
-
-  func getCampsiteValue(_ result: Result<[Campsite], CampsiteServiceError>) -> [Campsite]? {
-    guard case .success(let value) = result else {
-      return nil
-    }
-    return value
-  }
-  
-  func getCampsiteError(_ result: Result<[Campsite], CampsiteServiceError>) -> String? {
-    guard case .failure(let error) = result else {
-      return nil
-    }
-    return error.localizedDescription
   }
   
   func getTouristInfoValue(_ result: Result<TouristInfoData, TouristInfoServiceError>) -> TouristInfoData? {
@@ -102,21 +85,6 @@ final class HomeUseCase {
       HomeAreaItem(area: $0)
     }
     return areaList
-  }
-  
-  // MARK: - 고캠핑 레포 연결
-  func requestCampsiteKeywordList(numOfRows: Int, pageNo: Int) -> Single<Result<[Campsite], CampsiteServiceError>> {
-    campsiteRepository.requestCampsiteList(
-      campsiteQueryType: .keyword(numOfRows: numOfRows, pageNo: pageNo, keyword: searchKeyword!.rawValue)
-    )
-  }
-  
-  func requestCampsiteList(numOfRows: Int, pageNo: Int, coordinate: Coordinate, radius: Int) -> Single<Result<[Campsite], CampsiteServiceError>> {
-    campsiteRepository.requestCampsiteList(
-      campsiteQueryType: .location(
-        numOfRows: numOfRows, pageNo: pageNo, coordinate: coordinate, radius: radius
-      )
-    )
   }
   
   // MARK: - 관광정보 레포 연결

@@ -27,12 +27,10 @@ final class HomeUseCaseTests: XCTestCase {
       
       
       realmRepository = StubRealmRepository()
-      campsiteRepository = StubCampsiteRepository()
       touristInfoRepository = StubTouristInfoRepository()
       
       useCase = HomeUseCase(
         realmRepository: realmRepository,
-        campsiteRepository: campsiteRepository,
         touristInfoRepository: touristInfoRepository
       )
     }

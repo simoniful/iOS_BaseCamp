@@ -7,7 +7,6 @@
 
 import Foundation
 import Moya
-import RxMoya
 import RxSwift
 
 // 외부 에러 코드 / 내부 에러 코드 분리

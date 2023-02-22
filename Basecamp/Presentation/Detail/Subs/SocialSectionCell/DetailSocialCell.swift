@@ -38,7 +38,7 @@ final class DetailSocialCell: UICollectionViewCell {
   private lazy var descLabel: UILabel = {
     let label = UILabel()
     label.font = .body4R12
-    label.numberOfLines = 3
+    label.numberOfLines = 2
     label.text = "설명"
     label.textColor = .darkGray
     return label

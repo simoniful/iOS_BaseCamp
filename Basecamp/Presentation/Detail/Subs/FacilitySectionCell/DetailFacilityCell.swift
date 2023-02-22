@@ -12,7 +12,7 @@ final class DetailFacilityCell: UICollectionViewCell {
   
   private lazy var iconImageView: UIImageView = {
     let imageView = UIImageView()
-    imageView.contentMode = .scaleAspectFit
+    imageView.contentMode = .center
     return imageView
   }()
   
@@ -47,21 +47,21 @@ extension DetailFacilityCell: ViewRepresentable {
   
   func setupConstraints() {
     iconImageView.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(12.0)
-      $0.leading.equalToSuperview().offset(12.0)
-      $0.trailing.equalToSuperview().offset(-12.0)
+      $0.top.equalToSuperview().offset(8.0)
+      $0.leading.equalToSuperview()
+      $0.trailing.equalToSuperview()
       $0.height.equalTo(iconImageView.snp.width).multipliedBy(1.0)
     }
     
     titleLabel.snp.makeConstraints {
       $0.centerX.equalTo(iconImageView.snp.centerX)
-      $0.top.equalTo(iconImageView.snp.bottom).offset(4.0)
-      $0.bottom.equalToSuperview().offset(-8.0)
+      $0.top.equalTo(iconImageView.snp.bottom)
+//      $0.bottom.equalToSuperview().offset(-8.0)
     }
   }
   
   func setupData(data: DetailCampsiteFacilityItem) {
-    iconImageView.image = UIImage(named: data.facility.iconName)
+    iconImageView.image = UIImage(named: data.facility.iconName)?.resize(newWidth: 32.0)
     titleLabel.text = data.facility.rawValue
   }
 }

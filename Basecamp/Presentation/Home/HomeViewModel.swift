@@ -14,7 +14,6 @@ final class HomeViewModel: ViewModel {
   
   private weak var coordinator: HomeCoordinator?
   private let homeUseCase: HomeUseCase
-//  public var didSubmitAction: ((DetailStyle) -> ())?
   
   init(coordinator: HomeCoordinator?, homeUseCase: HomeUseCase) {
     self.coordinator = coordinator
@@ -35,7 +34,7 @@ final class HomeViewModel: ViewModel {
   }
   
   private let data = PublishRelay<[HomeSectionModel]>()
-  private let headerAction = PublishRelay<HeaderCellAction>()
+  public let headerAction = PublishRelay<HeaderCellAction>()
   
   var disposeBag = DisposeBag()
   func transform(input: Input) -> Output {
@@ -111,7 +110,7 @@ final class HomeViewModel: ViewModel {
       .emit { [weak self] (model, index) in
         switch index.section {
         case 0:
-          print("여긴 클릭하면 안됨")
+          break
         case 1:
           guard let areaItem = model as? HomeAreaItem else { return }
           self?.coordinator?.changeTabByIndex(tabCase: .list, message: "지역별로 검색해보세요", area: areaItem.area, index: index.row)
@@ -122,7 +121,7 @@ final class HomeViewModel: ViewModel {
           guard let touristInfo = model as? TouristInfo else { return }
           self?.coordinator?.navigateToFlowDetail(with: .touristInfo(data: touristInfo))
         default:
-          print("여긴 클릭하면 안됨")
+          break
         }
       }
       .disposed(by: disposeBag)
@@ -152,165 +151,6 @@ final class HomeViewModel: ViewModel {
       data: data.asDriver(onErrorJustReturn: [])
     )
   }
-  
-  func dataSource() -> RxCollectionViewSectionedReloadDataSource<HomeSectionModel> {
-    let dataSource = RxCollectionViewSectionedReloadDataSource<HomeSectionModel>(
-      configureCell: { dataSource, collectionView, indexPath, item in
-        switch dataSource[indexPath.section] {
-        case .headerSection(items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeHeaderCell.identifier, for: indexPath) as? HomeHeaderCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(completedCount: item.completedCampsiteCount, likedCount: item.likedCampsiteCount)
-          cell.viewModel(item: item)?
-            .bind(to: self.headerAction)
-            .disposed(by: cell.disposeBag)
-          return cell
-        case .areaSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeAreaCell.identifier, for: indexPath) as? HomeAreaCell else {
-            return UICollectionViewCell()
-          }
-          let item = items[indexPath.row]
-          cell.setupData(area: item.area)
-          return cell
-        case .campsiteKeywordSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCampsiteCell.identifier, for: indexPath) as? HomeCampsiteCell else { return UICollectionViewCell() }
-          let item = items[indexPath.row]
-          cell.setData(campsite: item)
-          return cell
-        case .campsiteThemeSection(header: _, items: let items):
-          guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCampsiteCell.identifier, for: indexPath) as? HomeCampsiteCell else { return UICollectionViewCell() }
-          let item = items[indexPath.row]
-          cell.setData(campsite: item)
-          return cell
-        case .festivalSection(header: _, items: let items):
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeFestivalCell.identifier, for: indexPath) as? HomeFestivalCell else { return UICollectionViewCell() }
-        let item = items[indexPath.row]
-        cell.setData(touristInfo: item)
-        return cell
-      
-        }
-      },
-      configureSupplementaryView: { dataSource, collectionView, kind, indexPath in
-        switch dataSource[indexPath.section] {
-        case .headerSection:
-          let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeSectionHeader.identifier, for: indexPath)
-          return header
-        case .areaSection(header: let headerStr, _),
-             .campsiteKeywordSection(header: let headerStr, _),
-             .campsiteThemeSection(header: let headerStr, _),
-             .festivalSection(header: let headerStr, _):
-          guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeSectionHeader.identifier, for: indexPath) as? HomeSectionHeader else { return UICollectionReusableView() }
-          header.setData(header: headerStr)
-          return header
-        }
-      }
-    )
-    return dataSource
-  }
-  
-  func createLayout() -> UICollectionViewCompositionalLayout {
-    return UICollectionViewCompositionalLayout{ (sectionNumber, env) -> NSCollectionLayoutSection? in
-      switch sectionNumber {
-      case 0:
-        return self.headerSection()
-      case 1:
-        return self.areaSection()
-      case 4:
-        return self.festivalSection()
-      default:
-        return self.campsiteSection()
-      }
-    }
-  }
 }
 
-private extension HomeViewModel {
-  func headerSection() -> NSCollectionLayoutSection {
-    let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height / 3)))
-    item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-    let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(UIScreen.main.bounds.height / 3)), subitem: item, count: 1)
-    let section = NSCollectionLayoutSection(group: group)
-    section.contentInsets = .init(top: 0, leading: 16.0, bottom: 32.0, trailing: 16.0)
-    return section
-  }
-  
-  func areaSection() -> NSCollectionLayoutSection {
-    let estimatedHeight: CGFloat = 50
-    let estimatedWidth: CGFloat = (UIScreen.main.bounds.width - 8 * 5) / 6
-    let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(estimatedWidth),
-                                          heightDimension: .estimated(estimatedHeight))
-    let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    item.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: .fixed(8), trailing: nil , bottom: .fixed(8))
-    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                           heightDimension: .estimated(estimatedHeight))
-    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                   subitem: item, count: 6)
-    group.interItemSpacing = .fixed(8.0)
-  
-    let section = NSCollectionLayoutSection(group: group)
-    let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
-    let header = NSCollectionLayoutBoundarySupplementaryItem(
-           layoutSize: headerFooterSize,
-           elementKind: UICollectionView.elementKindSectionHeader,
-           alignment: .top
-         )
-    section.boundarySupplementaryItems = [header]
-    section.contentInsets = NSDirectionalEdgeInsets(top: 8.0, leading: 16.0, bottom: 32.0, trailing: 16.0)
-    return section
-  }
-  
-  func campsiteSection() -> NSCollectionLayoutSection {
-    let itemSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(1.0),
-      heightDimension: .fractionalHeight(1.0)
-    )
-    let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    let groupSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(0.6),
-      heightDimension: .fractionalWidth(0.45)
-    )
-    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-    let section = NSCollectionLayoutSection(group: group)
-    section.interGroupSpacing = 8.0
-    section.contentInsets = NSDirectionalEdgeInsets(top: 16.0, leading: 16.0, bottom: 32.0, trailing: 16.0)
-    section.orthogonalScrollingBehavior = .continuous
-    let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
-    
-    let header = NSCollectionLayoutBoundarySupplementaryItem(
-      layoutSize: headerFooterSize,
-      elementKind: UICollectionView.elementKindSectionHeader,
-      alignment: .top
-    )
-    section.boundarySupplementaryItems = [header]
-    return section
-  }
-  
-  private func festivalSection() -> NSCollectionLayoutSection {
-    let itemSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(1.0),
-      heightDimension: .fractionalHeight(1.0)
-    )
-    let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    let groupSize = NSCollectionLayoutSize(
-      widthDimension: .fractionalWidth(0.45),
-      heightDimension: .fractionalWidth(0.6)
-    )
-    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-    let section = NSCollectionLayoutSection(group: group)
-    section.contentInsets = NSDirectionalEdgeInsets(top: 16.0, leading: 16.0, bottom: 32.0, trailing: 16.0)
-    section.interGroupSpacing = 8.0
-    section.orthogonalScrollingBehavior = .continuous
-    let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
-    let header = NSCollectionLayoutBoundarySupplementaryItem(
-           layoutSize: headerFooterSize,
-           elementKind: UICollectionView.elementKindSectionHeader,
-           alignment: .top
-         )
-    
-    section.boundarySupplementaryItems = [header]
-    return section
-  }
-}
 

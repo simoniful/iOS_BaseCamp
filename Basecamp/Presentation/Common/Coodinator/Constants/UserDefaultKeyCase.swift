@@ -9,5 +9,4 @@ import Foundation
 
 enum UserDefaultKeyCase {
   static let isNotFirstUser = "isNotFirstUser"
-  static let isPushNotiOff = "isPushNotiOff"
 }

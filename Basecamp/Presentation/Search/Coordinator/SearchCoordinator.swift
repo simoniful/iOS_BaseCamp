@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import Toast
+import Toast_Swift
 
 protocol FilterModalCoordinator: AnyObject {
   var modalNavigationController: UINavigationController { get set }
