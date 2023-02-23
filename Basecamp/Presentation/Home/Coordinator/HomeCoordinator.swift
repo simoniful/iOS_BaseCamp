@@ -8,7 +8,12 @@
 import UIKit
 import Toast_Swift
 
-final class HomeCoordinator: NSObject, Coordinator {
+protocol HomeCoordinatorProtocol: Coordinator {
+  func changeTabByIndex(tabCase: TabBarPageCase ,message: String, area: Area?, index: Int)
+  func navigateToFlowDetail(with data: DetailStyle)
+}
+
+class HomeCoordinator: NSObject, HomeCoordinatorProtocol {
   weak var finishDelegate: CoordinatorFinishDelegate?
   var childCoordinators = [Coordinator]()
   var navigationController: UINavigationController
@@ -61,7 +66,7 @@ final class HomeCoordinator: NSObject, Coordinator {
     }
   }
   
-  func popToRootViewController(message: String? = nil) {
+  func navigateToRootViewController(message: String? = nil) {
     navigationController.popToRootViewController(animated: true)
     if let message = message {
       navigationController.view.makeToast(message, position: .top)

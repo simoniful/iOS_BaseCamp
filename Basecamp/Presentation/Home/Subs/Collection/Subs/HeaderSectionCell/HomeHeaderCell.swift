@@ -156,17 +156,17 @@ extension HomeHeaderCell: ViewRepresentable {
         myCompView.rx.tapGesture()
           .when(.recognized)
           .map({ _ in
-            HeaderCellAction.myMenu(item)
+            HeaderCellAction.myMenu
           }),
         mapCompView.rx.tapGesture()
           .when(.recognized)
           .map({ _ in
-            HeaderCellAction.map(item)
+            HeaderCellAction.map
           }),
         searchCompView.rx.tapGesture()
           .when(.recognized)
           .map({ _ in
-            HeaderCellAction.search(item)
+            HeaderCellAction.search
           })
       )
     }
@@ -175,9 +175,9 @@ extension HomeHeaderCell: ViewRepresentable {
 }
 
 enum HeaderCellAction: CaseAccessible {
-  case myMenu(HomeHeaderItem)
-  case map(HomeHeaderItem)
-  case search(HomeHeaderItem)
+  case myMenu
+  case map
+  case search
   case call
   case reserve
   case visit

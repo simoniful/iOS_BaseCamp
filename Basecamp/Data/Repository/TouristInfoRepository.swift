@@ -95,12 +95,6 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
     return provider.rx.request(target)
       .filterSuccessfulStatusCodes()
       .flatMap { response -> Single<Result<TouristInfoData, TouristInfoServiceError>> in
-        let a = response.data
-        do {
-          let json = String(data: a, encoding: .utf8)
-        } catch {
-          print("errorMsg")
-        }
         let responseDTO = try response.map(TouristInfoResponseDTO.self)
         return Single.just(Result.success(responseDTO.toDomain()))
       }

@@ -6,6 +6,9 @@ target 'Basecamp' do
   use_frameworks!
 
   # Pods for Basecamp
+  pod 'FirebaseAnalytics'
+  pod 'FirebaseMessaging'
+  pod 'FirebaseCrashlytics'
   pod 'KakaoSDK'
   pod 'Moya/RxSwift'
   pod 'RealmSwift'

@@ -12,10 +12,10 @@ import RxDataSources
 
 final class HomeViewModel: ViewModel {
   
-  private weak var coordinator: HomeCoordinator?
+  private weak var coordinator: HomeCoordinatorProtocol?
   private let homeUseCase: HomeUseCase
   
-  init(coordinator: HomeCoordinator?, homeUseCase: HomeUseCase) {
+  init(coordinator: HomeCoordinatorProtocol?, homeUseCase: HomeUseCase) {
     self.coordinator = coordinator
     self.homeUseCase = homeUseCase
   }
@@ -30,10 +30,10 @@ final class HomeViewModel: ViewModel {
   }
   
   struct Output {
-    let data: Driver<[HomeSectionModel]>
+    var data: Driver<[HomeSectionModel]>
   }
   
-  private let data = PublishRelay<[HomeSectionModel]>()
+  public let data = BehaviorRelay<[HomeSectionModel]>(value: [])
   public let headerAction = PublishRelay<HeaderCellAction>()
   
   var disposeBag = DisposeBag()
@@ -88,21 +88,21 @@ final class HomeViewModel: ViewModel {
     headerAction
       .capture(case: HeaderCellAction.map)
       .bind { [weak self] _ in
-        self?.coordinator?.changeTabByIndex(tabCase: .map, message: "지도에서 검색해보세요")
+        self?.coordinator?.changeTabByIndex(tabCase: .map, message: "지도에서 검색해보세요", area: nil, index: 0)
       }
       .disposed(by: disposeBag)
     
     headerAction
       .capture(case: HeaderCellAction.myMenu)
       .bind { [weak self] _ in
-        self?.coordinator?.changeTabByIndex(tabCase: .mypage, message: "캠핑로그를 확인해보세요")
+        self?.coordinator?.changeTabByIndex(tabCase: .mypage, message: "캠핑로그를 확인해보세요", area: nil, index: 0)
       }
       .disposed(by: disposeBag)
     
     headerAction
       .capture(case: HeaderCellAction.search)
       .bind { [weak self] _ in
-        self?.coordinator?.changeTabByIndex(tabCase: .search, message: "조건별로 검색해보세요")
+        self?.coordinator?.changeTabByIndex(tabCase: .search, message: "조건별로 검색해보세요", area: nil, index: 0)
       }
       .disposed(by: disposeBag)
       
@@ -129,21 +129,21 @@ final class HomeViewModel: ViewModel {
     input.searchButtonDidTapped
       .withUnretained(self)
       .emit { owner, _ in
-        owner.coordinator?.changeTabByIndex(tabCase: .search, message: "조건별로 검색해보세요")
+        owner.coordinator?.changeTabByIndex(tabCase: .search, message: "조건별로 검색해보세요", area: nil, index: 0)
       }
       .disposed(by: disposeBag)
     
     input.listButtonDidTapped
       .withUnretained(self)
       .emit { owner, _ in
-        owner.coordinator?.changeTabByIndex(tabCase: .list, message: "지역별로 검색해보세요")
+        owner.coordinator?.changeTabByIndex(tabCase: .list, message: "지역별로 검색해보세요", area: nil, index: 0)
       }
       .disposed(by: disposeBag)
     
     input.mapButtonDidTapped
       .withUnretained(self)
       .emit { owner, _ in
-        owner.coordinator?.changeTabByIndex(tabCase: .map, message: "지도에서 검색해보세요")
+        owner.coordinator?.changeTabByIndex(tabCase: .map, message: "지도에서 검색해보세요", area: nil, index: 0)
       }
       .disposed(by: disposeBag)
     

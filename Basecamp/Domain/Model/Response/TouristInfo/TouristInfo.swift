@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct TouristInfoData {
+struct TouristInfoData: Codable {
   let item: [TouristInfo]
   let totalCount: Int
   let pageNo: Int
   let numOfRows: Int
 }
 
-struct TouristInfo: HomeItem {
+struct TouristInfo: HomeItem, Codable {
   let address, areaCode: String?
   let contentId: Int?
   let contentTypeId: TouristInfoContentType

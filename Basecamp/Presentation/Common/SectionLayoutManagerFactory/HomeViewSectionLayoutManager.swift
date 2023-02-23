@@ -86,7 +86,7 @@ struct HomeViewSectionLayoutManager: SectionLayoutManager {
     let item = itemType.item
     let groupSize = groupType.groupSize
     
-    var group = NSCollectionLayoutGroup.vertical(
+    let group = NSCollectionLayoutGroup.vertical(
       layoutSize: groupSize,
       subitems: [item]
     )
@@ -131,6 +131,7 @@ struct HomeViewSectionLayoutManager: SectionLayoutManager {
          )
     section.boundarySupplementaryItems = [header]
     section.contentInsets = NSDirectionalEdgeInsets(top: 8.0, leading: 16.0, bottom: 32.0, trailing: 16.0)
+    section.interGroupSpacing = 8.0
     return section
   }
 }

@@ -144,7 +144,7 @@
 		F4D90CAE299A398D00B12D6B /* MyPageSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D90CAD299A398D00B12D6B /* MyPageSettingViewModel.swift */; };
 		F4D90CB0299A3D7000B12D6B /* MyPageNoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D90CAF299A3D7000B12D6B /* MyPageNoticeCell.swift */; };
 		F4D90CB2299B4D8700B12D6B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D90CB1299B4D8700B12D6B /* UIViewController.swift */; };
-		F4D9B61329A4C88200A12C99 /* HomeUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B61229A4C88200A12C99 /* HomeUseCaseTests.swift */; };
+		F4D9B61329A4C88200A12C99 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B61229A4C88200A12C99 /* HomeViewModelTests.swift */; };
 		F4D9B62029A4C9FC00A12C99 /* BasecampUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B61F29A4C9FC00A12C99 /* BasecampUITests.swift */; };
 		F4D9B62229A4C9FC00A12C99 /* BasecampUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B62129A4C9FC00A12C99 /* BasecampUITestsLaunchTests.swift */; };
 		F4D9B62929A4CA3200A12C99 /* Pods_BasecampTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D9B62829A4CA3200A12C99 /* Pods_BasecampTests.framework */; };
@@ -158,6 +158,18 @@
 		F4D9B63F29A61D4400A12C99 /* SetionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B63E29A61D4300A12C99 /* SetionLayoutManager.swift */; };
 		F4D9B64129A61DBC00A12C99 /* DetailViewCampsiteSectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B64029A61DBC00A12C99 /* DetailViewCampsiteSectionLayoutManager.swift */; };
 		F4D9B64329A6259C00A12C99 /* SectionLayoutManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B64229A6259C00A12C99 /* SectionLayoutManagerFactory.swift */; };
+		F4D9B64529A670B100A12C99 /* MockHomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B64429A670B100A12C99 /* MockHomeCoordinator.swift */; };
+		F4D9B64729A6744D00A12C99 /* TouristInfoDummy.json in Resources */ = {isa = PBXBuildFile; fileRef = F4D9B64629A6744C00A12C99 /* TouristInfoDummy.json */; };
+		F4D9B64929A71D1100A12C99 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B64829A71D1100A12C99 /* Dummy.swift */; };
+		F4D9B64B29A7274400A12C99 /* TouristInfoCommonDummy.json in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B64A29A7274400A12C99 /* TouristInfoCommonDummy.json */; };
+		F4D9B64D29A7286400A12C99 /* TouristInfoIntroDummy.json in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B64C29A7286400A12C99 /* TouristInfoIntroDummy.json */; };
+		F4D9B65029A7301E00A12C99 /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B64F29A7301E00A12C99 /* ObservableType.swift */; };
+		F4D9B65229A73FB900A12C99 /* TouristInfoImageDummy.json in Resources */ = {isa = PBXBuildFile; fileRef = F4D9B65129A73FB900A12C99 /* TouristInfoImageDummy.json */; };
+		F4D9B65429A7402900A12C99 /* TouristInfoAreaCodeDummy.json in Resources */ = {isa = PBXBuildFile; fileRef = F4D9B65329A7402900A12C99 /* TouristInfoAreaCodeDummy.json */; };
+		F4D9B65729A741CD00A12C99 /* CampsiteDummy.json in Resources */ = {isa = PBXBuildFile; fileRef = F4D9B65629A741CD00A12C99 /* CampsiteDummy.json */; };
+		F4D9B65929A7427400A12C99 /* CampsiteImageDummy.json in Resources */ = {isa = PBXBuildFile; fileRef = F4D9B65829A7427400A12C99 /* CampsiteImageDummy.json */; };
+		F4D9B65C29A7B2FC00A12C99 /* DetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B65B29A7B2FC00A12C99 /* DetailViewModelTests.swift */; };
+		F4D9B65E29A7B45D00A12C99 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4D9B65D29A7B45C00A12C99 /* GoogleService-Info.plist */; };
 		F4DEE3B8299E23A500C37A78 /* MyPageReviewCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4DEE3B7299E23A500C37A78 /* MyPageReviewCardCell.xib */; };
 		F4DEE3BA299E23BB00C37A78 /* MyPageReviewCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DEE3B9299E23BB00C37A78 /* MyPageReviewCardCell.swift */; };
 		F4E2A7922990F09E00B8EF4F /* DayRangeIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */; };
@@ -430,7 +442,7 @@
 		F4D90CAF299A3D7000B12D6B /* MyPageNoticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageNoticeCell.swift; sourceTree = "<group>"; };
 		F4D90CB1299B4D8700B12D6B /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		F4D9B61029A4C88000A12C99 /* BasecampTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasecampTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4D9B61229A4C88200A12C99 /* HomeUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCaseTests.swift; sourceTree = "<group>"; };
+		F4D9B61229A4C88200A12C99 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		F4D9B61D29A4C9FB00A12C99 /* BasecampUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasecampUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D9B61F29A4C9FC00A12C99 /* BasecampUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasecampUITests.swift; sourceTree = "<group>"; };
 		F4D9B62129A4C9FC00A12C99 /* BasecampUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasecampUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -445,6 +457,18 @@
 		F4D9B63E29A61D4300A12C99 /* SetionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetionLayoutManager.swift; sourceTree = "<group>"; };
 		F4D9B64029A61DBC00A12C99 /* DetailViewCampsiteSectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCampsiteSectionLayoutManager.swift; sourceTree = "<group>"; };
 		F4D9B64229A6259C00A12C99 /* SectionLayoutManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionLayoutManagerFactory.swift; sourceTree = "<group>"; };
+		F4D9B64429A670B100A12C99 /* MockHomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeCoordinator.swift; sourceTree = "<group>"; };
+		F4D9B64629A6744C00A12C99 /* TouristInfoDummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TouristInfoDummy.json; sourceTree = "<group>"; };
+		F4D9B64829A71D1100A12C99 /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
+		F4D9B64A29A7274400A12C99 /* TouristInfoCommonDummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TouristInfoCommonDummy.json; sourceTree = "<group>"; };
+		F4D9B64C29A7286400A12C99 /* TouristInfoIntroDummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TouristInfoIntroDummy.json; sourceTree = "<group>"; };
+		F4D9B64F29A7301E00A12C99 /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
+		F4D9B65129A73FB900A12C99 /* TouristInfoImageDummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TouristInfoImageDummy.json; sourceTree = "<group>"; };
+		F4D9B65329A7402900A12C99 /* TouristInfoAreaCodeDummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TouristInfoAreaCodeDummy.json; sourceTree = "<group>"; };
+		F4D9B65629A741CD00A12C99 /* CampsiteDummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CampsiteDummy.json; sourceTree = "<group>"; };
+		F4D9B65829A7427400A12C99 /* CampsiteImageDummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CampsiteImageDummy.json; sourceTree = "<group>"; };
+		F4D9B65B29A7B2FC00A12C99 /* DetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTests.swift; sourceTree = "<group>"; };
+		F4D9B65D29A7B45C00A12C99 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F4DEE3B7299E23A500C37A78 /* MyPageReviewCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPageReviewCardCell.xib; sourceTree = "<group>"; };
 		F4DEE3B9299E23BB00C37A78 /* MyPageReviewCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageReviewCardCell.swift; sourceTree = "<group>"; };
 		F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRangeIndicatorView.swift; sourceTree = "<group>"; };
@@ -981,6 +1005,7 @@
 				F49034C42950308D00CDE442 /* Infrastructure */,
 				F4D10F07294995F5000C02E0 /* Resources */,
 				F4D10EB229497833000C02E0 /* Info.plist */,
+				F4D9B65D29A7B45C00A12C99 /* GoogleService-Info.plist */,
 			);
 			path = Basecamp;
 			sourceTree = "<group>";
@@ -1366,7 +1391,8 @@
 		F4D9B61129A4C88200A12C99 /* BasecampTests */ = {
 			isa = PBXGroup;
 			children = (
-				F4D9B61229A4C88200A12C99 /* HomeUseCaseTests.swift */,
+				F4D9B61229A4C88200A12C99 /* HomeViewModelTests.swift */,
+				F4D9B65B29A7B2FC00A12C99 /* DetailViewModelTests.swift */,
 				F4D9B62E29A4CD4100A12C99 /* Mocks */,
 			);
 			path = BasecampTests;
@@ -1384,9 +1410,11 @@
 		F4D9B62E29A4CD4100A12C99 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				F4D9B62C29A4CC8600A12C99 /* MockRealmRepository.swift */,
-				F4D9B62F29A4CD9700A12C99 /* MockCampsiteRepository.swift */,
-				F4D9B63129A4CEA100A12C99 /* MockTouristInfoRepository.swift */,
+				F4D9B64829A71D1100A12C99 /* Dummy.swift */,
+				F4D9B64429A670B100A12C99 /* MockHomeCoordinator.swift */,
+				F4D9B65A29A74CBC00A12C99 /* MockRepository */,
+				F4D9B65529A7417500A12C99 /* CampsiteDummy */,
+				F4D9B64E29A729C200A12C99 /* TouristDummy */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1402,6 +1430,37 @@
 				F4D9B63C29A61CB900A12C99 /* Case.swift */,
 			);
 			path = SectionLayoutManagerFactory;
+			sourceTree = "<group>";
+		};
+		F4D9B64E29A729C200A12C99 /* TouristDummy */ = {
+			isa = PBXGroup;
+			children = (
+				F4D9B64629A6744C00A12C99 /* TouristInfoDummy.json */,
+				F4D9B64A29A7274400A12C99 /* TouristInfoCommonDummy.json */,
+				F4D9B64C29A7286400A12C99 /* TouristInfoIntroDummy.json */,
+				F4D9B65129A73FB900A12C99 /* TouristInfoImageDummy.json */,
+				F4D9B65329A7402900A12C99 /* TouristInfoAreaCodeDummy.json */,
+			);
+			path = TouristDummy;
+			sourceTree = "<group>";
+		};
+		F4D9B65529A7417500A12C99 /* CampsiteDummy */ = {
+			isa = PBXGroup;
+			children = (
+				F4D9B65629A741CD00A12C99 /* CampsiteDummy.json */,
+				F4D9B65829A7427400A12C99 /* CampsiteImageDummy.json */,
+			);
+			path = CampsiteDummy;
+			sourceTree = "<group>";
+		};
+		F4D9B65A29A74CBC00A12C99 /* MockRepository */ = {
+			isa = PBXGroup;
+			children = (
+				F4D9B62C29A4CC8600A12C99 /* MockRealmRepository.swift */,
+				F4D9B62F29A4CD9700A12C99 /* MockCampsiteRepository.swift */,
+				F4D9B63129A4CEA100A12C99 /* MockTouristInfoRepository.swift */,
+			);
+			path = MockRepository;
 			sourceTree = "<group>";
 		};
 		F4E3E58A29518174009AFCFC /* RequestDTO */ = {
@@ -1453,6 +1512,7 @@
 				F4E3E5A82954C392009AFCFC /* UIViewController+Rx.swift */,
 				F45C0A0F2972A8140075E1AC /* UITableView+Rx.swift */,
 				F4FD50932962BF4F00FA3CB3 /* UICollectionView+Rx.swift */,
+				F4D9B64F29A7301E00A12C99 /* ObservableType.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -1819,6 +1879,7 @@
 				F4D10E9F29497831000C02E0 /* Resources */,
 				9938DCDBC829F9756C9E6C77 /* [CP] Embed Pods Frameworks */,
 				F854CB4CC36BDB91A6CC1754 /* [CP] Copy Pods Resources */,
+				F4C43D9A29A7C54900D8F4A8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1922,6 +1983,7 @@
 				F4D10EB129497833000C02E0 /* LaunchScreen.storyboard in Resources */,
 				F4FD50902962851600FA3CB3 /* goCampingData.json in Resources */,
 				F4D10F492949AD4A000C02E0 /* NotoSansKR-Regular.otf in Resources */,
+				F4D9B65E29A7B45D00A12C99 /* GoogleService-Info.plist in Resources */,
 				F4DEE3B8299E23A500C37A78 /* MyPageReviewCardCell.xib in Resources */,
 				F4D10EAE29497833000C02E0 /* Assets.xcassets in Resources */,
 			);
@@ -1931,6 +1993,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4D9B65429A7402900A12C99 /* TouristInfoAreaCodeDummy.json in Resources */,
+				F4D9B65229A73FB900A12C99 /* TouristInfoImageDummy.json in Resources */,
+				F4D9B64729A6744D00A12C99 /* TouristInfoDummy.json in Resources */,
+				F4D9B65729A741CD00A12C99 /* CampsiteDummy.json in Resources */,
+				F4D9B65929A7427400A12C99 /* CampsiteImageDummy.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2078,6 +2145,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F4C43D9A29A7C54900D8F4A8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ \"${CONFIGURATION}\" != \"Debug\" ]; then\n    \"${PODS_ROOT}/FirebaseCrashlytics/run\"\n    \"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist -p ios ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\nfi\n";
+		};
 		F854CB4CC36BDB91A6CC1754 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2156,6 +2242,7 @@
 				F4F0E099296576120006C9D4 /* DetailAroundTabmanViewController.swift in Sources */,
 				F45C0A4029763BEF0075E1AC /* FilterSubSectionHeader.swift in Sources */,
 				F4F0E094296575A00006C9D4 /* DetailImageCell.swift in Sources */,
+				F4D9B65029A7301E00A12C99 /* ObservableType.swift in Sources */,
 				F45C09E929703E4D0075E1AC /* DetailTouristInfoIntroCell.swift in Sources */,
 				F49034A5294AC72700CDE442 /* PaddingLabel.swift in Sources */,
 				F45C09F629715AE60075E1AC /* SearchViewController.swift in Sources */,
@@ -2348,9 +2435,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4D9B61329A4C88200A12C99 /* HomeUseCaseTests.swift in Sources */,
+				F4D9B64B29A7274400A12C99 /* TouristInfoCommonDummy.json in Sources */,
+				F4D9B61329A4C88200A12C99 /* HomeViewModelTests.swift in Sources */,
 				F4D9B62D29A4CC8600A12C99 /* MockRealmRepository.swift in Sources */,
 				F4D9B63229A4CEA100A12C99 /* MockTouristInfoRepository.swift in Sources */,
+				F4D9B64D29A7286400A12C99 /* TouristInfoIntroDummy.json in Sources */,
+				F4D9B65C29A7B2FC00A12C99 /* DetailViewModelTests.swift in Sources */,
+				F4D9B64529A670B100A12C99 /* MockHomeCoordinator.swift in Sources */,
+				F4D9B64929A71D1100A12C99 /* Dummy.swift in Sources */,
 				F4D9B63029A4CD9700A12C99 /* MockCampsiteRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2520,6 +2612,7 @@
 				CODE_SIGN_ENTITLEMENTS = Basecamp/Basecamp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = AT2N75TMZD;
 				GENERATE_INFOPLIST_FILE = YES;

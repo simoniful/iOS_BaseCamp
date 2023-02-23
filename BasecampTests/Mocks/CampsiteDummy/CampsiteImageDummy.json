@@ -1,7 +1,87 @@
-/* 
-  CampsiteImageDummy.strings
-  Basecamp
-
-  Created by Sang hun Lee on 2023/02/23.
-  
-*/
+{
+  "response": {
+    "header": {
+      "resultCode": "0000",
+      "resultMsg": "OK"
+    },
+    "body": {
+      "items": {
+        "item": [
+        {
+          "contentId": "3429",
+          "serialnum": "417320",
+          "imageUrl": "https://gocamping.or.kr/upload/camp/3429/7798D931eCFr52PoJOTNrEdo.jpg",
+          "createdtime": "2023-01-16 16:46:46",
+          "modifiedtime": "2023-01-16 16:46:46"
+        },
+        {
+          "contentId": "3429",
+          "serialnum": "417321",
+          "imageUrl": "https://gocamping.or.kr/upload/camp/3429/1889dK3DjvzPxKGqLYH3KpmI.jpg",
+          "createdtime": "2023-01-16 16:46:46",
+          "modifiedtime": "2023-01-16 16:46:46"
+        },
+        {
+          "contentId": "3429",
+          "serialnum": "417322",
+          "imageUrl": "https://gocamping.or.kr/upload/camp/3429/7372o5nDlM0DdHN6hJ5oWwo5.jpg",
+          "createdtime": "2023-01-16 16:46:46",
+          "modifiedtime": "2023-01-16 16:46:46"
+        },
+        {
+          "contentId": "3429",
+          "serialnum": "417323",
+          "imageUrl": "https://gocamping.or.kr/upload/camp/3429/0916eFJoam5ynPYgFvRFJV2N.jpg",
+          "createdtime": "2023-01-16 16:46:46",
+          "modifiedtime": "2023-01-16 16:46:46"
+        },
+        {
+          "contentId": "3429",
+          "serialnum": "417324",
+          "imageUrl": "https://gocamping.or.kr/upload/camp/3429/9457gfjfFWLhgIIF5YqCitGT.jpg",
+          "createdtime": "2023-01-16 16:46:46",
+          "modifiedtime": "2023-01-16 16:46:46"
+        },
+        {
+          "contentId": "3429",
+          "serialnum": "417325",
+          "imageUrl": "https://gocamping.or.kr/upload/camp/3429/3642WsbtTCVejCmrGoAgV5ql.jpg",
+          "createdtime": "2023-01-16 16:46:46",
+          "modifiedtime": "2023-01-16 16:46:46"
+        },
+        {
+          "contentId": "3429",
+          "serialnum": "417326",
+          "imageUrl": "https://gocamping.or.kr/upload/camp/3429/7548Mkul16whJInnbRkHFQ0W.jpg",
+          "createdtime": "2023-01-16 16:46:46",
+          "modifiedtime": "2023-01-16 16:46:46"
+        },
+        {
+          "contentId": "3429",
+          "serialnum": "417327",
+          "imageUrl": "https://gocamping.or.kr/upload/camp/3429/9437xzMzjrQINOTXFq18svzS.jpg",
+          "createdtime": "2023-01-16 16:46:46",
+          "modifiedtime": "2023-01-16 16:46:46"
+        },
+        {
+          "contentId": "3429",
+          "serialnum": "417328",
+          "imageUrl": "https://gocamping.or.kr/upload/camp/3429/999925X0C8DzKX6wxyCn6J8j.jpg",
+          "createdtime": "2023-01-16 16:46:46",
+          "modifiedtime": "2023-01-16 16:46:46"
+        },
+        {
+          "contentId": "3429",
+          "serialnum": "417329",
+          "imageUrl": "https://gocamping.or.kr/upload/camp/3429/4413riwk0REwoDTNeuOA5hdm.jpg",
+          "createdtime": "2023-01-16 16:46:46",
+          "modifiedtime": "2023-01-16 16:46:46"
+        }
+        ]
+      },
+      "numOfRows": 10,
+      "pageNo": 1,
+      "totalCount": 25
+    }
+  }
+}
