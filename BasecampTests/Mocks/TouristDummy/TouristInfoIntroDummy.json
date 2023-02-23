@@ -1,0 +1,36 @@
+{
+  "response": {
+    "header": {
+      "resultCode": "0000",
+      "resultMsg": "OK"
+    },
+    "body": {
+      "items": {
+        "item": [
+          {
+            "contentid": "126508",
+            "contenttypeid": "12",
+            "heritage1": "0",
+            "heritage2": "0",
+            "heritage3": "0",
+            "infocenter": "경복궁 관리소 02-3700-3900",
+            "opendate": "",
+            "restdate": "매주 화요일(휴궁일)",
+            "expguide": "",
+            "expagerange": "",
+            "accomcount": "",
+            "useseason": "",
+            "usetime": "1월~2월 - 09:00~17:00(입장마감 16:00)<br />\n3월~5월 - 09:00~18:00(입장마감 17:00)<br />\n6월~8월 - 09:00~18:30(입장마감 17:30)<br />\n9월~10월 - 09:00~18:00(입장마감 17:00)<br />\n11월~12월 - 09:00~17:00(입장마감 16:00)<br />\n※ 기관사정에 따라 관람시간 단축 및 조정있을 수 있음",
+            "parking": "있음",
+            "chkbabycarriage": "없음",
+            "chkpet": "불가",
+            "chkcreditcard": "가능"
+          }
+        ]
+      },
+      "numOfRows": 1,
+      "pageNo": 1,
+      "totalCount": 1
+    }
+  }
+}

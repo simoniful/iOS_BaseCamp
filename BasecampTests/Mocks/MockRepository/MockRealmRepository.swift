@@ -9,59 +9,41 @@ import Foundation
 @testable import Basecamp
 
 final class StubRealmRepository: RealmRepositoryInterface {
-  static func saveFromLocalJson() {
-    <#code#>
-  }
+  static func saveFromLocalJson() {}
   
+  // home
   func loadCampsite() -> [Campsite] {
-    <#code#>
+    return campsiteDummyData.toDomain()
   }
   
   func loadCampsite(query: String) -> [Campsite] {
-    <#code#>
+    return campsiteDummyData.toDomain()
   }
   
   func loadCampsite(query: [[String]]) -> [Campsite] {
-    <#code#>
+    return campsiteDummyData.toDomain()
   }
   
   func loadCampsite(keyword: String) -> [Campsite] {
-    <#code#>
+    return campsiteDummyData.toDomain()
   }
   
   func loadCampsite(area: Area?, sigungu: Sigungu?) -> [Campsite] {
-    <#code#>
+    return campsiteDummyData.toDomain()
   }
   
-  func saveCampsite(campsite: Campsite) {
-    <#code#>
-  }
-  
-  func unsaveCampsite(campsite: Campsite) {
-    <#code#>
-  }
-  
-  func updateCampsite(campsite: Campsite) {
-    <#code#>
-  }
+  func saveCampsite(campsite: Campsite) {}
+  func unsaveCampsite(campsite: Campsite) {}
+  func updateCampsite(campsite: Campsite) {}
   
   func loadReview() -> [Review] {
-    <#code#>
+    return []
   }
   
   func loadReview(query: String, startDate: Date, endDate: Date) -> [Review] {
-    <#code#>
+    return []
   }
-  
-  func saveReview(review: Review) {
-    <#code#>
-  }
-  
-  func updateReveiw(review: Review) {
-    <#code#>
-  }
-  
-  func deleteReview(review: Review) {
-    <#code#>
-  }
+  func saveReview(review: Review) {}
+  func updateReveiw(review: Review) {}
+  func deleteReview(review: Review) {}
 }

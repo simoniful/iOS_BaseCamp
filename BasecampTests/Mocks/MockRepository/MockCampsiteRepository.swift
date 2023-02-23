@@ -12,14 +12,14 @@ import RxCocoa
 
 final class StubCampsiteRepository: CampsiteRepositoryInterface {
   func requestCampsiteList(campsiteQueryType: CampsiteQueryType) -> Single<Result<[Campsite], CampsiteServiceError>> {
-    <#code#>
+    let dummy = campsiteDummyData.toDomain()
+    return Single.just(.success(dummy))
   }
   
   func requestCampsiteImageList(campsiteQueryType: CampsiteQueryType) -> Single<Result<[String], CampsiteServiceError>> {
-    <#code#>
+    let dummy = campsiteImageDummyData.toDomain()
+    return Single.just(.success(dummy))
   }
-  
-  
 }
   
   
