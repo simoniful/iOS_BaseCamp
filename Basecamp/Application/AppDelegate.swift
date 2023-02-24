@@ -46,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       completionHandler: { _, _ in }
     )
     
+    // userDefault 확인하여 알람 설정
     application.registerForRemoteNotifications()
     
     Messaging.messaging().delegate = self

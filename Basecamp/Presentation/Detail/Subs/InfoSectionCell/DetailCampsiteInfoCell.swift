@@ -13,19 +13,6 @@ final class DetailCampsiteInfoCell: UICollectionViewCell {
   
   private lazy var infoStack = DetailCampsiteInfoStackView()
   
-//  private lazy var overviewTextView: UITextView = {
-//    let textView = UITextView()
-//    textView.isEditable = false
-//    textView.font = .body1M16
-//    textView.textContainerInset = .init(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
-//    textView.layer.cornerRadius = 8.0
-//    textView.clipsToBounds = true
-//    textView.layer.borderWidth = 1
-//    textView.layer.borderColor = UIColor.orange.cgColor
-//    return textView
-//  }()
-  
-  // 커스텀 뷰
   private lazy var tooltipLabel: UILabel = {
     let label = DefaultLabel(font: .body3R14)
     label.text = "정보 플러스"
@@ -62,13 +49,6 @@ extension DetailCampsiteInfoCell: ViewRepresentable {
       $0.trailing.equalToSuperview()
     }
     
-//    overviewTextView.snp.makeConstraints {
-//      $0.top.equalTo(infoStack.snp.bottom).offset(8.0)
-//      $0.leading.equalToSuperview()
-//      $0.trailing.equalToSuperview()
-//      $0.width.greaterThanOrEqualTo(200.0)
-//    }
-    
     tooltipLabel.snp.makeConstraints {
       $0.top.equalTo(infoStack.snp.bottom).offset(8.0)
       $0.leading.equalToSuperview()
@@ -80,7 +60,7 @@ extension DetailCampsiteInfoCell: ViewRepresentable {
   func setupData(data: DetailCampsiteInfoItem) {
     if infoStackSetFlag == false {
       infoStack.setData(data: data)
-      tooltipLabel.text = data.tooltip.isEmpty ? "･ 캠핑장에 주변 지역 관광 정보가 구비되어있습니다" : "･  " + data.tooltip
+      tooltipLabel.text = data.tooltip.isEmpty ? "･ 캠핑장에 주변 지역 관광 정보가 구비되어있습니다" : "･ " + data.tooltip
       infoStackSetFlag.toggle()
     }
   }

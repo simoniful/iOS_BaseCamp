@@ -46,9 +46,6 @@ final class SearchCoordinator: NSObject, Coordinator, FilterModalCoordinator {
     let detailCoordinator = DetailCoordinator(self.navigationController)
     detailCoordinator.data = data
     detailCoordinator.parentCoordinator = self
-//    detailCoordinator.isCompleted = { [weak self] in
-//      self?.free(coordinator: detailCoordinator)
-//    }
     self.store(coordinator: detailCoordinator)
     detailCoordinator.start()
   }

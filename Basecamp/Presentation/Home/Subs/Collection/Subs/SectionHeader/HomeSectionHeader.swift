@@ -12,29 +12,34 @@ final class HomeSectionHeader: UICollectionReusableView {
   
   private let titleLabel = DefaultLabel(font: .systemFont(ofSize: 20, weight: .bold))
   
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    setupView()
+    setupConstraints()
+  }
+  
   override init(frame: CGRect) {
       super.init(frame: frame)
-      attribute()
-      layout()
+    
   }
   
   required init?(coder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
   }
-  
-  private func attribute() {
+}
 
+extension HomeSectionHeader: ViewRepresentable {
+  func setupView() {
+    [titleLabel].forEach {
+        self.addSubview($0)
+    }
   }
   
-  private func layout() {
-      [titleLabel].forEach {
-          self.addSubview($0)
-      }
-      
-      titleLabel.snp.makeConstraints {
-          $0.centerY.equalToSuperview()
-          $0.leading.equalToSuperview()
-      }
+  func setupConstraints() {
+    titleLabel.snp.makeConstraints {
+        $0.centerY.equalToSuperview()
+        $0.leading.equalToSuperview()
+    }
   }
   
   func setData(header: String) {

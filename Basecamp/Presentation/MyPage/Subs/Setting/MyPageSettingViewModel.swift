@@ -53,6 +53,8 @@ final class MyPageSettingViewModel: ViewModel {
             case true:
               DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()
+                print(UIApplication.shared.isRegisteredForRemoteNotifications)
+                // 
               }
               owner.toastSignal.accept("앱 실행 중 알림 설정")
             case false:
@@ -63,6 +65,8 @@ final class MyPageSettingViewModel: ViewModel {
           UIApplication.shared.unregisterForRemoteNotifications()
           UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
           UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+          print(UIApplication.shared.isRegisteredForRemoteNotifications)
+          //
           owner.toastSignal.accept("앱 실행 중 알림 해제")
         }
       }

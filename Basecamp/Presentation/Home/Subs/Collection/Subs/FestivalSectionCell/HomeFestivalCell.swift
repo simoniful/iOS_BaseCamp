@@ -37,9 +37,14 @@ class HomeFestivalCell: UICollectionViewCell {
     return label
   }()
   
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    setupView()
+    setupConstraints()
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
-    setConstraint()
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -48,36 +53,10 @@ class HomeFestivalCell: UICollectionViewCell {
   
   override func prepareForReuse() {
     super.prepareForReuse()
-    
     imageView.kf.cancelDownloadTask()
     imageView.image = nil
   }
-  
-  private func setConstraint() {
-    [imageView, titleLabel, rangeLabel].forEach {
-      contentView.addSubview($0)
-    }
-    
-    contentView.backgroundColor = .black
-    contentView.layer.cornerRadius = 12.0
-    contentView.clipsToBounds = true
-    
-    imageView.snp.makeConstraints {
-      $0.edges.equalTo(safeAreaLayoutGuide)
-    }
-    
-    rangeLabel.snp.makeConstraints {
-      $0.bottom.equalToSuperview().offset(-8.0)
-      $0.leading.equalToSuperview().offset(12.0)
-      $0.trailing.equalToSuperview().offset(-12.0)
-    }
-    
-    titleLabel.snp.makeConstraints {
-      $0.bottom.equalTo(rangeLabel.snp.top)
-      $0.trailing.equalToSuperview().offset(-12.0)
-      $0.leading.equalToSuperview().offset(12.0)
-    }
-  }
+
 
   func setData(touristInfo: TouristInfo) {
     guard let urlString = touristInfo.subImage else { return }
@@ -99,5 +78,34 @@ class HomeFestivalCell: UICollectionViewCell {
     guard let eventStartDate = touristInfo.eventStartDate, let eventEndDate = touristInfo.eventEndDate else { return }
     
     rangeLabel.text = eventStartDate.toString(format: "MM.dd") + " ~ " + eventEndDate.toString(format: "MM.dd")
+  }
+}
+extension HomeFestivalCell: ViewRepresentable {
+  func setupView() {
+    [imageView, titleLabel, rangeLabel].forEach {
+      contentView.addSubview($0)
+    }
+    
+    contentView.backgroundColor = .black
+    contentView.layer.cornerRadius = 12.0
+    contentView.clipsToBounds = true
+  }
+  
+  func setupConstraints() {
+    imageView.snp.makeConstraints {
+      $0.edges.equalTo(safeAreaLayoutGuide)
+    }
+    
+    rangeLabel.snp.makeConstraints {
+      $0.bottom.equalToSuperview().offset(-8.0)
+      $0.leading.equalToSuperview().offset(12.0)
+      $0.trailing.equalToSuperview().offset(-12.0)
+    }
+    
+    titleLabel.snp.makeConstraints {
+      $0.bottom.equalTo(rangeLabel.snp.top)
+      $0.trailing.equalToSuperview().offset(-12.0)
+      $0.leading.equalToSuperview().offset(12.0)
+    }
   }
 }

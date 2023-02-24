@@ -114,15 +114,6 @@ final class DetailViewController: UIViewController {
     self.collectionView.performBatchUpdates(nil, completion: nil)
   }
   
-  override func viewDidDisappear(_ animated: Bool) {
-    super.viewDidDisappear(animated)
-
-  }
-  
-  deinit {
-    print("디테일 뷰 디이닛")
-  }
-  
   func bind() {
     switch viewModel.style {
     case .campsite:
@@ -159,6 +150,7 @@ final class DetailViewController: UIViewController {
           alert.showAlert()
         })
         .disposed(by: disposeBag)
+      
     case .touristInfo:
       collectionView.collectionViewLayout = sectionLayoutFactory.createManager(type: .touristInfoDetail).createLayout()
       

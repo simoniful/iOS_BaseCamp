@@ -47,13 +47,14 @@ extension DetailImageCell: ViewRepresentable {
     let processor = DownsamplingImageProcessor(size: CGSize(width: 400, height: 300))
     let resource = ImageResource(downloadURL: imageUrl!)
     imageView.kf.indicatorType = .activity
-    imageView.kf.setImage(with: resource,
-                          options: [
-                            .processor(processor),
-                            .scaleFactor(UIScreen.main.scale),
-                            .transition(.fade(1)),
-                            .cacheMemoryOnly
-                          ]
+    imageView.kf.setImage(
+      with: resource,
+      options: [
+        .processor(processor),
+        .scaleFactor(UIScreen.main.scale),
+        .transition(.fade(1)),
+        .cacheMemoryOnly
+      ]
     )
   }
 }

@@ -68,11 +68,11 @@ final class DetailAroundSubCell: UICollectionViewCell {
 
 extension DetailAroundSubCell: ViewRepresentable {
   func setupView() {
-    [imageView, nameLabel, addressLabel, distLabel ].forEach {
+    [imageView, nameLabel, addressLabel, distLabel].forEach {
       contentView.addSubview($0)
     }
     
-    [ nameLabel, addressLabel, distLabel ].forEach {
+    [nameLabel, addressLabel, distLabel].forEach {
       $0.textAlignment = .left
     }
     

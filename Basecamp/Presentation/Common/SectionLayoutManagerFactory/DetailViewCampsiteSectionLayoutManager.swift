@@ -40,6 +40,7 @@ struct DetailViewCampsiteSectionLayoutManager: SectionLayoutManager {
             )
           ),
           orthogonal: .continuous
+          
         )
       case 3:
         return makeSection(

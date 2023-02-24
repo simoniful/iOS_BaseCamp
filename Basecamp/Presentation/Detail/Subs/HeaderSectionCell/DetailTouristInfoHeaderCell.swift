@@ -17,10 +17,7 @@ import Kingfisher
 
 final class DetailTouristInfoHeaderCell: UICollectionViewCell {
   static let identifier = "DetailTouristInfoHeaderCell"
-  private var interactionSetFlag = false
-  
   private var imageDataList = [String]()
-  
   public var disposeBag = DisposeBag()
   
   private lazy var pagerView: FSPagerView = {

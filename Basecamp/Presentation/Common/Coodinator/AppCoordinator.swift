@@ -20,7 +20,7 @@ final class AppCoordinator: AppCoordinatorProtocol {
   }
   
   func start() {
-    // 조건에 한하여 플로우 변경
+    // TODO: 조건에 한하여 플로우 변경
     connectTabBarFlow()
   }
   

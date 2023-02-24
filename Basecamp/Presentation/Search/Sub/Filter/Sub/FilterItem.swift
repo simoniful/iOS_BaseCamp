@@ -14,7 +14,6 @@ struct FilterItem: IdentifiableType, Equatable {
   var identity: String {
     return UUID().uuidString
   }
-  
   var title: String?
   var selected: Bool = false
 }

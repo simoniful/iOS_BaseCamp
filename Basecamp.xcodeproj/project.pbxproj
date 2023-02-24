@@ -105,6 +105,7 @@
 		F4B312A4299C7A8900F9022C /* MyPageNoticeSubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B312A3299C7A8900F9022C /* MyPageNoticeSubCell.swift */; };
 		F4B312A6299CE8CF00F9022C /* DetailCampsiteHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B312A5299CE8CE00F9022C /* DetailCampsiteHeaderCellViewModel.swift */; };
 		F4B312A8299CE8FC00F9022C /* DetailTouristInfoHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B312A7299CE8FC00F9022C /* DetailTouristInfoHeaderCellViewModel.swift */; };
+		F4C43D9C29A860C800D8F4A8 /* DetailKaKaoMessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C43D9B29A860C800D8F4A8 /* DetailKaKaoMessageManager.swift */; };
 		F4D10EA529497831000C02E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EA429497831000C02E0 /* AppDelegate.swift */; };
 		F4D10EA729497831000C02E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10EA629497831000C02E0 /* SceneDelegate.swift */; };
 		F4D10EAE29497833000C02E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4D10EAD29497833000C02E0 /* Assets.xcassets */; };
@@ -257,7 +258,6 @@
 		F4F0E0C42969199B0006C9D4 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C32969199B0006C9D4 /* AppColor.swift */; };
 		F4F0E0C6296919CC0006C9D4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C5296919CC0006C9D4 /* UIColor.swift */; };
 		F4F0E0C8296BC0E10006C9D4 /* DetailCampsiteInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C7296BC0E00006C9D4 /* DetailCampsiteInfoStackView.swift */; };
-		F4F0E0CA296BC4CC0006C9D4 /* DetailInfoPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0C9296BC4CC0006C9D4 /* DetailInfoPlusView.swift */; };
 		F4F0E0CE296C02100006C9D4 /* DetailAroundSubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0E0CD296C02100006C9D4 /* DetailAroundSubCell.swift */; };
 		F4F1DE8D299FDC350023DF83 /* FSPagerViewCustomTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1DE8C299FDC350023DF83 /* FSPagerViewCustomTransformer.swift */; };
 		F4F1DE9329A32AE70023DF83 /* MyPageInfoWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1DE9229A32AE70023DF83 /* MyPageInfoWebViewController.swift */; };
@@ -399,6 +399,7 @@
 		F4B312A3299C7A8900F9022C /* MyPageNoticeSubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageNoticeSubCell.swift; sourceTree = "<group>"; };
 		F4B312A5299CE8CE00F9022C /* DetailCampsiteHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampsiteHeaderCellViewModel.swift; sourceTree = "<group>"; };
 		F4B312A7299CE8FC00F9022C /* DetailTouristInfoHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTouristInfoHeaderCellViewModel.swift; sourceTree = "<group>"; };
+		F4C43D9B29A860C800D8F4A8 /* DetailKaKaoMessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailKaKaoMessageManager.swift; sourceTree = "<group>"; };
 		F4D10EA129497831000C02E0 /* Basecamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Basecamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D10EA429497831000C02E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4D10EA629497831000C02E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -556,7 +557,6 @@
 		F4F0E0C32969199B0006C9D4 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		F4F0E0C5296919CC0006C9D4 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F4F0E0C7296BC0E00006C9D4 /* DetailCampsiteInfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampsiteInfoStackView.swift; sourceTree = "<group>"; };
-		F4F0E0C9296BC4CC0006C9D4 /* DetailInfoPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoPlusView.swift; sourceTree = "<group>"; };
 		F4F0E0CD296C02100006C9D4 /* DetailAroundSubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAroundSubCell.swift; sourceTree = "<group>"; };
 		F4F1DE8C299FDC350023DF83 /* FSPagerViewCustomTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPagerViewCustomTransformer.swift; sourceTree = "<group>"; };
 		F4F1DE9229A32AE70023DF83 /* MyPageInfoWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageInfoWebViewController.swift; sourceTree = "<group>"; };
@@ -1767,7 +1767,6 @@
 			children = (
 				F4F0E0C7296BC0E00006C9D4 /* DetailCampsiteInfoStackView.swift */,
 				F45C09EA29703EA40075E1AC /* DetailTouristInfoIntroStackView.swift */,
-				F4F0E0C9296BC4CC0006C9D4 /* DetailInfoPlusView.swift */,
 			);
 			path = Subs;
 			sourceTree = "<group>";
@@ -1803,6 +1802,7 @@
 				F4FD50962962C18E00FA3CB3 /* DetailViewController.swift */,
 				F4FD509E2962E0F600FA3CB3 /* DetailViewModel.swift */,
 				F45C09EC2970EFB50075E1AC /* DetailViewDataSourceManager.swift */,
+				F4C43D9B29A860C800D8F4A8 /* DetailKaKaoMessageManager.swift */,
 				F4FD50A2296303C000FA3CB3 /* Subs */,
 				F40DDFB2298A545D00D05C2A /* Coordinator */,
 			);
@@ -2162,7 +2162,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ \"${CONFIGURATION}\" != \"Debug\" ]; then\n    \"${PODS_ROOT}/FirebaseCrashlytics/run\"\n    \"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist -p ios ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		F854CB4CC36BDB91A6CC1754 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2218,6 +2218,7 @@
 				F4DEE3BA299E23BB00C37A78 /* MyPageReviewCardCell.swift in Sources */,
 				F4E3E5EE295E9574009AFCFC /* TouristInfoImageRequestDTO.swift in Sources */,
 				F4E3E5B5295D3053009AFCFC /* TouristInfoResponseDTO.swift in Sources */,
+				F4C43D9C29A860C800D8F4A8 /* DetailKaKaoMessageManager.swift in Sources */,
 				F45C0A04297258E00075E1AC /* FilterMainViewModel.swift in Sources */,
 				F49034D229504DD400CDE442 /* CampsiteTargetStub.swift in Sources */,
 				F4FD50942962BF4F00FA3CB3 /* UICollectionView+Rx.swift in Sources */,
@@ -2276,7 +2277,6 @@
 				F45C0A142973A6FD0075E1AC /* UserDefaultKeyCase.swift in Sources */,
 				F4D90CA0299A390400B12D6B /* MyPageLikeViewModel.swift in Sources */,
 				F45C0A5E298137DA0075E1AC /* ListCampsiteViewController.swift in Sources */,
-				F4F0E0CA296BC4CC0006C9D4 /* DetailInfoPlusView.swift in Sources */,
 				F49034CB295030F700CDE442 /* CampsiteAPIEnvironment.swift in Sources */,
 				F49034C3295004E100CDE442 /* TouristInfo.swift in Sources */,
 				F4D90CA2299A392000B12D6B /* MyPageReviewViewModel.swift in Sources */,

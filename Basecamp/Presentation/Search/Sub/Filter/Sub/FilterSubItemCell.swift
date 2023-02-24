@@ -92,6 +92,6 @@ class FilterItemViewModel: NSObject {
     lazy var checkImageString: Observable<String> = self.items.map { return $0.selected ? "checkmark.square.fill" : "square" }
 }
 
-class CheckButton : UIButton {
+class CheckButton: UIButton {
   var indexPath: IndexPath?
 }

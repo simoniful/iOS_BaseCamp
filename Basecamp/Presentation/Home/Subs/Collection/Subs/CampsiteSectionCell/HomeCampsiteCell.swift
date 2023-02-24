@@ -37,9 +37,14 @@ class HomeCampsiteCell: UICollectionViewCell {
     return label
   }()
   
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    setupView()
+    setupConstraints()
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
-    setConstraint()
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -48,12 +53,14 @@ class HomeCampsiteCell: UICollectionViewCell {
   
   override func prepareForReuse() {
     super.prepareForReuse()
-    
     imageView.kf.cancelDownloadTask()
     imageView.image = nil
   }
   
-  private func setConstraint() {
+}
+
+extension HomeCampsiteCell: ViewRepresentable {
+  func setupView() {
     [imageView, titleLabel, locationLabel].forEach {
       contentView.addSubview($0)
     }
@@ -61,7 +68,9 @@ class HomeCampsiteCell: UICollectionViewCell {
     contentView.backgroundColor = .black
     contentView.layer.cornerRadius = 12.0
     contentView.clipsToBounds = true
-
+  }
+  
+  func setupConstraints() {
     imageView.snp.makeConstraints {
       $0.edges.equalTo(safeAreaLayoutGuide)
     }
@@ -94,12 +103,9 @@ class HomeCampsiteCell: UICollectionViewCell {
             .cacheOriginalImage
         ]
     )
-
     titleLabel.text = campsite.facltNm
-    
     let doNm = campsite.doNm
     let sigunguNm = campsite.sigunguNm
     locationLabel.text = doNm + " " + sigunguNm
   }
-  
 }

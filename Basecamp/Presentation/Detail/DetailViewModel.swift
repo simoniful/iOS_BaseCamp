@@ -14,7 +14,6 @@ import KakaoSDKCommon
 import KakaoSDKTemplate
 import KakaoSDKShare
 
-// 스타일에 따른 다른 데이터 소스/레이아웃 구성
 enum DetailStyle {
   case campsite(data: Campsite)
   case touristInfo(data: TouristInfo)
@@ -246,22 +245,6 @@ final class DetailViewModel: ViewModel {
         }
         .disposed(by: disposeBag)
       
-      // MARK: - CLLocation Control
-      input.isAutorizedLocation
-        .emit(onNext: { [weak self] isEnable in
-          guard let self = self else { return }
-          if isEnable {
-            self.updateLocationAction.accept(())
-          } else {
-            self.unAutorizedLocationAlert.accept(("위치 서비스 사용 불가", "아이폰 설정으로 이동합니다."))
-          }
-        })
-        .disposed(by: disposeBag)
-      
-      input.isAutorizedLocation
-        .emit(to: isAutorizedLocation)
-        .disposed(by: disposeBag)
-      
       // MARK: - HeaderAction
       campsiteHeaderViewModel.callButtonDidTapped
         .bind { [weak self] _ in
@@ -311,7 +294,6 @@ final class DetailViewModel: ViewModel {
         }
         .disposed(by: disposeBag)
       
-      
       input.didSelectItemAt
         .withUnretained(self)
         .emit { (owner, itemWithIndex) in
@@ -331,39 +313,7 @@ final class DetailViewModel: ViewModel {
       
       input.shareButtonDidTapped
         .emit { [weak self] _ in
-          if ShareApi.isKakaoTalkSharingAvailable(){
-            let appLink = Link(iosExecutionParams: ["second": "vvv"])
-            
-            let button = Button(title: "앱에서 보기", link: appLink)
-            let imageUrl = campsite.firstImageURL.isEmpty ? "https://images2.imgbox.com/3d/34/7xkF2x0U_o.png" : campsite.firstImageURL
-            var description: String = ""
-            description += campsite.addr1.isEmpty ? "" : "주소: " + campsite.addr1 + "\n"
-            description += campsite.tel.isEmpty ? "" : "문의처: " + campsite.tel
-            let content = Content(title: campsite.facltNm,
-                                  imageUrl: URL(string: imageUrl)!,
-                                  description: description,
-                                  link: appLink)
-            let template = FeedTemplate(content: content, buttons: [button])
-            
-            if let templateJsonData = (try? SdkJSONEncoder.custom.encode(template)) {
-              
-              if let templateJsonObject = SdkUtils.toJsonObject(templateJsonData) {
-                ShareApi.shared.shareDefault(templateObject:templateJsonObject) {(linkResult, error) in
-                  if let error = error {
-                    print("error : \(error)")
-                  }
-                  else {
-                    print("defaultLink(templateObject:templateJsonObject) success.")
-                    guard let linkResult = linkResult else { return }
-                    UIApplication.shared.open(linkResult.url, options: [:], completionHandler: nil)
-                  }
-                }
-              }
-            }
-          }
-          else {
-            print("카카오톡 미설치")
-          }
+          DetailKaKaoMessageManager.share.commitKaKaoMessage(campsite: campsite)
         }
         .disposed(by: disposeBag)
       
@@ -600,8 +550,6 @@ final class DetailViewModel: ViewModel {
           self?.noUrlDataAlert.accept(("등록된 번호가 없습니다", "검색 엔진으로 이동하여 검색 하시겠습니까?", common.title!))
           return
         }
-        
-        print(tel)
         self?.callAlert.accept(("해당 번호로 전화를 거시겠습니까?", "📞 " + tel, tel))
       }
       .disposed(by: disposeBag)
@@ -629,58 +577,26 @@ final class DetailViewModel: ViewModel {
       )
       .subscribe { [weak self] (common, _) in
         guard let common = common.first else { return }
-        if ShareApi.isKakaoTalkSharingAvailable(){
-          let appLink = Link(iosExecutionParams: ["second": "vvv"])
-          let button = Button(title: "앱에서 보기", link: appLink)
-          let imageUrl = touristInfo.mainImage!.isEmpty ? "https://images2.imgbox.com/3d/34/7xkF2x0U_o.png" : touristInfo.mainImage
-          var description: String = ""
-          description += common.homepage!.isEmpty ? "" : "홈페이지: " +
-          common.homepage!.htmlToString
-          let content = Content(title: touristInfo.title!,
-                                imageUrl: URL(string: imageUrl!)!,
-                                description: description,
-                                link: appLink)
-          let template = FeedTemplate(content: content, buttons: [button])
-          
-          if let templateJsonData = (try? SdkJSONEncoder.custom.encode(template)) {
-            
-            if let templateJsonObject = SdkUtils.toJsonObject(templateJsonData) {
-              ShareApi.shared.shareDefault(templateObject:templateJsonObject) {(linkResult, error) in
-                if let error = error {
-                  print("error : \(error)")
-                }
-                else {
-                  print("defaultLink(templateObject:templateJsonObject) success.")
-                  guard let linkResult = linkResult else { return }
-                  UIApplication.shared.open(linkResult.url, options: [:], completionHandler: nil)
-                }
-              }
-            }
-          }
-        }
-        else {
-          print("카카오톡 미설치")
-        }
+        DetailKaKaoMessageManager.share.commitKaKaoMessage(touristInfo: touristInfo, common: common)
       }
       .disposed(by: disposeBag)
-      
-      // MARK: - CLLocation Control
-      input.isAutorizedLocation
-        .emit(onNext: { [weak self] isEnable in
-          guard let self = self else { return }
-          if isEnable {
-            self.updateLocationAction.accept(())
-          } else {
-            self.unAutorizedLocationAlert.accept(("위치 서비스 사용 불가", "아이폰 설정으로 이동합니다."))
-          }
-        })
-        .disposed(by: disposeBag)
-      
-      input.isAutorizedLocation
-        .emit(to: isAutorizedLocation)
-        .disposed(by: disposeBag)
-      
     }
+    
+    // MARK: - CLLocation Control
+    input.isAutorizedLocation
+      .emit(onNext: { [weak self] isEnable in
+        guard let self = self else { return }
+        if isEnable {
+          self.updateLocationAction.accept(())
+        } else {
+          self.unAutorizedLocationAlert.accept(("위치 서비스 사용 불가", "아이폰 설정으로 이동합니다."))
+        }
+      })
+      .disposed(by: disposeBag)
+    
+    input.isAutorizedLocation
+      .emit(to: isAutorizedLocation)
+      .disposed(by: disposeBag)
     
     return Output(
       campsiteData: campsiteData.asDriver(onErrorJustReturn: []),
@@ -692,6 +608,7 @@ final class DetailViewModel: ViewModel {
       callAlert: callAlert.asSignal()
     )
   }
+
 }
 
 

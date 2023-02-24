@@ -47,7 +47,7 @@ extension DetailFacilityCell: ViewRepresentable {
   
   func setupConstraints() {
     iconImageView.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(8.0)
+      $0.top.equalToSuperview()
       $0.leading.equalToSuperview()
       $0.trailing.equalToSuperview()
       $0.height.equalTo(iconImageView.snp.width).multipliedBy(1.0)
@@ -56,12 +56,11 @@ extension DetailFacilityCell: ViewRepresentable {
     titleLabel.snp.makeConstraints {
       $0.centerX.equalTo(iconImageView.snp.centerX)
       $0.top.equalTo(iconImageView.snp.bottom)
-//      $0.bottom.equalToSuperview().offset(-8.0)
     }
   }
   
   func setupData(data: DetailCampsiteFacilityItem) {
-    iconImageView.image = UIImage(named: data.facility.iconName)?.resize(newWidth: 32.0)
+    iconImageView.image = UIImage(named: data.facility.iconName)?.resize(newWidth: 36.0)
     titleLabel.text = data.facility.rawValue
   }
 }

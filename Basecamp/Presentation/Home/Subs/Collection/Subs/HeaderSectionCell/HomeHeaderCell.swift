@@ -184,5 +184,4 @@ enum HeaderCellAction: CaseAccessible {
   case like
   case campsitePager(DetailCampsiteHeaderItem, String)
   case touristPager(DetailTouristInfoHeaderItem, String)
-  
 }

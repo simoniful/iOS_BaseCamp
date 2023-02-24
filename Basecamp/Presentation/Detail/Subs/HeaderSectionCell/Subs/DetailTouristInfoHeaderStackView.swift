@@ -18,11 +18,9 @@ final class DetailTouristInfoHeaderStackView: UIStackView {
   private lazy var homepageCategoryLabel = StackingLabel(title: "홈페이지", font: .boldSystemFont(ofSize: 17.0))
   private lazy var homepageContentLabel = StackingLabel(title: "문의요망", font: .body2R16, textColor: .gray7)
   
-  
   private lazy var eventDateStack = makeStack(first: eventDateCategoryLabel, second: eventDateContentLabel, axis: .vertical)
   private lazy var eventDateCategoryLabel = StackingLabel(title: "행사 일정", font: .boldSystemFont(ofSize: 17.0))
   private lazy var eventDateContentLabel = StackingLabel(title: "문의요망", font: .body2R16, textColor: .gray7)
-  
   
   private lazy var overviewStack = makeStack(first: overviewCategoryLabel, second: overviewContentLabel, axis: .vertical)
   private lazy var overviewCategoryLabel = StackingLabel(title: "소개말", font: .boldSystemFont(ofSize: 17.0))
