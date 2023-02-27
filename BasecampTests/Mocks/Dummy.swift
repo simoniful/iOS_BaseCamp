@@ -17,6 +17,8 @@ var touristInfoIntroDummyData: TouristInfoIntroResponseDTO_SpotItem = Dummy.shar
 var touristInfoImageDummyData: TouristInfoImageResponseDTO = Dummy.share.load("TouristInfoImageDummy.json")
 var touristInfoAreaCodeDummyData: TouristInfoAreaCodeResponseDTO = Dummy.share.load("TouristInfoAreaCodeDummy.json")
 
+var weatherDummyData: WeatherResponseDTO = Dummy.share.load("WeatherDummy.json")
+
 class Dummy {
   static let share = Dummy()
   

@@ -1,0 +1,321 @@
+{
+  "lat": 35.2714,
+  "lon": 126.961,
+  "timezone": "Asia/Seoul",
+  "timezone_offset": 32400,
+  "daily": [
+    {
+      "dt": 1677380400,
+      "sunrise": 1677362810,
+      "sunset": 1677403433,
+      "moonrise": 1677375000,
+      "moonset": 0,
+      "moon_phase": 0.21,
+      "temp": {
+        "day": 7.16,
+        "min": -3.24,
+        "max": 7.96,
+        "night": -1.19,
+        "eve": 3.41,
+        "morn": -3.09
+      },
+      "feels_like": {
+        "day": 5.27,
+        "night": -1.19,
+        "eve": 1.19,
+        "morn": -5.23
+      },
+      "pressure": 1037,
+      "humidity": 24,
+      "dew_point": -10.75,
+      "wind_speed": 3.65,
+      "wind_deg": 339,
+      "wind_gust": 4.22,
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "맑음",
+          "icon": "01d"
+        }
+      ],
+      "clouds": 0,
+      "pop": 0,
+      "uvi": 4.36
+    },
+    {
+      "dt": 1677466800,
+      "sunrise": 1677449135,
+      "sunset": 1677489888,
+      "moonrise": 1677463560,
+      "moonset": 1677427440,
+      "moon_phase": 0.25,
+      "temp": {
+        "day": 11,
+        "min": -1.37,
+        "max": 12.13,
+        "night": 1.59,
+        "eve": 7.23,
+        "morn": -1.32
+      },
+      "feels_like": {
+        "day": 8.86,
+        "night": 1.59,
+        "eve": 5.83,
+        "morn": -1.32
+      },
+      "pressure": 1035,
+      "humidity": 27,
+      "dew_point": -7.89,
+      "wind_speed": 2.29,
+      "wind_deg": 252,
+      "wind_gust": 3.17,
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "맑음",
+          "icon": "01d"
+        }
+      ],
+      "clouds": 0,
+      "pop": 0,
+      "uvi": 4.51
+    },
+    {
+      "dt": 1677553200,
+      "sunrise": 1677535459,
+      "sunset": 1677576342,
+      "moonrise": 1677552420,
+      "moonset": 1677517560,
+      "moon_phase": 0.27,
+      "temp": {
+        "day": 10.48,
+        "min": 0.11,
+        "max": 12.89,
+        "night": 5.01,
+        "eve": 9.14,
+        "morn": 0.23
+      },
+      "feels_like": {
+        "day": 8.81,
+        "night": 5.01,
+        "eve": 8.04,
+        "morn": 0.23
+      },
+      "pressure": 1031,
+      "humidity": 47,
+      "dew_point": -0.77,
+      "wind_speed": 4.15,
+      "wind_deg": 248,
+      "wind_gust": 5.7,
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "맑음",
+          "icon": "01d"
+        }
+      ],
+      "clouds": 0,
+      "pop": 0,
+      "uvi": 5.07
+    },
+    {
+      "dt": 1677639600,
+      "sunrise": 1677621783,
+      "sunset": 1677662796,
+      "moonrise": 1677641580,
+      "moonset": 1677607440,
+      "moon_phase": 0.3,
+      "temp": {
+        "day": 8.86,
+        "min": 1.6,
+        "max": 8.86,
+        "night": 1.6,
+        "eve": 4.6,
+        "morn": 6.67
+      },
+      "feels_like": {
+        "day": 7.98,
+        "night": -2.2,
+        "eve": 1.2,
+        "morn": 6.67
+      },
+      "pressure": 1022,
+      "humidity": 80,
+      "dew_point": 4.95,
+      "wind_speed": 4.29,
+      "wind_deg": 326,
+      "wind_gust": 11.27,
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "실 비",
+          "icon": "10d"
+        }
+      ],
+      "clouds": 100,
+      "pop": 0.79,
+      "rain": 0.55,
+      "uvi": 1.44
+    },
+    {
+      "dt": 1677726000,
+      "sunrise": 1677708105,
+      "sunset": 1677749250,
+      "moonrise": 1677731100,
+      "moonset": 1677697080,
+      "moon_phase": 0.34,
+      "temp": {
+        "day": 5.69,
+        "min": -1.11,
+        "max": 5.75,
+        "night": -1.11,
+        "eve": 2.12,
+        "morn": -0.87
+      },
+      "feels_like": {
+        "day": 1.91,
+        "night": -1.11,
+        "eve": -1.26,
+        "morn": -4.3
+      },
+      "pressure": 1030,
+      "humidity": 30,
+      "dew_point": -10.87,
+      "wind_speed": 5.65,
+      "wind_deg": 332,
+      "wind_gust": 10.8,
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "맑음",
+          "icon": "01d"
+        }
+      ],
+      "clouds": 0,
+      "pop": 0,
+      "uvi": 4.47
+    },
+    {
+      "dt": 1677812400,
+      "sunrise": 1677794427,
+      "sunset": 1677835703,
+      "moonrise": 1677820860,
+      "moonset": 1677786300,
+      "moon_phase": 0.37,
+      "temp": {
+        "day": 10.05,
+        "min": -1.55,
+        "max": 11.8,
+        "night": 3.04,
+        "eve": 7.16,
+        "morn": -1.55
+      },
+      "feels_like": {
+        "day": 7.82,
+        "night": 3.04,
+        "eve": 6.1,
+        "morn": -1.55
+      },
+      "pressure": 1030,
+      "humidity": 27,
+      "dew_point": -8.68,
+      "wind_speed": 3.34,
+      "wind_deg": 323,
+      "wind_gust": 4.25,
+      "weather": [
+        {
+          "id": 804,
+          "main": "Clouds",
+          "description": "온흐림",
+          "icon": "04d"
+        }
+      ],
+      "clouds": 93,
+      "pop": 0,
+      "uvi": 5
+    },
+    {
+      "dt": 1677898800,
+      "sunrise": 1677880748,
+      "sunset": 1677922157,
+      "moonrise": 1677910800,
+      "moonset": 1677875160,
+      "moon_phase": 0.4,
+      "temp": {
+        "day": 12.84,
+        "min": 1.34,
+        "max": 14.11,
+        "night": 7.14,
+        "eve": 9.93,
+        "morn": 1.34
+      },
+      "feels_like": {
+        "day": 11.09,
+        "night": 7.14,
+        "eve": 9.25,
+        "morn": -0.4
+      },
+      "pressure": 1028,
+      "humidity": 35,
+      "dew_point": -2.79,
+      "wind_speed": 1.83,
+      "wind_deg": 326,
+      "wind_gust": 2.09,
+      "weather": [
+        {
+          "id": 804,
+          "main": "Clouds",
+          "description": "온흐림",
+          "icon": "04d"
+        }
+      ],
+      "clouds": 99,
+      "pop": 0,
+      "uvi": 5
+    },
+    {
+      "dt": 1677985200,
+      "sunrise": 1677967069,
+      "sunset": 1678008609,
+      "moonrise": 1678000740,
+      "moonset": 1677963660,
+      "moon_phase": 0.43,
+      "temp": {
+        "day": 14.2,
+        "min": 5.18,
+        "max": 15.35,
+        "night": 6.72,
+        "eve": 11.16,
+        "morn": 5.18
+      },
+      "feels_like": {
+        "day": 12.77,
+        "night": 6.72,
+        "eve": 9.69,
+        "morn": 5.18
+      },
+      "pressure": 1026,
+      "humidity": 42,
+      "dew_point": 1.1,
+      "wind_speed": 2.85,
+      "wind_deg": 316,
+      "wind_gust": 4.28,
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "구름조금",
+          "icon": "03d"
+        }
+      ],
+      "clouds": 31,
+      "pop": 0,
+      "uvi": 5
+    }
+  ]
+}

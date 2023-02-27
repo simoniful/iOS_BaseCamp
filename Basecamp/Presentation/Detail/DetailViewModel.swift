@@ -20,11 +20,11 @@ enum DetailStyle {
 }
 
 final class DetailViewModel: ViewModel {
-  weak var coordinator: DetailCoordinator?
+  weak var coordinator: DetailCoordinatorProtocol?
   private let detailUseCase: DetailUseCase
   public let style: DetailStyle
   
-  init(coordinator: DetailCoordinator?, detailUseCase: DetailUseCase, style: DetailStyle) {
+  init(coordinator: DetailCoordinatorProtocol?, detailUseCase: DetailUseCase, style: DetailStyle) {
     self.coordinator = coordinator
     self.detailUseCase = detailUseCase
     self.style = style
@@ -62,7 +62,7 @@ final class DetailViewModel: ViewModel {
     pagerViewDidTapped: PublishRelay<String>()
   )
   
-  private let campsiteData = PublishRelay<[DetailCampsiteSectionModel]>()
+  private let campsiteData = BehaviorRelay<[DetailCampsiteSectionModel]>(value: [])
   private let touristInfoData = PublishRelay<[DetailTouristInfoSectionModel]>()
   private let confirmAuthorizedLocation = PublishRelay<Void>()
   private let updateLocationAction = PublishRelay<Void>()
@@ -73,6 +73,10 @@ final class DetailViewModel: ViewModel {
   public let headerAction = PublishRelay<HeaderCellAction>()
   
   var disposeBag = DisposeBag()
+  
+  func getCampsiteDataValue() -> [DetailCampsiteSectionModel] {
+    return campsiteData.value
+  }
   
   func transform(input: Input) -> Output {
     switch style {
@@ -281,7 +285,6 @@ final class DetailViewModel: ViewModel {
         .withUnretained(self)
         .bind { (owner, _) in
           let old = owner.campsiteHeaderViewModel.isLiked.value
-          print(old)
           let new = !old
           owner.campsiteHeaderViewModel.isLiked.accept(new)
           owner.detailUseCase.requestSaveLikeState(campsite: campsite)

@@ -15,6 +15,10 @@
 		F40DDFBE298BA00100D05C2A /* PinchedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFBD298BA00100D05C2A /* PinchedImageViewController.swift */; };
 		F40DDFC0298F794A00D05C2A /* ImageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFBF298F794A00D05C2A /* ImageLabel.swift */; };
 		F40DDFCA2990AEFE00D05C2A /* DetailReviewDateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFC92990AEFD00D05C2A /* DetailReviewDateSelectViewController.swift */; };
+		F41EF74029A9EC760055351F /* MockWeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41EF73F29A9EC760055351F /* MockWeatherRepository.swift */; };
+		F41EF74229A9ECAE0055351F /* MockNaverBlogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41EF74129A9ECAE0055351F /* MockNaverBlogRepository.swift */; };
+		F41EF74429A9ECD60055351F /* MockYoutubeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41EF74329A9ECD60055351F /* MockYoutubeRepository.swift */; };
+		F41EF74B29AC4AE40055351F /* WeatherDummy.json in Resources */ = {isa = PBXBuildFile; fileRef = F41EF74A29AC4AE40055351F /* WeatherDummy.json */; };
 		F45C09DF296DB6730075E1AC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09DE296DB6730075E1AC /* AlertView.swift */; };
 		F45C09E1296EB8130075E1AC /* StackingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E0296EB8130075E1AC /* StackingLabel.swift */; };
 		F45C09E3296F03070075E1AC /* DetailViewTouristInfoSectionLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45C09E2296F03070075E1AC /* DetailViewTouristInfoSectionLayoutManager.swift */; };
@@ -128,6 +132,7 @@
 		F4D10F492949AD4A000C02E0 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F4D10F472949AD4A000C02E0 /* NotoSansKR-Regular.otf */; };
 		F4D10F4C2949ADBE000C02E0 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10F4B2949ADBE000C02E0 /* UIFont.swift */; };
 		F4D10F4E2949ADF2000C02E0 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D10F4D2949ADF2000C02E0 /* AppFont.swift */; };
+		F4D237CD29A88A8800B0B3E2 /* MockDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D237CC29A88A8800B0B3E2 /* MockDetailCoordinator.swift */; };
 		F4D90C8829953F8B00B12D6B /* CustomClusterMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D90C8729953F8A00B12D6B /* CustomClusterMarker.swift */; };
 		F4D90C8B2998ECDC00B12D6B /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D90C8A2998ECDC00B12D6B /* MyPageViewController.swift */; };
 		F4D90C8D2998ECE700B12D6B /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D90C8C2998ECE600B12D6B /* MyPageViewModel.swift */; };
@@ -309,6 +314,10 @@
 		F40DDFBD298BA00100D05C2A /* PinchedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchedImageViewController.swift; sourceTree = "<group>"; };
 		F40DDFBF298F794A00D05C2A /* ImageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLabel.swift; sourceTree = "<group>"; };
 		F40DDFC92990AEFD00D05C2A /* DetailReviewDateSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewDateSelectViewController.swift; sourceTree = "<group>"; };
+		F41EF73F29A9EC760055351F /* MockWeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWeatherRepository.swift; sourceTree = "<group>"; };
+		F41EF74129A9ECAE0055351F /* MockNaverBlogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNaverBlogRepository.swift; sourceTree = "<group>"; };
+		F41EF74329A9ECD60055351F /* MockYoutubeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockYoutubeRepository.swift; sourceTree = "<group>"; };
+		F41EF74A29AC4AE40055351F /* WeatherDummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WeatherDummy.json; sourceTree = "<group>"; };
 		F45C09DE296DB6730075E1AC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		F45C09E0296EB8130075E1AC /* StackingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackingLabel.swift; sourceTree = "<group>"; };
 		F45C09E2296F03070075E1AC /* DetailViewTouristInfoSectionLayoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewTouristInfoSectionLayoutManager.swift; sourceTree = "<group>"; };
@@ -425,6 +434,7 @@
 		F4D10F4B2949ADBE000C02E0 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		F4D10F4D2949ADF2000C02E0 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		F4D10F522949B120000C02E0 /* Basecamp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Basecamp.entitlements; sourceTree = "<group>"; };
+		F4D237CC29A88A8800B0B3E2 /* MockDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailCoordinator.swift; sourceTree = "<group>"; };
 		F4D90C8729953F8A00B12D6B /* CustomClusterMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClusterMarker.swift; sourceTree = "<group>"; };
 		F4D90C8A2998ECDC00B12D6B /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		F4D90C8C2998ECE600B12D6B /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
@@ -664,6 +674,28 @@
 				F4E2A7912990F09E00B8EF4F /* DayRangeIndicatorView.swift */,
 			);
 			path = ReviewMaker;
+			sourceTree = "<group>";
+		};
+		F41EF74529AA4FDD0055351F /* WeatherDummy */ = {
+			isa = PBXGroup;
+			children = (
+				F41EF74A29AC4AE40055351F /* WeatherDummy.json */,
+			);
+			path = WeatherDummy;
+			sourceTree = "<group>";
+		};
+		F41EF74629AA4FF00055351F /* NaverBlogDummy */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NaverBlogDummy;
+			sourceTree = "<group>";
+		};
+		F41EF74729AA50050055351F /* YoutubeDummy */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YoutubeDummy;
 			sourceTree = "<group>";
 		};
 		F45C09F029713FCE0075E1AC /* Protocol */ = {
@@ -1412,9 +1444,13 @@
 			children = (
 				F4D9B64829A71D1100A12C99 /* Dummy.swift */,
 				F4D9B64429A670B100A12C99 /* MockHomeCoordinator.swift */,
+				F4D237CC29A88A8800B0B3E2 /* MockDetailCoordinator.swift */,
 				F4D9B65A29A74CBC00A12C99 /* MockRepository */,
 				F4D9B65529A7417500A12C99 /* CampsiteDummy */,
 				F4D9B64E29A729C200A12C99 /* TouristDummy */,
+				F41EF74529AA4FDD0055351F /* WeatherDummy */,
+				F41EF74629AA4FF00055351F /* NaverBlogDummy */,
+				F41EF74729AA50050055351F /* YoutubeDummy */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1459,6 +1495,9 @@
 				F4D9B62C29A4CC8600A12C99 /* MockRealmRepository.swift */,
 				F4D9B62F29A4CD9700A12C99 /* MockCampsiteRepository.swift */,
 				F4D9B63129A4CEA100A12C99 /* MockTouristInfoRepository.swift */,
+				F41EF73F29A9EC760055351F /* MockWeatherRepository.swift */,
+				F41EF74129A9ECAE0055351F /* MockNaverBlogRepository.swift */,
+				F41EF74329A9ECD60055351F /* MockYoutubeRepository.swift */,
 			);
 			path = MockRepository;
 			sourceTree = "<group>";
@@ -1997,6 +2036,7 @@
 				F4D9B65229A73FB900A12C99 /* TouristInfoImageDummy.json in Resources */,
 				F4D9B64729A6744D00A12C99 /* TouristInfoDummy.json in Resources */,
 				F4D9B65729A741CD00A12C99 /* CampsiteDummy.json in Resources */,
+				F41EF74B29AC4AE40055351F /* WeatherDummy.json in Resources */,
 				F4D9B65929A7427400A12C99 /* CampsiteImageDummy.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2437,13 +2477,17 @@
 			files = (
 				F4D9B64B29A7274400A12C99 /* TouristInfoCommonDummy.json in Sources */,
 				F4D9B61329A4C88200A12C99 /* HomeViewModelTests.swift in Sources */,
+				F41EF74229A9ECAE0055351F /* MockNaverBlogRepository.swift in Sources */,
 				F4D9B62D29A4CC8600A12C99 /* MockRealmRepository.swift in Sources */,
+				F4D237CD29A88A8800B0B3E2 /* MockDetailCoordinator.swift in Sources */,
 				F4D9B63229A4CEA100A12C99 /* MockTouristInfoRepository.swift in Sources */,
 				F4D9B64D29A7286400A12C99 /* TouristInfoIntroDummy.json in Sources */,
 				F4D9B65C29A7B2FC00A12C99 /* DetailViewModelTests.swift in Sources */,
 				F4D9B64529A670B100A12C99 /* MockHomeCoordinator.swift in Sources */,
 				F4D9B64929A71D1100A12C99 /* Dummy.swift in Sources */,
+				F41EF74429A9ECD60055351F /* MockYoutubeRepository.swift in Sources */,
 				F4D9B63029A4CD9700A12C99 /* MockCampsiteRepository.swift in Sources */,
+				F41EF74029A9EC760055351F /* MockWeatherRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

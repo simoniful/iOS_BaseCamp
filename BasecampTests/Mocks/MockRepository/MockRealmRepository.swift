@@ -31,10 +31,17 @@ final class StubRealmRepository: RealmRepositoryInterface {
   func loadCampsite(area: Area?, sigungu: Sigungu?) -> [Campsite] {
     return campsiteDummyData.toDomain()
   }
+  var saveCampsiteCalled = false
+  func saveCampsite(campsite: Campsite) {
+    saveCampsiteCalled = true
+  }
   
-  func saveCampsite(campsite: Campsite) {}
   func unsaveCampsite(campsite: Campsite) {}
-  func updateCampsite(campsite: Campsite) {}
+  
+  var updateCampsiteCalled = false
+  func updateCampsite(campsite: Campsite) {
+    updateCampsiteCalled = true
+  }
   
   func loadReview() -> [Review] {
     return []

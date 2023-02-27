@@ -55,10 +55,15 @@ extension MyPageSettingSwitchCell: ViewRepresentable {
   
   func setupData(title: String, state: Bool) {
     titleLabel.text = title
+    print(state, "VC에서 전달된 상태")
     switchView.isOn = state
   }
   
   func configure(with viewModel: MyPageSettingSwitchCellViewModel) {
+    viewModel.switchState
+      .bind(to: switchView.rx.isOn)
+      .disposed(by: disposeBag)
+    
     switchView.rx.isOn
       .bind(to: viewModel.switchState)
       .disposed(by: disposeBag)
@@ -72,6 +77,6 @@ extension MyPageSettingSwitchCell: ViewRepresentable {
 }
 
 struct MyPageSettingSwitchCellViewModel {
-  let switchState: PublishRelay<Bool>
+  let switchState: BehaviorRelay<Bool>
   let changeSwitch: PublishRelay<Void>
 }

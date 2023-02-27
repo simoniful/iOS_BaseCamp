@@ -27,7 +27,6 @@ final class WeatherRepository: WeatherRepositoryInterface {
       let query = weatherQueryType.query
       let requestDTO = WeatherRequestDTO(query: query)
       let target = MultiTarget(WeatherTarget.getWeather(parameters: requestDTO.toDictionary))
-      
       return provider.rx.request(target)
         .filterSuccessfulStatusCodes()
         .flatMap { response -> Single<Result<[WeatherInfo], WeatherServiceError>> in

@@ -34,7 +34,9 @@ final class MyPageSettingViewModel: ViewModel {
   }
   
   let switchCellViewModel = MyPageSettingSwitchCellViewModel(
-    switchState: PublishRelay<Bool>(),
+    switchState: BehaviorRelay<Bool>(
+      value: !(UserDefaults.standard.bool(forKey: UserDefaultKeyCase.isPushNotiOff))
+    ),
     changeSwitch: PublishRelay<Void>()
   )
   
@@ -45,16 +47,15 @@ final class MyPageSettingViewModel: ViewModel {
   func transform(input: Input) -> Output {
     switchCellViewModel.switchState
       .withUnretained(self)
-      .observe(on: MainScheduler.instance)
       .subscribe { owner, switchState in
+        print(switchState, "VM에서 전달받은 스위치 상태")
         if switchState {
           owner.isPushNotificationsEnabled { pushState in
             switch pushState {
             case true:
               DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()
-                print(UIApplication.shared.isRegisteredForRemoteNotifications)
-                // 
+                UserDefaults.standard.set(false, forKey: UserDefaultKeyCase.isPushNotiOff)
               }
               owner.toastSignal.accept("앱 실행 중 알림 설정")
             case false:
@@ -65,8 +66,7 @@ final class MyPageSettingViewModel: ViewModel {
           UIApplication.shared.unregisterForRemoteNotifications()
           UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
           UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-          print(UIApplication.shared.isRegisteredForRemoteNotifications)
-          //
+          UserDefaults.standard.set(true, forKey: UserDefaultKeyCase.isPushNotiOff)
           owner.toastSignal.accept("앱 실행 중 알림 해제")
         }
       }

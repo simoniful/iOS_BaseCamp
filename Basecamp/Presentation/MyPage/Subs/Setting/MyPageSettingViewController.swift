@@ -47,10 +47,10 @@ final class MyPageSettingViewController: UIViewController {
             return UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "SettingCellId")
           }
           cell.configure(with: self.viewModel.switchCellViewModel)
-          self.isPushNotificationsEnabled { isEnabled in
-            DispatchQueue.main.async {
-              cell.setupData(title: element.rawValue, state: isEnabled)
-            }
+          if self.isPushNotificationsEnabled() {
+            cell.setupData(title: element.rawValue, state: true)
+          } else {
+            cell.setupData(title: element.rawValue, state: false)
           }
           cell.selectionStyle = .none
           return cell
@@ -91,18 +91,8 @@ final class MyPageSettingViewController: UIViewController {
       .disposed(by: disposeBag)
   }
   
-  func isPushNotificationsEnabled(completion: @escaping (Bool) -> Void) {
-    let center = UNUserNotificationCenter.current()
-    center.getNotificationSettings { settings in
-      switch settings.authorizationStatus {
-      case .notDetermined, .denied:
-        completion(false)
-      case .authorized, .provisional, .ephemeral:
-        completion(true)
-      @unknown default:
-        completion(false)
-      }
-    }
+  func isPushNotificationsEnabled() -> Bool {
+    return !(UserDefaults.standard.bool(forKey: UserDefaultKeyCase.isPushNotiOff))
   }
 }
 

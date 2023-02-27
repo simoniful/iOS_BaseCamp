@@ -50,9 +50,12 @@ final class NaverBlogRepository: NaverBlogRepositoryInterface {
           let responseDTO = try response.map(NaverBlogResponseDTO.self)
           return Single.just(Result.success(responseDTO.toDomain(keyword: keyword)))
         }
-        .catch { error in
-          return Single.just(Result.failure(.systemError))
-        }
+        .catchAndReturn(.success([
+          NaverBlogInfo(type: "naverBlog",
+                        title: keyword,
+                        url: "https://section.blog.naver.com/Search/Post.naver?pageNo=1&rangeType=ALL&orderBy=sim&keyword=\(keyword)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                        description: "블로그 검색 결과창으로 이동")
+        ]))
     }
   }
   

@@ -9,7 +9,17 @@ import UIKit
 import Toast_Swift
 import HorizonCalendar
 
-final class DetailCoordinator: NSObject, Coordinator {
+protocol DetailCoordinatorProtocol: Coordinator {
+  func showDateSelectModal(with campsite: Campsite)
+  func navigateToFlowPhoto(viewModel: DetailReviewMakerViewModel)
+  func navigateToFlowRate(viewModel: DetailReviewMakerViewModel)
+  
+  func navigateToFlowWeb(with data: SocialMediaInfo)
+  func navigateToFlowZoom(with data: String)
+  func navigateToFlowDetail(with data: DetailStyle)
+}
+
+final class DetailCoordinator: NSObject, DetailCoordinatorProtocol {
   weak var parentCoordinator: Coordinator?
   weak var finishDelegate: CoordinatorFinishDelegate?
   var data: DetailStyle?
@@ -116,27 +126,6 @@ final class DetailCoordinator: NSObject, Coordinator {
     viewController.view.backgroundColor = .systemBackground
     viewController.title = "사진 선택"
     modalNavigationController.pushViewController(viewController, animated: true)
-  }
-  
-  func changeTabByIndex(tabCase: TabBarPageCase ,message: String, area: Area? = nil) {
-    switch tabCase {
-    case .list:
-      if let area = area {
-        var listViewController: ListViewController
-        if let arrController = navigationController.tabBarController?.viewControllers {
-          for vc in arrController {
-            if vc is ListViewController {
-              listViewController = vc as! ListViewController
-              listViewController.viewModel.areaState.accept(area)
-            }
-          }
-        }
-      }
-    default:
-      break
-    }
-    navigationController.tabBarController?.selectedIndex = tabCase.pageOrderNumber
-    navigationController.tabBarController?.view.makeToast(message, position: .center)
   }
   
   func popToRootViewController(message: String? = nil) {

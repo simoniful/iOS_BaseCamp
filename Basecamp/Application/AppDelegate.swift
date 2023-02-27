@@ -46,8 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       completionHandler: { _, _ in }
     )
     
-    // userDefault 확인하여 알람 설정
-    application.registerForRemoteNotifications()
+    if UserDefaults.standard.bool(forKey: UserDefaultKeyCase.isPushNotiOff) {
+      application.unregisterForRemoteNotifications()
+    } else {
+      application.registerForRemoteNotifications()
+    }
     
     Messaging.messaging().delegate = self
     Messaging.messaging().isAutoInitEnabled = true
@@ -56,7 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Error fetching FCM registration token: \(error)")
       } else if let token = token {
         print("FCM registration token: \(token)")
-        // self.fcmRegTokenMessage.text  = "Remote FCM registration token: \(token)"
       }
     }
     
