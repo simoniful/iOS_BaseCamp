@@ -39,15 +39,15 @@ struct DetailTouristInfoSpotIntroItem: DetailTouristInfoIntroItem {
   var intro: TouristInfoIntroSpot
 }
 
-struct DetailTouristInfoCultureIntroItem:  DetailTouristInfoIntroItem {
+struct DetailTouristInfoCultureIntroItem: DetailTouristInfoIntroItem {
   var intro: TouristInfoIntroCulture
 }
 
-struct DetailTouristInfoFestivalIntroItem:  DetailTouristInfoIntroItem {
+struct DetailTouristInfoFestivalIntroItem: DetailTouristInfoIntroItem {
   var intro: TouristInfoIntroFestival
 }
 
-struct DetailTouristInfoLeisureIntroItem:  DetailTouristInfoIntroItem {
+struct DetailTouristInfoLeisureIntroItem: DetailTouristInfoIntroItem {
   var intro: TouristInfoIntroLeisure
 }
 
@@ -55,15 +55,15 @@ struct DetailTouristInfoAccommodationIntroItem: DetailTouristInfoIntroItem {
   var intro: TouristInfoIntroAccommodation
 }
 
-struct DetailTouristInfoShoppingIntroItem:  DetailTouristInfoIntroItem {
+struct DetailTouristInfoShoppingIntroItem: DetailTouristInfoIntroItem {
   var intro: TouristInfoIntroShopping
 }
 
-struct DetailTouristInfoRestaurantIntroItem:  DetailTouristInfoIntroItem {
+struct DetailTouristInfoRestaurantIntroItem: DetailTouristInfoIntroItem {
   var intro: TouristInfoIntroRestaurant
 }
 
-struct DetailTouristInfoTourCourseIntroItem:  DetailTouristInfoIntroItem {
+struct DetailTouristInfoTourCourseIntroItem: DetailTouristInfoIntroItem {
   var intro: TouristInfoIntroTourCourse
 }
 

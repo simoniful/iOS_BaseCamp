@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SectionLayoutManagerCreator {
-    func createManager(type: SectionLayoutManagerType) -> SectionLayoutManager
+  func createManager(type: SectionLayoutManagerType) -> SectionLayoutManager
 }
 
 class SectionLayoutManagerFactory: SectionLayoutManagerCreator {

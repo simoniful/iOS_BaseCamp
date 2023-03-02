@@ -79,9 +79,19 @@ extension DetailAroundTabmanSubViewController: ViewRepresentable {
   
   func createLayout() -> UICollectionViewCompositionalLayout {
     let layout = UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection? in
-      let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
+      let item = NSCollectionLayoutItem(
+        layoutSize: .init(
+          widthDimension: .fractionalWidth(1),
+          heightDimension: .fractionalHeight(1)
+        )
+      )
       item.contentInsets = .init(top: 0, leading: 0, bottom: 8, trailing: 8)
-      let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(0.95), heightDimension: .estimated(300)), subitem: item, count: 3)
+      let group = NSCollectionLayoutGroup.vertical(
+        layoutSize: .init(
+          widthDimension: .fractionalWidth(0.95),
+          heightDimension: .estimated(300)),
+        subitem: item, count: 3
+      )
       let section = NSCollectionLayoutSection(group: group)
       section.orthogonalScrollingBehavior = .groupPaging
       section.contentInsets = .init(top: 16, leading: 0, bottom: 16, trailing: 0)

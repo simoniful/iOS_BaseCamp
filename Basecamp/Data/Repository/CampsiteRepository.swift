@@ -74,13 +74,6 @@ final class CampsiteRepository: CampsiteRepositoryInterface {
     )
     .filterSuccessfulStatusCodes()
     .flatMap { response -> Single<Result<[Campsite], CampsiteServiceError>> in
-      let a = response.data
-      do {
-        let json = String(data: a, encoding: .utf8)
-      } catch {
-        print("errorMsg")
-      }
-      
       let responseDTO = try response.map(CampsiteResponseDTO.self)
       return Single.just(Result.success(responseDTO.toDomain()))
     }
@@ -90,7 +83,9 @@ final class CampsiteRepository: CampsiteRepositoryInterface {
     }
   }
   
-  func requestCampsiteImageList(campsiteQueryType: CampsiteQueryType) -> Single<Result<[String], CampsiteServiceError>> {
+  func requestCampsiteImageList(
+    campsiteQueryType: CampsiteQueryType
+  ) -> Single<Result<[String], CampsiteServiceError>> {
     let query = campsiteQueryType.query as! CampsiteImageQuery
     let requestDTO = CampsiteImageRequestDTO(query: query)
     return provider.rx.request(

@@ -121,46 +121,49 @@ final class TouristInfoRepository: TouristInfoRepositoryInterface {
     }
   }
   
-  func requestTouristInfoIntro(touristInfoQueryType: TouristInfoQueryType, contentType: TouristInfoContentType) -> Single<Result<[TouristInfoIntro], TouristInfoServiceError>> {
-    let query = touristInfoQueryType.query as! TouristInfoIntroQuery
-    let requestDTO = TouristInfoIntroRequestDTO(query: query)
-    return provider.rx.request(
-      MultiTarget(TouristInfoTarget.getTouristInfoIntro(parameters: requestDTO.toDictionary))
-    )
-    .filterSuccessfulStatusCodes()
-    .flatMap { response -> Single<Result<[TouristInfoIntro], TouristInfoServiceError>> in
-      switch contentType {
-      case .touristSpot:
-        let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_SpotItem>.self)
-        return Single.just(Result.success(responseDTO.toDomain()))
-      case .cultureFacilities:
-        let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_CultureItem>.self)
-        return Single.just(Result.success(responseDTO.toDomain()))
-      case .festival:
-        let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_FestivalItem>.self)
-        return Single.just(Result.success(responseDTO.toDomain()))
-      case .leisure:
-        let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_LeisureItem>.self)
-        return Single.just(Result.success(responseDTO.toDomain()))
-      case .accommodation:
-        let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_AccommodationItem>.self)
-        return Single.just(Result.success(responseDTO.toDomain()))
-      case .shoppingSpot:
-        let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_ShoppingItem>.self)
-        return Single.just(Result.success(responseDTO.toDomain()))
-      case .restaurant:
-        let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_RestaurantItem>.self)
-        return Single.just(Result.success(responseDTO.toDomain()))
-      case .tourCourse:
-        let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_TourCourseItem>.self)
-        return Single.just(Result.success(responseDTO.toDomain()))
-      }
-    }
-    .retry(3)
-    .catch { error in
-      return Single.just(Result.failure(.unknownError))
+func requestTouristInfoIntro(
+  touristInfoQueryType: TouristInfoQueryType,
+  contentType: TouristInfoContentType
+) -> Single<Result<[TouristInfoIntro], TouristInfoServiceError>> {
+  let query = touristInfoQueryType.query as! TouristInfoIntroQuery
+  let requestDTO = TouristInfoIntroRequestDTO(query: query)
+  return provider.rx.request(
+    MultiTarget(TouristInfoTarget.getTouristInfoIntro(parameters: requestDTO.toDictionary))
+  )
+  .filterSuccessfulStatusCodes()
+  .flatMap { response -> Single<Result<[TouristInfoIntro], TouristInfoServiceError>> in
+    switch contentType {
+    case .touristSpot:
+      let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_SpotItem>.self)
+      return Single.just(Result.success(responseDTO.toDomain()))
+    case .cultureFacilities:
+      let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_CultureItem>.self)
+      return Single.just(Result.success(responseDTO.toDomain()))
+    case .festival:
+      let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_FestivalItem>.self)
+      return Single.just(Result.success(responseDTO.toDomain()))
+    case .leisure:
+      let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_LeisureItem>.self)
+      return Single.just(Result.success(responseDTO.toDomain()))
+    case .accommodation:
+      let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_AccommodationItem>.self)
+      return Single.just(Result.success(responseDTO.toDomain()))
+    case .shoppingSpot:
+      let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_ShoppingItem>.self)
+      return Single.just(Result.success(responseDTO.toDomain()))
+    case .restaurant:
+      let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_RestaurantItem>.self)
+      return Single.just(Result.success(responseDTO.toDomain()))
+    case .tourCourse:
+      let responseDTO = try response.map(TouristInfoIntroResponseDTO<TouristInfoIntroResponseDTO_TourCourseItem>.self)
+      return Single.just(Result.success(responseDTO.toDomain()))
     }
   }
+  .retry(3)
+  .catch { error in
+    return Single.just(Result.failure(.unknownError))
+  }
+}
   
   
   func requestTouristInfoImageList(touristInfoQueryType: TouristInfoQueryType) -> Single<Result<[String], TouristInfoServiceError>> {

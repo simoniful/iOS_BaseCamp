@@ -40,7 +40,6 @@ struct DetailViewCampsiteSectionLayoutManager: SectionLayoutManager {
             )
           ),
           orthogonal: .continuous
-          
         )
       case 3:
         return makeSection(
@@ -118,7 +117,7 @@ struct DetailViewCampsiteSectionLayoutManager: SectionLayoutManager {
     
     if containHeader {
       let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(25.0))
-
+      
       let header = NSCollectionLayoutBoundarySupplementaryItem(
         layoutSize: headerFooterSize,
         elementKind: UICollectionView.elementKindSectionHeader,

@@ -7,21 +7,21 @@
 
 import Foundation
 
-struct TouristInfoIntroResponseDTO<T: Codable & TouristInfoIntroResponseDTO_Item>: Codable {
+struct TouristInfoIntroResponseDTO<T: TouristInfoIntroResponseDTO_Item>: Codable {
   let response: TouristInfoIntroResponseDTO_Response<T>
 }
 
-struct TouristInfoIntroResponseDTO_Response<T: Codable & TouristInfoIntroResponseDTO_Item>: Codable {
+struct TouristInfoIntroResponseDTO_Response<T: TouristInfoIntroResponseDTO_Item>: Codable {
   let header: TouristInfoResponseDTO_Header
   let body: TouristInfoIntroResponseDTO_Body<T>
 }
 
-struct TouristInfoIntroResponseDTO_Body<T: Codable & TouristInfoIntroResponseDTO_Item>: Codable {
+struct TouristInfoIntroResponseDTO_Body<T: TouristInfoIntroResponseDTO_Item>: Codable {
   let items: TouristInfoIntroResponseDTO_Items<T>
   let numOfRows, pageNo, totalCount: Int
 }
 
-struct TouristInfoIntroResponseDTO_Items<T: Codable & TouristInfoIntroResponseDTO_Item>: Codable {
+struct TouristInfoIntroResponseDTO_Items<T: TouristInfoIntroResponseDTO_Item>: Codable {
   let item: [T]
 }
 
@@ -39,7 +39,7 @@ protocol TouristInfoIntroResponseDTO_Item: Codable {
   func toDomain() -> TouristInfoIntro
 }
 
-struct TouristInfoIntroResponseDTO_SpotItem: Codable, TouristInfoIntroResponseDTO_Item {
+struct TouristInfoIntroResponseDTO_SpotItem: TouristInfoIntroResponseDTO_Item {
   let contentId: String?
   let contentTypeId: String?
   let heritage1, heritage2: String?
@@ -77,7 +77,7 @@ struct TouristInfoIntroResponseDTO_SpotItem: Codable, TouristInfoIntroResponseDT
   }
 }
 
-struct TouristInfoIntroResponseDTO_CultureItem: Codable, TouristInfoIntroResponseDTO_Item {
+struct TouristInfoIntroResponseDTO_CultureItem: TouristInfoIntroResponseDTO_Item {
   let contentId: String?
   let contentTypeId: String?
   let scale, usefee: String?
@@ -110,7 +110,7 @@ struct TouristInfoIntroResponseDTO_CultureItem: Codable, TouristInfoIntroRespons
   }
 }
 
-struct TouristInfoIntroResponseDTO_FestivalItem: Codable, TouristInfoIntroResponseDTO_Item {
+struct TouristInfoIntroResponseDTO_FestivalItem: TouristInfoIntroResponseDTO_Item {
   let contentId, contentTypeId, sponsor1, sponsor1Tel: String?
   let sponsor2, sponsor2Tel, eventEndDate, playtime: String?
   let eventplace, eventhomepage, agelimit, bookingplace: String?
@@ -153,7 +153,7 @@ struct TouristInfoIntroResponseDTO_FestivalItem: Codable, TouristInfoIntroRespon
   }
 }
 
-struct TouristInfoIntroResponseDTO_LeisureItem: Codable, TouristInfoIntroResponseDTO_Item {
+struct TouristInfoIntroResponseDTO_LeisureItem: TouristInfoIntroResponseDTO_Item {
   let contentId, contentTypeId: String?
   let openperiod, reservation: String?
   let infocenterleports, scaleleports, accomcountleports, restdateleports: String?
@@ -186,7 +186,7 @@ struct TouristInfoIntroResponseDTO_LeisureItem: Codable, TouristInfoIntroRespons
   }
 }
 
-struct TouristInfoIntroResponseDTO_TourCourseItem: Codable, TouristInfoIntroResponseDTO_Item {
+struct TouristInfoIntroResponseDTO_TourCourseItem: TouristInfoIntroResponseDTO_Item {
   let contentId, contentTypeId, infocentertourcourse, distance: String?
   let schedule, taketime, theme: String?
   
@@ -211,7 +211,7 @@ struct TouristInfoIntroResponseDTO_TourCourseItem: Codable, TouristInfoIntroResp
 
 
 // 실제 json과 비교하여 구조체 구성
-struct TouristInfoIntroResponseDTO_AccommodationItem: Codable, TouristInfoIntroResponseDTO_Item {
+struct TouristInfoIntroResponseDTO_AccommodationItem: TouristInfoIntroResponseDTO_Item {
   let contentId, contentTypeId, goodstay, benikia: String?
   let hanok, roomcount, roomtype, refundregulation: String?
   let checkintime, checkouttime, chkcooking, seminar: String?
@@ -247,7 +247,7 @@ struct TouristInfoIntroResponseDTO_AccommodationItem: Codable, TouristInfoIntroR
   }
 }
 
-struct TouristInfoIntroResponseDTO_ShoppingItem: Codable, TouristInfoIntroResponseDTO_Item {
+struct TouristInfoIntroResponseDTO_ShoppingItem: TouristInfoIntroResponseDTO_Item {
   let contentId, contentTypeId: String?
   let saleitem, saleitemcost: String?
   let fairday, opendateshopping, shopguide, culturecenter: String?
@@ -283,7 +283,7 @@ struct TouristInfoIntroResponseDTO_ShoppingItem: Codable, TouristInfoIntroRespon
   }
 }
 
-struct TouristInfoIntroResponseDTO_RestaurantItem: Codable, TouristInfoIntroResponseDTO_Item {
+struct TouristInfoIntroResponseDTO_RestaurantItem: TouristInfoIntroResponseDTO_Item {
   let contentId, contentTypeId: String?
   let seat, kidsfacility: String?
   let firstmenu, treatmenu, smoking, packing: String?
