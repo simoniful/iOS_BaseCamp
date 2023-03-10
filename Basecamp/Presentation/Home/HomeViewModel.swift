@@ -88,6 +88,7 @@ final class HomeViewModel: ViewModel {
     headerAction
       .capture(case: HeaderCellAction.map)
       .bind { [weak self] _ in
+        print("지도 탭 이동 호출")
         self?.coordinator?.changeTabByIndex(tabCase: .map, message: "지도에서 검색해보세요", area: nil, index: 0)
       }
       .disposed(by: disposeBag)
@@ -95,6 +96,7 @@ final class HomeViewModel: ViewModel {
     headerAction
       .capture(case: HeaderCellAction.myMenu)
       .bind { [weak self] _ in
+        print("마이메뉴 탭 이동 호출")
         self?.coordinator?.changeTabByIndex(tabCase: .mypage, message: "캠핑로그를 확인해보세요", area: nil, index: 0)
       }
       .disposed(by: disposeBag)

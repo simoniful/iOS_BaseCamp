@@ -16,7 +16,6 @@ import RxEnumKit
 final class HomeHeaderCell: UICollectionViewCell {
   static let identifier = "HomeHeaderCell"
   private(set) var disposeBag = DisposeBag()
-  private var interactionSetFlag = false
   
   private lazy var myCompView: UIView = {
     let view = UIView()
@@ -94,6 +93,11 @@ final class HomeHeaderCell: UICollectionViewCell {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    disposeBag = DisposeBag()
+  }
 }
 
 extension HomeHeaderCell: ViewRepresentable {
@@ -150,8 +154,6 @@ extension HomeHeaderCell: ViewRepresentable {
   }
   
   func viewModel(item: HomeHeaderItem) -> Observable<HeaderCellAction>? {
-    if interactionSetFlag == false {
-      interactionSetFlag.toggle()
       return Observable.merge(
         myCompView.rx.tapGesture()
           .when(.recognized)
@@ -169,8 +171,6 @@ extension HomeHeaderCell: ViewRepresentable {
             HeaderCellAction.search
           })
       )
-    }
-    return nil
   }
 }
 

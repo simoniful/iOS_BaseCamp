@@ -79,17 +79,17 @@ class FilterSubItemCell: UITableViewCell {
 }
 
 class FilterItemViewModel: NSObject {
-    var items = BehaviorRelay<FilterItem>(value: FilterItem.empty)
-    var disposeBag = DisposeBag()
-    
-    init(_ item: FilterItem) {
-        _ = BehaviorSubject<FilterItem>.just(item)
-            .take(1)
-            .subscribe(onNext: self.items.accept(_:))
-            .disposed(by: disposeBag)
-    }
-    
-    lazy var checkImageString: Observable<String> = self.items.map { return $0.selected ? "checkmark.square.fill" : "square" }
+  var items = BehaviorRelay<FilterItem>(value: FilterItem.empty)
+  var disposeBag = DisposeBag()
+  
+  init(_ item: FilterItem) {
+    _ = BehaviorSubject<FilterItem>.just(item)
+      .take(1)
+      .subscribe(onNext: self.items.accept(_:))
+      .disposed(by: disposeBag)
+  }
+  
+  lazy var checkImageString: Observable<String> = self.items.map { return $0.selected ? "checkmark.square.fill" : "square" }
 }
 
 class CheckButton: UIButton {

@@ -158,63 +158,32 @@ extension MapViewController: GMUClusterRendererDelegate {
       if let staticCluster = marker.userData as? GMUStaticCluster {
         switch staticCluster.count {
         case 0..<50:
-          let customClusterMarker = CustomClusterMarker()
-          customClusterMarker.setupData(count: staticCluster.count, corner: 20, color: .green, font: .systemFont(ofSize: 14, weight: .bold))
-          let view = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-          view.addSubview(customClusterMarker)
-          customClusterMarker.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-          }
-          marker.iconView = view
+          marker.iconView = makeClusterMarker(staticCluster: staticCluster, size: .XS)
         case 50..<100:
-          let customClusterMarker = CustomClusterMarker()
-          customClusterMarker.setupData(count: staticCluster.count, corner: 24, color: .greenGray, font: .systemFont(ofSize: 16, weight: .bold))
-          let view = UIView(frame: CGRect(x: 0, y: 0, width: 48, height: 48))
-          view.addSubview(customClusterMarker)
-          customClusterMarker.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-          }
-          marker.iconView = view
+          marker.iconView = makeClusterMarker(staticCluster: staticCluster, size: .S)
         case 100..<200:
-          let customClusterMarker = CustomClusterMarker()
-          customClusterMarker.setupData(count: staticCluster.count, corner: 28, color: .mainWeak, font: .systemFont(ofSize: 18, weight: .bold))
-          let view = UIView(frame: CGRect(x: 0, y: 0, width: 56, height: 56))
-          view.addSubview(customClusterMarker)
-          customClusterMarker.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-          }
-          marker.iconView = view
+          marker.iconView = makeClusterMarker(staticCluster: staticCluster, size: .M)
         case 200..<500:
-          let customClusterMarker = CustomClusterMarker()
-          customClusterMarker.setupData(count: staticCluster.count, corner: 32, color: .main, font: .systemFont(ofSize: 20, weight: .bold))
-          let view = UIView(frame: CGRect(x: 0, y: 0, width: 64, height: 64))
-          view.addSubview(customClusterMarker)
-          customClusterMarker.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-          }
-          marker.iconView = view
+          marker.iconView = makeClusterMarker(staticCluster: staticCluster, size: .L)
         case 500..<1000:
-          let customClusterMarker = CustomClusterMarker()
-          customClusterMarker.setupData(count: staticCluster.count, corner: 36, color: .mainStrong, font: .systemFont(ofSize: 20, weight: .bold))
-          let view = UIView(frame: CGRect(x: 0, y: 0, width: 72, height: 72))
-          view.addSubview(customClusterMarker)
-          customClusterMarker.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-          }
-          marker.iconView = view
+          marker.iconView = makeClusterMarker(staticCluster: staticCluster, size: .XL)
         default:
-          let customClusterMarker = CustomClusterMarker()
-          customClusterMarker.setupData(count: staticCluster.count, corner: 40, color: .error, font: .systemFont(ofSize: 22, weight: .bold))
-          let view = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-          view.addSubview(customClusterMarker)
-          customClusterMarker.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-          }
-          marker.iconView = view
+          marker.iconView = makeClusterMarker(staticCluster: staticCluster, size: .XXL)
         }
         marker.appearAnimation = .pop
       }
     }
+  }
+
+  func makeClusterMarker(staticCluster: GMUStaticCluster, size: ClusterSize) -> UIView {
+    let customClusterMarker = CustomClusterMarker()
+    customClusterMarker.setupData(count: staticCluster.count, corner: size.corner, color: size.color, font: .systemFont(ofSize: size.fontSize, weight: .bold))
+    let view = size.containerView
+    view.addSubview(customClusterMarker)
+    customClusterMarker.snp.makeConstraints {
+      $0.edges.equalToSuperview()
+    }
+    return view
   }
 }
 
@@ -225,5 +194,43 @@ final class POIItem: NSObject, GMUClusterItem {
   init(position: CLLocationCoordinate2D, campsite: Campsite) {
     self.position = position
     self.campsite = campsite
+  }
+}
+
+enum ClusterSize: CGFloat {
+  case XS = 5
+  case S = 6
+  case M = 7
+  case L = 8
+  case XL = 9
+  case XXL = 10
+  
+  var corner: CGFloat {
+    return self.rawValue * 4
+  }
+  
+  var fontSize: CGFloat {
+    return (self.rawValue + 2) * 2
+  }
+  
+  var color: UIColor {
+    switch self {
+    case .XS:
+      return .green
+    case .S:
+      return .greenGray
+    case .M:
+      return .mainWeak
+    case .L:
+      return .main
+    case .XL:
+      return .mainStrong
+    case .XXL:
+      return .error
+    }
+  }
+  
+  var containerView: UIView {
+    return UIView(frame: CGRect(x: 0, y: 0, width: self.rawValue * 8, height: self.rawValue * 8))
   }
 }
