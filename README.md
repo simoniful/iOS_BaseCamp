@@ -44,11 +44,11 @@ Naver Map API, 공공 API를 활용한 iOS 캠핑장 검색 어플리케이션.
   + Push 알림 설정
   
 ## Getting Start
-> MVVM+C, Unit Test\n 
-> Realm, GoogleMap, SnapKit, Moya, RxSwift, RxDataSources\n 
-> Kakao - Share\n
-> FireBase - Messaging, Analytics, Crashytics\n
-> Third party about View - Kingfisher, Tabman, DropDown, FMPhotoPicker, FSPagerView, TTGTagCollectionView, Cosmos
++ MVVM+C, Unit Test
++ Realm, GoogleMap, SnapKit, Moya, RxSwift, RxDataSources
++ Kakao - Share
++ FireBase - Messaging, Analytics, Crashytics
++ Third party about View - Kingfisher, Tabman, DropDown, FMPhotoPicker, FSPagerView, TTGTagCollectionView, Cosmos
 
 ## Issue & Reflection
 ### 1. 복잡한 뷰의 구성에 있어서 Compositional Layout 구성
