@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49BE202A0CBF2B71DE84E141 /* Pods_Basecamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A104479E3D8BBBAFA976694 /* Pods_Basecamp.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		1C846F89D3DECA376758D09A /* Pods_BasecampTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F0175D363329AA33552E093 /* Pods_BasecampTests.framework */; };
+		B862C5B7F95EB3B3B933D280 /* Pods_Basecamp_BasecampUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C91772309C81B68D10697321 /* Pods_Basecamp_BasecampUITests.framework */; };
+		E30D5E5A1AB53FCA2ED74F53 /* Pods_Basecamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B13A3263E188B14EFA6DB60 /* Pods_Basecamp.framework */; };
 		F40DDFAC2989FF2D00D05C2A /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFAB2989FF2D00D05C2A /* NSMutableAttributedString.swift */; };
 		F40DDFB1298A517900D05C2A /* DetailZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB0298A517900D05C2A /* DetailZoomViewController.swift */; };
 		F40DDFB4298A549E00D05C2A /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DDFB3298A549E00D05C2A /* DetailCoordinator.swift */; };
@@ -153,8 +155,6 @@
 		F4D9B61329A4C88200A12C99 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B61229A4C88200A12C99 /* HomeViewModelTests.swift */; };
 		F4D9B62029A4C9FC00A12C99 /* BasecampUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B61F29A4C9FC00A12C99 /* BasecampUITests.swift */; };
 		F4D9B62229A4C9FC00A12C99 /* BasecampUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B62129A4C9FC00A12C99 /* BasecampUITestsLaunchTests.swift */; };
-		F4D9B62929A4CA3200A12C99 /* Pods_BasecampTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D9B62829A4CA3200A12C99 /* Pods_BasecampTests.framework */; };
-		F4D9B62B29A4CA5D00A12C99 /* Pods_Basecamp_BasecampUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D9B62A29A4CA5D00A12C99 /* Pods_Basecamp_BasecampUITests.framework */; };
 		F4D9B62D29A4CC8600A12C99 /* MockRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B62C29A4CC8600A12C99 /* MockRealmRepository.swift */; };
 		F4D9B63029A4CD9700A12C99 /* MockCampsiteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B62F29A4CD9700A12C99 /* MockCampsiteRepository.swift */; };
 		F4D9B63229A4CEA100A12C99 /* MockTouristInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D9B63129A4CEA100A12C99 /* MockTouristInfoRepository.swift */; };
@@ -298,15 +298,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3FFA40812AA56670F8B380A7 /* Pods-Basecamp-BasecampUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basecamp-BasecampUITests.release.xcconfig"; path = "Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests.release.xcconfig"; sourceTree = "<group>"; };
-		588F38723AF90D0CF6446D5A /* Pods_BasecampTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasecampTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		60474E8179EDD7D45C034045 /* Pods_Basecamp_BasecampUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Basecamp_BasecampUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A104479E3D8BBBAFA976694 /* Pods_Basecamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Basecamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		76642875F45AB8A1A43C2F2A /* Pods-Basecamp-BasecampUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basecamp-BasecampUITests.debug.xcconfig"; path = "Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		88C41F39A89BB978470DA401 /* Pods-BasecampTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasecampTests.debug.xcconfig"; path = "Target Support Files/Pods-BasecampTests/Pods-BasecampTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A2EA8885FF5D31274F60587C /* Pods-BasecampTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasecampTests.release.xcconfig"; path = "Target Support Files/Pods-BasecampTests/Pods-BasecampTests.release.xcconfig"; sourceTree = "<group>"; };
-		A548821C6400CFFFFA759EAC /* Pods-Basecamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basecamp.debug.xcconfig"; path = "Target Support Files/Pods-Basecamp/Pods-Basecamp.debug.xcconfig"; sourceTree = "<group>"; };
-		B1C186C70D722E114EC5579A /* Pods-Basecamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basecamp.release.xcconfig"; path = "Target Support Files/Pods-Basecamp/Pods-Basecamp.release.xcconfig"; sourceTree = "<group>"; };
+		1B13A3263E188B14EFA6DB60 /* Pods_Basecamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Basecamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F0175D363329AA33552E093 /* Pods_BasecampTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasecampTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D75B3C648999C527C758F30 /* Pods-BasecampTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasecampTests.debug.xcconfig"; path = "Target Support Files/Pods-BasecampTests/Pods-BasecampTests.debug.xcconfig"; sourceTree = "<group>"; };
+		741520612E8B2070CDD3BCEF /* Pods-Basecamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basecamp.debug.xcconfig"; path = "Target Support Files/Pods-Basecamp/Pods-Basecamp.debug.xcconfig"; sourceTree = "<group>"; };
+		BBC26007C9D50FC5EF1DBDFB /* Pods-Basecamp-BasecampUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basecamp-BasecampUITests.release.xcconfig"; path = "Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C91772309C81B68D10697321 /* Pods_Basecamp_BasecampUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Basecamp_BasecampUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF3631022D120A2FFA77B2A5 /* Pods-Basecamp-BasecampUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basecamp-BasecampUITests.debug.xcconfig"; path = "Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D9DC4924D5CAEE7E81089919 /* Pods-Basecamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Basecamp.release.xcconfig"; path = "Target Support Files/Pods-Basecamp/Pods-Basecamp.release.xcconfig"; sourceTree = "<group>"; };
 		F40DDFAB2989FF2D00D05C2A /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
 		F40DDFB0298A517900D05C2A /* DetailZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailZoomViewController.swift; sourceTree = "<group>"; };
 		F40DDFB3298A549E00D05C2A /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
@@ -457,8 +456,6 @@
 		F4D9B61D29A4C9FB00A12C99 /* BasecampUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BasecampUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D9B61F29A4C9FC00A12C99 /* BasecampUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasecampUITests.swift; sourceTree = "<group>"; };
 		F4D9B62129A4C9FC00A12C99 /* BasecampUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasecampUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F4D9B62829A4CA3200A12C99 /* Pods_BasecampTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_BasecampTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4D9B62A29A4CA5D00A12C99 /* Pods_Basecamp_BasecampUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Basecamp_BasecampUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D9B62C29A4CC8600A12C99 /* MockRealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRealmRepository.swift; sourceTree = "<group>"; };
 		F4D9B62F29A4CD9700A12C99 /* MockCampsiteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCampsiteRepository.swift; sourceTree = "<group>"; };
 		F4D9B63129A4CEA100A12C99 /* MockTouristInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTouristInfoRepository.swift; sourceTree = "<group>"; };
@@ -583,6 +580,7 @@
 		F4FD50AB296305EC00FA3CB3 /* DetailFacilityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFacilityCell.swift; sourceTree = "<group>"; };
 		F4FD50AD296305FA00FA3CB3 /* DetailCampsiteInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampsiteInfoCell.swift; sourceTree = "<group>"; };
 		F4FD50B229630C9000FA3CB3 /* DetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCase.swift; sourceTree = "<group>"; };
+		F5FD83E9CDEEE3F76E1EA979 /* Pods-BasecampTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasecampTests.release.xcconfig"; path = "Target Support Files/Pods-BasecampTests/Pods-BasecampTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -590,7 +588,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49BE202A0CBF2B71DE84E141 /* Pods_Basecamp.framework in Frameworks */,
+				E30D5E5A1AB53FCA2ED74F53 /* Pods_Basecamp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,7 +596,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4D9B62929A4CA3200A12C99 /* Pods_BasecampTests.framework in Frameworks */,
+				1C846F89D3DECA376758D09A /* Pods_BasecampTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,7 +604,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4D9B62B29A4CA5D00A12C99 /* Pods_Basecamp_BasecampUITests.framework in Frameworks */,
+				B862C5B7F95EB3B3B933D280 /* Pods_Basecamp_BasecampUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,12 +614,10 @@
 		9C8294BEC84F68CAE5ED8269 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F4D9B62A29A4CA5D00A12C99 /* Pods_Basecamp_BasecampUITests.framework */,
-				F4D9B62829A4CA3200A12C99 /* Pods_BasecampTests.framework */,
 				F4F1DEAE29A4B4300023DF83 /* XCTest.framework */,
-				6A104479E3D8BBBAFA976694 /* Pods_Basecamp.framework */,
-				60474E8179EDD7D45C034045 /* Pods_Basecamp_BasecampUITests.framework */,
-				588F38723AF90D0CF6446D5A /* Pods_BasecampTests.framework */,
+				1B13A3263E188B14EFA6DB60 /* Pods_Basecamp.framework */,
+				C91772309C81B68D10697321 /* Pods_Basecamp_BasecampUITests.framework */,
+				1F0175D363329AA33552E093 /* Pods_BasecampTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -629,12 +625,12 @@
 		E1AA31DAF93484D32AAF52CD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A548821C6400CFFFFA759EAC /* Pods-Basecamp.debug.xcconfig */,
-				B1C186C70D722E114EC5579A /* Pods-Basecamp.release.xcconfig */,
-				76642875F45AB8A1A43C2F2A /* Pods-Basecamp-BasecampUITests.debug.xcconfig */,
-				3FFA40812AA56670F8B380A7 /* Pods-Basecamp-BasecampUITests.release.xcconfig */,
-				88C41F39A89BB978470DA401 /* Pods-BasecampTests.debug.xcconfig */,
-				A2EA8885FF5D31274F60587C /* Pods-BasecampTests.release.xcconfig */,
+				741520612E8B2070CDD3BCEF /* Pods-Basecamp.debug.xcconfig */,
+				D9DC4924D5CAEE7E81089919 /* Pods-Basecamp.release.xcconfig */,
+				CF3631022D120A2FFA77B2A5 /* Pods-Basecamp-BasecampUITests.debug.xcconfig */,
+				BBC26007C9D50FC5EF1DBDFB /* Pods-Basecamp-BasecampUITests.release.xcconfig */,
+				4D75B3C648999C527C758F30 /* Pods-BasecampTests.debug.xcconfig */,
+				F5FD83E9CDEEE3F76E1EA979 /* Pods-BasecampTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1912,13 +1908,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4D10ECB29497834000C02E0 /* Build configuration list for PBXNativeTarget "Basecamp" */;
 			buildPhases = (
-				A2D04EACAEB9998CC0FE4087 /* [CP] Check Pods Manifest.lock */,
+				63E44A10349558A464621BA6 /* [CP] Check Pods Manifest.lock */,
 				F4D10E9D29497831000C02E0 /* Sources */,
 				F4D10E9E29497831000C02E0 /* Frameworks */,
 				F4D10E9F29497831000C02E0 /* Resources */,
-				9938DCDBC829F9756C9E6C77 /* [CP] Embed Pods Frameworks */,
-				F854CB4CC36BDB91A6CC1754 /* [CP] Copy Pods Resources */,
 				F4C43D9A29A7C54900D8F4A8 /* ShellScript */,
+				ED2E86D504E6EED7E99E62F6 /* [CP] Embed Pods Frameworks */,
+				8315E5B5FB60C4FF4FC5E011 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1933,11 +1929,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4D9B61629A4C88400A12C99 /* Build configuration list for PBXNativeTarget "BasecampTests" */;
 			buildPhases = (
-				5D4EFA42EEE946DA872B921B /* [CP] Check Pods Manifest.lock */,
+				FE9AF78C27C238C79D9C3C92 /* [CP] Check Pods Manifest.lock */,
 				F4D9B60C29A4C87F00A12C99 /* Sources */,
 				F4D9B60D29A4C87F00A12C99 /* Frameworks */,
 				F4D9B60E29A4C87F00A12C99 /* Resources */,
-				4C1EAD153860E4B0C329529B /* [CP] Embed Pods Frameworks */,
+				639C1AB4D42BB51C92EB1237 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1953,12 +1949,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4D9B62729A4C9FC00A12C99 /* Build configuration list for PBXNativeTarget "BasecampUITests" */;
 			buildPhases = (
-				B3D8233B0C2030E0A26167AC /* [CP] Check Pods Manifest.lock */,
+				2FE08E63DD60380413871CDA /* [CP] Check Pods Manifest.lock */,
 				F4D9B61929A4C9FB00A12C99 /* Sources */,
 				F4D9B61A29A4C9FB00A12C99 /* Frameworks */,
 				F4D9B61B29A4C9FB00A12C99 /* Resources */,
-				E6B21384E32EE02F71F67887 /* [CP] Embed Pods Frameworks */,
-				7E3AD48D55CDC2E7A842464B /* [CP] Copy Pods Resources */,
+				F1F21415CC8836DC24004A81 /* [CP] Embed Pods Frameworks */,
+				A2DD0B22EA3169A92354FB8D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2051,102 +2047,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4C1EAD153860E4B0C329529B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasecampTests/Pods-BasecampTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasecampTests/Pods-BasecampTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasecampTests/Pods-BasecampTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5D4EFA42EEE946DA872B921B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BasecampTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7E3AD48D55CDC2E7A842464B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9938DCDBC829F9756C9E6C77 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A2D04EACAEB9998CC0FE4087 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Basecamp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B3D8233B0C2030E0A26167AC /* [CP] Check Pods Manifest.lock */ = {
+		2FE08E63DD60380413871CDA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2168,7 +2069,97 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E6B21384E32EE02F71F67887 /* [CP] Embed Pods Frameworks */ = {
+		639C1AB4D42BB51C92EB1237 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasecampTests/Pods-BasecampTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BasecampTests/Pods-BasecampTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasecampTests/Pods-BasecampTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63E44A10349558A464621BA6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Basecamp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8315E5B5FB60C4FF4FC5E011 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2DD0B22EA3169A92354FB8D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED2E86D504E6EED7E99E62F6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1F21415CC8836DC24004A81 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2204,21 +2195,26 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
-		F854CB4CC36BDB91A6CC1754 /* [CP] Copy Pods Resources */ = {
+		FE9AF78C27C238C79D9C3C92 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BasecampTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2530,6 +2526,7 @@
 		F4D10EC929497834000C02E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2564,6 +2561,7 @@
 				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2593,6 +2591,7 @@
 		F4D10ECA29497834000C02E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2627,6 +2626,7 @@
 				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2649,16 +2649,20 @@
 		};
 		F4D10ECC29497834000C02E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A548821C6400CFFFFA759EAC /* Pods-Basecamp.debug.xcconfig */;
+			baseConfigurationReference = 741520612E8B2070CDD3BCEF /* Pods-Basecamp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Basecamp/Basecamp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = AT2N75TMZD;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AT2N75TMZD;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Basecamp/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "해당 기능을 사용하기 위해 카메라에 대한 접근 권한이 필요합니다";
@@ -2669,7 +2673,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -2680,6 +2684,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simon.Basecamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = dev_BaseCamp;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -2691,15 +2697,18 @@
 		};
 		F4D10ECD29497834000C02E0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1C186C70D722E114EC5579A /* Pods-Basecamp.release.xcconfig */;
+			baseConfigurationReference = D9DC4924D5CAEE7E81089919 /* Pods-Basecamp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Basecamp/Basecamp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = AT2N75TMZD;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AT2N75TMZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Basecamp/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "해당 기능을 사용하기 위해 카메라에 대한 접근 권한이 필요합니다";
@@ -2710,7 +2719,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -2721,6 +2730,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.simon.Basecamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = dev_BaseCamp;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -2732,7 +2743,7 @@
 		};
 		F4D9B61729A4C88400A12C99 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88C41F39A89BB978470DA401 /* Pods-BasecampTests.debug.xcconfig */;
+			baseConfigurationReference = 4D75B3C648999C527C758F30 /* Pods-BasecampTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -2752,7 +2763,7 @@
 		};
 		F4D9B61829A4C88400A12C99 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2EA8885FF5D31274F60587C /* Pods-BasecampTests.release.xcconfig */;
+			baseConfigurationReference = F5FD83E9CDEEE3F76E1EA979 /* Pods-BasecampTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -2772,7 +2783,7 @@
 		};
 		F4D9B62529A4C9FC00A12C99 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76642875F45AB8A1A43C2F2A /* Pods-Basecamp-BasecampUITests.debug.xcconfig */;
+			baseConfigurationReference = CF3631022D120A2FFA77B2A5 /* Pods-Basecamp-BasecampUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -2791,7 +2802,7 @@
 		};
 		F4D9B62629A4C9FC00A12C99 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3FFA40812AA56670F8B380A7 /* Pods-Basecamp-BasecampUITests.release.xcconfig */;
+			baseConfigurationReference = BBC26007C9D50FC5EF1DBDFB /* Pods-Basecamp-BasecampUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
