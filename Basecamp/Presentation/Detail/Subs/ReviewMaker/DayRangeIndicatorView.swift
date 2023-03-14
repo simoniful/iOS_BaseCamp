@@ -76,6 +76,7 @@ extension DayRangeIndicatorView: CalendarItemViewRepresentable {
   static func setViewModel(_ viewModel: Content, on view: DayRangeIndicatorView) {
     view.framesOfDaysToHighlight = viewModel.framesOfDaysToHighlight
   }
+  
   typealias ViewType = DayRangeIndicatorView
   typealias ViewModel = Content
   

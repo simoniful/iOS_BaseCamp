@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 import Moya
 
+
 enum TouristInfoServiceError: Int, Error {
   case applicationError = 1
   case dbError = 2

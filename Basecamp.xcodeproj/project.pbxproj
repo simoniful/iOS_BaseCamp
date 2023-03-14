@@ -1913,14 +1913,16 @@
 				F4D10E9E29497831000C02E0 /* Frameworks */,
 				F4D10E9F29497831000C02E0 /* Resources */,
 				F4C43D9A29A7C54900D8F4A8 /* ShellScript */,
-				ED2E86D504E6EED7E99E62F6 /* [CP] Embed Pods Frameworks */,
 				8315E5B5FB60C4FF4FC5E011 /* [CP] Copy Pods Resources */,
+				EFC0625D9034747F35739150 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Basecamp;
+			packageProductDependencies = (
+			);
 			productName = Basecamp;
 			productReference = F4D10EA129497831000C02E0 /* Basecamp.app */;
 			productType = "com.apple.product-type.application";
@@ -1933,7 +1935,6 @@
 				F4D9B60C29A4C87F00A12C99 /* Sources */,
 				F4D9B60D29A4C87F00A12C99 /* Frameworks */,
 				F4D9B60E29A4C87F00A12C99 /* Resources */,
-				639C1AB4D42BB51C92EB1237 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1953,8 +1954,8 @@
 				F4D9B61929A4C9FB00A12C99 /* Sources */,
 				F4D9B61A29A4C9FB00A12C99 /* Frameworks */,
 				F4D9B61B29A4C9FB00A12C99 /* Resources */,
-				F1F21415CC8836DC24004A81 /* [CP] Embed Pods Frameworks */,
 				A2DD0B22EA3169A92354FB8D /* [CP] Copy Pods Resources */,
+				FD061D8C22D94A641FB8C1CF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1998,6 +1999,8 @@
 				Base,
 			);
 			mainGroup = F4D10E9829497831000C02E0;
+			packageReferences = (
+			);
 			productRefGroup = F4D10EA229497831000C02E0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2069,23 +2072,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		639C1AB4D42BB51C92EB1237 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasecampTests/Pods-BasecampTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasecampTests/Pods-BasecampTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasecampTests/Pods-BasecampTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		63E44A10349558A464621BA6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2142,7 +2128,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ED2E86D504E6EED7E99E62F6 /* [CP] Embed Pods Frameworks */ = {
+		EFC0625D9034747F35739150 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2157,23 +2143,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp/Pods-Basecamp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F1F21415CC8836DC24004A81 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F4C43D9A29A7C54900D8F4A8 /* ShellScript */ = {
@@ -2194,6 +2163,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		FD061D8C22D94A641FB8C1CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Basecamp-BasecampUITests/Pods-Basecamp-BasecampUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		FE9AF78C27C238C79D9C3C92 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2561,7 +2547,8 @@
 				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2626,7 +2613,8 @@
 				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2655,20 +2643,19 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Basecamp/Basecamp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AT2N75TMZD;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				DEVELOPMENT_TEAM = AT2N75TMZD;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Basecamp/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "해당 기능을 사용하기 위해 카메라에 대한 접근 권한이 필요합니다";
-				INFOPLIST_KEY_NSLocationUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 접근 권한이 필요합니다.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 접근 권한이 필요합니다.";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "해당 기능을 사용하기 위해 마이크 사용에 대한 접근 권한이 필요합니다";
+				INFOPLIST_KEY_CFBundleDisplayName = "베이스캠핑";
+				INFOPLIST_KEY_NSCameraUsageDescription = "해당 기능을 사용하기 위해 카메라 사용에 대한 권한이 필요합니다";
+				INFOPLIST_KEY_NSLocationUsageDescription = "해당 서비스를 사용하려면 현재 위치에 대한 접근 권한이 필요합니다";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "해당 서비스를 사용하려면 현재 위치에 대한 접근 권한이 필요합니다";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "해당 기능을 사용하기 위해 마이크 사용에 대한 권한이 필요합니다";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "해당 기능을 사용하기 위해 사진첩에 대한 접근 권한이 필요합니다";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -2685,7 +2672,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.simon.Basecamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = dev_BaseCamp;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -2703,18 +2689,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Basecamp/Basecamp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AT2N75TMZD;
+				DEVELOPMENT_TEAM = AT2N75TMZD;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Basecamp/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "해당 기능을 사용하기 위해 카메라에 대한 접근 권한이 필요합니다";
-				INFOPLIST_KEY_NSLocationUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 접근 권한이 필요합니다.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "주변의 캠핑장 정보를 불러오려면 현재 위치에 대한 접근 권한이 필요합니다.";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "해당 기능을 사용하기 위해 마이크 사용에 대한 접근 권한이 필요합니다";
+				INFOPLIST_KEY_CFBundleDisplayName = "베이스캠핑";
+				INFOPLIST_KEY_NSCameraUsageDescription = "해당 기능을 사용하기 위해 카메라 사용에 대한 권한이 필요합니다";
+				INFOPLIST_KEY_NSLocationUsageDescription = "해당 서비스를 사용하려면 현재 위치에 대한 접근 권한이 필요합니다";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "해당 서비스를 사용하려면 현재 위치에 대한 접근 권한이 필요합니다";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "해당 기능을 사용하기 위해 마이크 사용에 대한 권한이 필요합니다";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "해당 기능을 사용하기 위해 사진첩에 대한 접근 권한이 필요합니다";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -2731,7 +2717,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.simon.Basecamp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = dev_BaseCamp;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -2747,7 +2732,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = AT2N75TMZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -2767,7 +2752,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = AT2N75TMZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -2786,7 +2771,7 @@
 			baseConfigurationReference = CF3631022D120A2FFA77B2A5 /* Pods-Basecamp-BasecampUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = AT2N75TMZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -2805,7 +2790,7 @@
 			baseConfigurationReference = BBC26007C9D50FC5EF1DBDFB /* Pods-Basecamp-BasecampUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = AT2N75TMZD;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
