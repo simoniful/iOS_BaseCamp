@@ -129,7 +129,7 @@ extension DetailReviewRateSelectViewController: ViewRepresentable {
       $0.top.equalTo(contentLabel.snp.bottom).offset(16.0)
       $0.leading.equalTo(view.safeAreaLayoutGuide).offset(16.0)
       $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-16.0)
-      $0.height.equalTo(160.0)
+      $0.height.equalTo(100.0)
     }
     
     remainCountLabel.snp.makeConstraints {

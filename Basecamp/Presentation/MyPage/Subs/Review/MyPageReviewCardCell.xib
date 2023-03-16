@@ -9,6 +9,14 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansKR-Medium.otf">
+            <string>NotoSansKR-Medium</string>
+        </array>
+        <array key="NotoSansKR-Regular.otf">
+            <string>NotoSansKR-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -24,37 +32,37 @@
                     <color key="backgroundColor" white="0.0" alpha="0.29715956125827814" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8H-ci-tZB">
-                    <rect key="frame" x="24" y="79" width="342" height="19.333333333333329"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <rect key="frame" x="24" y="79" width="342" height="23.333333333333329"/>
+                    <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="16"/>
                     <color key="textColor" name="white"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCy-bc-YzU">
-                    <rect key="frame" x="24" y="102.33333333333333" width="342" height="28.666666666666671"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <rect key="frame" x="24" y="106.33333333333333" width="342" height="34.999999999999986"/>
+                    <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="24"/>
                     <color key="textColor" name="white"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxj-GQ-AH5">
-                    <rect key="frame" x="24" y="139" width="342" height="19.333333333333343"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                    <rect key="frame" x="24" y="149.33333333333334" width="342" height="23.333333333333343"/>
+                    <fontDescription key="fontDescription" name="NotoSansKR-Medium" family="Noto Sans KR" pointSize="16"/>
                     <color key="textColor" name="white"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SQ-B4-6tG" userLabel="Date Label">
-                    <rect key="frame" x="24" y="166.33333333333334" width="342" height="19.333333333333343"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                    <rect key="frame" x="24" y="180.66666666666666" width="342" height="23.333333333333343"/>
+                    <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="16"/>
                     <color key="textColor" name="white"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0H-0d-1N0">
-                    <rect key="frame" x="24" y="758.66666666666663" width="342" height="19.333333333333371"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                    <rect key="frame" x="24" y="754.66666666666663" width="342" height="23.333333333333371"/>
+                    <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="16"/>
                     <color key="textColor" name="white"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mh5-sb-Wae" customClass="CosmosView" customModule="Cosmos">
-                    <rect key="frame" x="24" y="193.66666666666666" width="342" height="24"/>
+                    <rect key="frame" x="24" y="212" width="342" height="24"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="yOJ-dW-RRw"/>
                     </constraints>
@@ -117,11 +125,6 @@
             <point key="canvasLocation" x="42" y="-11"/>
         </view>
     </objects>
-    <designables>
-        <designable name="mh5-sb-Wae">
-            <size key="intrinsicContentSize" width="102" height="18"/>
-        </designable>
-    </designables>
     <resources>
         <image name="star" width="682.66668701171875" height="682.66668701171875"/>
         <image name="starEmpty" width="682.66668701171875" height="682.66668701171875"/>
